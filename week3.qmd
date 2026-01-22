@@ -1,0 +1,1038 @@
+---
+title: "第3讲：文本分析理论 → 金融文本应用"
+subtitle: "从原始文本到可审计的量化变量"
+---
+
+# 本周目标与三条底线
+
+## 课程主线回顾
+
+**泛化—正则化—评估**三位一体，在文本分析中的体现：
+
+- **泛化**：文本模型能否推广到新文档、新时期？
+- **正则化**：如何避免过拟合（特别是词典法的多重比较、LLM 的过度调优）？
+- **评估**：文本变量是否带来增量信息？
+
+## 三条底线
+
+:::{.callout-important}
+### 🎯 不可突破的红线
+
+1. **信息可得性**：不含前瞻信息（look-ahead bias）
+2. **过程可审计**：从原始文本到变量的每一步可追溯
+3. **结果可复现**：代码、模型版本、预处理规则完整记录
+:::
+
+这三条底线确保研究的**科学性**与**可信度**。
+
+# 文本表示方法演进
+
+## 文本分析的核心挑战
+
+**原始文本**是非结构化数据：
+
+```
+"The company's revenue grew by 15% year-over-year, 
+driven by strong demand in emerging markets."
+```
+
+**目标**：转化为数值特征，用于预测/分类/聚类等任务。
+
+**挑战**：
+
+- 维度高（词汇量巨大）
+- 稀疏（单个文档只用少量词）
+- 顺序性（语序承载语义）
+- 歧义性（一词多义、多词一义）
+
+## 方法谱系：从简单到复杂
+
+### 1. 词袋模型（Bag-of-Words, BoW）
+
+**思想**：将文本表示为词频向量，忽略语序。
+
+**步骤**：
+
+1. **分词**（Tokenization）：
+   ```
+   "revenue grew by 15%" → ["revenue", "grew", "by", "15%"]
+   ```
+
+2. **构建词汇表**（Vocabulary）：
+   ```
+   V = {revenue, grew, company, market, ...}  # 假设 |V| = 10,000
+   ```
+
+3. **向量化**：
+   ```
+   文档 → [0, 2, 0, 1, ..., 0]  # 长度 = |V|
+          ↑     ↑  ↑
+       revenue出现0次
+          grew出现2次
+            ...
+   ```
+
+**变体：TF-IDF**（Term Frequency–Inverse Document Frequency）
+
+$$
+\text{TF-IDF}(w, d) = \underbrace{\frac{\text{count}(w, d)}{|d|}}_{\text{词频}} \times \underbrace{\log\frac{N}{\text{df}(w)}}_{\text{逆文档频率}}
+$$
+
+- 降低常见词（如"的"、"是"）的权重
+- 提升区分性强的词的权重
+
+**优点**：
+
+- 简单、可解释
+- 计算高效
+- 适合作为基准
+
+**缺点**：
+
+- 忽略语序（"not good" vs "good not"）
+- 维度高、稀疏
+- 无法捕捉语义相似性（"revenue" vs "sales"）
+
+### 2. 词典法（Dictionary-based Methods）
+
+**思想**：用**预定义词表**匹配文本，计算情感/主题得分。
+
+**经典词典**：
+
+- **Loughran-McDonald (2011)**：金融情感词典
+  - Positive: {growth, profit, gain, ...}
+  - Negative: {loss, risk, decline, ...}
+- **Harvard IV-4**：心理学词典
+- **自定义词典**：针对特定任务
+
+**计算**：
+
+$$
+\text{Sentiment Score} = \frac{\#\text{Positive Words} - \#\text{Negative Words}}{\#\text{Total Words}}
+$$
+
+**金融应用案例**：
+
+```python
+# 年报文本情感分析
+positive_words = {'growth', 'profit', 'opportunity', ...}
+negative_words = {'loss', 'risk', 'decline', 'uncertainty', ...}
+
+def sentiment(text):
+    tokens = tokenize(text.lower())
+    pos = sum(1 for w in tokens if w in positive_words)
+    neg = sum(1 for w in tokens if w in negative_words)
+    return (pos - neg) / len(tokens)
+```
+
+**优点**：
+
+- 高度可解释（可追溯到具体词）
+- 稳定（不需训练）
+- 适合监管审计
+
+**缺点**：
+
+- 忽略上下文（"not good" 被误判为正面）
+- 词典覆盖不全
+- 行业/时期特异性（"viral" 在生物 vs 营销中含义不同）
+
+:::{.callout-tip}
+### 💡 何时用词典法？
+
+- **可解释性要求高**（如监管报告）
+- **领域词典成熟**（如金融、医疗）
+- **作为基准**（与 ML 方法对比）
+:::
+
+### 3. 主题模型（Topic Models）
+
+**思想**：无监督学习，发现文档的**潜在主题**。
+
+**经典算法：LDA（Latent Dirichlet Allocation）**
+
+**假设**：
+
+- 每个文档是多个主题的混合
+- 每个主题是词的概率分布
+
+**示例**（K=3 个主题）：
+
+```
+文档1: 70% 主题A（科技） + 20% 主题B（金融） + 10% 主题C（政策）
+文档2: 10% 主题A + 80% 主题B + 10% 主题C
+
+主题A: {AI: 0.05, algorithm: 0.04, data: 0.03, ...}
+主题B: {stock: 0.06, market: 0.05, trading: 0.04, ...}
+主题C: {government: 0.05, regulation: 0.04, policy: 0.03, ...}
+```
+
+**提取特征**：
+
+- 文档的主题分布向量：$\boldsymbol{\theta}_d = [\theta_{d,1}, \ldots, \theta_{d,K}]$
+
+**金融应用**：
+
+- 年报主题分析（技术创新 vs 财务风险）
+- 新闻聚类（宏观 vs 行业 vs 个股）
+
+**优点**：
+
+- 降维（数万维 → K 维）
+- 可解释（主题词）
+- 无监督
+
+**缺点**：
+
+- 主题数量 K 需人工选择
+- 主题解释主观
+- 计算成本高
+
+### 4. 词嵌入（Word Embeddings）
+
+**思想**：将词映射到**低维连续向量空间**，语义相似的词距离近。
+
+**经典模型：Word2Vec (Mikolov et al., 2013)**
+
+**训练目标**（Skip-gram）：
+
+给定中心词，预测上下文词。
+
+**结果**：
+
+```
+revenue: [0.2, -0.5, 0.8, ...]  # 300维向量
+sales:   [0.21, -0.48, 0.79, ...]  # 距离很近
+profit:  [0.18, -0.52, 0.75, ...]
+```
+
+**著名性质**：
+
+$$
+\text{vec}(\text{king}) - \text{vec}(\text{man}) + \text{vec}(\text{woman}) \approx \text{vec}(\text{queen})
+$$
+
+**文档表示**：
+
+- 简单平均：$\mathbf{v}_{\text{doc}} = \frac{1}{|d|}\sum_{w \in d} \mathbf{v}_w$
+- 加权平均（TF-IDF 权重）
+
+**优点**：
+
+- 捕捉语义相似性
+- 预训练模型可直接用（如 Google News Word2Vec）
+
+**缺点**：
+
+- 静态（"bank" 在不同上下文中向量相同）
+- 文档表示过于粗糙（简单平均丢失语序）
+
+### 5. Transformer 与 BERT
+
+**革命性突破**：**上下文化嵌入**（Contextualized Embeddings）
+
+**BERT（Bidirectional Encoder Representations from Transformers）**
+
+- Devlin et al. (2019)
+
+**核心思想**：
+
+- 同一个词在不同上下文中有**不同的向量**
+- 双向注意力机制（Transformer）
+
+**示例**：
+
+```
+句1: "I went to the bank to deposit money."
+     → "bank" 向量偏向"金融机构"
+
+句2: "I sat by the river bank."
+     → "bank" 向量偏向"河岸"
+```
+
+**预训练任务**：
+
+1. **Masked Language Modeling (MLM)**：
+   ```
+   输入: "The company's [MASK] grew by 15%."
+   预测: revenue / profit / sales
+   ```
+
+2. **Next Sentence Prediction (NSP)**：
+   ```
+   句A: "Revenue increased."
+   句B: "Profit margins improved."
+   预测: B 是否是 A 的下一句？
+   ```
+
+**金融领域预训练模型**：
+
+- **FinBERT** (Araci, 2019)：在金融新闻/年报上微调
+- **DistilRoBERTa-financial-sentiment**：轻量级金融情感分类
+
+**使用流程**：
+
+```python
+from transformers import AutoTokenizer, AutoModel
+
+# 加载预训练模型
+tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+model = AutoModel.from_pretrained("ProsusAI/finbert")
+
+# 文本编码
+text = "The company reported strong earnings growth."
+inputs = tokenizer(text, return_tensors="pt")
+outputs = model(**inputs)
+
+# 提取 [CLS] token 的嵌入作为文档表示
+doc_embedding = outputs.last_hidden_state[:, 0, :]  # (1, 768)
+```
+
+**优点**：
+
+- **最强语义表达**
+- 迁移学习：预训练 + 微调
+- 最新 SOTA 性能
+
+**缺点**：
+
+- **计算成本高**（需 GPU）
+- **不易复现**（模型更新频繁）
+- **可解释性差**（黑箱）
+- **版本控制难**（模型文件大）
+
+:::{.callout-warning}
+### ⚠️ 使用 BERT/LLM 的规范要求
+
+1. **锁定模型版本**：记录精确的模型名称与版本号
+   ```python
+   # 好：明确版本
+   model = AutoModel.from_pretrained("bert-base-uncased", revision="abc123")
+   
+   # 差：版本不确定
+   model = AutoModel.from_pretrained("bert-base-uncased")
+   ```
+
+2. **固定随机种子**：微调时保证可复现
+   ```python
+   set_seed(42)
+   ```
+
+3. **记录计算环境**：
+   ```
+   transformers==4.36.0
+   torch==2.1.0
+   CUDA==11.8
+   ```
+
+4. **提供推理代码**：完整的预处理 + 模型推理流程
+:::
+
+## 方法选择决策树
+
+```
+是否需要高度可解释？
+├─ 是 → 词典法（如 LM 情感词典）
+└─ 否 → 有监督学习任务？
+        ├─ 是 → 有标注数据？
+        │       ├─ 是 → 数据量大（>10K）？
+        │       │       ├─ 是 → BERT 微调
+        │       │       └─ 否 → TF-IDF + 传统 ML
+        │       └─ 否 → 词典法或主题模型
+        └─ 否（无监督）→ 主题模型（LDA）或预训练嵌入
+```
+
+# 语料治理：从原始文档到可用观测值
+
+## 核心原则
+
+**语料治理**（Corpus Curation）确保：
+
+1. **版本锁定**：使用哪个版本的文档？
+2. **时间戳准确**：何时发布？何时市场可得？
+3. **实体对齐**：文档对应哪个公司/人物/事件？
+4. **去噪**：去除无关/重复/错误内容
+
+## 版本锁定
+
+### 问题：事后修订
+
+**案例**：上市公司年报
+
+- **首次披露**：2024-04-30，原始版本
+- **修订版**：2024-06-15，更正财务数据
+
+**错误做法**：
+
+使用数据库中的"最新版"（可能是修订后的）
+
+**正确做法**：
+
+使用**首次披露版本**（as-filed version）
+
+**实施**：
+
+```python
+# 记录文档版本信息
+df['document_id'] = "10-K_AAPL_2023_v1"  # 版本号
+df['file_date'] = "2024-04-30"          # 首次提交日期
+df['revision_date'] = None               # 若无修订
+```
+
+### SEC EDGAR 数据示例
+
+```python
+import requests
+
+# 获取首次提交版本
+url = "https://www.sec.gov/cgi-bin/viewer?action=view&cik=320193&accession_number=0000320193-24-000001&xbrl_type=v"
+response = requests.get(url, headers={'User-Agent': 'your-email@example.com'})
+```
+
+## 时间戳与可得性规则
+
+### 何时"市场可得"？
+
+| 文本类型 | 发布时间 | 市场反应窗口 |
+|---------|---------|-------------|
+| **年报/季报** | 收盘后或次日开盘前 | 次日开盘起 |
+| **新闻** | 实时 | 发布时刻起 |
+| **分析师报告** | 工作日盘前/盘后 | 发布时刻起 |
+| **社交媒体** | 实时 | 发布时刻起 |
+| **财报电话会** | 盘后固定时间 | 会议结束后 |
+
+**关键规则**：
+
+$$
+\text{用于预测 } t \text{ 日收益的文本} \Rightarrow \text{必须在 } t \text{ 日开盘前发布}
+$$
+
+### 对齐代码示例
+
+```python
+# 年报对齐
+def align_report(df):
+    # 假设年报在披露日的次日才可交易
+    df['available_date'] = df['file_date'] + pd.Timedelta(days=1)
+    
+    # 对齐到交易日
+    df['available_date'] = df['available_date'].apply(
+        lambda d: next_trading_day(d)
+    )
+    
+    # 构造标签：用披露后首个交易日收益
+    df['target_return'] = df.groupby('ticker')['return'].shift(-1)
+    
+    return df
+```
+
+## 实体识别与对齐
+
+### 挑战：一个实体，多种表述
+
+**案例**：苹果公司
+
+- 正式名称："Apple Inc."
+- 股票代码："AAPL"
+- 常见别名："Apple", "苹果", "库比蒂诺公司"
+
+### 解决方案：实体链接（Entity Linking）
+
+**步骤**：
+
+1. **命名实体识别（NER）**：识别文本中的公司名
+   ```python
+   # 使用 spaCy
+   import spacy
+   nlp = spacy.load("en_core_web_sm")
+   doc = nlp("Apple reported strong earnings.")
+   entities = [(ent.text, ent.label_) for ent in doc.ents]
+   # [('Apple', 'ORG')]
+   ```
+
+2. **链接到标准 ID**：
+   ```python
+   entity_map = {
+       'Apple': 'AAPL',
+       'Apple Inc.': 'AAPL',
+       '苹果': 'AAPL',
+       ...
+   }
+   ticker = entity_map.get(entity_name, None)
+   ```
+
+3. **歧义消解**：
+   - "Apple" 可能是公司或水果
+   - 用上下文判断（如出现"stock", "earnings"）
+
+### 金融专用工具
+
+- **FinBERT-NER**：金融实体识别
+- **OpenFIGI API**：金融工具标识符查询
+- **Wikidata/DBpedia**：知识图谱链接
+
+## 去重与噪声处理
+
+### 常见噪声类型
+
+1. **模板文本**
+
+年报中的法律声明、标准段落：
+
+```
+"Forward-looking statements involve risks and uncertainties..."
+```
+
+**处理**：
+
+- 识别高频重复段落
+- 在情感分析前删除
+
+```python
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+# 识别模板（在多个文档中高频出现的句子）
+sentences = extract_sentences(all_documents)
+vectorizer = TfidfVectorizer()
+tfidf = vectorizer.fit_transform(sentences)
+# 计算句子在文档间的相似度，删除重复率高的
+```
+
+2. **乱码与编码错误**
+
+```
+"The companyâ€™s revenue..."  # Unicode 错误
+```
+
+**处理**：
+
+```python
+import ftfy
+text_clean = ftfy.fix_text(text_raw)
+```
+
+3. **OCR/ASR 错误**
+
+扫描文档或语音转文字的错误：
+
+```
+OCR: "The company's net income..." → "The c0mpany's net inc0me..."
+ASR: "fiscal year" → "physical year"
+```
+
+**处理**：
+
+- 使用高质量的原始文件（PDF 带文字层）
+- 检查关键词错误率
+- 后处理：拼写检查、上下文纠错
+
+### 去重
+
+**文档级去重**：
+
+- 计算文档相似度（如余弦相似度）
+- 删除近似重复（如转载新闻）
+
+```python
+from sklearn.metrics.pairwise import cosine_similarity
+
+# 计算 TF-IDF 向量的相似度矩阵
+similarity = cosine_similarity(tfidf_matrix)
+
+# 删除相似度 > 0.95 的文档对
+duplicates = np.argwhere((similarity > 0.95) & (similarity < 1.0))
+```
+
+# 从原始文本到量化变量的可审计流程
+
+## 流程图
+
+```
+原始文档（PDF/HTML/TXT）
+    ↓
+① 版本确认 & 时间戳记录
+    ↓
+② 文本提取 & 编码修正
+    ↓
+③ 实体识别 & 对齐
+    ↓
+④ 预处理（分词、去停用词、去模板）
+    ↓
+⑤ 特征提取（词典/主题/嵌入）
+    ↓
+⑥ 变量构造（聚合、标准化）
+    ↓
+⑦ 质量检验 & 异常值处理
+    ↓
+可用于建模的变量
+```
+
+## 各步骤的可审计要求
+
+### ① 版本确认 & 时间戳
+
+**记录**：
+
+```python
+metadata = {
+    'document_id': 'unique_id',
+    'source': 'SEC EDGAR',
+    'url': 'https://...',
+    'file_date': '2024-04-30',
+    'download_date': '2024-05-01',
+    'version': 'v1'
+}
+```
+
+### ② 文本提取
+
+**工具与参数**：
+
+```python
+# PDF 提取
+import pdfplumber
+with pdfplumber.open(pdf_path) as pdf:
+    text = '\n'.join([page.extract_text() for page in pdf.pages])
+
+# 记录工具版本
+metadata['extraction_tool'] = f'pdfplumber=={pdfplumber.__version__}'
+```
+
+### ③ 实体识别 & 对齐
+
+**记录**：
+
+```python
+metadata['ner_model'] = 'en_core_web_sm-3.7.0'
+metadata['entity_map_version'] = 'v2024.1'
+```
+
+### ④ 预处理
+
+**记录每一步**：
+
+```python
+preprocessing_steps = [
+    'lowercasing',
+    'remove_punctuation',
+    'remove_stopwords: nltk.corpus.stopwords (english)',
+    'stemming: PorterStemmer',
+]
+```
+
+### ⑤ 特征提取
+
+**词典法**：
+
+```python
+sentiment_dict = {
+    'version': 'Loughran-McDonald 2020',
+    'positive_words': len(positive_words),
+    'negative_words': len(negative_words),
+}
+```
+
+**BERT**：
+
+```python
+model_info = {
+    'model_name': 'ProsusAI/finbert',
+    'model_revision': 'abc123',
+    'framework': 'transformers==4.36.0',
+    'device': 'cuda:0',
+}
+```
+
+### ⑥ 变量构造
+
+**公式记录**：
+
+```python
+# 情感得分
+variable_definition = """
+sentiment = (n_positive - n_negative) / n_total
+where:
+  n_positive: count of words in LM positive dictionary
+  n_negative: count of words in LM negative dictionary
+  n_total: total word count (excluding stopwords)
+"""
+```
+
+### ⑦ 质量检验
+
+**检查清单**：
+
+- 缺失值比例（若 > 20%，说明为何）
+- 异常值（极端情感得分）
+- 时间序列连续性（是否有长期缺失）
+- 横截面覆盖率（行业/市值分布）
+
+## 交付物：变量字典
+
+**示例**：
+
+| 变量名 | 定义 | 来源 | 更新频率 | 处理方法 | 缺失值 |
+|-------|-----|------|---------|---------|--------|
+| `sentiment_lm` | LM 情感得分 | 年报 MD&A 部分 | 年度 | LM 词典匹配 | 前向填充 |
+| `topic_tech` | 技术创新主题强度 | 年报全文 | 年度 | LDA (K=10) | 0填充 |
+| `uncertainty` | 不确定性词频 | 电话会文本 | 季度 | 自定义词典 | 删除 |
+
+# 文本变量评估与增量价值检验
+
+## 评估的三个层次
+
+### 层次 1：描述性统计
+
+**基本检查**：
+
+- 均值、中位数、标准差
+- 时间趋势（是否异常跳跃？）
+- 横截面分布（是否过于集中？）
+
+**示例**：
+
+```python
+# 情感得分的时间序列
+df.groupby('year')['sentiment'].mean().plot()
+
+# 横截面分布
+df['sentiment'].hist(bins=50)
+```
+
+### 层次 2：与已知因子的关系
+
+**问题**：文本变量是否只是已知因子的"马甲"？
+
+**检验**：
+
+1. **相关性分析**
+
+```python
+import pandas as pd
+
+# 计算与 Fama-French 因子的相关性
+corr = df[['sentiment', 'size', 'value', 'momentum']].corr()
+print(corr['sentiment'])
+```
+
+2. **Horse Race 回归**
+
+$$
+r_{i,t+1} = \alpha + \beta_1 \text{Sentiment}_{i,t} + \beta_2 \text{Size}_{i,t} + \beta_3 \text{Value}_{i,t} + \varepsilon_{i,t+1}
+$$
+
+**关键问题**：
+
+- $\beta_1$ 是否显著？
+- 加入文本变量后，模型 $R^2$ 提升多少？
+
+### 层次 3：增量预测能力
+
+**设计**：
+
+1. **基准模型**（不含文本）
+
+```python
+# 用传统因子预测收益
+model_baseline = LinearRegression()
+model_baseline.fit(X_baseline, y)  # X_baseline = [size, value, momentum]
+r2_baseline = model_baseline.score(X_test, y_test)
+```
+
+2. **增强模型**（加入文本）
+
+```python
+X_augmented = np.hstack([X_baseline, X_text])  # 加入文本特征
+model_augmented = LinearRegression()
+model_augmented.fit(X_augmented, y)
+r2_augmented = model_augmented.score(X_test_augmented, y_test)
+```
+
+3. **比较**
+
+$$
+\Delta R^2 = R^2_{\text{augmented}} - R^2_{\text{baseline}}
+$$
+
+**统计检验**：
+
+- Diebold-Mariano 检验（预测误差是否显著不同）
+- 嵌套模型 F 检验
+
+## 切片评估
+
+**不同时期**：
+
+- 牛市 vs 熊市
+- 危机期 vs 平稳期
+
+**不同资产**：
+
+- 大市值 vs 小市值
+- 成长股 vs 价值股
+- 不同行业
+
+**目的**：检验文本变量的普适性与稳健性。
+
+## 互补性 vs 冗余性
+
+**互补**（Complementary）：
+
+- 文本变量捕捉结构化变量未涵盖的信息
+- 例：年报语气（软信息）vs 财务指标（硬信息）
+
+**冗余**（Redundant）：
+
+- 文本变量只是重复已知信息
+- 例：新闻情感 ≈ 过去收益（动量效应）
+
+**证据链**：
+
+1. 相关性适度（0.3-0.7 为佳，过高则冗余）
+2. Horse race 中文本变量仍显著
+3. 分组分析：在结构化因子弱的子样本中，文本变量作用更强
+
+# RAG 与信息抽取的应用边界
+
+## Retrieval-Augmented Generation (RAG)
+
+**定义**：结合检索与生成，用外部知识库增强 LLM。
+
+**流程**：
+
+```
+用户查询
+    ↓
+检索相关文档（如向量数据库）
+    ↓
+拼接为 Prompt
+    ↓
+LLM 生成回答
+```
+
+### 在金融中的应用
+
+**1. 投研辅助**
+
+```
+查询: "分析苹果公司 2023 年的供应链风险"
+  ↓
+检索: AAPL 2023 年报、相关新闻、分析师报告
+  ↓
+LLM: 生成综合分析报告
+```
+
+**2. 合规问答**
+
+```
+查询: "公司是否违反了反洗钱法规？"
+  ↓
+检索: 公司内部文档、监管政策
+  ↓
+LLM: 给出合规意见（需人工审核）
+```
+
+### 边界与风险
+
+:::{.callout-warning}
+### ⚠️ 使用 RAG/LLM 的注意事项
+
+**不适合用于**：
+
+1. **高风险决策**（如自动批准贷款）
+   - LLM 输出不稳定，可能产生幻觉
+   
+2. **监管敏感场景**（如交易指令生成）
+   - 无法提供可审计的决策依据
+
+3. **实时交易**
+   - 延迟高，难以满足毫秒级要求
+
+**适合用于**：
+
+1. **辅助研究**（生成假设、文献综述）
+2. **内容生成**（研报初稿、客户报告）
+3. **知识管理**（内部文档检索）
+
+**核心原则**：**人机协作**，LLM 作为工具，人类保留最终决策权。
+:::
+
+## 信息抽取（Information Extraction）
+
+**任务**：从非结构化文本中提取结构化信息。
+
+**示例**：
+
+```
+原始文本:
+"The company announced a $50 million share buyback program, 
+effective January 1, 2024."
+
+提取结果:
+{
+  'event_type': 'share_buyback',
+  'amount': 50000000,
+  'currency': 'USD',
+  'effective_date': '2024-01-01',
+  'entity': 'The Company'
+}
+```
+
+### 技术路径
+
+1. **规则 based**（正则表达式）
+   ```python
+   import re
+   pattern = r'\$(\d+(?:,\d{3})*(?:\.\d+)?) (million|billion)'
+   match = re.search(pattern, text)
+   ```
+
+2. **机器学习**（NER + Relation Extraction）
+   ```python
+   # 使用 spaCy 的实体关系抽取
+   doc = nlp(text)
+   for ent in doc.ents:
+       if ent.label_ == 'MONEY':
+           amount = ent.text
+   ```
+
+3. **LLM-based**（Few-shot prompting）
+   ```python
+   prompt = f"""
+   Extract the following information from the text:
+   - Event type
+   - Amount
+   - Effective date
+   
+   Text: {text}
+   
+   Output as JSON.
+   """
+   response = llm.generate(prompt)
+   ```
+
+### 在风控中的应用
+
+**舆情监控**：
+
+- 自动抽取负面事件（诉讼、罚款、高管离职）
+- 实时预警
+
+**尽职调查**：
+
+- 批量处理合同、法律文书
+- 抽取关键条款（违约条件、担保方式等）
+
+# 本周小结
+
+## 核心要点
+
+1. **方法谱系**：词袋 → 词典 → 主题模型 → 词嵌入 → BERT，权衡可解释性与性能
+2. **语料治理**：版本锁定、时间对齐、实体链接、去噪，确保数据质量
+3. **可审计流程**：记录每一步（工具、参数、版本），交付变量字典
+4. **增量价值**：文本变量必须相对已知因子展示增量信息
+5. **应用边界**：RAG/LLM 适合辅助研究，不适合高风险自动决策
+
+## 本周思考题
+
+### 问题 1
+
+BERT/LLM 构造文本变量相比词典法的优势与风险分别是什么？
+
+:::{.callout-note collapse="true"}
+### 💡 参考答案
+
+**优势**：
+
+1. **更强语义理解**：捕捉上下文（"not good" 正确识别为负面）
+2. **泛化能力**：处理词典未覆盖的表述
+3. **端到端学习**：自动特征提取，减少人工工程
+
+**风险**：
+
+1. **可解释性差**：无法追溯到具体词/短语
+2. **不易复现**：模型版本更新频繁，结果可能变化
+3. **计算成本高**：需 GPU，推理慢
+4. **过拟合风险**：参数多，样本少时易过拟合
+5. **审计困难**：监管难以理解"黑箱"模型的决策依据
+:::
+
+### 问题 2
+
+用新闻预测股价时，如何设计流程避免前瞻偏误？
+
+:::{.callout-note collapse="true"}
+### 💡 参考答案
+
+**关键步骤**：
+
+1. **记录新闻时间戳**（精确到分钟）
+   ```python
+   df['news_timestamp'] = pd.to_datetime(df['published_time'])
+   ```
+
+2. **对齐到交易时间**
+   - 盘前新闻（9:30前）→ 用于预测当日收益
+   - 盘中/盘后新闻 → 用于预测次日收益
+
+3. **构造标签**
+   ```python
+   # 新闻在 t 日收盘前发布 → 预测 t+1 日收益
+   df['target_date'] = df['news_timestamp'].apply(
+       lambda ts: ts.date() + timedelta(days=1) if ts.hour >= 16 
+                  else ts.date()
+   )
+   df['target_return'] = df.merge(
+       returns, left_on=['ticker', 'target_date'], ...
+   )
+   ```
+
+4. **滚动窗口评估**（避免用未来新闻训练模型）
+
+5. **检验**：人工抽查对齐正确性
+:::
+
+### 问题 3
+
+为什么必须检验新文本因子与已知因子（如 FF 因子）的相关性？
+
+:::{.callout-note collapse="true"}
+### 💡 参考答案
+
+**原因**：
+
+1. **区分增量 vs 冗余**
+   - 若文本因子与规模、价值高度相关 → 可能只是"旧瓶装新酒"
+   - 真正有价值的是**独立于已知因子的信息**
+
+2. **避免过度宣称**
+   - 文献中大量"新因子"其实是已知因子的组合
+   - 需证明文本信息的独特性
+
+3. **理解经济含义**
+   - 相关性模式揭示文本变量捕捉了什么（情绪？风险？）
+   - 例：若情感与动量高度相关 → 可能只是市场反应的滞后
+
+**检验方法**：
+
+1. 计算相关系数（0.3-0.7 为健康范围）
+2. Horse race 回归（文本因子加入后仍显著）
+3. 分组分析（在已知因子弱的子样本中，文本因子作用更强）
+:::
+
+---
+
+## 下周预告
+
+第4周进入**多模态领域**：
+
+- 图像（卫星、票据、图表）、音频（电话会）、视频（路演）
+- 多模态融合策略与时序建模
+- 测量误差、算法偏差、伦理边界
+
+**预习阅读**：
+
+- Dell (2025) *Deep learning for economists*
+- Mayew & Venkatachalam (2012) *The power of voice*
+
+**预习任务**：带着"多模态信号的增量信息如何证明？"与"伦理/隐私红线在哪里？"两问阅读。

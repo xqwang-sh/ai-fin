@@ -1,0 +1,2786 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; 第2讲：资产定价中的机器学习应用 – AI与金融研究：从理论到证据</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week3.html" rel="next">
+<link href="./week1.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ed6da6eef3892af8a4b5ed59bfb951f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week2.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">第2讲：资产定价中的机器学习应用</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI与金融研究：从理论到证据</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI与金融研究：从理论到证据</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">教学大纲</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">课程简介与预备知识</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">第1讲：机器学习理论基础</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">第2讲：资产定价中的机器学习应用</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">第3讲：文本分析理论 → 金融文本应用</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">第4讲：多模态模型理论 → 金融信号抽取</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proposal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">小组研究项目指南</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目录</h2>
+   
+  <ul>
+  <li><a href="#资产定价预测的特别之处" id="toc-资产定价预测的特别之处" class="nav-link active" data-scroll-target="#资产定价预测的特别之处"><span class="header-section-number">6</span> 资产定价预测的”特别之处”</a>
+  <ul class="collapse">
+  <li><a href="#与典型监督学习的差异" id="toc-与典型监督学习的差异" class="nav-link" data-scroll-target="#与典型监督学习的差异"><span class="header-section-number">6.1</span> 与典型监督学习的差异</a>
+  <ul class="collapse">
+  <li><a href="#低信噪比low-signal-to-noise-ratio" id="toc-低信噪比low-signal-to-noise-ratio" class="nav-link" data-scroll-target="#低信噪比low-signal-to-noise-ratio"><span class="header-section-number">6.1.1</span> 1. 低信噪比（Low Signal-to-Noise Ratio）</a></li>
+  <li><a href="#非平稳性non-stationarity" id="toc-非平稳性non-stationarity" class="nav-link" data-scroll-target="#非平稳性non-stationarity"><span class="header-section-number">6.1.2</span> 2. 非平稳性（Non-stationarity）</a></li>
+  <li><a href="#横截面相关性cross-sectional-dependence" id="toc-横截面相关性cross-sectional-dependence" class="nav-link" data-scroll-target="#横截面相关性cross-sectional-dependence"><span class="header-section-number">6.1.3</span> 3. 横截面相关性（Cross-sectional Dependence）</a></li>
+  <li><a href="#交易约束与成本" id="toc-交易约束与成本" class="nav-link" data-scroll-target="#交易约束与成本"><span class="header-section-number">6.1.4</span> 4. 交易约束与成本</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#问题解构与特征工程" id="toc-问题解构与特征工程" class="nav-link" data-scroll-target="#问题解构与特征工程"><span class="header-section-number">7</span> 问题解构与特征工程</a>
+  <ul class="collapse">
+  <li><a href="#预测对象的选择" id="toc-预测对象的选择" class="nav-link" data-scroll-target="#预测对象的选择"><span class="header-section-number">7.1</span> 预测对象的选择</a>
+  <ul class="collapse">
+  <li><a href="#个股收益individual-stock-returns" id="toc-个股收益individual-stock-returns" class="nav-link" data-scroll-target="#个股收益individual-stock-returns"><span class="header-section-number">7.1.1</span> 1. 个股收益（Individual Stock Returns）</a></li>
+  <li><a href="#超额收益excess-returns" id="toc-超额收益excess-returns" class="nav-link" data-scroll-target="#超额收益excess-returns"><span class="header-section-number">7.1.2</span> 2. 超额收益（Excess Returns）</a></li>
+  <li><a href="#多空组合收益long-short-portfolio-returns" id="toc-多空组合收益long-short-portfolio-returns" class="nav-link" data-scroll-target="#多空组合收益long-short-portfolio-returns"><span class="header-section-number">7.1.3</span> 3. 多空组合收益（Long-Short Portfolio Returns）</a></li>
+  </ul></li>
+  <li><a href="#特征工程信息集与时间对齐" id="toc-特征工程信息集与时间对齐" class="nav-link" data-scroll-target="#特征工程信息集与时间对齐"><span class="header-section-number">7.2</span> 特征工程：信息集与时间对齐</a>
+  <ul class="collapse">
+  <li><a href="#信息可得性规则information-availability" id="toc-信息可得性规则information-availability" class="nav-link" data-scroll-target="#信息可得性规则information-availability"><span class="header-section-number">7.2.1</span> 信息可得性规则（Information Availability）</a></li>
+  <li><a href="#特征类别与对齐策略" id="toc-特征类别与对齐策略" class="nav-link" data-scroll-target="#特征类别与对齐策略"><span class="header-section-number">7.2.2</span> 特征类别与对齐策略</a></li>
+  <li><a href="#缺失值处理的时间规范" id="toc-缺失值处理的时间规范" class="nav-link" data-scroll-target="#缺失值处理的时间规范"><span class="header-section-number">7.2.3</span> 缺失值处理的时间规范</a></li>
+  <li><a href="#标准化的时间规范" id="toc-标准化的时间规范" class="nav-link" data-scroll-target="#标准化的时间规范"><span class="header-section-number">7.2.4</span> 标准化的时间规范</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#时序数据评估规范" id="toc-时序数据评估规范" class="nav-link" data-scroll-target="#时序数据评估规范"><span class="header-section-number">8</span> 时序数据评估规范</a>
+  <ul class="collapse">
+  <li><a href="#为什么-k-折交叉验证不适用" id="toc-为什么-k-折交叉验证不适用" class="nav-link" data-scroll-target="#为什么-k-折交叉验证不适用"><span class="header-section-number">8.1</span> 为什么 K 折交叉验证不适用？</a></li>
+  <li><a href="#时序数据的正确划分" id="toc-时序数据的正确划分" class="nav-link" data-scroll-target="#时序数据的正确划分"><span class="header-section-number">8.2</span> 时序数据的正确划分</a>
+  <ul class="collapse">
+  <li><a href="#基本时间切分" id="toc-基本时间切分" class="nav-link" data-scroll-target="#基本时间切分"><span class="header-section-number">8.2.1</span> 基本时间切分</a></li>
+  <li><a href="#滚动窗口rolling-window" id="toc-滚动窗口rolling-window" class="nav-link" data-scroll-target="#滚动窗口rolling-window"><span class="header-section-number">8.2.2</span> 滚动窗口（Rolling Window）</a></li>
+  <li><a href="#扩展窗口expanding-window" id="toc-扩展窗口expanding-window" class="nav-link" data-scroll-target="#扩展窗口expanding-window"><span class="header-section-number">8.2.3</span> 扩展窗口（Expanding Window）</a></li>
+  <li><a href="#选择建议" id="toc-选择建议" class="nav-link" data-scroll-target="#选择建议"><span class="header-section-number">8.2.4</span> 选择建议</a></li>
+  </ul></li>
+  <li><a href="#嵌套时序评估nested-time-series-cv" id="toc-嵌套时序评估nested-time-series-cv" class="nav-link" data-scroll-target="#嵌套时序评估nested-time-series-cv"><span class="header-section-number">8.3</span> 嵌套时序评估（Nested Time Series CV）</a>
+  <ul class="collapse">
+  <li><a href="#嵌套结构示意" id="toc-嵌套结构示意" class="nav-link" data-scroll-target="#嵌套结构示意"><span class="header-section-number">8.3.1</span> 嵌套结构示意</a></li>
+  <li><a href="#伪代码" id="toc-伪代码" class="nav-link" data-scroll-target="#伪代码"><span class="header-section-number">8.3.2</span> 伪代码</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#回测卫生清单backtesting-hygiene" id="toc-回测卫生清单backtesting-hygiene" class="nav-link" data-scroll-target="#回测卫生清单backtesting-hygiene"><span class="header-section-number">9</span> 回测卫生清单（Backtesting Hygiene）</a>
+  <ul class="collapse">
+  <li><a href="#常见偏误类型" id="toc-常见偏误类型" class="nav-link" data-scroll-target="#常见偏误类型"><span class="header-section-number">9.1</span> 常见偏误类型</a>
+  <ul class="collapse">
+  <li><a href="#存活偏误survivorship-bias" id="toc-存活偏误survivorship-bias" class="nav-link" data-scroll-target="#存活偏误survivorship-bias"><span class="header-section-number">9.1.1</span> 1. 存活偏误（Survivorship Bias）</a></li>
+  <li><a href="#数据回填backfilled-data" id="toc-数据回填backfilled-data" class="nav-link" data-scroll-target="#数据回填backfilled-data"><span class="header-section-number">9.1.2</span> 2. 数据回填（Backfilled Data）</a></li>
+  <li><a href="#公司行动处理corporate-actions" id="toc-公司行动处理corporate-actions" class="nav-link" data-scroll-target="#公司行动处理corporate-actions"><span class="header-section-number">9.1.3</span> 3. 公司行动处理（Corporate Actions）</a></li>
+  <li><a href="#停牌处理" id="toc-停牌处理" class="nav-link" data-scroll-target="#停牌处理"><span class="header-section-number">9.1.4</span> 4. 停牌处理</a></li>
+  <li><a href="#样本选择与数据窥探data-snooping" id="toc-样本选择与数据窥探data-snooping" class="nav-link" data-scroll-target="#样本选择与数据窥探data-snooping"><span class="header-section-number">9.1.5</span> 5. 样本选择与数据窥探（Data Snooping）</a></li>
+  </ul></li>
+  <li><a href="#调仓时点与执行滞后" id="toc-调仓时点与执行滞后" class="nav-link" data-scroll-target="#调仓时点与执行滞后"><span class="header-section-number">9.2</span> 调仓时点与执行滞后</a>
+  <ul class="collapse">
+  <li><a href="#调仓时点设计" id="toc-调仓时点设计" class="nav-link" data-scroll-target="#调仓时点设计"><span class="header-section-number">9.2.1</span> 调仓时点设计</a></li>
+  <li><a href="#执行价格" id="toc-执行价格" class="nav-link" data-scroll-target="#执行价格"><span class="header-section-number">9.2.2</span> 执行价格</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#评估指标从预测到组合" id="toc-评估指标从预测到组合" class="nav-link" data-scroll-target="#评估指标从预测到组合"><span class="header-section-number">10</span> 评估指标：从预测到组合</a>
+  <ul class="collapse">
+  <li><a href="#预测层面指标" id="toc-预测层面指标" class="nav-link" data-scroll-target="#预测层面指标"><span class="header-section-number">10.1</span> 预测层面指标</a>
+  <ul class="collapse">
+  <li><a href="#样本外-r2out-of-sample-r2" id="toc-样本外-r2out-of-sample-r2" class="nav-link" data-scroll-target="#样本外-r2out-of-sample-r2"><span class="header-section-number">10.1.1</span> 1. 样本外 <span class="math inline">R^2</span>（Out-of-Sample <span class="math inline">R^2</span>）</a></li>
+  <li><a href="#信息系数ic与-rank-ic" id="toc-信息系数ic与-rank-ic" class="nav-link" data-scroll-target="#信息系数ic与-rank-ic"><span class="header-section-number">10.1.2</span> 2. 信息系数（IC）与 Rank IC</a></li>
+  </ul></li>
+  <li><a href="#组合层面指标" id="toc-组合层面指标" class="nav-link" data-scroll-target="#组合层面指标"><span class="header-section-number">10.2</span> 组合层面指标</a>
+  <ul class="collapse">
+  <li><a href="#构建多空组合" id="toc-构建多空组合" class="nav-link" data-scroll-target="#构建多空组合"><span class="header-section-number">10.2.1</span> 构建多空组合</a></li>
+  <li><a href="#年化超额收益" id="toc-年化超额收益" class="nav-link" data-scroll-target="#年化超额收益"><span class="header-section-number">10.2.2</span> 1. 年化超额收益</a></li>
+  <li><a href="#夏普比率sharpe-ratio" id="toc-夏普比率sharpe-ratio" class="nav-link" data-scroll-target="#夏普比率sharpe-ratio"><span class="header-section-number">10.2.3</span> 2. 夏普比率（Sharpe Ratio）</a></li>
+  <li><a href="#信息比率information-ratio" id="toc-信息比率information-ratio" class="nav-link" data-scroll-target="#信息比率information-ratio"><span class="header-section-number">10.2.4</span> 3. 信息比率（Information Ratio）</a></li>
+  <li><a href="#最大回撤maximum-drawdown" id="toc-最大回撤maximum-drawdown" class="nav-link" data-scroll-target="#最大回撤maximum-drawdown"><span class="header-section-number">10.2.5</span> 4. 最大回撤（Maximum Drawdown）</a></li>
+  <li><a href="#换手率turnover" id="toc-换手率turnover" class="nav-link" data-scroll-target="#换手率turnover"><span class="header-section-number">10.2.6</span> 5. 换手率（Turnover）</a></li>
+  <li><a href="#成本后净收益" id="toc-成本后净收益" class="nav-link" data-scroll-target="#成本后净收益"><span class="header-section-number">10.2.7</span> 6. 成本后净收益</a></li>
+  </ul></li>
+  <li><a href="#切片评估与稳健性检验" id="toc-切片评估与稳健性检验" class="nav-link" data-scroll-target="#切片评估与稳健性检验"><span class="header-section-number">10.3</span> 切片评估与稳健性检验</a>
+  <ul class="collapse">
+  <li><a href="#时间切片" id="toc-时间切片" class="nav-link" data-scroll-target="#时间切片"><span class="header-section-number">10.3.1</span> 时间切片</a></li>
+  <li><a href="#横截面切片" id="toc-横截面切片" class="nav-link" data-scroll-target="#横截面切片"><span class="header-section-number">10.3.2</span> 横截面切片</a></li>
+  <li><a href="#稳健性检验" id="toc-稳健性检验" class="nav-link" data-scroll-target="#稳健性检验"><span class="header-section-number">10.3.3</span> 稳健性检验</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#模型选择与组合构建" id="toc-模型选择与组合构建" class="nav-link" data-scroll-target="#模型选择与组合构建"><span class="header-section-number">11</span> 模型选择与组合构建</a>
+  <ul class="collapse">
+  <li><a href="#模型性能对比参照-gky-2020" id="toc-模型性能对比参照-gky-2020" class="nav-link" data-scroll-target="#模型性能对比参照-gky-2020"><span class="header-section-number">11.1</span> 模型性能对比（参照 GKY 2020）</a>
+  <ul class="collapse">
+  <li><a href="#主要发现" id="toc-主要发现" class="nav-link" data-scroll-target="#主要发现"><span class="header-section-number">11.1.1</span> 主要发现</a></li>
+  <li><a href="#核心结论" id="toc-核心结论" class="nav-link" data-scroll-target="#核心结论"><span class="header-section-number">11.1.2</span> 核心结论</a></li>
+  </ul></li>
+  <li><a href="#从预测到组合的映射" id="toc-从预测到组合的映射" class="nav-link" data-scroll-target="#从预测到组合的映射"><span class="header-section-number">11.2</span> 从预测到组合的映射</a>
+  <ul class="collapse">
+  <li><a href="#简单排序rank-based" id="toc-简单排序rank-based" class="nav-link" data-scroll-target="#简单排序rank-based"><span class="header-section-number">11.2.1</span> 1. 简单排序（Rank-based）</a></li>
+  <li><a href="#比例权重proportional" id="toc-比例权重proportional" class="nav-link" data-scroll-target="#比例权重proportional"><span class="header-section-number">11.2.2</span> 2. 比例权重（Proportional）</a></li>
+  <li><a href="#均值-方差优化mean-variance" id="toc-均值-方差优化mean-variance" class="nav-link" data-scroll-target="#均值-方差优化mean-variance"><span class="header-section-number">11.2.3</span> 3. 均值-方差优化（Mean-Variance）</a></li>
+  <li><a href="#因子约束factor-neutral" id="toc-因子约束factor-neutral" class="nav-link" data-scroll-target="#因子约束factor-neutral"><span class="header-section-number">11.2.4</span> 4. 因子约束（Factor-neutral）</a></li>
+  </ul></li>
+  <li><a href="#模型组合策略" id="toc-模型组合策略" class="nav-link" data-scroll-target="#模型组合策略"><span class="header-section-number">11.3</span> 模型组合策略</a>
+  <ul class="collapse">
+  <li><a href="#简单平均simple-average" id="toc-简单平均simple-average" class="nav-link" data-scroll-target="#简单平均simple-average"><span class="header-section-number">11.3.1</span> 1. 简单平均（Simple Average）</a></li>
+  <li><a href="#加权平均weighted-average" id="toc-加权平均weighted-average" class="nav-link" data-scroll-target="#加权平均weighted-average"><span class="header-section-number">11.3.2</span> 2. 加权平均（Weighted Average）</a></li>
+  <li><a href="#stacking" id="toc-stacking" class="nav-link" data-scroll-target="#stacking"><span class="header-section-number">11.3.3</span> 3. Stacking</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#本周小结" id="toc-本周小结" class="nav-link" data-scroll-target="#本周小结"><span class="header-section-number">12</span> 本周小结</a>
+  <ul class="collapse">
+  <li><a href="#核心要点" id="toc-核心要点" class="nav-link" data-scroll-target="#核心要点"><span class="header-section-number">12.1</span> 核心要点</a></li>
+  <li><a href="#本周思考题" id="toc-本周思考题" class="nav-link" data-scroll-target="#本周思考题"><span class="header-section-number">12.2</span> 本周思考题</a>
+  <ul class="collapse">
+  <li><a href="#问题-1" id="toc-问题-1" class="nav-link" data-scroll-target="#问题-1"><span class="header-section-number">12.2.1</span> 问题 1</a></li>
+  <li><a href="#问题-2" id="toc-问题-2" class="nav-link" data-scroll-target="#问题-2"><span class="header-section-number">12.2.2</span> 问题 2</a></li>
+  <li><a href="#问题-3" id="toc-问题-3" class="nav-link" data-scroll-target="#问题-3"><span class="header-section-number">12.2.3</span> 问题 3</a></li>
+  </ul></li>
+  <li><a href="#下周预告" id="toc-下周预告" class="nav-link" data-scroll-target="#下周预告"><span class="header-section-number">12.3</span> 下周预告</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">第2讲：资产定价中的机器学习应用</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> 代码</button></div></div>
+<p class="subtitle lead">问题解构、特征工程与时序评估规范</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="资产定价预测的特别之处" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> 资产定价预测的”特别之处”</h1>
+<section id="与典型监督学习的差异" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="与典型监督学习的差异"><span class="header-section-number">6.1</span> 与典型监督学习的差异</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🎯 核心认知
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>资产定价预测<strong>远比标准 i.i.d. 监督学习困难</strong>，原因在于：</p>
+<ol type="1">
+<li><strong>极低信噪比</strong>：可预测成分通常 &lt; 5% 方差</li>
+<li><strong>非平稳性</strong>：数据分布随时间变化</li>
+<li><strong>横截面相关</strong>：资产间高度关联</li>
+<li><strong>交易约束</strong>：预测好 ≠ 可交易 ≠ 能赚钱</li>
+</ol>
+</div>
+</div>
+<section id="低信噪比low-signal-to-noise-ratio" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="低信噪比low-signal-to-noise-ratio"><span class="header-section-number">6.1.1</span> 1. 低信噪比（Low Signal-to-Noise Ratio）</h3>
+<p><strong>典型事实</strong>（来自 Gu, Kelly, Xiu 2020）：</p>
+<ul>
+<li>个股月度收益预测的 <span class="math inline">R^2_{\text{OOS}} \approx 0.5\%</span></li>
+<li>即使最优模型，95%+ 方差仍是噪声</li>
+<li>对比：图像分类任务 <span class="math inline">R^2 &gt; 90\%</span></li>
+</ul>
+<p><strong>含义</strong>：</p>
+<ul>
+<li>复杂模型极易将噪声误认为信号</li>
+<li>正则化与集成方法至关重要</li>
+<li>评估指标需关注<strong>排序能力</strong>而非绝对预测精度</li>
+</ul>
+</section>
+<section id="非平稳性non-stationarity" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="非平稳性non-stationarity"><span class="header-section-number">6.1.2</span> 2. 非平稳性（Non-stationarity）</h3>
+<p><strong>表现</strong>：</p>
+<ul>
+<li>均值/方差随时间变化（如牛市 vs 熊市）</li>
+<li>特征–收益关系不稳定（如价值因子的衰退）</li>
+<li>新信息源出现（如社交媒体数据）</li>
+</ul>
+<p><strong>挑战</strong>：</p>
+<ul>
+<li>历史数据未必代表未来</li>
+<li>模型需定期重训练</li>
+<li>需检验不同市场状态下的稳健性</li>
+</ul>
+</section>
+<section id="横截面相关性cross-sectional-dependence" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="横截面相关性cross-sectional-dependence"><span class="header-section-number">6.1.3</span> 3. 横截面相关性（Cross-sectional Dependence）</h3>
+<p><strong>现实</strong>：</p>
+<ul>
+<li>股票收益受共同因子驱动（市场、行业、风格）</li>
+<li>相关性在危机时期飙升</li>
+<li>违反 i.i.d. 假设中的”独立性”</li>
+</ul>
+<p><strong>影响</strong>：</p>
+<ul>
+<li>标准误估计偏小（需聚类调整）</li>
+<li>组合风险管理更复杂</li>
+<li>需控制因子暴露</li>
+</ul>
+</section>
+<section id="交易约束与成本" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="交易约束与成本"><span class="header-section-number">6.1.4</span> 4. 交易约束与成本</h3>
+<p><strong>现实约束</strong>：</p>
+<ul>
+<li><strong>流动性</strong>：小市值股票难以大规模交易</li>
+<li><strong>交易成本</strong>：佣金、冲击成本、税费</li>
+<li><strong>卖空限制</strong>：部分市场卖空困难或成本高</li>
+<li><strong>杠杆限制</strong>：借贷成本与上限</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+⚠️ 为何”预测更准”不等于”更赚钱”？
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>案例</strong>：模型 A 预测 IC = 0.08，模型 B 预测 IC = 0.06</p>
+<ul>
+<li>若模型 A 的信号波动大 → 高换手率 → 交易成本吞噬收益</li>
+<li>若模型 A 偏好小市值股 → 流动性不足 → 难以实施</li>
+<li><strong>结论</strong>：模型 B 可能成本后表现更好</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="问题解构与特征工程" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> 问题解构与特征工程</h1>
+<section id="预测对象的选择" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="预测对象的选择"><span class="header-section-number">7.1</span> 预测对象的选择</h2>
+<section id="个股收益individual-stock-returns" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="个股收益individual-stock-returns"><span class="header-section-number">7.1.1</span> 1. 个股收益（Individual Stock Returns）</h3>
+<p><span class="math display">
+r_{i,t+h} = \log\left(\frac{P_{i,t+h}}{P_{i,t}}\right)
+</span></p>
+<ul>
+<li><strong>优点</strong>：直接可交易，信息丰富</li>
+<li><strong>缺点</strong>：噪声大，需处理退市/分红</li>
+</ul>
+</section>
+<section id="超额收益excess-returns" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="超额收益excess-returns"><span class="header-section-number">7.1.2</span> 2. 超额收益（Excess Returns）</h3>
+<p><span class="math display">
+r^e_{i,t+h} = r_{i,t+h} - r_{f,t+h}
+</span></p>
+<p>或对市场调整：</p>
+<p><span class="math display">
+r^e_{i,t+h} = r_{i,t+h} - r_{m,t+h}
+</span></p>
+<ul>
+<li><strong>优点</strong>：去除市场共同成分，提升信噪比</li>
+<li><strong>缺点</strong>：需选择基准</li>
+</ul>
+</section>
+<section id="多空组合收益long-short-portfolio-returns" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="多空组合收益long-short-portfolio-returns"><span class="header-section-number">7.1.3</span> 3. 多空组合收益（Long-Short Portfolio Returns）</h3>
+<p>根据预测信号构建分位数组合：</p>
+<p><span class="math display">
+r^{LS}_{t+h} = r^{\text{High}}_{t+h} - r^{\text{Low}}_{t+h}
+</span></p>
+<ul>
+<li><strong>优点</strong>：直接评估策略表现</li>
+<li><strong>缺点</strong>：损失个股级信息</li>
+</ul>
+</section>
+</section>
+<section id="特征工程信息集与时间对齐" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="特征工程信息集与时间对齐"><span class="header-section-number">7.2</span> 特征工程：信息集与时间对齐</h2>
+<section id="信息可得性规则information-availability" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="信息可得性规则information-availability"><span class="header-section-number">7.2.1</span> 信息可得性规则（Information Availability）</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔑 黄金法则
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>在时刻 <span class="math inline">t</span> 用于预测的特征，必须在 <span class="math inline">t</span> 时刻已公开可得！</strong></p>
+</div>
+</div>
+<p><strong>常见陷阱</strong>：</p>
+<ol type="1">
+<li><strong>会计变量披露滞后</strong></li>
+</ol>
+<pre><code>错误：用 2023 年报数据预测 2023 年收益
+正确：用 2022 年报（2023年4月披露）预测 2023年5月后收益</code></pre>
+<ol start="2" type="1">
+<li><strong>价格数据的”收盘价陷阱”</strong></li>
+</ol>
+<pre><code>错误：用 t 日收盘价预测 t 日收益
+正确：用 t-1 日收盘价预测 t 日收益</code></pre>
+<ol start="3" type="1">
+<li><strong>分析师预测的”修订滞后”</strong></li>
+</ol>
+<pre><code>需记录：每个预测的发布时间戳
+对齐：只用发布时间 &lt; t 的预测</code></pre>
+</section>
+<section id="特征类别与对齐策略" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="特征类别与对齐策略"><span class="header-section-number">7.2.2</span> 特征类别与对齐策略</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>特征类别</th>
+<th>更新频率</th>
+<th>披露滞后</th>
+<th>对齐策略</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>价格/成交量</strong></td>
+<td>日</td>
+<td>无</td>
+<td>用 <span class="math inline">t-1</span> 预测 <span class="math inline">t</span></td>
+</tr>
+<tr class="even">
+<td><strong>会计变量</strong></td>
+<td>季/年</td>
+<td>1-4 个月</td>
+<td>记录披露日期</td>
+</tr>
+<tr class="odd">
+<td><strong>分析师预测</strong></td>
+<td>不定期</td>
+<td>无</td>
+<td>记录时间戳</td>
+</tr>
+<tr class="even">
+<td><strong>新闻/文本</strong></td>
+<td>实时</td>
+<td>几乎无</td>
+<td>记录发布时间</td>
+</tr>
+<tr class="odd">
+<td><strong>宏观经济</strong></td>
+<td>月/季</td>
+<td>数周</td>
+<td>记录发布日期</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="缺失值处理的时间规范" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="缺失值处理的时间规范"><span class="header-section-number">7.2.3</span> 缺失值处理的时间规范</h3>
+<p><strong>原则</strong>：填补方法不能使用未来信息。</p>
+<p>✅ <strong>正确做法</strong>：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 前向填充（用最近的已知值）</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'feature'</span>] <span class="op">=</span> df.groupby(<span class="st">'stock_id'</span>)[<span class="st">'feature'</span>].ffill()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 或用历史均值（仅用 t 之前数据）</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'feature'</span>] <span class="op">=</span> df[<span class="st">'feature'</span>].fillna(df[<span class="st">'feature'</span>].expanding().mean())</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>❌ <strong>错误做法</strong>：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 用全局均值（包含未来数据）</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'feature'</span>] <span class="op">=</span> df[<span class="st">'feature'</span>].fillna(df[<span class="st">'feature'</span>].mean())</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="标准化的时间规范" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="标准化的时间规范"><span class="header-section-number">7.2.4</span> 标准化的时间规范</h3>
+<p><strong>横截面标准化</strong>（cross-sectional）：</p>
+<p><span class="math display">
+\tilde{x}_{i,t} = \frac{x_{i,t} - \bar{x}_t}{\sigma_t}
+</span></p>
+<p>其中 <span class="math inline">\bar{x}_t, \sigma_t</span> 是时刻 <span class="math inline">t</span> 的横截面均值/标准差。</p>
+<p>✅ <strong>适用场景</strong>：特征在不同时期量纲差异大（如市盈率）</p>
+<p><strong>时间序列标准化</strong>：</p>
+<p><span class="math display">
+\tilde{x}_{i,t} = \frac{x_{i,t} - \bar{x}_{i,&lt;t}}{\sigma_{i,&lt;t}}
+</span></p>
+<p>其中 <span class="math inline">\bar{x}_{i,&lt;t}, \sigma_{i,&lt;t}</span> 是股票 <span class="math inline">i</span> 在 <span class="math inline">t</span> <strong>之前</strong>的均值/标准差。</p>
+<p>✅ <strong>适用场景</strong>：特征在不同股票间量纲差异大（如成交量）</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+⚠️ 避免信息泄露
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>错误</strong>：用包含测试期的统计量标准化</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 错误！scaler 看到了测试集数据</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>scaler.fit(X_train <span class="op">+</span> X_test)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>正确</strong>：仅用训练期拟合</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 正确！</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>scaler.fit(X_train)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>X_train_scaled <span class="op">=</span> scaler.transform(X_train)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>X_test_scaled <span class="op">=</span> scaler.transform(X_test)  <span class="co"># 用训练期参数转换</span></span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="时序数据评估规范" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> 时序数据评估规范</h1>
+<section id="为什么-k-折交叉验证不适用" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="为什么-k-折交叉验证不适用"><span class="header-section-number">8.1</span> 为什么 K 折交叉验证不适用？</h2>
+<p><strong>K 折 CV 的假设</strong>：训练集和验证集可互换（i.i.d.）</p>
+<p><strong>金融时序的现实</strong>：</p>
+<ul>
+<li>未来不可用于预测过去（因果性）</li>
+<li>数据分布随时间变化（非平稳）</li>
+<li>若打乱时间顺序，会造成严重的<strong>前瞻偏误</strong></li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🚫 禁止操作
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 危险！时序数据不能用标准 K 折</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>, shuffle<span class="op">=</span><span class="va">True</span>)  <span class="co"># shuffle=True 破坏时序</span></span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="时序数据的正确划分" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="时序数据的正确划分"><span class="header-section-number">8.2</span> 时序数据的正确划分</h2>
+<section id="基本时间切分" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="基本时间切分"><span class="header-section-number">8.2.1</span> 基本时间切分</h3>
+<pre><code>历史数据  │  样本内评估期  │  样本外评估期
+─────────┼───────────────┼──────────────→ 时间
+  Train  │    Validation │      Test</code></pre>
+<p><strong>原则</strong>：</p>
+<ul>
+<li>训练集：最早的数据</li>
+<li>验证集：训练集之后</li>
+<li>测试集：验证集之后（仅用一次！）</li>
+</ul>
+</section>
+<section id="滚动窗口rolling-window" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="滚动窗口rolling-window"><span class="header-section-number">8.2.2</span> 滚动窗口（Rolling Window）</h3>
+<p><strong>固定训练窗口长度</strong>，逐步向前滚动：</p>
+<pre><code>时间:  1 2 3 4 5 6 7 8 9 10 11 12
+
+迭代1: [Train: 1-5] → Predict: 6
+迭代2:   [Train: 2-6] → Predict: 7
+迭代3:     [Train: 3-7] → Predict: 8
+迭代4:       [Train: 4-8] → Predict: 9
+...</code></pre>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>模型保持”新鲜”，适应非平稳性</li>
+<li>计算成本可控</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>丢弃早期数据，样本量小</li>
+<li>窗口长度需调优</li>
+</ul>
+</section>
+<section id="扩展窗口expanding-window" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="扩展窗口expanding-window"><span class="header-section-number">8.2.3</span> 扩展窗口（Expanding Window）</h3>
+<p><strong>累积所有历史数据</strong>，窗口不断扩大：</p>
+<pre><code>时间:  1 2 3 4 5 6 7 8 9 10 11 12
+
+迭代1: [Train: 1-5] → Predict: 6
+迭代2: [Train: 1-6] → Predict: 7
+迭代3: [Train: 1-7] → Predict: 8
+迭代4: [Train: 1-8] → Predict: 9
+...</code></pre>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>充分利用历史数据，样本量大</li>
+<li>估计更稳定</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>早期数据可能过时</li>
+<li>计算成本高（训练集不断增长）</li>
+</ul>
+</section>
+<section id="选择建议" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="选择建议"><span class="header-section-number">8.2.4</span> 选择建议</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>场景</th>
+<th>推荐方法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>数据平稳、样本少</td>
+<td>扩展窗口</td>
+</tr>
+<tr class="even">
+<td>数据非平稳明显</td>
+<td>滚动窗口（短窗口）</td>
+</tr>
+<tr class="odd">
+<td>不确定</td>
+<td>两者都试，对比稳健性</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="嵌套时序评估nested-time-series-cv" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="嵌套时序评估nested-time-series-cv"><span class="header-section-number">8.3</span> 嵌套时序评估（Nested Time Series CV）</h2>
+<p><strong>问题</strong>：超参数（如正则化强度 <span class="math inline">\lambda</span>）如何选择？</p>
+<p><strong>错误做法</strong>：在测试集上调参（数据窥探！）</p>
+<p><strong>正确做法</strong>：嵌套结构，分离”调参”与”泛化评估”</p>
+<section id="嵌套结构示意" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="嵌套结构示意"><span class="header-section-number">8.3.1</span> 嵌套结构示意</h3>
+<pre><code>外层循环（泛化评估）:
+┌────────────────────────────────────────────────────┐
+│ Train + Val (合并) │ → Model(best λ) → │ Test_1 │
+└────────────────────────────────────────────────────┘
+    内层循环（选 λ）:
+    ┌──────────────────┬─────────────┐
+    │   Train_inner    │  Val_inner  │  → 试 λ1, λ2, ...
+    └──────────────────┴─────────────┘
+
+然后滚动到下一期...
+
+┌────────────────────────────────────────────────────┐
+│   Train + Val (合并)   │ → Model(best λ) → │Test_2│
+└────────────────────────────────────────────────────┘
+    内层循环（重新选 λ）:
+    ┌──────────────────┬─────────────┐
+    │   Train_inner    │  Val_inner  │
+    └──────────────────┴─────────────┘</code></pre>
+</section>
+<section id="伪代码" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="伪代码"><span class="header-section-number">8.3.2</span> 伪代码</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>test_scores <span class="op">=</span> []</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> test_start <span class="kw">in</span> test_periods:</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 外层：定义本期测试集</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    train_val <span class="op">=</span> data[data.date <span class="op">&lt;</span> test_start]</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    test <span class="op">=</span> data[data.date <span class="op">&gt;=</span> test_start]</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 内层：在 train_val 上用时序 CV 选超参数</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    best_lambda <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    best_val_score <span class="op">=</span> <span class="op">-</span>inf</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> lambda_candidate <span class="kw">in</span> lambda_grid:</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        val_scores_inner <span class="op">=</span> []</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> val_start <span class="kw">in</span> validation_periods:</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>            train_inner <span class="op">=</span> train_val[train_val.date <span class="op">&lt;</span> val_start]</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>            val_inner <span class="op">=</span> train_val[train_val.date <span class="op">&gt;=</span> val_start]</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>            model.fit(train_inner, <span class="kw">lambda</span><span class="op">=</span>lambda_candidate)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>            val_scores_inner.append(model.score(val_inner))</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        avg_val_score <span class="op">=</span> mean(val_scores_inner)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> avg_val_score <span class="op">&gt;</span> best_val_score:</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>            best_val_score <span class="op">=</span> avg_val_score</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>            best_lambda <span class="op">=</span> lambda_candidate</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 外层：用最优超参数训练最终模型</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    model.fit(train_val, <span class="kw">lambda</span><span class="op">=</span>best_lambda)</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    test_scores.append(model.score(test))</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 报告样本外性能</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>final_oos_score <span class="op">=</span> mean(test_scores)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💡 实践建议
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>内层窗口可以更短</strong>：调参不需要太长历史</li>
+<li><strong>外层跨度看研究问题</strong>：月度/季度/年度重训练</li>
+<li><strong>计算成本高</strong>：可先在小数据集上探索，再全量运行</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="回测卫生清单backtesting-hygiene" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> 回测卫生清单（Backtesting Hygiene）</h1>
+<section id="常见偏误类型" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="常见偏误类型"><span class="header-section-number">9.1</span> 常见偏误类型</h2>
+<section id="存活偏误survivorship-bias" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="存活偏误survivorship-bias"><span class="header-section-number">9.1.1</span> 1. 存活偏误（Survivorship Bias）</h3>
+<p><strong>问题</strong>：只用当前仍存在的股票回测，忽略退市股票。</p>
+<p><strong>后果</strong>：</p>
+<ul>
+<li>高估策略收益（退市股通常表现差）</li>
+<li>低估风险（极端亏损被排除）</li>
+</ul>
+<p><strong>解决</strong>：</p>
+<ul>
+<li>使用<strong>包含退市股的全历史数据库</strong></li>
+<li>记录退市日期与退市收益</li>
+</ul>
+</section>
+<section id="数据回填backfilled-data" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="数据回填backfilled-data"><span class="header-section-number">9.1.2</span> 2. 数据回填（Backfilled Data）</h3>
+<p><strong>问题</strong>：数据供应商事后修正历史数据（如重述财报）。</p>
+<p><strong>后果</strong>：用到了当时不可得的”修正后”数据。</p>
+<p><strong>解决</strong>：</p>
+<ul>
+<li>使用<strong>时间点数据库</strong>（point-in-time database）</li>
+<li>记录每个数据点的”as of”日期</li>
+</ul>
+</section>
+<section id="公司行动处理corporate-actions" class="level3" data-number="9.1.3">
+<h3 data-number="9.1.3" class="anchored" data-anchor-id="公司行动处理corporate-actions"><span class="header-section-number">9.1.3</span> 3. 公司行动处理（Corporate Actions）</h3>
+<p><strong>未调整</strong>：</p>
+<ul>
+<li>股票分拆/合并（如1股拆3股）</li>
+<li>现金分红（影响收益计算）</li>
+<li>配股/增发</li>
+</ul>
+<p><strong>解决</strong>：</p>
+<ul>
+<li>使用<strong>复权价格</strong>（adjusted prices）</li>
+<li>或手动调整收益序列</li>
+</ul>
+</section>
+<section id="停牌处理" class="level3" data-number="9.1.4">
+<h3 data-number="9.1.4" class="anchored" data-anchor-id="停牌处理"><span class="header-section-number">9.1.4</span> 4. 停牌处理</h3>
+<p><strong>问题</strong>：停牌期间无法交易，但收益率序列可能显示”0”或”缺失”。</p>
+<p><strong>后果</strong>：</p>
+<ul>
+<li>错误假设可以在停牌期买入/卖出</li>
+<li>低估流动性风险</li>
+</ul>
+<p><strong>解决</strong>：</p>
+<ul>
+<li>标记停牌日期</li>
+<li>回测中跳过停牌股票或延迟调仓</li>
+</ul>
+</section>
+<section id="样本选择与数据窥探data-snooping" class="level3" data-number="9.1.5">
+<h3 data-number="9.1.5" class="anchored" data-anchor-id="样本选择与数据窥探data-snooping"><span class="header-section-number">9.1.5</span> 5. 样本选择与数据窥探（Data Snooping）</h3>
+<p><strong>问题</strong>：</p>
+<ul>
+<li>在多次尝试后只报告最好的结果</li>
+<li>根据整个样本期的特征选择模型/特征</li>
+</ul>
+<p><strong>后果</strong>：</p>
+<ul>
+<li>样本外表现远低于预期</li>
+<li>无法复现</li>
+</ul>
+<p><strong>解决</strong>：</p>
+<ul>
+<li><strong>预先登记</strong>研究设计（pre-registration）</li>
+<li>报告所有尝试（包括失败的）</li>
+<li>用<strong>独立测试集</strong>或<strong>新数据期</strong>验证</li>
+</ul>
+</section>
+</section>
+<section id="调仓时点与执行滞后" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="调仓时点与执行滞后"><span class="header-section-number">9.2</span> 调仓时点与执行滞后</h2>
+<section id="调仓时点设计" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="调仓时点设计"><span class="header-section-number">9.2.1</span> 调仓时点设计</h3>
+<p><strong>典型流程</strong>：</p>
+<pre><code>月末 t: 观察所有可得信息 x_t
+  ↓
+月初 t+1: 计算预测信号 f(x_t)
+  ↓
+开盘后: 执行交易，形成新组合
+  ↓
+月末 t+1: 观察收益 r_{t+1}</code></pre>
+<p><strong>关键问题</strong>：</p>
+<ol type="1">
+<li>何时计算信号？（需确保数据已可得）</li>
+<li>何时执行交易？（开盘/收盘/盘中均价？）</li>
+<li>是否有执行滞后？（如需 T+1 日才能成交）</li>
+</ol>
+</section>
+<section id="执行价格" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="执行价格"><span class="header-section-number">9.2.2</span> 执行价格</h3>
+<p><strong>保守假设</strong>：</p>
+<ul>
+<li>买入用<strong>更高的价格</strong>（如开盘价 + 滑点）</li>
+<li>卖出用<strong>更低的价格</strong>（如开盘价 - 滑点）</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 假设在月初第一个交易日开盘价执行</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>entry_price <span class="op">=</span> open_price <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> slippage)  <span class="co"># 买入</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>exit_price <span class="op">=</span> open_price <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> slippage)   <span class="co"># 卖出</span></span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="评估指标从预测到组合" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> 评估指标：从预测到组合</h1>
+<section id="预测层面指标" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="预测层面指标"><span class="header-section-number">10.1</span> 预测层面指标</h2>
+<section id="样本外-r2out-of-sample-r2" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="样本外-r2out-of-sample-r2"><span class="header-section-number">10.1.1</span> 1. 样本外 <span class="math inline">R^2</span>（Out-of-Sample <span class="math inline">R^2</span>）</h3>
+<p><span class="math display">
+R^2_{\text{OOS}} = 1 - \frac{\sum_{t \in \text{OOS}} (r_t - \hat{r}_t)^2}{\sum_{t \in \text{OOS}} (r_t - \bar{r}_{\text{hist}})^2}
+</span></p>
+<p>其中 <span class="math inline">\bar{r}_{\text{hist}}</span> 是历史均值（仅用训练期）。</p>
+<p><strong>解释</strong>：</p>
+<ul>
+<li>相对于”历史均值预测”的改进</li>
+<li>可能为负（模型比均值还差）</li>
+<li>GKY (2020) 中 <span class="math inline">R^2_{\text{OOS}} \approx 0.5\%</span> 已属优秀</li>
+</ul>
+</section>
+<section id="信息系数ic与-rank-ic" class="level3" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="信息系数ic与-rank-ic"><span class="header-section-number">10.1.2</span> 2. 信息系数（IC）与 Rank IC</h3>
+<p><strong>IC</strong>（Information Coefficient）：预测值与实际值的相关系数</p>
+<p><span class="math display">
+\text{IC}_t = \text{Corr}(\hat{r}_{i,t}, r_{i,t})
+</span></p>
+<p><strong>Rank IC</strong>：排序相关（Spearman）</p>
+<p><span class="math display">
+\text{Rank-IC}_t = \text{Spearman}(\hat{r}_{i,t}, r_{i,t})
+</span></p>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>更关注排序而非数值精度</li>
+<li>对异常值更鲁棒（Rank IC）</li>
+</ul>
+<p><strong>典型值</strong>：</p>
+<ul>
+<li><span class="math inline">|\text{IC}| &gt; 0.05</span> 已有实用价值</li>
+<li><span class="math inline">|\text{IC}| &gt; 0.10</span> 属强信号</li>
+</ul>
+</section>
+</section>
+<section id="组合层面指标" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="组合层面指标"><span class="header-section-number">10.2</span> 组合层面指标</h2>
+<section id="构建多空组合" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="构建多空组合"><span class="header-section-number">10.2.1</span> 构建多空组合</h3>
+<p><strong>基于预测分数排序</strong>：</p>
+<ol type="1">
+<li>每期将股票按 <span class="math inline">\hat{r}_{i,t}</span> 排序</li>
+<li>做多前 20%（或前十分位）</li>
+<li>做空后 20%（或后十分位）</li>
+<li>计算组合收益</li>
+</ol>
+</section>
+<section id="年化超额收益" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="年化超额收益"><span class="header-section-number">10.2.2</span> 1. 年化超额收益</h3>
+<p><span class="math display">
+\bar{r}^e_{\text{annual}} = 12 \times \frac{1}{T}\sum_{t=1}^T r^e_t \quad \text{（月度数据）}
+</span></p>
+</section>
+<section id="夏普比率sharpe-ratio" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="夏普比率sharpe-ratio"><span class="header-section-number">10.2.3</span> 2. 夏普比率（Sharpe Ratio）</h3>
+<p><span class="math display">
+\text{Sharpe} = \frac{\bar{r}^e}{\sigma(r^e)} \times \sqrt{12}
+</span></p>
+<p><strong>解释</strong>：单位风险的超额收益</p>
+<p><strong>典型值</strong>：</p>
+<ul>
+<li>Sharpe &gt; 1：优秀</li>
+<li>Sharpe &gt; 2：非常优秀（需警惕过拟合）</li>
+</ul>
+</section>
+<section id="信息比率information-ratio" class="level3" data-number="10.2.4">
+<h3 data-number="10.2.4" class="anchored" data-anchor-id="信息比率information-ratio"><span class="header-section-number">10.2.4</span> 3. 信息比率（Information Ratio）</h3>
+<p><span class="math display">
+\text{IR} = \frac{\bar{r}^e - r^{\text{benchmark}}}{\sigma(r^e - r^{\text{benchmark}})}
+</span></p>
+<p><strong>解释</strong>：相对基准的超额收益稳定性</p>
+</section>
+<section id="最大回撤maximum-drawdown" class="level3" data-number="10.2.5">
+<h3 data-number="10.2.5" class="anchored" data-anchor-id="最大回撤maximum-drawdown"><span class="header-section-number">10.2.5</span> 4. 最大回撤（Maximum Drawdown）</h3>
+<p><span class="math display">
+\text{MDD} = \max_{t} \left[\max_{s \leq t} \text{Cumulative Return}_s - \text{Cumulative Return}_t\right]
+</span></p>
+<p><strong>解释</strong>：从峰值到谷底的最大损失</p>
+</section>
+<section id="换手率turnover" class="level3" data-number="10.2.6">
+<h3 data-number="10.2.6" class="anchored" data-anchor-id="换手率turnover"><span class="header-section-number">10.2.6</span> 5. 换手率（Turnover）</h3>
+<p><span class="math display">
+\text{Turnover}_t = \frac{1}{2}\sum_{i} |w_{i,t} - w_{i,t-1}^+|
+</span></p>
+<p>其中 <span class="math inline">w_{i,t-1}^+</span> 是 <span class="math inline">t-1</span> 期末持仓权重（考虑价格变化）。</p>
+<p><strong>重要性</strong>：</p>
+<ul>
+<li>高换手 → 高交易成本</li>
+<li>需权衡信号强度与稳定性</li>
+</ul>
+</section>
+<section id="成本后净收益" class="level3" data-number="10.2.7">
+<h3 data-number="10.2.7" class="anchored" data-anchor-id="成本后净收益"><span class="header-section-number">10.2.7</span> 6. 成本后净收益</h3>
+<p><span class="math display">
+r^{\text{net}}_t = r^{\text{gross}}_t - \text{Cost}_t
+</span></p>
+<p><strong>成本构成</strong>：</p>
+<ul>
+<li><strong>佣金</strong>：<span class="math inline">c \times \text{Turnover}_t</span>（如 <span class="math inline">c = 0.1\%</span>）</li>
+<li><strong>冲击成本</strong>：<span class="math inline">\alpha \times \sqrt{\text{Trade Size}}</span></li>
+<li><strong>融券费用</strong>：做空头寸的借券成本</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+⚠️ 成本往往被低估
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>小市值股票冲击成本远超大盘股</li>
+<li>危机时期融券费用飙升</li>
+<li>实际执行中的滑点</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="切片评估与稳健性检验" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="切片评估与稳健性检验"><span class="header-section-number">10.3</span> 切片评估与稳健性检验</h2>
+<section id="时间切片" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="时间切片"><span class="header-section-number">10.3.1</span> 时间切片</h3>
+<p><strong>不同市场状态</strong>：</p>
+<ul>
+<li>牛市 vs 熊市</li>
+<li>高波动 vs 低波动</li>
+<li>危机期 vs 平稳期</li>
+</ul>
+<p><strong>检验</strong>：策略是否在各时期稳健？</p>
+</section>
+<section id="横截面切片" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="横截面切片"><span class="header-section-number">10.3.2</span> 横截面切片</h3>
+<p><strong>不同资产特征</strong>：</p>
+<ul>
+<li>大市值 vs 小市值</li>
+<li>高流动性 vs 低流动性</li>
+<li>不同行业/板块</li>
+</ul>
+<p><strong>检验</strong>：策略收益来源是否过于集中？</p>
+</section>
+<section id="稳健性检验" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="稳健性检验"><span class="header-section-number">10.3.3</span> 稳健性检验</h3>
+<ol type="1">
+<li><strong>换窗口长度</strong>：滚动窗口 3年 vs 5年</li>
+<li><strong>换再平衡频率</strong>：月度 vs 季度</li>
+<li><strong>换组合构建</strong>：等权 vs 市值加权</li>
+<li><strong>剔除极端期</strong>：去掉危机月份，策略是否仍有效？</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="模型选择与组合构建" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> 模型选择与组合构建</h1>
+<section id="模型性能对比参照-gky-2020" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="模型性能对比参照-gky-2020"><span class="header-section-number">11.1</span> 模型性能对比（参照 GKY 2020）</h2>
+<section id="主要发现" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="主要发现"><span class="header-section-number">11.1.1</span> 主要发现</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 39%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>模型类别</th>
+<th><span class="math inline">R^2_{\text{OOS}}</span></th>
+<th>夏普比率</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>线性（Lasso/Elastic Net）</strong></td>
+<td>0.30%</td>
+<td>1.2</td>
+<td>可解释，稳定</td>
+<td>表达力有限</td>
+</tr>
+<tr class="even">
+<td><strong>树模型（Random Forest, GBM）</strong></td>
+<td>0.40%</td>
+<td>1.5</td>
+<td>捕捉非线性，重要性解释</td>
+<td>易过拟合</td>
+</tr>
+<tr class="odd">
+<td><strong>神经网络（DNN）</strong></td>
+<td>0.50%</td>
+<td>1.6</td>
+<td>最强表达力</td>
+<td>黑箱，不稳定</td>
+</tr>
+<tr class="even">
+<td><strong>组合（Ensemble）</strong></td>
+<td><strong>0.55%</strong></td>
+<td><strong>1.7</strong></td>
+<td>稳健性最佳</td>
+<td>复杂度高</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="核心结论" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="核心结论"><span class="header-section-number">11.1.2</span> 核心结论</h3>
+<ol type="1">
+<li><strong>非线性方法表现更好</strong>，但优势有限（0.1-0.2% <span class="math inline">R^2</span>）</li>
+<li><strong>模型组合</strong>优于单一模型（分散过拟合风险）</li>
+<li><strong>正则化至关重要</strong>（无论线性还是非线性）</li>
+</ol>
+</section>
+</section>
+<section id="从预测到组合的映射" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="从预测到组合的映射"><span class="header-section-number">11.2</span> 从预测到组合的映射</h2>
+<section id="简单排序rank-based" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="简单排序rank-based"><span class="header-section-number">11.2.1</span> 1. 简单排序（Rank-based）</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 每期按预测分数排序</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> model.predict(X_t)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ranks <span class="op">=</span> scores.argsort()</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 构建多空组合</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="bu">long</span> <span class="op">=</span> ranks[<span class="op">-</span>n_top:]   <span class="co"># 前 n 名</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>short <span class="op">=</span> ranks[:n_top]   <span class="co"># 后 n 名</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>portfolio <span class="op">=</span> equal_weight(<span class="bu">long</span>) <span class="op">-</span> equal_weight(short)</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>优点</strong>：简单，鲁棒</p>
+<p><strong>缺点</strong>：忽略预测强度差异</p>
+</section>
+<section id="比例权重proportional" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="比例权重proportional"><span class="header-section-number">11.2.2</span> 2. 比例权重（Proportional）</h3>
+<p><span class="math display">
+w_i \propto \hat{r}_i
+</span></p>
+<p>归一化使 <span class="math inline">\sum w_i = 1</span>。</p>
+<p><strong>优点</strong>：利用预测强度信息</p>
+<p><strong>缺点</strong>：对极端预测敏感</p>
+</section>
+<section id="均值-方差优化mean-variance" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="均值-方差优化mean-variance"><span class="header-section-number">11.2.3</span> 3. 均值-方差优化（Mean-Variance）</h3>
+<p><span class="math display">
+\max_{\mathbf{w}} \quad \mathbf{w}^\top \hat{\boldsymbol{\mu}} - \frac{\lambda}{2} \mathbf{w}^\top \hat{\boldsymbol{\Sigma}} \mathbf{w}
+</span></p>
+<p>其中 <span class="math inline">\hat{\boldsymbol{\mu}}</span> 是预测收益，<span class="math inline">\hat{\boldsymbol{\Sigma}}</span> 是协方差矩阵。</p>
+<p><strong>优点</strong>：考虑风险</p>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>协方差矩阵估计误差大</li>
+<li>对输入高度敏感（需正则化）</li>
+</ul>
+</section>
+<section id="因子约束factor-neutral" class="level3" data-number="11.2.4">
+<h3 data-number="11.2.4" class="anchored" data-anchor-id="因子约束factor-neutral"><span class="header-section-number">11.2.4</span> 4. 因子约束（Factor-neutral）</h3>
+<p>控制对已知因子的暴露：</p>
+<p><span class="math display">
+\mathbf{w}^\top \mathbf{F} = \mathbf{0}
+</span></p>
+<p>其中 <span class="math inline">\mathbf{F}</span> 是因子载荷矩阵（如市场、规模、价值）。</p>
+<p><strong>优点</strong>：纯粹的 alpha，风险更可控</p>
+</section>
+</section>
+<section id="模型组合策略" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="模型组合策略"><span class="header-section-number">11.3</span> 模型组合策略</h2>
+<section id="简单平均simple-average" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="简单平均simple-average"><span class="header-section-number">11.3.1</span> 1. 简单平均（Simple Average）</h3>
+<p><span class="math display">
+\hat{r}^{\text{ens}}_i = \frac{1}{M}\sum_{m=1}^M \hat{r}^{(m)}_i
+</span></p>
+<p><strong>优点</strong>：最简单，通常效果好</p>
+</section>
+<section id="加权平均weighted-average" class="level3" data-number="11.3.2">
+<h3 data-number="11.3.2" class="anchored" data-anchor-id="加权平均weighted-average"><span class="header-section-number">11.3.2</span> 2. 加权平均（Weighted Average）</h3>
+<p><span class="math display">
+\hat{r}^{\text{ens}}_i = \sum_{m=1}^M w_m \hat{r}^{(m)}_i
+</span></p>
+<p>权重 <span class="math inline">w_m</span> 根据验证集表现确定。</p>
+</section>
+<section id="stacking" class="level3" data-number="11.3.3">
+<h3 data-number="11.3.3" class="anchored" data-anchor-id="stacking"><span class="header-section-number">11.3.3</span> 3. Stacking</h3>
+<p>训练一个<strong>元模型</strong>，以各模型预测为输入：</p>
+<pre><code>模型1预测 ──┐
+模型2预测 ──┼──→ 元模型 ──→ 最终预测
+模型3预测 ──┘</code></pre>
+<p><strong>优点</strong>：自动学习最优组合</p>
+<p><strong>缺点</strong>：增加过拟合风险（需嵌套 CV）</p>
+</section>
+</section>
+</section>
+<section id="本周小结" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> 本周小结</h1>
+<section id="核心要点" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="核心要点"><span class="header-section-number">12.1</span> 核心要点</h2>
+<ol type="1">
+<li><strong>金融预测的特殊挑战</strong>：低信噪比、非平稳、交易约束</li>
+<li><strong>信息可得性</strong>：特征对齐、披露滞后、无前瞻偏误</li>
+<li><strong>时序评估</strong>：滚动/扩展窗口、嵌套 CV、禁用标准 K 折</li>
+<li><strong>回测卫生</strong>：存活偏误、数据回填、执行滞后等</li>
+<li><strong>评估体系</strong>：预测指标（IC）+ 组合指标（Sharpe, 成本后收益）</li>
+<li><strong>模型选择</strong>：正则化、集成、预测到组合的映射</li>
+</ol>
+</section>
+<section id="本周思考题" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="本周思考题"><span class="header-section-number">12.2</span> 本周思考题</h2>
+<section id="问题-1" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="问题-1"><span class="header-section-number">12.2.1</span> 问题 1</h3>
+<p>一个拥有较高样本外预测指标（如 OS-<span class="math inline">R^2</span> 或 IC）的模型,为何在真实交易中仍可能表现很差？请至少列出三个原因，并指出它们分别对应哪一类”回测卫生”问题或”经济约束”。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💡 参考答案
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>交易成本</strong>（经济约束）
+<ul>
+<li>高换手率策略的佣金与冲击成本</li>
+<li>可能吞噬全部预测收益</li>
+</ul></li>
+<li><strong>流动性不足</strong>（经济约束）
+<ul>
+<li>信号偏好小市值股票</li>
+<li>大资金无法实际交易</li>
+</ul></li>
+<li><strong>执行滞后</strong>（回测卫生）
+<ul>
+<li>回测假设即时执行</li>
+<li>实际可能 T+1 或更晚，信号衰减</li>
+</ul></li>
+<li><strong>数据窥探</strong>（回测卫生）
+<ul>
+<li>在测试集上反复调参</li>
+<li>样本外真实表现被高估</li>
+</ul></li>
+<li><strong>市场冲击</strong>（经济约束）
+<ul>
+<li>大额交易改变价格</li>
+<li>回测未考虑自身交易的影响</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="问题-2" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="问题-2"><span class="header-section-number">12.2.2</span> 问题 2</h3>
+<p>如果你的特征中包含会计变量（存在披露滞后），滚动窗口评估中最常见的信息泄露路径是什么？你会如何在数据对齐上规避？</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💡 参考答案
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>常见泄露路径</strong>：</p>
+<p>用当期年报数据预测当期收益，忽略年报通常在次年 3-4 月才披露。</p>
+<p><strong>规避方法</strong>：</p>
+<ol type="1">
+<li><p><strong>记录披露日期</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'report_date'</span>]     <span class="co"># 报告期（如 2023-12-31）</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'announce_date'</span>]   <span class="co"># 实际披露日（如 2024-04-30）</span></span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>对齐规则</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 只用已披露的最新数据</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'announce_date'</span>] <span class="op">&lt;</span> df[<span class="st">'trade_date'</span>]]</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>保守假设</strong></p>
+<ul>
+<li>年报假设次年 5 月 1 日可得</li>
+<li>季报假设下一季度首月可得</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="问题-3" class="level3" data-number="12.2.3">
+<h3 data-number="12.2.3" class="anchored" data-anchor-id="问题-3"><span class="header-section-number">12.2.3</span> 问题 3</h3>
+<p>结合 Gu, Kelly, Xiu (2020) 的经验事实，你会如何在”预测性能—稳定性—可解释性”之间权衡选择模型，并将其输出转化为一个可交易的组合？</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💡 参考答案
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>权衡策略</strong>：</p>
+<ol type="1">
+<li><strong>预测性能</strong>：神经网络 &gt; 树模型 &gt; 线性
+<ul>
+<li>但边际提升有限（0.1-0.2% <span class="math inline">R^2</span>）</li>
+</ul></li>
+<li><strong>稳定性</strong>：线性 ≈ 模型组合 &gt; 树模型 &gt; 神经网络
+<ul>
+<li>金融低信噪比环境下，稳定性更重要</li>
+</ul></li>
+<li><strong>可解释性</strong>：线性 &gt; 树模型 &gt; 神经网络
+<ul>
+<li>监管与风控需求</li>
+</ul></li>
+</ol>
+<p><strong>推荐方案</strong>：</p>
+<ul>
+<li><strong>研究导向</strong>：使用线性（Elastic Net）作为基准，树/神经网络探索非线性</li>
+<li><strong>实盘导向</strong>：多模型组合（平均或 stacking），平衡性能与稳健性</li>
+<li><strong>转化为组合</strong>：
+<ol type="1">
+<li>按预测分数排序</li>
+<li>做多前十分位，做空后十分位</li>
+<li>等权或根据流动性调整权重</li>
+<li>月度再平衡，控制换手率 &lt; 50%</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="下周预告" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="下周预告"><span class="header-section-number">12.3</span> 下周预告</h2>
+<p>第3周进入<strong>文本分析</strong>领域：</p>
+<ul>
+<li>文本表示方法演进（词袋 → BERT）</li>
+<li>语料治理：版本、对齐、去噪</li>
+<li>从原始文档到可用变量的审计流程</li>
+<li>增量信息检验与经济含义</li>
+</ul>
+<p><strong>预习阅读</strong>：</p>
+<ul>
+<li>Eisfeldt &amp; Schubert (2024) <em>Generative AI and Finance</em></li>
+<li>Gentzkow, Kelly &amp; Taddy (2019) <em>Text as Data</em></li>
+<li>Ludwig, Mullainathan &amp; Rambachan (2025) <em>LLMs: an applied econometric framework</em></li>
+</ul>
+<p><strong>预习任务</strong>：选一种感兴趣的金融文本（年报/新闻/研报/社媒），思考它最容易产生的”前瞻/对齐错误”是什么。</p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "已复制");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "已复制");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week1.html" class="pagination-link" aria-label="第1讲：机器学习理论基础">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">第1讲：机器学习理论基础</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week3.html" class="pagination-link" aria-label="第3讲：文本分析理论 → 金融文本应用">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">第3讲：文本分析理论 → 金融文本应用</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">源代码</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb20" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "第2讲：资产定价中的机器学习应用"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "问题解构、特征工程与时序评估规范"</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># 资产定价预测的"特别之处"</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## 与典型监督学习的差异</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>:::{.callout-important}</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🎯 核心认知</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>资产定价预测**远比标准 i.i.d. 监督学习困难**，原因在于：</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**极低信噪比**：可预测成分通常 &lt; 5% 方差</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**非平稳性**：数据分布随时间变化</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**横截面相关**：资产间高度关联</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**交易约束**：预测好 ≠ 可交易 ≠ 能赚钱</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. 低信噪比（Low Signal-to-Noise Ratio）</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>**典型事实**（来自 Gu, Kelly, Xiu 2020）：</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>个股月度收益预测的 $R^2_{\text{OOS}} \approx 0.5\%$</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>即使最优模型，95%+ 方差仍是噪声</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>对比：图像分类任务 $R^2 &gt; 90\%$</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>**含义**：</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>复杂模型极易将噪声误认为信号</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>正则化与集成方法至关重要</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>评估指标需关注**排序能力**而非绝对预测精度</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. 非平稳性（Non-stationarity）</span></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>**表现**：</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>均值/方差随时间变化（如牛市 vs 熊市）</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>特征–收益关系不稳定（如价值因子的衰退）</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>新信息源出现（如社交媒体数据）</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>**挑战**：</span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>历史数据未必代表未来</span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>模型需定期重训练</span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>需检验不同市场状态下的稳健性</span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. 横截面相关性（Cross-sectional Dependence）</span></span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a>**现实**：</span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>股票收益受共同因子驱动（市场、行业、风格）</span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>相关性在危机时期飙升</span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>违反 i.i.d. 假设中的"独立性"</span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a>**影响**：</span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>标准误估计偏小（需聚类调整）</span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>组合风险管理更复杂</span>
+<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>需控制因子暴露</span>
+<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. 交易约束与成本</span></span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a>**现实约束**：</span>
+<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**流动性**：小市值股票难以大规模交易</span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**交易成本**：佣金、冲击成本、税费</span>
+<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**卖空限制**：部分市场卖空困难或成本高</span>
+<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**杠杆限制**：借贷成本与上限</span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### ⚠️ 为何"预测更准"不等于"更赚钱"？</span></span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>**案例**：模型 A 预测 IC = 0.08，模型 B 预测 IC = 0.06</span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>若模型 A 的信号波动大 → 高换手率 → 交易成本吞噬收益</span>
+<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>若模型 A 偏好小市值股 → 流动性不足 → 难以实施</span>
+<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**结论**：模型 B 可能成本后表现更好</span>
+<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a><span class="fu"># 问题解构与特征工程</span></span>
+<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a><span class="fu">## 预测对象的选择</span></span>
+<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. 个股收益（Individual Stock Returns）</span></span>
+<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a>r_{i,t+h} = \log\left(\frac{P_{i,t+h}}{P_{i,t}}\right)</span>
+<span id="cb20-90"><a href="#cb20-90" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**优点**：直接可交易，信息丰富</span>
+<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**缺点**：噪声大，需处理退市/分红</span>
+<span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. 超额收益（Excess Returns）</span></span>
+<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a>r^e_{i,t+h} = r_{i,t+h} - r_{f,t+h}</span>
+<span id="cb20-99"><a href="#cb20-99" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a>或对市场调整：</span>
+<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a>r^e_{i,t+h} = r_{i,t+h} - r_{m,t+h}</span>
+<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**优点**：去除市场共同成分，提升信噪比</span>
+<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**缺点**：需选择基准</span>
+<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. 多空组合收益（Long-Short Portfolio Returns）</span></span>
+<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a>根据预测信号构建分位数组合：</span>
+<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-114"><a href="#cb20-114" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a>r^{LS}_{t+h} = r^{\text{High}}_{t+h} - r^{\text{Low}}_{t+h}</span>
+<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**优点**：直接评估策略表现</span>
+<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**缺点**：损失个股级信息</span>
+<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## 特征工程：信息集与时间对齐</span></span>
+<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a><span class="fu">### 信息可得性规则（Information Availability）</span></span>
+<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a>:::{.callout-important}</span>
+<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🔑 黄金法则</span></span>
+<span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a>**在时刻 $t$ 用于预测的特征，必须在 $t$ 时刻已公开可得！**</span>
+<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a>**常见陷阱**：</span>
+<span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**会计变量披露滞后**</span>
+<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a><span class="in">错误：用 2023 年报数据预测 2023 年收益</span></span>
+<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a><span class="in">正确：用 2022 年报（2023年4月披露）预测 2023年5月后收益</span></span>
+<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-139"><a href="#cb20-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**价格数据的"收盘价陷阱"**</span>
+<span id="cb20-141"><a href="#cb20-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a><span class="in">错误：用 t 日收盘价预测 t 日收益</span></span>
+<span id="cb20-144"><a href="#cb20-144" aria-hidden="true" tabindex="-1"></a><span class="in">正确：用 t-1 日收盘价预测 t 日收益</span></span>
+<span id="cb20-145"><a href="#cb20-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-146"><a href="#cb20-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-147"><a href="#cb20-147" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**分析师预测的"修订滞后"**</span>
+<span id="cb20-148"><a href="#cb20-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-150"><a href="#cb20-150" aria-hidden="true" tabindex="-1"></a><span class="in">需记录：每个预测的发布时间戳</span></span>
+<span id="cb20-151"><a href="#cb20-151" aria-hidden="true" tabindex="-1"></a><span class="in">对齐：只用发布时间 &lt; t 的预测</span></span>
+<span id="cb20-152"><a href="#cb20-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-153"><a href="#cb20-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-154"><a href="#cb20-154" aria-hidden="true" tabindex="-1"></a><span class="fu">### 特征类别与对齐策略</span></span>
+<span id="cb20-155"><a href="#cb20-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-156"><a href="#cb20-156" aria-hidden="true" tabindex="-1"></a>| 特征类别 | 更新频率 | 披露滞后 | 对齐策略 |</span>
+<span id="cb20-157"><a href="#cb20-157" aria-hidden="true" tabindex="-1"></a>|---------|---------|---------|---------|</span>
+<span id="cb20-158"><a href="#cb20-158" aria-hidden="true" tabindex="-1"></a>| **价格/成交量** | 日 | 无 | 用 $t-1$ 预测 $t$ |</span>
+<span id="cb20-159"><a href="#cb20-159" aria-hidden="true" tabindex="-1"></a>| **会计变量** | 季/年 | 1-4 个月 | 记录披露日期 |</span>
+<span id="cb20-160"><a href="#cb20-160" aria-hidden="true" tabindex="-1"></a>| **分析师预测** | 不定期 | 无 | 记录时间戳 |</span>
+<span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a>| **新闻/文本** | 实时 | 几乎无 | 记录发布时间 |</span>
+<span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a>| **宏观经济** | 月/季 | 数周 | 记录发布日期 |</span>
+<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-164"><a href="#cb20-164" aria-hidden="true" tabindex="-1"></a><span class="fu">### 缺失值处理的时间规范</span></span>
+<span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a>**原则**：填补方法不能使用未来信息。</span>
+<span id="cb20-167"><a href="#cb20-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-168"><a href="#cb20-168" aria-hidden="true" tabindex="-1"></a>✅ **正确做法**：</span>
+<span id="cb20-169"><a href="#cb20-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-170"><a href="#cb20-170" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb20-171"><a href="#cb20-171" aria-hidden="true" tabindex="-1"></a><span class="co"># 前向填充（用最近的已知值）</span></span>
+<span id="cb20-172"><a href="#cb20-172" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'feature'</span>] <span class="op">=</span> df.groupby(<span class="st">'stock_id'</span>)[<span class="st">'feature'</span>].ffill()</span>
+<span id="cb20-173"><a href="#cb20-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-174"><a href="#cb20-174" aria-hidden="true" tabindex="-1"></a><span class="co"># 或用历史均值（仅用 t 之前数据）</span></span>
+<span id="cb20-175"><a href="#cb20-175" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'feature'</span>] <span class="op">=</span> df[<span class="st">'feature'</span>].fillna(df[<span class="st">'feature'</span>].expanding().mean())</span>
+<span id="cb20-176"><a href="#cb20-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-177"><a href="#cb20-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-178"><a href="#cb20-178" aria-hidden="true" tabindex="-1"></a>❌ **错误做法**：</span>
+<span id="cb20-179"><a href="#cb20-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-180"><a href="#cb20-180" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb20-181"><a href="#cb20-181" aria-hidden="true" tabindex="-1"></a><span class="co"># 用全局均值（包含未来数据）</span></span>
+<span id="cb20-182"><a href="#cb20-182" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'feature'</span>] <span class="op">=</span> df[<span class="st">'feature'</span>].fillna(df[<span class="st">'feature'</span>].mean())</span>
+<span id="cb20-183"><a href="#cb20-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-184"><a href="#cb20-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-185"><a href="#cb20-185" aria-hidden="true" tabindex="-1"></a><span class="fu">### 标准化的时间规范</span></span>
+<span id="cb20-186"><a href="#cb20-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a>**横截面标准化**（cross-sectional）：</span>
+<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-189"><a href="#cb20-189" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a>\tilde{x}_{i,t} = \frac{x_{i,t} - \bar{x}_t}{\sigma_t}</span>
+<span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a>其中 $\bar{x}_t, \sigma_t$ 是时刻 $t$ 的横截面均值/标准差。</span>
+<span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-195"><a href="#cb20-195" aria-hidden="true" tabindex="-1"></a>✅ **适用场景**：特征在不同时期量纲差异大（如市盈率）</span>
+<span id="cb20-196"><a href="#cb20-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a>**时间序列标准化**：</span>
+<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a>\tilde{x}_{i,t} = \frac{x_{i,t} - \bar{x}_{i,&lt;t}}{\sigma_{i,&lt;t}}</span>
+<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-203"><a href="#cb20-203" aria-hidden="true" tabindex="-1"></a>其中 $\bar{x}_{i,&lt;t}, \sigma_{i,&lt;t}$ 是股票 $i$ 在 $t$ **之前**的均值/标准差。</span>
+<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-205"><a href="#cb20-205" aria-hidden="true" tabindex="-1"></a>✅ **适用场景**：特征在不同股票间量纲差异大（如成交量）</span>
+<span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-207"><a href="#cb20-207" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb20-208"><a href="#cb20-208" aria-hidden="true" tabindex="-1"></a><span class="fu">### ⚠️ 避免信息泄露</span></span>
+<span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-210"><a href="#cb20-210" aria-hidden="true" tabindex="-1"></a>**错误**：用包含测试期的统计量标准化</span>
+<span id="cb20-211"><a href="#cb20-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-212"><a href="#cb20-212" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb20-213"><a href="#cb20-213" aria-hidden="true" tabindex="-1"></a><span class="co"># 错误！scaler 看到了测试集数据</span></span>
+<span id="cb20-214"><a href="#cb20-214" aria-hidden="true" tabindex="-1"></a>scaler.fit(X_train <span class="op">+</span> X_test)</span>
+<span id="cb20-215"><a href="#cb20-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-216"><a href="#cb20-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-217"><a href="#cb20-217" aria-hidden="true" tabindex="-1"></a>**正确**：仅用训练期拟合</span>
+<span id="cb20-218"><a href="#cb20-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-219"><a href="#cb20-219" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb20-220"><a href="#cb20-220" aria-hidden="true" tabindex="-1"></a><span class="co"># 正确！</span></span>
+<span id="cb20-221"><a href="#cb20-221" aria-hidden="true" tabindex="-1"></a>scaler.fit(X_train)</span>
+<span id="cb20-222"><a href="#cb20-222" aria-hidden="true" tabindex="-1"></a>X_train_scaled <span class="op">=</span> scaler.transform(X_train)</span>
+<span id="cb20-223"><a href="#cb20-223" aria-hidden="true" tabindex="-1"></a>X_test_scaled <span class="op">=</span> scaler.transform(X_test)  <span class="co"># 用训练期参数转换</span></span>
+<span id="cb20-224"><a href="#cb20-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-225"><a href="#cb20-225" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-226"><a href="#cb20-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-227"><a href="#cb20-227" aria-hidden="true" tabindex="-1"></a><span class="fu"># 时序数据评估规范</span></span>
+<span id="cb20-228"><a href="#cb20-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-229"><a href="#cb20-229" aria-hidden="true" tabindex="-1"></a><span class="fu">## 为什么 K 折交叉验证不适用？</span></span>
+<span id="cb20-230"><a href="#cb20-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-231"><a href="#cb20-231" aria-hidden="true" tabindex="-1"></a>**K 折 CV 的假设**：训练集和验证集可互换（i.i.d.）</span>
+<span id="cb20-232"><a href="#cb20-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-233"><a href="#cb20-233" aria-hidden="true" tabindex="-1"></a>**金融时序的现实**：</span>
+<span id="cb20-234"><a href="#cb20-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-235"><a href="#cb20-235" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>未来不可用于预测过去（因果性）</span>
+<span id="cb20-236"><a href="#cb20-236" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>数据分布随时间变化（非平稳）</span>
+<span id="cb20-237"><a href="#cb20-237" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>若打乱时间顺序，会造成严重的**前瞻偏误**</span>
+<span id="cb20-238"><a href="#cb20-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-239"><a href="#cb20-239" aria-hidden="true" tabindex="-1"></a>:::{.callout-caution}</span>
+<span id="cb20-240"><a href="#cb20-240" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🚫 禁止操作</span></span>
+<span id="cb20-241"><a href="#cb20-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-242"><a href="#cb20-242" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb20-243"><a href="#cb20-243" aria-hidden="true" tabindex="-1"></a><span class="co"># 危险！时序数据不能用标准 K 折</span></span>
+<span id="cb20-244"><a href="#cb20-244" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
+<span id="cb20-245"><a href="#cb20-245" aria-hidden="true" tabindex="-1"></a>kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>, shuffle<span class="op">=</span><span class="va">True</span>)  <span class="co"># shuffle=True 破坏时序</span></span>
+<span id="cb20-246"><a href="#cb20-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-247"><a href="#cb20-247" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-248"><a href="#cb20-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-249"><a href="#cb20-249" aria-hidden="true" tabindex="-1"></a><span class="fu">## 时序数据的正确划分</span></span>
+<span id="cb20-250"><a href="#cb20-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-251"><a href="#cb20-251" aria-hidden="true" tabindex="-1"></a><span class="fu">### 基本时间切分</span></span>
+<span id="cb20-252"><a href="#cb20-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-253"><a href="#cb20-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-254"><a href="#cb20-254" aria-hidden="true" tabindex="-1"></a><span class="in">历史数据  │  样本内评估期  │  样本外评估期</span></span>
+<span id="cb20-255"><a href="#cb20-255" aria-hidden="true" tabindex="-1"></a><span class="in">─────────┼───────────────┼──────────────→ 时间</span></span>
+<span id="cb20-256"><a href="#cb20-256" aria-hidden="true" tabindex="-1"></a><span class="in">  Train  │    Validation │      Test</span></span>
+<span id="cb20-257"><a href="#cb20-257" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-258"><a href="#cb20-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-259"><a href="#cb20-259" aria-hidden="true" tabindex="-1"></a>**原则**：</span>
+<span id="cb20-260"><a href="#cb20-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-261"><a href="#cb20-261" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>训练集：最早的数据</span>
+<span id="cb20-262"><a href="#cb20-262" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>验证集：训练集之后</span>
+<span id="cb20-263"><a href="#cb20-263" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>测试集：验证集之后（仅用一次！）</span>
+<span id="cb20-264"><a href="#cb20-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-265"><a href="#cb20-265" aria-hidden="true" tabindex="-1"></a><span class="fu">### 滚动窗口（Rolling Window）</span></span>
+<span id="cb20-266"><a href="#cb20-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-267"><a href="#cb20-267" aria-hidden="true" tabindex="-1"></a>**固定训练窗口长度**，逐步向前滚动：</span>
+<span id="cb20-268"><a href="#cb20-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-269"><a href="#cb20-269" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-270"><a href="#cb20-270" aria-hidden="true" tabindex="-1"></a><span class="in">时间:  1 2 3 4 5 6 7 8 9 10 11 12</span></span>
+<span id="cb20-271"><a href="#cb20-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-272"><a href="#cb20-272" aria-hidden="true" tabindex="-1"></a><span class="in">迭代1: [Train: 1-5] → Predict: 6</span></span>
+<span id="cb20-273"><a href="#cb20-273" aria-hidden="true" tabindex="-1"></a><span class="in">迭代2:   [Train: 2-6] → Predict: 7</span></span>
+<span id="cb20-274"><a href="#cb20-274" aria-hidden="true" tabindex="-1"></a><span class="in">迭代3:     [Train: 3-7] → Predict: 8</span></span>
+<span id="cb20-275"><a href="#cb20-275" aria-hidden="true" tabindex="-1"></a><span class="in">迭代4:       [Train: 4-8] → Predict: 9</span></span>
+<span id="cb20-276"><a href="#cb20-276" aria-hidden="true" tabindex="-1"></a><span class="in">...</span></span>
+<span id="cb20-277"><a href="#cb20-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-278"><a href="#cb20-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-279"><a href="#cb20-279" aria-hidden="true" tabindex="-1"></a>**优点**：</span>
+<span id="cb20-280"><a href="#cb20-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-281"><a href="#cb20-281" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>模型保持"新鲜"，适应非平稳性</span>
+<span id="cb20-282"><a href="#cb20-282" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>计算成本可控</span>
+<span id="cb20-283"><a href="#cb20-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-284"><a href="#cb20-284" aria-hidden="true" tabindex="-1"></a>**缺点**：</span>
+<span id="cb20-285"><a href="#cb20-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-286"><a href="#cb20-286" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>丢弃早期数据，样本量小</span>
+<span id="cb20-287"><a href="#cb20-287" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>窗口长度需调优</span>
+<span id="cb20-288"><a href="#cb20-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-289"><a href="#cb20-289" aria-hidden="true" tabindex="-1"></a><span class="fu">### 扩展窗口（Expanding Window）</span></span>
+<span id="cb20-290"><a href="#cb20-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-291"><a href="#cb20-291" aria-hidden="true" tabindex="-1"></a>**累积所有历史数据**，窗口不断扩大：</span>
+<span id="cb20-292"><a href="#cb20-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-293"><a href="#cb20-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-294"><a href="#cb20-294" aria-hidden="true" tabindex="-1"></a><span class="in">时间:  1 2 3 4 5 6 7 8 9 10 11 12</span></span>
+<span id="cb20-295"><a href="#cb20-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-296"><a href="#cb20-296" aria-hidden="true" tabindex="-1"></a><span class="in">迭代1: [Train: 1-5] → Predict: 6</span></span>
+<span id="cb20-297"><a href="#cb20-297" aria-hidden="true" tabindex="-1"></a><span class="in">迭代2: [Train: 1-6] → Predict: 7</span></span>
+<span id="cb20-298"><a href="#cb20-298" aria-hidden="true" tabindex="-1"></a><span class="in">迭代3: [Train: 1-7] → Predict: 8</span></span>
+<span id="cb20-299"><a href="#cb20-299" aria-hidden="true" tabindex="-1"></a><span class="in">迭代4: [Train: 1-8] → Predict: 9</span></span>
+<span id="cb20-300"><a href="#cb20-300" aria-hidden="true" tabindex="-1"></a><span class="in">...</span></span>
+<span id="cb20-301"><a href="#cb20-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-302"><a href="#cb20-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-303"><a href="#cb20-303" aria-hidden="true" tabindex="-1"></a>**优点**：</span>
+<span id="cb20-304"><a href="#cb20-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-305"><a href="#cb20-305" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>充分利用历史数据，样本量大</span>
+<span id="cb20-306"><a href="#cb20-306" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>估计更稳定</span>
+<span id="cb20-307"><a href="#cb20-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-308"><a href="#cb20-308" aria-hidden="true" tabindex="-1"></a>**缺点**：</span>
+<span id="cb20-309"><a href="#cb20-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-310"><a href="#cb20-310" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>早期数据可能过时</span>
+<span id="cb20-311"><a href="#cb20-311" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>计算成本高（训练集不断增长）</span>
+<span id="cb20-312"><a href="#cb20-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-313"><a href="#cb20-313" aria-hidden="true" tabindex="-1"></a><span class="fu">### 选择建议</span></span>
+<span id="cb20-314"><a href="#cb20-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-315"><a href="#cb20-315" aria-hidden="true" tabindex="-1"></a>| 场景 | 推荐方法 |</span>
+<span id="cb20-316"><a href="#cb20-316" aria-hidden="true" tabindex="-1"></a>|-----|---------|</span>
+<span id="cb20-317"><a href="#cb20-317" aria-hidden="true" tabindex="-1"></a>| 数据平稳、样本少 | 扩展窗口 |</span>
+<span id="cb20-318"><a href="#cb20-318" aria-hidden="true" tabindex="-1"></a>| 数据非平稳明显 | 滚动窗口（短窗口）|</span>
+<span id="cb20-319"><a href="#cb20-319" aria-hidden="true" tabindex="-1"></a>| 不确定 | 两者都试，对比稳健性 |</span>
+<span id="cb20-320"><a href="#cb20-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-321"><a href="#cb20-321" aria-hidden="true" tabindex="-1"></a><span class="fu">## 嵌套时序评估（Nested Time Series CV）</span></span>
+<span id="cb20-322"><a href="#cb20-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-323"><a href="#cb20-323" aria-hidden="true" tabindex="-1"></a>**问题**：超参数（如正则化强度 $\lambda$）如何选择？</span>
+<span id="cb20-324"><a href="#cb20-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-325"><a href="#cb20-325" aria-hidden="true" tabindex="-1"></a>**错误做法**：在测试集上调参（数据窥探！）</span>
+<span id="cb20-326"><a href="#cb20-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-327"><a href="#cb20-327" aria-hidden="true" tabindex="-1"></a>**正确做法**：嵌套结构，分离"调参"与"泛化评估"</span>
+<span id="cb20-328"><a href="#cb20-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-329"><a href="#cb20-329" aria-hidden="true" tabindex="-1"></a><span class="fu">### 嵌套结构示意</span></span>
+<span id="cb20-330"><a href="#cb20-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-331"><a href="#cb20-331" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-332"><a href="#cb20-332" aria-hidden="true" tabindex="-1"></a><span class="in">外层循环（泛化评估）:</span></span>
+<span id="cb20-333"><a href="#cb20-333" aria-hidden="true" tabindex="-1"></a><span class="in">┌────────────────────────────────────────────────────┐</span></span>
+<span id="cb20-334"><a href="#cb20-334" aria-hidden="true" tabindex="-1"></a><span class="in">│ Train + Val (合并) │ → Model(best λ) → │ Test_1 │</span></span>
+<span id="cb20-335"><a href="#cb20-335" aria-hidden="true" tabindex="-1"></a><span class="in">└────────────────────────────────────────────────────┘</span></span>
+<span id="cb20-336"><a href="#cb20-336" aria-hidden="true" tabindex="-1"></a><span class="in">    内层循环（选 λ）:</span></span>
+<span id="cb20-337"><a href="#cb20-337" aria-hidden="true" tabindex="-1"></a><span class="in">    ┌──────────────────┬─────────────┐</span></span>
+<span id="cb20-338"><a href="#cb20-338" aria-hidden="true" tabindex="-1"></a><span class="in">    │   Train_inner    │  Val_inner  │  → 试 λ1, λ2, ...</span></span>
+<span id="cb20-339"><a href="#cb20-339" aria-hidden="true" tabindex="-1"></a><span class="in">    └──────────────────┴─────────────┘</span></span>
+<span id="cb20-340"><a href="#cb20-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-341"><a href="#cb20-341" aria-hidden="true" tabindex="-1"></a><span class="in">然后滚动到下一期...</span></span>
+<span id="cb20-342"><a href="#cb20-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-343"><a href="#cb20-343" aria-hidden="true" tabindex="-1"></a><span class="in">┌────────────────────────────────────────────────────┐</span></span>
+<span id="cb20-344"><a href="#cb20-344" aria-hidden="true" tabindex="-1"></a><span class="in">│   Train + Val (合并)   │ → Model(best λ) → │Test_2│</span></span>
+<span id="cb20-345"><a href="#cb20-345" aria-hidden="true" tabindex="-1"></a><span class="in">└────────────────────────────────────────────────────┘</span></span>
+<span id="cb20-346"><a href="#cb20-346" aria-hidden="true" tabindex="-1"></a><span class="in">    内层循环（重新选 λ）:</span></span>
+<span id="cb20-347"><a href="#cb20-347" aria-hidden="true" tabindex="-1"></a><span class="in">    ┌──────────────────┬─────────────┐</span></span>
+<span id="cb20-348"><a href="#cb20-348" aria-hidden="true" tabindex="-1"></a><span class="in">    │   Train_inner    │  Val_inner  │</span></span>
+<span id="cb20-349"><a href="#cb20-349" aria-hidden="true" tabindex="-1"></a><span class="in">    └──────────────────┴─────────────┘</span></span>
+<span id="cb20-350"><a href="#cb20-350" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-351"><a href="#cb20-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-352"><a href="#cb20-352" aria-hidden="true" tabindex="-1"></a><span class="fu">### 伪代码</span></span>
+<span id="cb20-353"><a href="#cb20-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-354"><a href="#cb20-354" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb20-355"><a href="#cb20-355" aria-hidden="true" tabindex="-1"></a>test_scores <span class="op">=</span> []</span>
+<span id="cb20-356"><a href="#cb20-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-357"><a href="#cb20-357" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> test_start <span class="kw">in</span> test_periods:</span>
+<span id="cb20-358"><a href="#cb20-358" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 外层：定义本期测试集</span></span>
+<span id="cb20-359"><a href="#cb20-359" aria-hidden="true" tabindex="-1"></a>    train_val <span class="op">=</span> data[data.date <span class="op">&lt;</span> test_start]</span>
+<span id="cb20-360"><a href="#cb20-360" aria-hidden="true" tabindex="-1"></a>    test <span class="op">=</span> data[data.date <span class="op">&gt;=</span> test_start]</span>
+<span id="cb20-361"><a href="#cb20-361" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-362"><a href="#cb20-362" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 内层：在 train_val 上用时序 CV 选超参数</span></span>
+<span id="cb20-363"><a href="#cb20-363" aria-hidden="true" tabindex="-1"></a>    best_lambda <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb20-364"><a href="#cb20-364" aria-hidden="true" tabindex="-1"></a>    best_val_score <span class="op">=</span> <span class="op">-</span>inf</span>
+<span id="cb20-365"><a href="#cb20-365" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-366"><a href="#cb20-366" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> lambda_candidate <span class="kw">in</span> lambda_grid:</span>
+<span id="cb20-367"><a href="#cb20-367" aria-hidden="true" tabindex="-1"></a>        val_scores_inner <span class="op">=</span> []</span>
+<span id="cb20-368"><a href="#cb20-368" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> val_start <span class="kw">in</span> validation_periods:</span>
+<span id="cb20-369"><a href="#cb20-369" aria-hidden="true" tabindex="-1"></a>            train_inner <span class="op">=</span> train_val[train_val.date <span class="op">&lt;</span> val_start]</span>
+<span id="cb20-370"><a href="#cb20-370" aria-hidden="true" tabindex="-1"></a>            val_inner <span class="op">=</span> train_val[train_val.date <span class="op">&gt;=</span> val_start]</span>
+<span id="cb20-371"><a href="#cb20-371" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb20-372"><a href="#cb20-372" aria-hidden="true" tabindex="-1"></a>            model.fit(train_inner, <span class="kw">lambda</span><span class="op">=</span>lambda_candidate)</span>
+<span id="cb20-373"><a href="#cb20-373" aria-hidden="true" tabindex="-1"></a>            val_scores_inner.append(model.score(val_inner))</span>
+<span id="cb20-374"><a href="#cb20-374" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb20-375"><a href="#cb20-375" aria-hidden="true" tabindex="-1"></a>        avg_val_score <span class="op">=</span> mean(val_scores_inner)</span>
+<span id="cb20-376"><a href="#cb20-376" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> avg_val_score <span class="op">&gt;</span> best_val_score:</span>
+<span id="cb20-377"><a href="#cb20-377" aria-hidden="true" tabindex="-1"></a>            best_val_score <span class="op">=</span> avg_val_score</span>
+<span id="cb20-378"><a href="#cb20-378" aria-hidden="true" tabindex="-1"></a>            best_lambda <span class="op">=</span> lambda_candidate</span>
+<span id="cb20-379"><a href="#cb20-379" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-380"><a href="#cb20-380" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 外层：用最优超参数训练最终模型</span></span>
+<span id="cb20-381"><a href="#cb20-381" aria-hidden="true" tabindex="-1"></a>    model.fit(train_val, <span class="kw">lambda</span><span class="op">=</span>best_lambda)</span>
+<span id="cb20-382"><a href="#cb20-382" aria-hidden="true" tabindex="-1"></a>    test_scores.append(model.score(test))</span>
+<span id="cb20-383"><a href="#cb20-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-384"><a href="#cb20-384" aria-hidden="true" tabindex="-1"></a><span class="co"># 报告样本外性能</span></span>
+<span id="cb20-385"><a href="#cb20-385" aria-hidden="true" tabindex="-1"></a>final_oos_score <span class="op">=</span> mean(test_scores)</span>
+<span id="cb20-386"><a href="#cb20-386" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-387"><a href="#cb20-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-388"><a href="#cb20-388" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb20-389"><a href="#cb20-389" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💡 实践建议</span></span>
+<span id="cb20-390"><a href="#cb20-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-391"><a href="#cb20-391" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**内层窗口可以更短**：调参不需要太长历史</span>
+<span id="cb20-392"><a href="#cb20-392" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**外层跨度看研究问题**：月度/季度/年度重训练</span>
+<span id="cb20-393"><a href="#cb20-393" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**计算成本高**：可先在小数据集上探索，再全量运行</span>
+<span id="cb20-394"><a href="#cb20-394" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-395"><a href="#cb20-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-396"><a href="#cb20-396" aria-hidden="true" tabindex="-1"></a><span class="fu"># 回测卫生清单（Backtesting Hygiene）</span></span>
+<span id="cb20-397"><a href="#cb20-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-398"><a href="#cb20-398" aria-hidden="true" tabindex="-1"></a><span class="fu">## 常见偏误类型</span></span>
+<span id="cb20-399"><a href="#cb20-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-400"><a href="#cb20-400" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. 存活偏误（Survivorship Bias）</span></span>
+<span id="cb20-401"><a href="#cb20-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-402"><a href="#cb20-402" aria-hidden="true" tabindex="-1"></a>**问题**：只用当前仍存在的股票回测，忽略退市股票。</span>
+<span id="cb20-403"><a href="#cb20-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-404"><a href="#cb20-404" aria-hidden="true" tabindex="-1"></a>**后果**：</span>
+<span id="cb20-405"><a href="#cb20-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-406"><a href="#cb20-406" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>高估策略收益（退市股通常表现差）</span>
+<span id="cb20-407"><a href="#cb20-407" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>低估风险（极端亏损被排除）</span>
+<span id="cb20-408"><a href="#cb20-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-409"><a href="#cb20-409" aria-hidden="true" tabindex="-1"></a>**解决**：</span>
+<span id="cb20-410"><a href="#cb20-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-411"><a href="#cb20-411" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>使用**包含退市股的全历史数据库**</span>
+<span id="cb20-412"><a href="#cb20-412" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>记录退市日期与退市收益</span>
+<span id="cb20-413"><a href="#cb20-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-414"><a href="#cb20-414" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. 数据回填（Backfilled Data）</span></span>
+<span id="cb20-415"><a href="#cb20-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-416"><a href="#cb20-416" aria-hidden="true" tabindex="-1"></a>**问题**：数据供应商事后修正历史数据（如重述财报）。</span>
+<span id="cb20-417"><a href="#cb20-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-418"><a href="#cb20-418" aria-hidden="true" tabindex="-1"></a>**后果**：用到了当时不可得的"修正后"数据。</span>
+<span id="cb20-419"><a href="#cb20-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-420"><a href="#cb20-420" aria-hidden="true" tabindex="-1"></a>**解决**：</span>
+<span id="cb20-421"><a href="#cb20-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-422"><a href="#cb20-422" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>使用**时间点数据库**（point-in-time database）</span>
+<span id="cb20-423"><a href="#cb20-423" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>记录每个数据点的"as of"日期</span>
+<span id="cb20-424"><a href="#cb20-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-425"><a href="#cb20-425" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. 公司行动处理（Corporate Actions）</span></span>
+<span id="cb20-426"><a href="#cb20-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-427"><a href="#cb20-427" aria-hidden="true" tabindex="-1"></a>**未调整**：</span>
+<span id="cb20-428"><a href="#cb20-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-429"><a href="#cb20-429" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>股票分拆/合并（如1股拆3股）</span>
+<span id="cb20-430"><a href="#cb20-430" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>现金分红（影响收益计算）</span>
+<span id="cb20-431"><a href="#cb20-431" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>配股/增发</span>
+<span id="cb20-432"><a href="#cb20-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-433"><a href="#cb20-433" aria-hidden="true" tabindex="-1"></a>**解决**：</span>
+<span id="cb20-434"><a href="#cb20-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-435"><a href="#cb20-435" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>使用**复权价格**（adjusted prices）</span>
+<span id="cb20-436"><a href="#cb20-436" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>或手动调整收益序列</span>
+<span id="cb20-437"><a href="#cb20-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-438"><a href="#cb20-438" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. 停牌处理</span></span>
+<span id="cb20-439"><a href="#cb20-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-440"><a href="#cb20-440" aria-hidden="true" tabindex="-1"></a>**问题**：停牌期间无法交易，但收益率序列可能显示"0"或"缺失"。</span>
+<span id="cb20-441"><a href="#cb20-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-442"><a href="#cb20-442" aria-hidden="true" tabindex="-1"></a>**后果**：</span>
+<span id="cb20-443"><a href="#cb20-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-444"><a href="#cb20-444" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>错误假设可以在停牌期买入/卖出</span>
+<span id="cb20-445"><a href="#cb20-445" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>低估流动性风险</span>
+<span id="cb20-446"><a href="#cb20-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-447"><a href="#cb20-447" aria-hidden="true" tabindex="-1"></a>**解决**：</span>
+<span id="cb20-448"><a href="#cb20-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-449"><a href="#cb20-449" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>标记停牌日期</span>
+<span id="cb20-450"><a href="#cb20-450" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>回测中跳过停牌股票或延迟调仓</span>
+<span id="cb20-451"><a href="#cb20-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-452"><a href="#cb20-452" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5. 样本选择与数据窥探（Data Snooping）</span></span>
+<span id="cb20-453"><a href="#cb20-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-454"><a href="#cb20-454" aria-hidden="true" tabindex="-1"></a>**问题**：</span>
+<span id="cb20-455"><a href="#cb20-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-456"><a href="#cb20-456" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>在多次尝试后只报告最好的结果</span>
+<span id="cb20-457"><a href="#cb20-457" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>根据整个样本期的特征选择模型/特征</span>
+<span id="cb20-458"><a href="#cb20-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-459"><a href="#cb20-459" aria-hidden="true" tabindex="-1"></a>**后果**：</span>
+<span id="cb20-460"><a href="#cb20-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-461"><a href="#cb20-461" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>样本外表现远低于预期</span>
+<span id="cb20-462"><a href="#cb20-462" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>无法复现</span>
+<span id="cb20-463"><a href="#cb20-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-464"><a href="#cb20-464" aria-hidden="true" tabindex="-1"></a>**解决**：</span>
+<span id="cb20-465"><a href="#cb20-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-466"><a href="#cb20-466" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**预先登记**研究设计（pre-registration）</span>
+<span id="cb20-467"><a href="#cb20-467" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>报告所有尝试（包括失败的）</span>
+<span id="cb20-468"><a href="#cb20-468" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>用**独立测试集**或**新数据期**验证</span>
+<span id="cb20-469"><a href="#cb20-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-470"><a href="#cb20-470" aria-hidden="true" tabindex="-1"></a><span class="fu">## 调仓时点与执行滞后</span></span>
+<span id="cb20-471"><a href="#cb20-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-472"><a href="#cb20-472" aria-hidden="true" tabindex="-1"></a><span class="fu">### 调仓时点设计</span></span>
+<span id="cb20-473"><a href="#cb20-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-474"><a href="#cb20-474" aria-hidden="true" tabindex="-1"></a>**典型流程**：</span>
+<span id="cb20-475"><a href="#cb20-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-476"><a href="#cb20-476" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-477"><a href="#cb20-477" aria-hidden="true" tabindex="-1"></a><span class="in">月末 t: 观察所有可得信息 x_t</span></span>
+<span id="cb20-478"><a href="#cb20-478" aria-hidden="true" tabindex="-1"></a><span class="in">  ↓</span></span>
+<span id="cb20-479"><a href="#cb20-479" aria-hidden="true" tabindex="-1"></a><span class="in">月初 t+1: 计算预测信号 f(x_t)</span></span>
+<span id="cb20-480"><a href="#cb20-480" aria-hidden="true" tabindex="-1"></a><span class="in">  ↓</span></span>
+<span id="cb20-481"><a href="#cb20-481" aria-hidden="true" tabindex="-1"></a><span class="in">开盘后: 执行交易，形成新组合</span></span>
+<span id="cb20-482"><a href="#cb20-482" aria-hidden="true" tabindex="-1"></a><span class="in">  ↓</span></span>
+<span id="cb20-483"><a href="#cb20-483" aria-hidden="true" tabindex="-1"></a><span class="in">月末 t+1: 观察收益 r_{t+1}</span></span>
+<span id="cb20-484"><a href="#cb20-484" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-485"><a href="#cb20-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-486"><a href="#cb20-486" aria-hidden="true" tabindex="-1"></a>**关键问题**：</span>
+<span id="cb20-487"><a href="#cb20-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-488"><a href="#cb20-488" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>何时计算信号？（需确保数据已可得）</span>
+<span id="cb20-489"><a href="#cb20-489" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>何时执行交易？（开盘/收盘/盘中均价？）</span>
+<span id="cb20-490"><a href="#cb20-490" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>是否有执行滞后？（如需 T+1 日才能成交）</span>
+<span id="cb20-491"><a href="#cb20-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-492"><a href="#cb20-492" aria-hidden="true" tabindex="-1"></a><span class="fu">### 执行价格</span></span>
+<span id="cb20-493"><a href="#cb20-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-494"><a href="#cb20-494" aria-hidden="true" tabindex="-1"></a>**保守假设**：</span>
+<span id="cb20-495"><a href="#cb20-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-496"><a href="#cb20-496" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>买入用**更高的价格**（如开盘价 + 滑点）</span>
+<span id="cb20-497"><a href="#cb20-497" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>卖出用**更低的价格**（如开盘价 - 滑点）</span>
+<span id="cb20-498"><a href="#cb20-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-499"><a href="#cb20-499" aria-hidden="true" tabindex="-1"></a>**示例**：</span>
+<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-501"><a href="#cb20-501" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb20-502"><a href="#cb20-502" aria-hidden="true" tabindex="-1"></a><span class="co"># 假设在月初第一个交易日开盘价执行</span></span>
+<span id="cb20-503"><a href="#cb20-503" aria-hidden="true" tabindex="-1"></a>entry_price <span class="op">=</span> open_price <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> slippage)  <span class="co"># 买入</span></span>
+<span id="cb20-504"><a href="#cb20-504" aria-hidden="true" tabindex="-1"></a>exit_price <span class="op">=</span> open_price <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> slippage)   <span class="co"># 卖出</span></span>
+<span id="cb20-505"><a href="#cb20-505" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-506"><a href="#cb20-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-507"><a href="#cb20-507" aria-hidden="true" tabindex="-1"></a><span class="fu"># 评估指标：从预测到组合</span></span>
+<span id="cb20-508"><a href="#cb20-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-509"><a href="#cb20-509" aria-hidden="true" tabindex="-1"></a><span class="fu">## 预测层面指标</span></span>
+<span id="cb20-510"><a href="#cb20-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-511"><a href="#cb20-511" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. 样本外 $R^2$（Out-of-Sample $R^2$）</span></span>
+<span id="cb20-512"><a href="#cb20-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-513"><a href="#cb20-513" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-514"><a href="#cb20-514" aria-hidden="true" tabindex="-1"></a>R^2_{\text{OOS}} = 1 - \frac{\sum_{t \in \text{OOS}} (r_t - \hat{r}_t)^2}{\sum_{t \in \text{OOS}} (r_t - \bar{r}_{\text{hist}})^2}</span>
+<span id="cb20-515"><a href="#cb20-515" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-516"><a href="#cb20-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-517"><a href="#cb20-517" aria-hidden="true" tabindex="-1"></a>其中 $\bar{r}_{\text{hist}}$ 是历史均值（仅用训练期）。</span>
+<span id="cb20-518"><a href="#cb20-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-519"><a href="#cb20-519" aria-hidden="true" tabindex="-1"></a>**解释**：</span>
+<span id="cb20-520"><a href="#cb20-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-521"><a href="#cb20-521" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>相对于"历史均值预测"的改进</span>
+<span id="cb20-522"><a href="#cb20-522" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>可能为负（模型比均值还差）</span>
+<span id="cb20-523"><a href="#cb20-523" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>GKY (2020) 中 $R^2_{\text{OOS}} \approx 0.5\%$ 已属优秀</span>
+<span id="cb20-524"><a href="#cb20-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-525"><a href="#cb20-525" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. 信息系数（IC）与 Rank IC</span></span>
+<span id="cb20-526"><a href="#cb20-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-527"><a href="#cb20-527" aria-hidden="true" tabindex="-1"></a>**IC**（Information Coefficient）：预测值与实际值的相关系数</span>
+<span id="cb20-528"><a href="#cb20-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-529"><a href="#cb20-529" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-530"><a href="#cb20-530" aria-hidden="true" tabindex="-1"></a>\text{IC}_t = \text{Corr}(\hat{r}_{i,t}, r_{i,t})</span>
+<span id="cb20-531"><a href="#cb20-531" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-532"><a href="#cb20-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-533"><a href="#cb20-533" aria-hidden="true" tabindex="-1"></a>**Rank IC**：排序相关（Spearman）</span>
+<span id="cb20-534"><a href="#cb20-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-535"><a href="#cb20-535" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-536"><a href="#cb20-536" aria-hidden="true" tabindex="-1"></a>\text{Rank-IC}_t = \text{Spearman}(\hat{r}_{i,t}, r_{i,t})</span>
+<span id="cb20-537"><a href="#cb20-537" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-538"><a href="#cb20-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-539"><a href="#cb20-539" aria-hidden="true" tabindex="-1"></a>**优点**：</span>
+<span id="cb20-540"><a href="#cb20-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-541"><a href="#cb20-541" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>更关注排序而非数值精度</span>
+<span id="cb20-542"><a href="#cb20-542" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>对异常值更鲁棒（Rank IC）</span>
+<span id="cb20-543"><a href="#cb20-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-544"><a href="#cb20-544" aria-hidden="true" tabindex="-1"></a>**典型值**：</span>
+<span id="cb20-545"><a href="#cb20-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-546"><a href="#cb20-546" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$|\text{IC}| &gt; 0.05$ 已有实用价值</span>
+<span id="cb20-547"><a href="#cb20-547" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$|\text{IC}| &gt; 0.10$ 属强信号</span>
+<span id="cb20-548"><a href="#cb20-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-549"><a href="#cb20-549" aria-hidden="true" tabindex="-1"></a><span class="fu">## 组合层面指标</span></span>
+<span id="cb20-550"><a href="#cb20-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-551"><a href="#cb20-551" aria-hidden="true" tabindex="-1"></a><span class="fu">### 构建多空组合</span></span>
+<span id="cb20-552"><a href="#cb20-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-553"><a href="#cb20-553" aria-hidden="true" tabindex="-1"></a>**基于预测分数排序**：</span>
+<span id="cb20-554"><a href="#cb20-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-555"><a href="#cb20-555" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>每期将股票按 $\hat{r}_{i,t}$ 排序</span>
+<span id="cb20-556"><a href="#cb20-556" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>做多前 20%（或前十分位）</span>
+<span id="cb20-557"><a href="#cb20-557" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>做空后 20%（或后十分位）</span>
+<span id="cb20-558"><a href="#cb20-558" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>计算组合收益</span>
+<span id="cb20-559"><a href="#cb20-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-560"><a href="#cb20-560" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. 年化超额收益</span></span>
+<span id="cb20-561"><a href="#cb20-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-562"><a href="#cb20-562" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-563"><a href="#cb20-563" aria-hidden="true" tabindex="-1"></a>\bar{r}^e_{\text{annual}} = 12 \times \frac{1}{T}\sum_{t=1}^T r^e_t \quad \text{（月度数据）}</span>
+<span id="cb20-564"><a href="#cb20-564" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-565"><a href="#cb20-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-566"><a href="#cb20-566" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. 夏普比率（Sharpe Ratio）</span></span>
+<span id="cb20-567"><a href="#cb20-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-568"><a href="#cb20-568" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-569"><a href="#cb20-569" aria-hidden="true" tabindex="-1"></a>\text{Sharpe} = \frac{\bar{r}^e}{\sigma(r^e)} \times \sqrt{12}</span>
+<span id="cb20-570"><a href="#cb20-570" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-571"><a href="#cb20-571" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-572"><a href="#cb20-572" aria-hidden="true" tabindex="-1"></a>**解释**：单位风险的超额收益</span>
+<span id="cb20-573"><a href="#cb20-573" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-574"><a href="#cb20-574" aria-hidden="true" tabindex="-1"></a>**典型值**：</span>
+<span id="cb20-575"><a href="#cb20-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-576"><a href="#cb20-576" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sharpe &gt; 1：优秀</span>
+<span id="cb20-577"><a href="#cb20-577" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sharpe &gt; 2：非常优秀（需警惕过拟合）</span>
+<span id="cb20-578"><a href="#cb20-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-579"><a href="#cb20-579" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. 信息比率（Information Ratio）</span></span>
+<span id="cb20-580"><a href="#cb20-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-581"><a href="#cb20-581" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-582"><a href="#cb20-582" aria-hidden="true" tabindex="-1"></a>\text{IR} = \frac{\bar{r}^e - r^{\text{benchmark}}}{\sigma(r^e - r^{\text{benchmark}})}</span>
+<span id="cb20-583"><a href="#cb20-583" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-584"><a href="#cb20-584" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-585"><a href="#cb20-585" aria-hidden="true" tabindex="-1"></a>**解释**：相对基准的超额收益稳定性</span>
+<span id="cb20-586"><a href="#cb20-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-587"><a href="#cb20-587" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. 最大回撤（Maximum Drawdown）</span></span>
+<span id="cb20-588"><a href="#cb20-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-589"><a href="#cb20-589" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-590"><a href="#cb20-590" aria-hidden="true" tabindex="-1"></a>\text{MDD} = \max_{t} \left<span class="co">[</span><span class="ot">\max_{s \leq t} \text{Cumulative Return}_s - \text{Cumulative Return}_t\right</span><span class="co">]</span></span>
+<span id="cb20-591"><a href="#cb20-591" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-592"><a href="#cb20-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-593"><a href="#cb20-593" aria-hidden="true" tabindex="-1"></a>**解释**：从峰值到谷底的最大损失</span>
+<span id="cb20-594"><a href="#cb20-594" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-595"><a href="#cb20-595" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5. 换手率（Turnover）</span></span>
+<span id="cb20-596"><a href="#cb20-596" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-597"><a href="#cb20-597" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-598"><a href="#cb20-598" aria-hidden="true" tabindex="-1"></a>\text{Turnover}_t = \frac{1}{2}\sum_{i} |w_{i,t} - w_{i,t-1}^+|</span>
+<span id="cb20-599"><a href="#cb20-599" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-600"><a href="#cb20-600" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-601"><a href="#cb20-601" aria-hidden="true" tabindex="-1"></a>其中 $w_{i,t-1}^+$ 是 $t-1$ 期末持仓权重（考虑价格变化）。</span>
+<span id="cb20-602"><a href="#cb20-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-603"><a href="#cb20-603" aria-hidden="true" tabindex="-1"></a>**重要性**：</span>
+<span id="cb20-604"><a href="#cb20-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-605"><a href="#cb20-605" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>高换手 → 高交易成本</span>
+<span id="cb20-606"><a href="#cb20-606" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>需权衡信号强度与稳定性</span>
+<span id="cb20-607"><a href="#cb20-607" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-608"><a href="#cb20-608" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6. 成本后净收益</span></span>
+<span id="cb20-609"><a href="#cb20-609" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-610"><a href="#cb20-610" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-611"><a href="#cb20-611" aria-hidden="true" tabindex="-1"></a>r^{\text{net}}_t = r^{\text{gross}}_t - \text{Cost}_t</span>
+<span id="cb20-612"><a href="#cb20-612" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-613"><a href="#cb20-613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-614"><a href="#cb20-614" aria-hidden="true" tabindex="-1"></a>**成本构成**：</span>
+<span id="cb20-615"><a href="#cb20-615" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-616"><a href="#cb20-616" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**佣金**：$c \times \text{Turnover}_t$（如 $c = 0.1\%$）</span>
+<span id="cb20-617"><a href="#cb20-617" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**冲击成本**：$\alpha \times \sqrt{\text{Trade Size}}$</span>
+<span id="cb20-618"><a href="#cb20-618" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**融券费用**：做空头寸的借券成本</span>
+<span id="cb20-619"><a href="#cb20-619" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-620"><a href="#cb20-620" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb20-621"><a href="#cb20-621" aria-hidden="true" tabindex="-1"></a><span class="fu">### ⚠️ 成本往往被低估</span></span>
+<span id="cb20-622"><a href="#cb20-622" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-623"><a href="#cb20-623" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>小市值股票冲击成本远超大盘股</span>
+<span id="cb20-624"><a href="#cb20-624" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>危机时期融券费用飙升</span>
+<span id="cb20-625"><a href="#cb20-625" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>实际执行中的滑点</span>
+<span id="cb20-626"><a href="#cb20-626" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-627"><a href="#cb20-627" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-628"><a href="#cb20-628" aria-hidden="true" tabindex="-1"></a><span class="fu">## 切片评估与稳健性检验</span></span>
+<span id="cb20-629"><a href="#cb20-629" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-630"><a href="#cb20-630" aria-hidden="true" tabindex="-1"></a><span class="fu">### 时间切片</span></span>
+<span id="cb20-631"><a href="#cb20-631" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-632"><a href="#cb20-632" aria-hidden="true" tabindex="-1"></a>**不同市场状态**：</span>
+<span id="cb20-633"><a href="#cb20-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-634"><a href="#cb20-634" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>牛市 vs 熊市</span>
+<span id="cb20-635"><a href="#cb20-635" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>高波动 vs 低波动</span>
+<span id="cb20-636"><a href="#cb20-636" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>危机期 vs 平稳期</span>
+<span id="cb20-637"><a href="#cb20-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-638"><a href="#cb20-638" aria-hidden="true" tabindex="-1"></a>**检验**：策略是否在各时期稳健？</span>
+<span id="cb20-639"><a href="#cb20-639" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-640"><a href="#cb20-640" aria-hidden="true" tabindex="-1"></a><span class="fu">### 横截面切片</span></span>
+<span id="cb20-641"><a href="#cb20-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-642"><a href="#cb20-642" aria-hidden="true" tabindex="-1"></a>**不同资产特征**：</span>
+<span id="cb20-643"><a href="#cb20-643" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-644"><a href="#cb20-644" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>大市值 vs 小市值</span>
+<span id="cb20-645"><a href="#cb20-645" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>高流动性 vs 低流动性</span>
+<span id="cb20-646"><a href="#cb20-646" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>不同行业/板块</span>
+<span id="cb20-647"><a href="#cb20-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-648"><a href="#cb20-648" aria-hidden="true" tabindex="-1"></a>**检验**：策略收益来源是否过于集中？</span>
+<span id="cb20-649"><a href="#cb20-649" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-650"><a href="#cb20-650" aria-hidden="true" tabindex="-1"></a><span class="fu">### 稳健性检验</span></span>
+<span id="cb20-651"><a href="#cb20-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-652"><a href="#cb20-652" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**换窗口长度**：滚动窗口 3年 vs 5年</span>
+<span id="cb20-653"><a href="#cb20-653" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**换再平衡频率**：月度 vs 季度</span>
+<span id="cb20-654"><a href="#cb20-654" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**换组合构建**：等权 vs 市值加权</span>
+<span id="cb20-655"><a href="#cb20-655" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**剔除极端期**：去掉危机月份，策略是否仍有效？</span>
+<span id="cb20-656"><a href="#cb20-656" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-657"><a href="#cb20-657" aria-hidden="true" tabindex="-1"></a><span class="fu"># 模型选择与组合构建</span></span>
+<span id="cb20-658"><a href="#cb20-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-659"><a href="#cb20-659" aria-hidden="true" tabindex="-1"></a><span class="fu">## 模型性能对比（参照 GKY 2020）</span></span>
+<span id="cb20-660"><a href="#cb20-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-661"><a href="#cb20-661" aria-hidden="true" tabindex="-1"></a><span class="fu">### 主要发现</span></span>
+<span id="cb20-662"><a href="#cb20-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-663"><a href="#cb20-663" aria-hidden="true" tabindex="-1"></a>| 模型类别 | $R^2_{\text{OOS}}$ | 夏普比率 | 优点 | 缺点 |</span>
+<span id="cb20-664"><a href="#cb20-664" aria-hidden="true" tabindex="-1"></a>|---------|-------------------|----------|-----|-----|</span>
+<span id="cb20-665"><a href="#cb20-665" aria-hidden="true" tabindex="-1"></a>| **线性（Lasso/Elastic Net）** | 0.30% | 1.2 | 可解释，稳定 | 表达力有限 |</span>
+<span id="cb20-666"><a href="#cb20-666" aria-hidden="true" tabindex="-1"></a>| **树模型（Random Forest, GBM）** | 0.40% | 1.5 | 捕捉非线性，重要性解释 | 易过拟合 |</span>
+<span id="cb20-667"><a href="#cb20-667" aria-hidden="true" tabindex="-1"></a>| **神经网络（DNN）** | 0.50% | 1.6 | 最强表达力 | 黑箱，不稳定 |</span>
+<span id="cb20-668"><a href="#cb20-668" aria-hidden="true" tabindex="-1"></a>| **组合（Ensemble）** | **0.55%** | **1.7** | 稳健性最佳 | 复杂度高 |</span>
+<span id="cb20-669"><a href="#cb20-669" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-670"><a href="#cb20-670" aria-hidden="true" tabindex="-1"></a><span class="fu">### 核心结论</span></span>
+<span id="cb20-671"><a href="#cb20-671" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-672"><a href="#cb20-672" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**非线性方法表现更好**，但优势有限（0.1-0.2% $R^2$）</span>
+<span id="cb20-673"><a href="#cb20-673" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**模型组合**优于单一模型（分散过拟合风险）</span>
+<span id="cb20-674"><a href="#cb20-674" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**正则化至关重要**（无论线性还是非线性）</span>
+<span id="cb20-675"><a href="#cb20-675" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-676"><a href="#cb20-676" aria-hidden="true" tabindex="-1"></a><span class="fu">## 从预测到组合的映射</span></span>
+<span id="cb20-677"><a href="#cb20-677" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-678"><a href="#cb20-678" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. 简单排序（Rank-based）</span></span>
+<span id="cb20-679"><a href="#cb20-679" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-680"><a href="#cb20-680" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb20-681"><a href="#cb20-681" aria-hidden="true" tabindex="-1"></a><span class="co"># 每期按预测分数排序</span></span>
+<span id="cb20-682"><a href="#cb20-682" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> model.predict(X_t)</span>
+<span id="cb20-683"><a href="#cb20-683" aria-hidden="true" tabindex="-1"></a>ranks <span class="op">=</span> scores.argsort()</span>
+<span id="cb20-684"><a href="#cb20-684" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-685"><a href="#cb20-685" aria-hidden="true" tabindex="-1"></a><span class="co"># 构建多空组合</span></span>
+<span id="cb20-686"><a href="#cb20-686" aria-hidden="true" tabindex="-1"></a><span class="bu">long</span> <span class="op">=</span> ranks[<span class="op">-</span>n_top:]   <span class="co"># 前 n 名</span></span>
+<span id="cb20-687"><a href="#cb20-687" aria-hidden="true" tabindex="-1"></a>short <span class="op">=</span> ranks[:n_top]   <span class="co"># 后 n 名</span></span>
+<span id="cb20-688"><a href="#cb20-688" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-689"><a href="#cb20-689" aria-hidden="true" tabindex="-1"></a>portfolio <span class="op">=</span> equal_weight(<span class="bu">long</span>) <span class="op">-</span> equal_weight(short)</span>
+<span id="cb20-690"><a href="#cb20-690" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-691"><a href="#cb20-691" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-692"><a href="#cb20-692" aria-hidden="true" tabindex="-1"></a>**优点**：简单，鲁棒</span>
+<span id="cb20-693"><a href="#cb20-693" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-694"><a href="#cb20-694" aria-hidden="true" tabindex="-1"></a>**缺点**：忽略预测强度差异</span>
+<span id="cb20-695"><a href="#cb20-695" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-696"><a href="#cb20-696" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. 比例权重（Proportional）</span></span>
+<span id="cb20-697"><a href="#cb20-697" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-698"><a href="#cb20-698" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-699"><a href="#cb20-699" aria-hidden="true" tabindex="-1"></a>w_i \propto \hat{r}_i</span>
+<span id="cb20-700"><a href="#cb20-700" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-701"><a href="#cb20-701" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-702"><a href="#cb20-702" aria-hidden="true" tabindex="-1"></a>归一化使 $\sum w_i = 1$。</span>
+<span id="cb20-703"><a href="#cb20-703" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-704"><a href="#cb20-704" aria-hidden="true" tabindex="-1"></a>**优点**：利用预测强度信息</span>
+<span id="cb20-705"><a href="#cb20-705" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-706"><a href="#cb20-706" aria-hidden="true" tabindex="-1"></a>**缺点**：对极端预测敏感</span>
+<span id="cb20-707"><a href="#cb20-707" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-708"><a href="#cb20-708" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. 均值-方差优化（Mean-Variance）</span></span>
+<span id="cb20-709"><a href="#cb20-709" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-710"><a href="#cb20-710" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-711"><a href="#cb20-711" aria-hidden="true" tabindex="-1"></a>\max_{\mathbf{w}} \quad \mathbf{w}^\top \hat{\boldsymbol{\mu}} - \frac{\lambda}{2} \mathbf{w}^\top \hat{\boldsymbol{\Sigma}} \mathbf{w}</span>
+<span id="cb20-712"><a href="#cb20-712" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-713"><a href="#cb20-713" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-714"><a href="#cb20-714" aria-hidden="true" tabindex="-1"></a>其中 $\hat{\boldsymbol{\mu}}$ 是预测收益，$\hat{\boldsymbol{\Sigma}}$ 是协方差矩阵。</span>
+<span id="cb20-715"><a href="#cb20-715" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-716"><a href="#cb20-716" aria-hidden="true" tabindex="-1"></a>**优点**：考虑风险</span>
+<span id="cb20-717"><a href="#cb20-717" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-718"><a href="#cb20-718" aria-hidden="true" tabindex="-1"></a>**缺点**：</span>
+<span id="cb20-719"><a href="#cb20-719" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-720"><a href="#cb20-720" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>协方差矩阵估计误差大</span>
+<span id="cb20-721"><a href="#cb20-721" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>对输入高度敏感（需正则化）</span>
+<span id="cb20-722"><a href="#cb20-722" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-723"><a href="#cb20-723" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. 因子约束（Factor-neutral）</span></span>
+<span id="cb20-724"><a href="#cb20-724" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-725"><a href="#cb20-725" aria-hidden="true" tabindex="-1"></a>控制对已知因子的暴露：</span>
+<span id="cb20-726"><a href="#cb20-726" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-727"><a href="#cb20-727" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-728"><a href="#cb20-728" aria-hidden="true" tabindex="-1"></a>\mathbf{w}^\top \mathbf{F} = \mathbf{0}</span>
+<span id="cb20-729"><a href="#cb20-729" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-730"><a href="#cb20-730" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-731"><a href="#cb20-731" aria-hidden="true" tabindex="-1"></a>其中 $\mathbf{F}$ 是因子载荷矩阵（如市场、规模、价值）。</span>
+<span id="cb20-732"><a href="#cb20-732" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-733"><a href="#cb20-733" aria-hidden="true" tabindex="-1"></a>**优点**：纯粹的 alpha，风险更可控</span>
+<span id="cb20-734"><a href="#cb20-734" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-735"><a href="#cb20-735" aria-hidden="true" tabindex="-1"></a><span class="fu">## 模型组合策略</span></span>
+<span id="cb20-736"><a href="#cb20-736" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-737"><a href="#cb20-737" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. 简单平均（Simple Average）</span></span>
+<span id="cb20-738"><a href="#cb20-738" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-739"><a href="#cb20-739" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-740"><a href="#cb20-740" aria-hidden="true" tabindex="-1"></a>\hat{r}^{\text{ens}}_i = \frac{1}{M}\sum_{m=1}^M \hat{r}^{(m)}_i</span>
+<span id="cb20-741"><a href="#cb20-741" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-742"><a href="#cb20-742" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-743"><a href="#cb20-743" aria-hidden="true" tabindex="-1"></a>**优点**：最简单，通常效果好</span>
+<span id="cb20-744"><a href="#cb20-744" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-745"><a href="#cb20-745" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. 加权平均（Weighted Average）</span></span>
+<span id="cb20-746"><a href="#cb20-746" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-747"><a href="#cb20-747" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-748"><a href="#cb20-748" aria-hidden="true" tabindex="-1"></a>\hat{r}^{\text{ens}}_i = \sum_{m=1}^M w_m \hat{r}^{(m)}_i</span>
+<span id="cb20-749"><a href="#cb20-749" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb20-750"><a href="#cb20-750" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-751"><a href="#cb20-751" aria-hidden="true" tabindex="-1"></a>权重 $w_m$ 根据验证集表现确定。</span>
+<span id="cb20-752"><a href="#cb20-752" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-753"><a href="#cb20-753" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Stacking</span></span>
+<span id="cb20-754"><a href="#cb20-754" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-755"><a href="#cb20-755" aria-hidden="true" tabindex="-1"></a>训练一个**元模型**，以各模型预测为输入：</span>
+<span id="cb20-756"><a href="#cb20-756" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-757"><a href="#cb20-757" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-758"><a href="#cb20-758" aria-hidden="true" tabindex="-1"></a><span class="in">模型1预测 ──┐</span></span>
+<span id="cb20-759"><a href="#cb20-759" aria-hidden="true" tabindex="-1"></a><span class="in">模型2预测 ──┼──→ 元模型 ──→ 最终预测</span></span>
+<span id="cb20-760"><a href="#cb20-760" aria-hidden="true" tabindex="-1"></a><span class="in">模型3预测 ──┘</span></span>
+<span id="cb20-761"><a href="#cb20-761" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-762"><a href="#cb20-762" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-763"><a href="#cb20-763" aria-hidden="true" tabindex="-1"></a>**优点**：自动学习最优组合</span>
+<span id="cb20-764"><a href="#cb20-764" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-765"><a href="#cb20-765" aria-hidden="true" tabindex="-1"></a>**缺点**：增加过拟合风险（需嵌套 CV）</span>
+<span id="cb20-766"><a href="#cb20-766" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-767"><a href="#cb20-767" aria-hidden="true" tabindex="-1"></a><span class="fu"># 本周小结</span></span>
+<span id="cb20-768"><a href="#cb20-768" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-769"><a href="#cb20-769" aria-hidden="true" tabindex="-1"></a><span class="fu">## 核心要点</span></span>
+<span id="cb20-770"><a href="#cb20-770" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-771"><a href="#cb20-771" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**金融预测的特殊挑战**：低信噪比、非平稳、交易约束</span>
+<span id="cb20-772"><a href="#cb20-772" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**信息可得性**：特征对齐、披露滞后、无前瞻偏误</span>
+<span id="cb20-773"><a href="#cb20-773" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**时序评估**：滚动/扩展窗口、嵌套 CV、禁用标准 K 折</span>
+<span id="cb20-774"><a href="#cb20-774" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**回测卫生**：存活偏误、数据回填、执行滞后等</span>
+<span id="cb20-775"><a href="#cb20-775" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**评估体系**：预测指标（IC）+ 组合指标（Sharpe, 成本后收益）</span>
+<span id="cb20-776"><a href="#cb20-776" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**模型选择**：正则化、集成、预测到组合的映射</span>
+<span id="cb20-777"><a href="#cb20-777" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-778"><a href="#cb20-778" aria-hidden="true" tabindex="-1"></a><span class="fu">## 本周思考题</span></span>
+<span id="cb20-779"><a href="#cb20-779" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-780"><a href="#cb20-780" aria-hidden="true" tabindex="-1"></a><span class="fu">### 问题 1</span></span>
+<span id="cb20-781"><a href="#cb20-781" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-782"><a href="#cb20-782" aria-hidden="true" tabindex="-1"></a>一个拥有较高样本外预测指标（如 OS-$R^2$ 或 IC）的模型,为何在真实交易中仍可能表现很差？请至少列出三个原因，并指出它们分别对应哪一类"回测卫生"问题或"经济约束"。</span>
+<span id="cb20-783"><a href="#cb20-783" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-784"><a href="#cb20-784" aria-hidden="true" tabindex="-1"></a>:::{.callout-note collapse="true"}</span>
+<span id="cb20-785"><a href="#cb20-785" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💡 参考答案</span></span>
+<span id="cb20-786"><a href="#cb20-786" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-787"><a href="#cb20-787" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**交易成本**（经济约束）</span>
+<span id="cb20-788"><a href="#cb20-788" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>高换手率策略的佣金与冲击成本</span>
+<span id="cb20-789"><a href="#cb20-789" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>可能吞噬全部预测收益</span>
+<span id="cb20-790"><a href="#cb20-790" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-791"><a href="#cb20-791" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**流动性不足**（经济约束）</span>
+<span id="cb20-792"><a href="#cb20-792" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>信号偏好小市值股票</span>
+<span id="cb20-793"><a href="#cb20-793" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>大资金无法实际交易</span>
+<span id="cb20-794"><a href="#cb20-794" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-795"><a href="#cb20-795" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**执行滞后**（回测卫生）</span>
+<span id="cb20-796"><a href="#cb20-796" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>回测假设即时执行</span>
+<span id="cb20-797"><a href="#cb20-797" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>实际可能 T+1 或更晚，信号衰减</span>
+<span id="cb20-798"><a href="#cb20-798" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-799"><a href="#cb20-799" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**数据窥探**（回测卫生）</span>
+<span id="cb20-800"><a href="#cb20-800" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>在测试集上反复调参</span>
+<span id="cb20-801"><a href="#cb20-801" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>样本外真实表现被高估</span>
+<span id="cb20-802"><a href="#cb20-802" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-803"><a href="#cb20-803" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**市场冲击**（经济约束）</span>
+<span id="cb20-804"><a href="#cb20-804" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>大额交易改变价格</span>
+<span id="cb20-805"><a href="#cb20-805" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>回测未考虑自身交易的影响</span>
+<span id="cb20-806"><a href="#cb20-806" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-807"><a href="#cb20-807" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-808"><a href="#cb20-808" aria-hidden="true" tabindex="-1"></a><span class="fu">### 问题 2</span></span>
+<span id="cb20-809"><a href="#cb20-809" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-810"><a href="#cb20-810" aria-hidden="true" tabindex="-1"></a>如果你的特征中包含会计变量（存在披露滞后），滚动窗口评估中最常见的信息泄露路径是什么？你会如何在数据对齐上规避？</span>
+<span id="cb20-811"><a href="#cb20-811" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-812"><a href="#cb20-812" aria-hidden="true" tabindex="-1"></a>:::{.callout-note collapse="true"}</span>
+<span id="cb20-813"><a href="#cb20-813" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💡 参考答案</span></span>
+<span id="cb20-814"><a href="#cb20-814" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-815"><a href="#cb20-815" aria-hidden="true" tabindex="-1"></a>**常见泄露路径**：</span>
+<span id="cb20-816"><a href="#cb20-816" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-817"><a href="#cb20-817" aria-hidden="true" tabindex="-1"></a>用当期年报数据预测当期收益，忽略年报通常在次年 3-4 月才披露。</span>
+<span id="cb20-818"><a href="#cb20-818" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-819"><a href="#cb20-819" aria-hidden="true" tabindex="-1"></a>**规避方法**：</span>
+<span id="cb20-820"><a href="#cb20-820" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-821"><a href="#cb20-821" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**记录披露日期**</span>
+<span id="cb20-822"><a href="#cb20-822" aria-hidden="true" tabindex="-1"></a>   <span class="in">```python</span></span>
+<span id="cb20-823"><a href="#cb20-823" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'report_date'</span>]     <span class="co"># 报告期（如 2023-12-31）</span></span>
+<span id="cb20-824"><a href="#cb20-824" aria-hidden="true" tabindex="-1"></a>   df[<span class="st">'announce_date'</span>]   <span class="co"># 实际披露日（如 2024-04-30）</span></span>
+<span id="cb20-825"><a href="#cb20-825" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb20-826"><a href="#cb20-826" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-827"><a href="#cb20-827" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**对齐规则**</span>
+<span id="cb20-828"><a href="#cb20-828" aria-hidden="true" tabindex="-1"></a>   <span class="in">```python</span></span>
+<span id="cb20-829"><a href="#cb20-829" aria-hidden="true" tabindex="-1"></a>   <span class="co"># 只用已披露的最新数据</span></span>
+<span id="cb20-830"><a href="#cb20-830" aria-hidden="true" tabindex="-1"></a>   df <span class="op">=</span> df[df[<span class="st">'announce_date'</span>] <span class="op">&lt;</span> df[<span class="st">'trade_date'</span>]]</span>
+<span id="cb20-831"><a href="#cb20-831" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb20-832"><a href="#cb20-832" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-833"><a href="#cb20-833" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**保守假设**</span>
+<span id="cb20-834"><a href="#cb20-834" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>年报假设次年 5 月 1 日可得</span>
+<span id="cb20-835"><a href="#cb20-835" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>季报假设下一季度首月可得</span>
+<span id="cb20-836"><a href="#cb20-836" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-837"><a href="#cb20-837" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-838"><a href="#cb20-838" aria-hidden="true" tabindex="-1"></a><span class="fu">### 问题 3</span></span>
+<span id="cb20-839"><a href="#cb20-839" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-840"><a href="#cb20-840" aria-hidden="true" tabindex="-1"></a>结合 Gu, Kelly, Xiu (2020) 的经验事实，你会如何在"预测性能—稳定性—可解释性"之间权衡选择模型，并将其输出转化为一个可交易的组合？</span>
+<span id="cb20-841"><a href="#cb20-841" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-842"><a href="#cb20-842" aria-hidden="true" tabindex="-1"></a>:::{.callout-note collapse="true"}</span>
+<span id="cb20-843"><a href="#cb20-843" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💡 参考答案</span></span>
+<span id="cb20-844"><a href="#cb20-844" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-845"><a href="#cb20-845" aria-hidden="true" tabindex="-1"></a>**权衡策略**：</span>
+<span id="cb20-846"><a href="#cb20-846" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-847"><a href="#cb20-847" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**预测性能**：神经网络 &gt; 树模型 &gt; 线性</span>
+<span id="cb20-848"><a href="#cb20-848" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>但边际提升有限（0.1-0.2% $R^2$）</span>
+<span id="cb20-849"><a href="#cb20-849" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-850"><a href="#cb20-850" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**稳定性**：线性 ≈ 模型组合 &gt; 树模型 &gt; 神经网络</span>
+<span id="cb20-851"><a href="#cb20-851" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>金融低信噪比环境下，稳定性更重要</span>
+<span id="cb20-852"><a href="#cb20-852" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-853"><a href="#cb20-853" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**可解释性**：线性 &gt; 树模型 &gt; 神经网络</span>
+<span id="cb20-854"><a href="#cb20-854" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>监管与风控需求</span>
+<span id="cb20-855"><a href="#cb20-855" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-856"><a href="#cb20-856" aria-hidden="true" tabindex="-1"></a>**推荐方案**：</span>
+<span id="cb20-857"><a href="#cb20-857" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-858"><a href="#cb20-858" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**研究导向**：使用线性（Elastic Net）作为基准，树/神经网络探索非线性</span>
+<span id="cb20-859"><a href="#cb20-859" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**实盘导向**：多模型组合（平均或 stacking），平衡性能与稳健性</span>
+<span id="cb20-860"><a href="#cb20-860" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**转化为组合**：</span>
+<span id="cb20-861"><a href="#cb20-861" aria-hidden="true" tabindex="-1"></a><span class="ss">  1. </span>按预测分数排序</span>
+<span id="cb20-862"><a href="#cb20-862" aria-hidden="true" tabindex="-1"></a><span class="ss">  2. </span>做多前十分位，做空后十分位</span>
+<span id="cb20-863"><a href="#cb20-863" aria-hidden="true" tabindex="-1"></a><span class="ss">  3. </span>等权或根据流动性调整权重</span>
+<span id="cb20-864"><a href="#cb20-864" aria-hidden="true" tabindex="-1"></a><span class="ss">  4. </span>月度再平衡，控制换手率 &lt; 50%</span>
+<span id="cb20-865"><a href="#cb20-865" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-866"><a href="#cb20-866" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-867"><a href="#cb20-867" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb20-868"><a href="#cb20-868" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-869"><a href="#cb20-869" aria-hidden="true" tabindex="-1"></a><span class="fu">## 下周预告</span></span>
+<span id="cb20-870"><a href="#cb20-870" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-871"><a href="#cb20-871" aria-hidden="true" tabindex="-1"></a>第3周进入**文本分析**领域：</span>
+<span id="cb20-872"><a href="#cb20-872" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-873"><a href="#cb20-873" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>文本表示方法演进（词袋 → BERT）</span>
+<span id="cb20-874"><a href="#cb20-874" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>语料治理：版本、对齐、去噪</span>
+<span id="cb20-875"><a href="#cb20-875" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>从原始文档到可用变量的审计流程</span>
+<span id="cb20-876"><a href="#cb20-876" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>增量信息检验与经济含义</span>
+<span id="cb20-877"><a href="#cb20-877" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-878"><a href="#cb20-878" aria-hidden="true" tabindex="-1"></a>**预习阅读**：</span>
+<span id="cb20-879"><a href="#cb20-879" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-880"><a href="#cb20-880" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Eisfeldt &amp; Schubert (2024) *Generative AI and Finance*</span>
+<span id="cb20-881"><a href="#cb20-881" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Gentzkow, Kelly &amp; Taddy (2019) *Text as Data*</span>
+<span id="cb20-882"><a href="#cb20-882" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ludwig, Mullainathan &amp; Rambachan (2025) *LLMs: an applied econometric framework*</span>
+<span id="cb20-883"><a href="#cb20-883" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-884"><a href="#cb20-884" aria-hidden="true" tabindex="-1"></a>**预习任务**：选一种感兴趣的金融文本（年报/新闻/研报/社媒），思考它最容易产生的"前瞻/对齐错误"是什么。</span></code><button title="复制到剪贴板" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

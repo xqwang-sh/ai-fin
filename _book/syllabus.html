@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; 教学大纲 – AI与金融研究：从理论到证据</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./intro.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ed6da6eef3892af8a4b5ed59bfb951f5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syllabus.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">教学大纲</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI与金融研究：从理论到证据</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI与金融研究：从理论到证据</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">教学大纲</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">课程简介与预备知识</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">第1讲：机器学习理论基础</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">第2讲：资产定价中的机器学习应用</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">第3讲：文本分析理论 → 金融文本应用</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">第4讲：多模态模型理论 → 金融信号抽取</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./proposal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">小组研究项目指南</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目录</h2>
+   
+  <ul>
+  <li><a href="#一课程概况" id="toc-一课程概况" class="nav-link active" data-scroll-target="#一课程概况"><span class="header-section-number">3</span> <strong>一、课程概况</strong></a></li>
+  <li><a href="#二课程性质地位和任务" id="toc-二课程性质地位和任务" class="nav-link" data-scroll-target="#二课程性质地位和任务"><span class="header-section-number">4</span> <strong>二、课程性质、地位和任务</strong></a></li>
+  <li><a href="#三教学目标教学内容和要求" id="toc-三教学目标教学内容和要求" class="nav-link" data-scroll-target="#三教学目标教学内容和要求"><span class="header-section-number">5</span> <strong>三、教学目标、教学内容和要求</strong></a>
+  <ul class="collapse">
+  <li><a href="#一教学目标" id="toc-一教学目标" class="nav-link" data-scroll-target="#一教学目标"><span class="header-section-number">5.1</span> <strong>（一）教学目标</strong></a></li>
+  <li><a href="#二教学内容" id="toc-二教学内容" class="nav-link" data-scroll-target="#二教学内容"><span class="header-section-number">5.2</span> <strong>（二）教学内容</strong></a></li>
+  <li><a href="#三教学要求" id="toc-三教学要求" class="nav-link" data-scroll-target="#三教学要求"><span class="header-section-number">5.3</span> <strong>（三）教学要求</strong></a></li>
+  </ul></li>
+  <li><a href="#四教学方式" id="toc-四教学方式" class="nav-link" data-scroll-target="#四教学方式"><span class="header-section-number">6</span> <strong>四、教学方式</strong></a></li>
+  <li><a href="#五考核方式" id="toc-五考核方式" class="nav-link" data-scroll-target="#五考核方式"><span class="header-section-number">7</span> <strong>五、考核方式</strong></a></li>
+  <li><a href="#六教学内容" id="toc-六教学内容" class="nav-link" data-scroll-target="#六教学内容"><span class="header-section-number">8</span> <strong>六、教学内容</strong></a>
+  <ul class="collapse">
+  <li><a href="#第1章-机器学习非时序任务的认知框架" id="toc-第1章-机器学习非时序任务的认知框架" class="nav-link" data-scroll-target="#第1章-机器学习非时序任务的认知框架"><span class="header-section-number">8.1</span> <strong>第1章 机器学习：非时序任务的认知框架</strong></a></li>
+  <li><a href="#第2章-资产定价问题解构特征工程与时序评估规范" id="toc-第2章-资产定价问题解构特征工程与时序评估规范" class="nav-link" data-scroll-target="#第2章-资产定价问题解构特征工程与时序评估规范"><span class="header-section-number">8.2</span> <strong>第2章 资产定价：问题解构、特征工程与时序评估规范</strong></a></li>
+  <li><a href="#第3章-文本分析理论-金融文本应用" id="toc-第3章-文本分析理论-金融文本应用" class="nav-link" data-scroll-target="#第3章-文本分析理论-金融文本应用"><span class="header-section-number">8.3</span> <strong>第3章 文本分析理论 → 金融文本应用</strong></a></li>
+  <li><a href="#第4章-多模态模型理论-金融信号抽取" id="toc-第4章-多模态模型理论-金融信号抽取" class="nav-link" data-scroll-target="#第4章-多模态模型理论-金融信号抽取"><span class="header-section-number">8.4</span> <strong>第4章 多模态模型理论 → 金融信号抽取</strong></a></li>
+  <li><a href="#第5-8周-学生研究计划research-proposal汇报与研讨" id="toc-第5-8周-学生研究计划research-proposal汇报与研讨" class="nav-link" data-scroll-target="#第5-8周-学生研究计划research-proposal汇报与研讨"><span class="header-section-number">8.5</span> <strong>第5-8周 学生研究计划（Research Proposal）汇报与研讨</strong></a></li>
+  </ul></li>
+  <li><a href="#参考论文池供选题与定位参考" id="toc-参考论文池供选题与定位参考" class="nav-link" data-scroll-target="#参考论文池供选题与定位参考"><span class="header-section-number">9</span> <strong>参考论文池（供选题与定位参考）</strong></a>
+  <ul class="collapse">
+  <li><a href="#资产定价与金融预测专题" id="toc-资产定价与金融预测专题" class="nav-link" data-scroll-target="#资产定价与金融预测专题"><span class="header-section-number">9.1</span> <strong>资产定价与金融预测专题</strong></a></li>
+  <li><a href="#金融文本分析专题" id="toc-金融文本分析专题" class="nav-link" data-scroll-target="#金融文本分析专题"><span class="header-section-number">9.2</span> <strong>金融文本分析专题</strong></a></li>
+  <li><a href="#多模态分析专题" id="toc-多模态分析专题" class="nav-link" data-scroll-target="#多模态分析专题"><span class="header-section-number">9.3</span> <strong>多模态分析专题</strong></a></li>
+  <li><a href="#ai市场影响专题" id="toc-ai市场影响专题" class="nav-link" data-scroll-target="#ai市场影响专题"><span class="header-section-number">9.4</span> <strong>AI市场影响专题</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">教学大纲</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> 代码</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="一课程概况" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <strong>一、课程概况</strong></h1>
+<ol type="1">
+<li><p><strong>课程名称（中文）：</strong> AI与金融研究：从理论到证据</p></li>
+<li><p><strong>课程名称（英文）：</strong> AI and Financial Research: From Theory to Evidence</p></li>
+<li><p><strong>前行课程：</strong> 建议修读过计量经济学、金融市场、Python编程基础或具备同等知识。</p></li>
+<li><p><strong>修读对象：</strong> 本课程面向全校对量化金融、金融科技和人工智能交叉领域研究感兴趣的硕士和博士研究生，尤其适合金融、经济、会计、统计、计算机等相关专业的学生。</p></li>
+<li><p><strong>课程教材及参考书目：</strong></p>
+<ul>
+<li><strong>核心参考书：</strong>
+<ol type="1">
+<li>Kelly, B., &amp; Xiu, D. (2023). Financial machine learning. <em>Foundations and Trends® in Finance, 13</em>(3-4), 205-363.</li>
+<li>Hastie, T., Tibshirani, R., &amp; Friedman, J. (2009). <em>The elements of statistical learning: data mining, inference, and prediction</em>. Springer Science &amp; Business Media.</li>
+<li>Jurafsky, D., &amp; Martin, J. H. (2023). <em>Speech and language processing</em> (3rd ed.&nbsp;draft).</li>
+</ol></li>
+<li><strong>参考学术论文：详见最后附录</strong></li>
+</ul></li>
+</ol>
+</section>
+<section id="二课程性质地位和任务" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> <strong>二、课程性质、地位和任务</strong></h1>
+<p>本课程是一门融合了方法论与前沿应用的“AI+金融”研究生公共选修课。它定位于连接人工智能理论与严谨金融实证研究的桥梁，旨在为有志于从事量化投资、金融科技或相关学术研究的学生提供一套系统性的知识框架和研究范式。</p>
+<p>课程的核心任务是：</p>
+<ol type="1">
+<li><strong>理论武装</strong>：建立稳固的机器学习理论基础，特别是围绕“泛化—正则化—评估”的核心逻辑，帮助学生规避金融回测中的常见陷阱。</li>
+<li><strong>方法落地</strong>：将抽象的机器学习模型应用于资产定价、文本分析和多模态信号抽取等具体的金融问题，强调“可交易性”和“可解释性”。</li>
+<li><strong>批判性思维</strong>：通过前沿论文的研讨，培养学生批判性地评估实证证据、识别研究中的潜在威胁（如信息泄露、前瞻偏误、样本选择偏误等）的能力。</li>
+<li><strong>创新能力</strong>：通过期末大作业，训练学生将现有方法迁移到新场景、设计并阐述一个完整的、可行的研究计划（Research Proposal）的能力。</li>
+</ol>
+</section>
+<section id="三教学目标教学内容和要求" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> <strong>三、教学目标、教学内容和要求</strong></h1>
+<section id="一教学目标" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="一教学目标"><span class="header-section-number">5.1</span> <strong>（一）教学目标</strong></h2>
+<p>完成本课程后，学生应能：</p>
+<ol type="1">
+<li><strong>理论掌握</strong>：系统阐述偏差-方差权衡、正则化、交叉验证等核心概念，并能设计符合时序数据特性的样本外评估方案。</li>
+<li><strong>应用实践</strong>：将机器学习模型（从正则化线性模型到集成/深度模型）应用于截面收益预测任务，并能从经济可行性（如交易成本、换手率）角度评估策略表现。</li>
+<li><strong>文本分析</strong>：掌握“从原始文本到量化变量”的全流程，能审计变量构造过程，并检验文本信息的增量价值。</li>
+<li><strong>前沿认知</strong>：理解多模态（图片/音频/视频）数据在金融中的应用潜力、技术管线及其特有的挑战与伦理边界。</li>
+<li><strong>研究设计</strong>：独立完成一份高质量的研究计划书，清晰界定研究问题、定位文献缺口、设计严谨的实证策略和稳健性检验。</li>
+</ol>
+</section>
+<section id="二教学内容" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="二教学内容"><span class="header-section-number">5.2</span> <strong>（二）教学内容</strong></h2>
+<p>详见后续各周教学安排。课程内容覆盖机器学习理论、在资产定价中的应用、金融文本分析、多模态信号抽取四大模块，并穿插学生对相关领域顶尖论文的汇报与研讨。</p>
+</section>
+<section id="三教学要求" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="三教学要求"><span class="header-section-number">5.3</span> <strong>（三）教学要求</strong></h2>
+<ul>
+<li><strong>课前准备</strong>：按时完成指定阅读材料，尤其是汇报研讨周。</li>
+<li><strong>课堂参与</strong>：教师授课周积极思考，学生汇报周积极参与提问与讨论。</li>
+<li><strong>汇报要求</strong>：主讲学生需严格按照研究计划与幻灯要求准备，提前提交材料，并在台上清晰、严谨地展示与回答问题。</li>
+<li><strong>学术诚信</strong>：所有提交的作业、笔记和报告必须遵守学术规范，杜绝抄袭。在使用AI工具时需明确声明并核验其产出。</li>
+</ul>
+</section>
+</section>
+<section id="四教学方式" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> <strong>四、教学方式</strong></h1>
+<p>本课程采用“<strong>教师精讲 + 学生研讨 + 项目驱动</strong>”的混合式教学模式：</p>
+<ol type="1">
+<li><strong>教师精讲（Weeks 1-4）</strong>：由教师系统讲授核心理论与方法论，聚焦技术细节、应用规范与常见陷阱，时长90分钟，不设课堂讨论，以保证信息密度。</li>
+<li><strong>学生研讨（Weeks 5-8）</strong>：由学生分组进行研究计划（Research Proposal）汇报，每组10-15分钟（含问答），旨在检验其对研究问题设计、AI方法嵌入与评估规范的理解，并由全体师生进行问答与批判性讨论。</li>
+<li><strong>项目驱动</strong>：课程以期末研究计划书为最终导向，引导学生将所学知识融会贯通，完成一份完整、可行的研究计划。</li>
+</ol>
+</section>
+<section id="五考核方式" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> <strong>五、考核方式</strong></h1>
+<p>本课程注重过程性考核与结果性考核相结合，综合评估学生的理论掌握、批判性思维与研究创新能力。</p>
+<ol type="1">
+<li><p><strong>课程测验 20%</strong></p>
+<ul>
+<li><strong>时间点</strong>：第5周课程开始前（覆盖Weeks 1–4核心概念）。</li>
+<li><strong>题型与时长</strong>：全选择题（单选为主，可少量多选）；20题，20分钟；限时一次提交。</li>
+<li><strong>覆盖范围</strong>：Weeks 1-4的理论内容，包括泛化—正则化—评估；信息泄露/前瞻偏误/数据窥探；时序交叉验证（Rolling/Expanding/Nested CV）；样本外指标（OS-R²、RMSE、AUC等）与经济可行性指标（交易成本、换手率等）；文本分析流程与风险点；多模态与伦理/隐私边界（基础理解）等。</li>
+</ul></li>
+<li><p><strong>小组课堂报告（Research Proposal Pitch）40%</strong></p>
+<ul>
+<li><strong>分组要求</strong>：每组3–5人（最多5人）。</li>
+<li><strong>汇报内容</strong>：研究问题与重要性、文献定位、数据与变量、实证框架与评估协议，并重点说明<strong>人工智能方法如何嵌入并解决关键识别/测量/预测/抽取问题</strong>（“AI方法落地”为核心）。</li>
+<li><strong>形式要求</strong>：每组10–15分钟（含问答），<strong>提前24小时提交slides（建议10–15页）</strong>。</li>
+<li><strong>评分标准（100分折算为40%）</strong>：
+<ul>
+<li>研究问题与贡献（25）</li>
+<li>数据与可行性（20）</li>
+<li>AI方法嵌入的必要性与正确性（25）</li>
+<li>实证策略与评估协议（20）：强调时序CV、信息泄露防控、样本外评价等规范</li>
+<li>表达与问答（10）</li>
+</ul></li>
+<li><strong>贡献声明与同伴评分</strong>：提交“组内分工/贡献说明”；同伴评分仅用于组内分配（不额外计入总评）。若差异显著，可对个体在该组分中做±10%的系数调整，以抑制搭便车。</li>
+</ul></li>
+<li><p><strong>期末研究计划书（Detailed Research Plan）40%</strong></p>
+<ul>
+<li><strong>提交方式</strong>：以小组为单位提交，需附“组内分工/贡献说明”。</li>
+<li><strong>建议格式</strong>：正文8–12页（不含参考文献与附录）；必须包含数据表（来源/频率/样本期）、变量表（定义/对齐）、方法流程图（AI管线+评估协议）。参考文献仅需与选题相关，不设“必选论文清单”。</li>
+<li><strong>评分标准（100分折算为40%）</strong>：
+<ul>
+<li>研究动机与文献缺口（20）</li>
+<li>研究问题与理论机制/假说（10）</li>
+<li>数据与变量构造（20）：尤其是非结构化数据需写清“从原始数据到量化变量”的可审计流程</li>
+<li>实证方法与识别策略（20）</li>
+<li>AI方法实施细节（20）：训练/验证/测试划分、超参数策略、评价指标、稳健性与可解释性；明确如何避免look-ahead bias / leakage</li>
+<li>写作规范与可复现性（10）：引用规范；附录可含伪代码、变量字典、数据处理流程图等</li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
+<section id="六教学内容" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> <strong>六、教学内容</strong></h1>
+<section id="第1章-机器学习非时序任务的认知框架" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="第1章-机器学习非时序任务的认知框架"><span class="header-section-number">8.1</span> <strong>第1章 机器学习：非时序任务的认知框架</strong></h2>
+<p><strong>【教学目的与要求】</strong> 建立适用于“独立同分布（i.i.d.）”数据场景的机器学习认知框架：明确回归与分类两类核心任务，理解偏差–方差分解与过拟合的生成机制，并形成可复现实证研究的“最小证据链”与指标选择原则，为后续金融时序/回测场景的规范评估作铺垫。</p>
+<p><strong>【教学重点】</strong> 回归 vs.&nbsp;分类（目标函数与损失）；偏差–方差分解；正则化与模型复杂度控制；机器学习的最小证据链；关键预测指标体系（回归/分类）。</p>
+<p><strong>【课时安排】</strong> 课堂讲授：2课时（90分钟）</p>
+<p><strong>【教学内容】</strong></p>
+<ol type="1">
+<li><strong>两类问题：回归与分类</strong>：用统一符号系统刻画监督学习任务（特征 (X)、标签 (y)、损失函数与风险最小化）。回归用于预测连续变量（如未来收益率/波动率），分类用于预测离散标签（如涨跌/违约/事件发生）。讨论同一研究问题在“回归表述”与“分类表述”之间的可转换性，以及两类任务对输出解释与评估指标的不同要求。</li>
+<li><strong>偏差–方差分解与泛化误差</strong>：从期望预测误差出发拆解误差来源，解释模型复杂度、样本规模与噪声强度如何共同决定欠拟合与过拟合；用学习曲线理解“训练集表现”与“样本外表现”不一致的统计根源。</li>
+<li><strong>从偏差–方差到正则化：模型选择的统计逻辑</strong>：介绍经验风险最小化（ERM）与结构风险最小化（SRM）的基本思想；以岭回归/Lasso/弹性网络为例说明正则化如何降低方差并实现变量筛选；在i.i.d.假设下说明训练–验证–测试划分与K折交叉验证的基本原则（并提示：金融时序数据需要不同的评估协议，将在第2章专门讨论）。</li>
+<li><strong>机器学习的最小证据链（Minimum Evidence Chain）</strong>：给出一项可信的机器学习实证最少应交付的证据：数据与标签定义（含信息可得性说明）→ 预处理与缺失值规则 → 划分方案与超参数搜索策略 → 基准模型与对照组 → 样本外结果（含切片/稳健性）→ 可复现性材料（代码、随机种子、变量字典与流程图）。</li>
+<li><strong>关键指标体系：指标与研究目标的一致性</strong>：回归指标（MSE/RMSE、MAE、(R^2) 与OS-(R^2) 的含义差异）；分类指标（log-loss、AUC-ROC/AUC-PR、精确率/召回率、F1、校准）；讨论类别不平衡、阈值选择与“指标被优化但结论不稳健”的常见情形。</li>
+</ol>
+<p><strong>【阅读材料】</strong></p>
+<ul>
+<li><strong>必读</strong>：Hastie et al.&nbsp;(2009), Chapters 3, 7; Kelly &amp; Xiu (2023), Chapters 1-2.</li>
+</ul>
+<p><strong>【思考题】</strong></p>
+<ol type="1">
+<li>将“预测未来收益率”分别表述为回归任务与分类任务时，标签应如何定义？两种表述分别应优先使用哪些评价指标？</li>
+<li>用偏差–方差分解解释：为什么更复杂的模型可能在训练集更好，但在样本外更差？</li>
+<li>请列出“最小证据链”中你认为最容易被忽视的两项，并说明忽视它们可能带来的误判（例如信息泄露或不可复现）。</li>
+</ol>
+</section>
+<section id="第2章-资产定价问题解构特征工程与时序评估规范" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="第2章-资产定价问题解构特征工程与时序评估规范"><span class="header-section-number">8.2</span> <strong>第2章 资产定价：问题解构、特征工程与时序评估规范</strong></h2>
+<p><strong>【教学目的与要求】</strong> 解释资产定价预测任务相较一般机器学习问题的“特别之处”（低信噪比、非平稳、交易约束与成本），并在此基础上给出从经济问题到机器学习任务的可操作分解：问题解构与特征工程 → 时序样本外评估与回测卫生 → 模型选择与组合构建（以 Gu, Kelly, Xiu, 2020 为主要参照）→ 从统计显著走向经济可行。</p>
+<p><strong>【教学重点】</strong> 资产定价任务的低信噪比与非平稳性；特征与标签的时间对齐；滚动/扩展窗口与嵌套评估；回测卫生（数据泄露、存活偏误、数据回填等）；预测指标与组合指标；模型选择与模型组合；统计显著 vs.&nbsp;经济可行。</p>
+<p><strong>【课时安排】</strong> 课堂讲授：2课时（90分钟）</p>
+<p><strong>【教学内容】</strong></p>
+<ol type="1">
+<li><strong>资产定价的“特别之处”</strong>：为何收益预测比典型的i.i.d.监督学习更难——噪声占比高、结构随时间变化、横截面相关性强；同时，可交易性约束（做空、杠杆、容量）与交易成本使得“预测准确”并不自动等价于“可赚钱”。</li>
+<li><strong>问题解构与特征工程</strong>：明确预测对象（个股收益/风险溢价/因子收益）与预测期限；构造信息集与可得性规则（信息披露滞后、会计变量发布日期）；特征标准化与缺失值处理；以时间戳与发布时点为基准，系统避免前瞻偏误与标签泄露。</li>
+<li><strong>时序数据评估规范与回测卫生</strong>：训练–验证–测试的时间切分；滚动窗口（Rolling）与扩展窗口（Expanding）；嵌套滚动评估用于超参数选择。回测卫生清单：存活偏误、数据回填、拆分/分红/停牌处理、退市收益、调仓时点与执行滞后、样本选择与数据窥探（data snooping）。</li>
+<li><strong>评估指标：从预测到组合</strong>：预测层面（如OS-(R^2)、IC/Rank-IC）；组合层面（年化超额收益、Sharpe/Information Ratio、最大回撤、换手率、交易成本后收益、容量/冲击敏感性）。强调切片评估（按时期/行业/市场状态）与稳健性检验。</li>
+<li><strong>模型选择与组合构建（以 Gu, Kelly, Xiu, 2020 为参照）</strong>：对比线性正则化、树模型与神经网络在截面收益预测中的相对表现与适用条件；介绍将预测分数映射为投资组合的标准流程（排序多空、风险约束下的组合优化），以及模型组合（平均/加权/stacking）在稳定性与可交易性上的意义。</li>
+<li><strong>从统计显著到经济可行</strong>：将p值与t统计的“显著”转换为“可交易”的判据：成本与约束后的净收益、风险暴露分解、策略容量、信号衰减与可持续性；讨论多重检验与数据窥探下的错误发现控制，避免“统计上好看但经济上不可行”的结论。</li>
+</ol>
+<p><strong>【阅读材料】</strong></p>
+<ul>
+<li><strong>必读</strong>：Gu, S., Kelly, B., &amp; Xiu, D. (2020). Empirical asset pricing via machine learning. Review of Financial Studies, 33(5), 2223-2273.</li>
+<li><strong>选读</strong>：Kelly &amp; Xiu (2023), Chapters 3-5.</li>
+</ul>
+<p><strong>【思考题】</strong></p>
+<ol type="1">
+<li>一个拥有较高样本外预测指标（如OS-(R^2) 或 IC）的模型，为何在真实交易中仍可能表现很差？请至少列出三个原因，并指出它们分别对应哪一类“回测卫生”问题或“经济约束”。</li>
+<li>如果你的特征中包含会计变量（存在披露滞后），滚动窗口评估中最常见的信息泄露路径是什么？你会如何在数据对齐上规避？</li>
+<li>结合 Gu, Kelly, Xiu (2020) 的经验事实，你会如何在“预测性能—稳定性—可解释性”之间权衡选择模型，并将其输出转化为一个可交易的组合？</li>
+</ol>
+</section>
+<section id="第3章-文本分析理论-金融文本应用" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="第3章-文本分析理论-金融文本应用"><span class="header-section-number">8.3</span> <strong>第3章 文本分析理论 → 金融文本应用</strong></h2>
+<p><strong>【教学目的与要求】</strong> 以“文本作为数据（text as data）”为主线，系统介绍文本表示方法的谱系与统计权衡，并给出从原始文本到可用于金融实证的量化变量的标准化生产流程。课程强调变量构造的三项底线要求：信息可得性（不含前瞻）、过程可审计（可追溯）、结果可复现（可重复）。</p>
+<p><strong>【教学重点】</strong> 文本表示方法（词袋/主题/嵌入/Transformer）；语料治理与时间对齐；变量构造中最易犯的错误清单（前瞻偏误、标签泄露、样本选择偏误、测量误差、多重比较）；增量信息与经济机制的检验。</p>
+<p><strong>【课时安排】</strong> 课堂讲授：2课时（90分钟）</p>
+<p><strong>【教学内容】</strong></p>
+<ol type="1">
+<li><strong>文本表示方法：一条“方法谱系”与四个权衡维度</strong>：从可解释的离散表示（词袋/TF-IDF、词典法），到无监督的主题模型（LDA 等），再到分布式表示（word2vec/doc2vec、句向量）与上下文表示（Transformer/BERT、领域适配/微调）。强调四个权衡：解释性 vs.&nbsp;表达力、监督 vs.&nbsp;无监督、域内迁移能力、计算成本与可复现性。</li>
+<li><strong>语料治理：把“原始文档”变成“可用于计量/预测的观测值”</strong>：版本锁定（首发披露/修订版的区分）、时间戳与可得性规则（何时“可被市场看到”）、实体识别与对齐（公司/产品/人物）、去重与噪声处理（乱码、OCR/ASR误差、模板文本）。强调：金融文本的关键不是“能读懂”，而是“能在信息集意义下被严谨使用”。</li>
+<li><strong>变量构造中最需要注意的问题（高频踩坑清单）</strong>：前瞻偏误（把未来信息带回过去）、标签泄露（把结果写进特征）、样本选择偏误（只观察到“愿意披露/被报道”的部分）、测量误差（分词/识别错误导致系统性噪声）、多重比较与过拟合（高维特征+反复试错）。对应给出可审计交付物：变量字典、处理流水线、对齐规则与审计日志。</li>
+<li><strong>评估：增量信息、稳健性与经济含义</strong>：检验文本变量对基准模型/已知因子的增量贡献（冗余性 vs.&nbsp;互补性），进行切片评估（行业/时期/市场状态）与稳定性检验；讨论从“统计相关”到“经济机制”的解释路径，以及信息抽取（IE）与生成式模型在测量任务中的可用边界与风险。</li>
+</ol>
+<p><strong>【阅读材料】</strong></p>
+<ul>
+<li><strong>必读</strong>：Eisfeldt, A. L., &amp; Schubert, G. (2024). Generative AI and Finance. Annual Review of Financial Economics, 17.</li>
+<li><strong>选读</strong>：(1) Gentzkow, M., Kelly, B., &amp; Taddy, M. (2019). Text as data. Journal of Economic Literature, 57(3), 535-574. (2) Ludwig, J., Mullainathan, S., &amp; Rambachan, A. (2025). Large language models: An applied econometric framework (No.&nbsp;w33344). National Bureau of Economic Research.</li>
+</ul>
+<p><strong>【思考题】</strong></p>
+<ol type="1">
+<li>相比传统的基于词典的方法，使用BERT等大规模语言模型构造文本变量的主要优势和潜在风险分别是什么？</li>
+<li>在处理新闻数据以预测股价时，如何设计一个流程来避免“前瞻偏误”？</li>
+<li>为什么检验一个新文本因子与已知因子（如Fama-French三因子）的相关性是至关重要的一步？</li>
+</ol>
+</section>
+<section id="第4章-多模态模型理论-金融信号抽取" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="第4章-多模态模型理论-金融信号抽取"><span class="header-section-number">8.4</span> <strong>第4章 多模态模型理论 → 金融信号抽取</strong></h2>
+<p><strong>【教学目的与要求】</strong> 围绕“多模态分类（multimodal classification）”这一类典型研究任务，介绍图片、音频、视频等非结构化数据在金融研究中的数据版图、特征提取方法与融合策略，并重点讨论变量构造时必须遵守的时间对齐、样本代表性与隐私合规约束，从而实现“可度量、可检验、可发表”的多模态实证证据。</p>
+<p><strong>【教学重点】</strong> 多模态分类任务的标签定义与评估；视觉/音频/视频的特征提取与变量构造注意事项；融合策略（早/中/后融合）；变量构造的时间对齐与偏误控制；互补性（增量信息）检验。</p>
+<p><strong>【课时安排】</strong> 课堂讲授：2课时（90分钟）</p>
+<p><strong>【教学内容】</strong></p>
+<ol type="1">
+<li><strong>任务与数据：把多模态研究表述为一个“分类问题”</strong>：在金融场景中，多模态常对应“识别/判断”类任务，例如：识别风险事件或争议（ESG 争议、监管处罚）、识别欺诈或异常披露、识别管理层情绪/不确定性状态等。对应的数据来源包括：图片（卫星夜光、门店/产品/票据图像、图表截图等）、音频（业绩电话会录音、访谈）、视频（路演/发布会/在线会议）。强调：标签定义（何时、对谁、预测什么）决定了变量构造与评估协议。</li>
+<li><strong>视觉（图像）模态：特征提取与变量构造注意事项</strong>：典型数据包括卫星夜光/遥感影像、门店/产品图片、票据或图表截图等。方法上，从传统特征（纹理/边缘/目标检测）到深度表征（CNN/ResNet、ViT、自监督预训练的图像嵌入）均可用于构造变量（如“活动强度”“拥挤度”“风险事件迹象”等）。关键注意：图像的采集时间与研究时点的对齐（拍摄日≠披露日）、空间对齐（地理坐标与企业实体匹配）、数据质量与域漂移（分辨率、云层、季节性/夜间光污染）、以及潜在的“信息泄露”（例如图表截图中隐含未来价格轨迹）。</li>
+<li><strong>音频模态：特征提取与测量误差</strong>：典型数据为业绩电话会录音、访谈音频等。特征提取通常有两条主线：（i）ASR 转写为文本→沿第3章流程做文本表征；（ii）直接提取声学与韵律特征（音高、语速、停顿、能量、MFCC）或使用预训练音频模型得到嵌入（如 wav2vec/HuBERT 类表示）。关键注意：ASR 错误与信道噪声带来的系统性测量误差、说话人分离与身份对齐（CEO/CFO/分析师）、语言与口音差异导致的偏差，以及“可得性选择”（哪些公司/哪些时期有高质量录音）。</li>
+<li><strong>视频模态：时序聚合、行为信号与合规边界</strong>：典型数据为路演/发布会/线上会议视频。特征可来自帧级视觉表征（CNN/ViT 嵌入）与行为线索（面部AUs、头部姿态、手势、注视方向等），并需要在时间维度进行聚合或建模（片段级统计量、时序模型）。关键注意：摄像机角度、光照、压缩与遮挡带来的测量误差；人群属性差异引致的算法偏差；以及生物特征数据的隐私与同意边界（采集授权、脱敏/匿名化、最小化使用原则）。</li>
+<li><strong>融合与分类评估：把三类信号合并为可检验的增量信息</strong>：介绍早融合（特征拼接）、后融合（模型投票/加权）、中期融合（联合表示学习）三类策略；讨论“缺失模态”（部分样本无视频/无音频/无图像）的建模与样本选择问题。评价上，除AUC/F1/校准等分类指标外，更强调与结构化/文本信号相比的增量贡献、切片稳定性与可解释的误差分析。</li>
+</ol>
+<p><strong>【阅读材料】</strong></p>
+<ul>
+<li><strong>必读</strong>：Dell, M. (2025). Deep learning for economists. Journal of Economic Literature, 63(1), 5-58.</li>
+<li><strong>选读</strong>：Mayew, W. J., &amp; Venkatachalam, M. (2012). The power of voice: Managerial affective states and future firm performance. The Journal of Finance, 67(1), 1-43.</li>
+</ul>
+<p><strong>【思考题】</strong></p>
+<ol type="1">
+<li>以“业绩电话会音频”构造一个分类任务（如识别管理层不确定性状态）时，标签通常如何定义？哪些环节最容易引入样本选择偏误？</li>
+<li>如何严谨地证明多模态信号对文本/结构化变量具有增量信息？请给出一个你认为必要的互补性检验设计。</li>
+</ol>
+</section>
+<section id="第5-8周-学生研究计划research-proposal汇报与研讨" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="第5-8周-学生研究计划research-proposal汇报与研讨"><span class="header-section-number">8.5</span> <strong>第5-8周 学生研究计划（Research Proposal）汇报与研讨</strong></h2>
+<p><strong>【课时安排】</strong> 课堂研讨：每周2课时（90分钟），共4周。</p>
+<p><strong>【分组要求】</strong> 每组3-5人（最多5人）。</p>
+<p><strong>【汇报任务】</strong> 每组围绕一个明确的金融研究问题，提交并汇报一份研究计划的可执行版本，重点说明：</p>
+<ol type="1">
+<li>研究动机与文献缺口（参考文献仅作为选题与定位依据）；</li>
+<li>研究问题与可检验假说/预测；</li>
+<li>数据来源、样本、变量构造；</li>
+<li>实证策略与评估协议（尤其强调时序评估规范、避免信息泄露）；</li>
+<li><strong>人工智能方法如何应用</strong>：模型/管线、训练与验证、输出如何进入经济/金融解释；</li>
+<li>预期贡献与可行性风险。</li>
+</ol>
+<p><strong>【汇报形式】</strong> 每组10-15分钟（含问答），主讲人需<strong>提前24小时提交10-15页演示文稿</strong>。</p>
+<p><strong>【教学目的与要求】</strong> 通过学生主导的研究计划汇报与研讨，训练学生将所学的机器学习理论与金融实证方法融会贯通，设计一份完整、可行的研究计划。重点考察学生对研究问题定位、AI方法嵌入必要性、数据可行性与评估规范的把握能力。</p>
+</section>
+</section>
+<section id="参考论文池供选题与定位参考" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> <strong>参考论文池（供选题与定位参考）</strong></h1>
+<p>以下论文池仅作为选题灵感与文献定位的参考，学生可自主确定研究问题，不必局限于复现某一篇论文。</p>
+<section id="资产定价与金融预测专题" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="资产定价与金融预测专题"><span class="header-section-number">9.1</span> <strong>资产定价与金融预测专题</strong></h2>
+<ol type="1">
+<li><strong>资产定价预测</strong>：
+<ul>
+<li>Adämmer, P., &amp; Schüssler, R. A. (2020). Forecasting the equity premium: mind the news!. Review of Finance, 24(6), 1313-1355.</li>
+<li>Bali, T. G., Beckmeyer, H., Moerke, M., &amp; Weigert, F. (2023). Option return predictability with machine learning and big data. The Review of Financial Studies, 36(9), 3548-3602.</li>
+<li>Bianchi, D., Büchner, M., &amp; Tamoni, A. (2021). Bond risk premiums with machine learning. The Review of Financial Studies, 34(2), 1046-1089.</li>
+<li>Chen, L., Pelger, M., &amp; Zhu, J. (2023). Deep learning in asset pricing. Management Science.</li>
+<li>Chinco, A., Clark‐Joseph, A. D., &amp; Ye, M. (2019). Sparse signals in the cross‐section of returns. The Journal of Finance, 74(1), 449-492.</li>
+<li>Dong, X., Li, Y., Rapach, D. E., &amp; Zhou, G. (2022). Anomalies and the expected market return. The Journal of Finance, 77(1), 639-681.</li>
+<li>Freyberger, J., Neuhierl, A., &amp; Weber, M. (2020). Dissecting characteristics nonparametrically. The Review of Financial Studies, 33(5), 2326-2377.</li>
+<li>Gu, S., Kelly, B., &amp; Xiu, D. (2020). Empirical asset pricing via machine learning. The Review of Financial Studies, 33(5), 2223-2273.</li>
+<li>Kelly, B. T., Kuznetsov, B., Malamud, S., &amp; Xu, T. A. (2025). Artificial intelligence asset pricing models (No.&nbsp;w33351). National Bureau of Economic Research.</li>
+<li>Kozak, S., Nagel, S., &amp; Santosh, S. (2020). Shrinking the cross-section. Journal of Financial Economics, 135(2), 271-292.</li>
+<li>Novy-Marx, R., &amp; Velikov, M. Z. (2025). AI-powered (finance) scholarship (No.&nbsp;w33363). National Bureau of Economic Research.</li>
+<li>Leippold, M., Wang, Q., &amp; Zhou, W. (2022). Machine learning in the Chinese stock market. Journal of Financial Economics, 145(2), 64-82.</li>
+</ul></li>
+<li><strong>其他金融预测</strong>：
+<ul>
+<li>Bao, Y., Ke, B., Li, B., Yu, Y. J., &amp; Zhang, J. (2020). Detecting accounting fraud in publicly traded US firms using a machine learning approach. Journal of Accounting Research, 58(1), 199-235.</li>
+<li>Berg, T., Burg, V., Gombović, A., &amp; Puri, M. (2020). On the rise of fintechs: Credit scoring using digital footprints. The Review of Financial Studies, 33(7), 2845-2897.</li>
+<li>Chen, X., Cho, Y. H., Dou, Y., &amp; Lev, B. (2022). Predicting future earnings changes using machine learning and detailed financial data. Journal of Accounting Research, 60(2), 467-515.</li>
+<li>DeMiguel, V., Gil-Bazo, J., Nogales, F. J., &amp; Santos, A. A. (2023). Machine learning and fund characteristics help to select mutual funds with positive alpha. Journal of Financial Economics, 150(3), 103737.</li>
+<li>Erel, I., Stern, L. H., Tan, C., &amp; Weisbach, M. S. (2021). Selecting directors using machine learning. The Review of Financial Studies, 34(7), 3226-3264.</li>
+<li>Gathergood, J., Mahoney, N., Stewart, N., &amp; Weber, J. (2019). How do individuals repay their debt? The balance-matching heuristic. American Economic Review, 109(3), 844-875.</li>
+<li>Goetzmann, W. N., Kim, D., &amp; Shiller, R. J. (2024). Emotions and subjective crash beliefs (No.&nbsp;w32589). National Bureau of Economic Research.</li>
+<li>Huang, D., Li, J., &amp; Wang, L. (2021). Are disagreements agreeable? Evidence from information aggregation. Journal of Financial Economics, 141(1), 83-101.</li>
+<li>Jha, M., Qian, J., Weber, M., &amp; Yang, B. (2024). ChatGPT and corporate policies (No.&nbsp;w32161). National Bureau of Economic Research.</li>
+<li>Kaniel, R., Lin, Z., Pelger, M., &amp; Van Nieuwerburgh, S. (2023). Machine-learning the skill of mutual fund managers. Journal of Financial Economics, 150(1), 94-138.</li>
+<li>Van Binsbergen, J. H., Han, X., &amp; Lopez-Lira, A. (2023). Man versus machine learning: The term structure of earnings expectations and conditional biases. The Review of Financial Studies, 36(6), 2361-2396.</li>
+<li>Wu, W., Chen, J., Yang, Z., &amp; Tindall, M. L. (2021). A cross-sectional machine learning approach for hedge fund return prediction and selection. Management Science, 67(7), 4577-4601.</li>
+</ul></li>
+</ol>
+</section>
+<section id="金融文本分析专题" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="金融文本分析专题"><span class="header-section-number">9.2</span> <strong>金融文本分析专题</strong></h2>
+<ol type="1">
+<li><p><strong>财报/公告分析</strong>：</p>
+<ul>
+<li>Bernard, D., Blackburne, T., &amp; Thornock, J. (2020). Information flows among rivals and corporate investment. Journal of Financial Economics, 136(3), 760-779.</li>
+<li>Brown, N. C., Crowley, R. M., &amp; Elliott, W. B. (2020). What are you saying? Using topic to detect financial misreporting. Journal of Accounting Research, 58(1), 237-291.</li>
+<li>Buehlmaier, M. M., &amp; Whited, T. M. (2018). Are financial constraints priced? Evidence from textual analysis. The Review of Financial Studies, 31(7), 2693-2728.</li>
+<li>Dyer, T., Lang, M., &amp; Stice-Lawrence, L. (2017). The evolution of 10-K textual disclosure: Evidence from Latent Dirichlet Allocation. Journal of Accounting and Economics, 64(2-3), 221-245.</li>
+<li>Eisdorfer, A., Froot, K., Ozik, G., &amp; Sadka, R. (2022). Competition links and stock returns. The Review of Financial Studies, 35(9), 4300-4340.</li>
+<li>Florackis, C., Louca, C., Michaely, R., &amp; Weber, M. (2023). Cybersecurity risk. The Review of Financial Studies, 36(1), 351-407.</li>
+<li>Fukui, M., Gormsen, N. J., &amp; Huber, K. (2024). Sticky Discount Rates (No.&nbsp;w32238). National Bureau of Economic Research.</li>
+<li>Garcia, D., Hu, X., &amp; Rohrer, M. (2023). The colour of finance words. Journal of Financial Economics, 147(3), 525-549.</li>
+<li>Hassan, T. A., Hollander, S., Van Lent, L., &amp; Tahoun, A. (2019). Firm-level political risk: Measurement and effects. The Quarterly Journal of Economics, 134(4), 2135-2202.</li>
+<li>Hoberg, G., Knoblock, C., Phillips, G., Pujara, J., Qiu, Z., &amp; Raschid, L. (2024). Using representation learning and web text to identify competitor networks. Management Science.</li>
+<li>Hoberg, G., &amp; Phillips, G. (2016). Text-based network industries and endogenous product differentiation. Journal of Political Economy, 124(5), 1423-1465.</li>
+<li>Li, K., Mai, F., Shen, R., &amp; Yan, X. (2021). Measuring corporate culture using machine learning. The Review of Financial Studies, 34(7), 3265-3315.</li>
+<li>Sautner, Z., Van Lent, L., Vilkov, G., &amp; Zhang, R. (2023). Firm‐level climate change exposure. The Journal of Finance, 78(3), 1449-1498.</li>
+</ul></li>
+<li><p><strong>新闻/社交媒体分析</strong>：</p>
+<ul>
+<li>Baker, S. R., Bloom, N., &amp; Davis, S. J. (2016). Measuring economic policy uncertainty. The quarterly journal of economics, 131(4), 1593-1636.</li>
+<li>Bartov, E., Faurel, L., &amp; Mohanram, P. S. (2018). Can Twitter help predict firm-level earnings and stock returns?. The Accounting Review, 93(3), 25-57.</li>
+<li>Benamar, H., Foucault, T., &amp; Vega, C. (2021). Demand for information, uncertainty, and the response of us treasury securities to news. The Review of Financial Studies, 34(7), 3403-3455.</li>
+<li>Bybee, L., Kelly, B., Manela, A., &amp; Xiu, D. (2024). Business news and business cycles. The Journal of Finance, 79(5), 3105-3147.</li>
+<li>Cookson, J. A., &amp; Niessner, M. (2020). Why don’t we agree? Evidence from a social network of investors. The Journal of Finance, 75(1), 173-228.</li>
+<li>Hanley, K. W., &amp; Hoberg, G. (2019). Dynamic interpretation of emerging risks in the financial sector. The Review of Financial Studies, 32(12), 4543-4603.</li>
+<li>Ke, Z. T., Kelly, B. T., &amp; Xiu, D. (2019). Predicting returns with text data (No.&nbsp;w26186). National Bureau of Economic Research.</li>
+<li>Manela, A., &amp; Moreira, A. (2017). News implied volatility and disaster concerns. Journal of Financial Economics, 123(1), 137-162.</li>
+<li>Tang, V. W. (2018). Wisdom of crowds: Cross‐sectional variation in the informativeness of third‐party‐generated product information on Twitter. Journal of Accounting Research, 56(3), 989-1034.</li>
+</ul></li>
+<li><p><strong>其他文本分析</strong>：</p>
+<ul>
+<li>Bandiera, O., Prat, A., Hansen, S., &amp; Sadun, R. (2020). CEO behavior and firm performance. Journal of Political Economy, 128(4), 1325-1369.</li>
+<li>Cong, L. W., Lu, Y., Shi, H., &amp; Zhu, W. (2024). Automation-Induced Innovation Shift. Available at SSRN 5049949.</li>
+<li>Ganguli, I., Lin, J., Meursault, V., &amp; Reynolds, N. F. (2024). Patent text and long-run innovation dynamics: the critical role of model selection (No.&nbsp;w32934). National Bureau of Economic Research.</li>
+<li>Gómez-Cram, R., &amp; Grotteria, M. (2022). Real-time price discovery via verbal communication: Method and application to Fedspeak. Journal of Financial Economics, 143(3), 993-1025.</li>
+<li>Green, T. C., Huang, R., Wen, Q., &amp; Zhou, D. (2019). Crowdsourced employer reviews and stock returns. Journal of Financial Economics, 134(1), 236-251.</li>
+<li>Huang, A. H., Zang, A. Y., &amp; Zheng, R. (2014). Evidence on the information content of text in analyst reports. The Accounting Review, 89(6), 2151-2180.</li>
+<li>Kalmenovitz, J. (2023). Regulatory intensity and firm-specific exposure. The Review of Financial Studies, 36(8), 3311-3347.</li>
+<li>Lowry, M., Michaely, R., &amp; Volkova, E. (2020). Information revealed through the regulatory process: Interactions between the SEC and companies ahead of their IPO. The Review of Financial Studies, 33(12), 5510-5554.</li>
+</ul></li>
+</ol>
+</section>
+<section id="多模态分析专题" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="多模态分析专题"><span class="header-section-number">9.3</span> <strong>多模态分析专题</strong></h2>
+<ol type="1">
+<li><strong>图片/图像分析</strong>：
+<ul>
+<li>Henderson, J. V., Storeygard, A., &amp; Weil, D. N. (2012). Measuring economic growth from outer space. American economic review, 102(2), 994-1028.</li>
+<li>Hsieh, T. S., Kim, J. B., Wang, R. R., &amp; Wang, Z. (2020). Seeing is believing? Executives’ facial trustworthiness, auditor tenure, and audit fees. Journal of Accounting and Economics, 69(1), 101260.</li>
+<li>Jiang, J., Kelly, B. T., &amp; Xiu, D. (2023). (Re-)Imag(in)ing price trends. Journal of Finance, 78(6), 3193-3249.</li>
+<li>Mukherjee, A., Panayotov, G., &amp; Shon, J. (2021). Eye in the sky: Private satellites and government macro data. Journal of Financial Economics, 141(1), 234-254.</li>
+<li>Obaid, K., &amp; Pukthuanthong, K. (2022). A picture is worth a thousand words: Measuring investor sentiment by combining machine learning and photos from news. Journal of Financial Economics, 144(1), 273-297.</li>
+</ul></li>
+<li><strong>音频分析</strong>：
+<ul>
+<li>Edmans, A., Fernandez-Perez, A., Garel, A., &amp; Indriawan, I. (2022). Music sentiment and stock returns around the world. Journal of Financial Economics, 145(2), 234-254.</li>
+<li>Franken, O., Mamadeh, I., &amp; Zaklan, G. (2022). Vocal patterns in earnings calls: A large-sample analysis. Journal of Accounting Research, 60(2), 467-515.</li>
+<li>Mayew, W. J., &amp; Venkatachalam, M. (2012). The power of voice: Managerial affective states and future firm performance. The Journal of Finance, 67(1), 1-43.</li>
+</ul></li>
+<li><strong>视频分析</strong>：
+<ul>
+<li>Eleswarapu, V. R., &amp; Krishnamurthy, S. (2020). Facing the truth: The effect of video on the credibility of online business pitches. Journal of Financial Economics, 156(1), 102-120.</li>
+<li>Huang, X., Ivković, Z., Jiang, J. X., &amp; Wang, I. Y. (2023). Angel investment and first impressions. Journal of Financial Economics, 149(2), 161-178.</li>
+</ul></li>
+</ol>
+</section>
+<section id="ai市场影响专题" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="ai市场影响专题"><span class="header-section-number">9.4</span> <strong>AI市场影响专题</strong></h2>
+<ul>
+<li>Cao, S., Jiang, W., Wang, J. L., &amp; Yang, B. (2021). From man vs.&nbsp;machine to man+ machine: The art and AI of stock analyses (No.&nbsp;w28800). National Bureau of Economic Research.</li>
+<li>Cao, S., Jiang, W., Yang, B., &amp; Zhang, A. L. (2023). How to talk when a machine is listening: Corporate disclosure in the age of AI. The Review of Financial Studies, 36(9), 3603-3642.</li>
+<li>Cheng, Q., Lin, P., &amp; Zhao, Y. (2024). Does generative ai facilitate investor trading? Evidence from chatgpt outages.</li>
+<li>Easley, D., López de Prado, M., O’Hara, M., &amp; Zhang, Z. (2021). Microstructure in the machine age. The Review of Financial Studies, 34(7), 3316-3363.</li>
+<li>Eisfeldt, A. L., Schubert, G., &amp; Zhang, M. B. (2023). Generative AI and firm values (No.&nbsp;w31222). National Bureau of Economic Research.</li>
+<li>Fuster, A., Goldsmith‐Pinkham, P., Ramadorai, T., &amp; Walther, A. (2022). Predictably unequal? The effects of machine learning on credit markets. The Journal of Finance, 77(1), 5-47.</li>
+<li>Jiang, W., Tang, Y., Xiao, R. J., &amp; Yao, V. (2025). Surviving the FinTech disruption. Journal of Financial Economics, 171, 104071.</li>
+<li>Liu, H., Papanikolaou, D., Schmidt, L. D., &amp; Seegmiller, B. (2025). Technology and Labor Markets: Past, Present, and Future; Evidence from Two Centuries of Innovation (No.&nbsp;w34386). National Bureau of Economic Research.</li>
+<li>Zhu, C. (2019). Big data as a governance mechanism. The Review of Financial Studies, 32(5), 2021-2061.</li>
+</ul>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "已复制");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "已复制");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="AI与金融研究：从理论到证据">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI与金融研究：从理论到证据</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./intro.html" class="pagination-link" aria-label="课程简介与预备知识">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">课程简介与预备知识</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">源代码</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "教学大纲"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># **一、课程概况**</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**课程名称（中文）：**</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    AI与金融研究：从理论到证据</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**课程名称（英文）：**</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    AI and Financial Research: From Theory to Evidence</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**前行课程：**</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    建议修读过计量经济学、金融市场、Python编程基础或具备同等知识。</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**修读对象：**</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    本课程面向全校对量化金融、金融科技和人工智能交叉领域研究感兴趣的硕士和博士研究生，尤其适合金融、经济、会计、统计、计算机等相关专业的学生。</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**课程教材及参考书目：**</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**核心参考书：**</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">        1.  </span>Kelly, B., &amp; Xiu, D. (2023). Financial machine learning. *Foundations and Trends® in Finance, 13*(3-4), 205-363.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">        2.  </span>Hastie, T., Tibshirani, R., &amp; Friedman, J. (2009). *The elements of statistical learning: data mining, inference, and prediction*. Springer Science &amp; Business Media.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">        3.  </span>Jurafsky, D., &amp; Martin, J. H. (2023). *Speech and language processing* (3rd ed. draft).</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**参考学术论文：详见最后附录**</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># **二、课程性质、地位和任务**</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>本课程是一门融合了方法论与前沿应用的“AI+金融”研究生公共选修课。它定位于连接人工智能理论与严谨金融实证研究的桥梁，旨在为有志于从事量化投资、金融科技或相关学术研究的学生提供一套系统性的知识框架和研究范式。</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>课程的核心任务是：</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**理论武装**：建立稳固的机器学习理论基础，特别是围绕“泛化—正则化—评估”的核心逻辑，帮助学生规避金融回测中的常见陷阱。</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**方法落地**：将抽象的机器学习模型应用于资产定价、文本分析和多模态信号抽取等具体的金融问题，强调“可交易性”和“可解释性”。</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**批判性思维**：通过前沿论文的研讨，培养学生批判性地评估实证证据、识别研究中的潜在威胁（如信息泄露、前瞻偏误、样本选择偏误等）的能力。</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**创新能力**：通过期末大作业，训练学生将现有方法迁移到新场景、设计并阐述一个完整的、可行的研究计划（Research Proposal）的能力。</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu"># **三、教学目标、教学内容和要求**</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## **（一）教学目标**</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>完成本课程后，学生应能：</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**理论掌握**：系统阐述偏差-方差权衡、正则化、交叉验证等核心概念，并能设计符合时序数据特性的样本外评估方案。</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**应用实践**：将机器学习模型（从正则化线性模型到集成/深度模型）应用于截面收益预测任务，并能从经济可行性（如交易成本、换手率）角度评估策略表现。</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**文本分析**：掌握“从原始文本到量化变量”的全流程，能审计变量构造过程，并检验文本信息的增量价值。</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**前沿认知**：理解多模态（图片/音频/视频）数据在金融中的应用潜力、技术管线及其特有的挑战与伦理边界。</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**研究设计**：独立完成一份高质量的研究计划书，清晰界定研究问题、定位文献缺口、设计严谨的实证策略和稳健性检验。</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## **（二）教学内容**</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>详见后续各周教学安排。课程内容覆盖机器学习理论、在资产定价中的应用、金融文本分析、多模态信号抽取四大模块，并穿插学生对相关领域顶尖论文的汇报与研讨。</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## **（三）教学要求**</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**课前准备**：按时完成指定阅读材料，尤其是汇报研讨周。</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**课堂参与**：教师授课周积极思考，学生汇报周积极参与提问与讨论。</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**汇报要求**：主讲学生需严格按照研究计划与幻灯要求准备，提前提交材料，并在台上清晰、严谨地展示与回答问题。</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**学术诚信**：所有提交的作业、笔记和报告必须遵守学术规范，杜绝抄袭。在使用AI工具时需明确声明并核验其产出。</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu"># **四、教学方式**</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>本课程采用“**教师精讲 + 学生研讨 + 项目驱动**”的混合式教学模式：</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**教师精讲（Weeks 1-4）**：由教师系统讲授核心理论与方法论，聚焦技术细节、应用规范与常见陷阱，时长90分钟，不设课堂讨论，以保证信息密度。</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**学生研讨（Weeks 5-8）**：由学生分组进行研究计划（Research Proposal）汇报，每组10-15分钟（含问答），旨在检验其对研究问题设计、AI方法嵌入与评估规范的理解，并由全体师生进行问答与批判性讨论。</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**项目驱动**：课程以期末研究计划书为最终导向，引导学生将所学知识融会贯通，完成一份完整、可行的研究计划。</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu"># **五、考核方式**</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>本课程注重过程性考核与结果性考核相结合，综合评估学生的理论掌握、批判性思维与研究创新能力。</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**课程测验 20%**</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**时间点**：第5周课程开始前（覆盖Weeks 1–4核心概念）。</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**题型与时长**：全选择题（单选为主，可少量多选）；20题，20分钟；限时一次提交。</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**覆盖范围**：Weeks 1-4的理论内容，包括泛化—正则化—评估；信息泄露/前瞻偏误/数据窥探；时序交叉验证（Rolling/Expanding/Nested CV）；样本外指标（OS-R²、RMSE、AUC等）与经济可行性指标（交易成本、换手率等）；文本分析流程与风险点；多模态与伦理/隐私边界（基础理解）等。</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**小组课堂报告（Research Proposal Pitch）40%**</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**分组要求**：每组3–5人（最多5人）。</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**汇报内容**：研究问题与重要性、文献定位、数据与变量、实证框架与评估协议，并重点说明**人工智能方法如何嵌入并解决关键识别/测量/预测/抽取问题**（“AI方法落地”为核心）。</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**形式要求**：每组10–15分钟（含问答），**提前24小时提交slides（建议10–15页）**。</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**评分标准（100分折算为40%）**：</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>研究问题与贡献（25）</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>数据与可行性（20）</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>AI方法嵌入的必要性与正确性（25）</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>实证策略与评估协议（20）：强调时序CV、信息泄露防控、样本外评价等规范</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>表达与问答（10）</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**贡献声明与同伴评分**：提交“组内分工/贡献说明”；同伴评分仅用于组内分配（不额外计入总评）。若差异显著，可对个体在该组分中做±10%的系数调整，以抑制搭便车。</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**期末研究计划书（Detailed Research Plan）40%**</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**提交方式**：以小组为单位提交，需附“组内分工/贡献说明”。</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**建议格式**：正文8–12页（不含参考文献与附录）；必须包含数据表（来源/频率/样本期）、变量表（定义/对齐）、方法流程图（AI管线+评估协议）。参考文献仅需与选题相关，不设“必选论文清单”。</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>**评分标准（100分折算为40%）**：</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>研究动机与文献缺口（20）</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>研究问题与理论机制/假说（10）</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>数据与变量构造（20）：尤其是非结构化数据需写清“从原始数据到量化变量”的可审计流程</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>实证方法与识别策略（20）</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>AI方法实施细节（20）：训练/验证/测试划分、超参数策略、评价指标、稳健性与可解释性；明确如何避免look-ahead bias / leakage</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="ss">        * </span>写作规范与可复现性（10）：引用规范；附录可含伪代码、变量字典、数据处理流程图等</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="fu"># **六、教学内容**</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## **第1章 机器学习：非时序任务的认知框架**</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>**【教学目的与要求】** 建立适用于“独立同分布（i.i.d.）”数据场景的机器学习认知框架：明确回归与分类两类核心任务，理解偏差–方差分解与过拟合的生成机制，并形成可复现实证研究的“最小证据链”与指标选择原则，为后续金融时序/回测场景的规范评估作铺垫。</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>**【教学重点】** 回归 vs. 分类（目标函数与损失）；偏差–方差分解；正则化与模型复杂度控制；机器学习的最小证据链；关键预测指标体系（回归/分类）。</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>**【课时安排】** 课堂讲授：2课时（90分钟）</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>**【教学内容】**</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**两类问题：回归与分类**：用统一符号系统刻画监督学习任务（特征 <span class="sc">\(</span>X<span class="sc">\)</span>、标签 <span class="sc">\(</span>y<span class="sc">\)</span>、损失函数与风险最小化）。回归用于预测连续变量（如未来收益率/波动率），分类用于预测离散标签（如涨跌/违约/事件发生）。讨论同一研究问题在“回归表述”与“分类表述”之间的可转换性，以及两类任务对输出解释与评估指标的不同要求。</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**偏差–方差分解与泛化误差**：从期望预测误差出发拆解误差来源，解释模型复杂度、样本规模与噪声强度如何共同决定欠拟合与过拟合；用学习曲线理解“训练集表现”与“样本外表现”不一致的统计根源。</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**从偏差–方差到正则化：模型选择的统计逻辑**：介绍经验风险最小化（ERM）与结构风险最小化（SRM）的基本思想；以岭回归/Lasso/弹性网络为例说明正则化如何降低方差并实现变量筛选；在i.i.d.假设下说明训练–验证–测试划分与K折交叉验证的基本原则（并提示：金融时序数据需要不同的评估协议，将在第2章专门讨论）。</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**机器学习的最小证据链（Minimum Evidence Chain）**：给出一项可信的机器学习实证最少应交付的证据：数据与标签定义（含信息可得性说明）→ 预处理与缺失值规则 → 划分方案与超参数搜索策略 → 基准模型与对照组 → 样本外结果（含切片/稳健性）→ 可复现性材料（代码、随机种子、变量字典与流程图）。</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**关键指标体系：指标与研究目标的一致性**：回归指标（MSE/RMSE、MAE、<span class="sc">\(</span>R^2<span class="sc">\)</span> 与OS-<span class="sc">\(</span>R^2<span class="sc">\)</span> 的含义差异）；分类指标（log-loss、AUC-ROC/AUC-PR、精确率/召回率、F1、校准）；讨论类别不平衡、阈值选择与“指标被优化但结论不稳健”的常见情形。</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>**【阅读材料】**</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**必读**：Hastie et al. (2009), Chapters 3, 7; Kelly &amp; Xiu (2023), Chapters 1-2.</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>**【思考题】**</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>将“预测未来收益率”分别表述为回归任务与分类任务时，标签应如何定义？两种表述分别应优先使用哪些评价指标？</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>用偏差–方差分解解释：为什么更复杂的模型可能在训练集更好，但在样本外更差？</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>请列出“最小证据链”中你认为最容易被忽视的两项，并说明忽视它们可能带来的误判（例如信息泄露或不可复现）。</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="fu">## **第2章 资产定价：问题解构、特征工程与时序评估规范**</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>**【教学目的与要求】** 解释资产定价预测任务相较一般机器学习问题的“特别之处”（低信噪比、非平稳、交易约束与成本），并在此基础上给出从经济问题到机器学习任务的可操作分解：问题解构与特征工程 → 时序样本外评估与回测卫生 → 模型选择与组合构建（以 Gu, Kelly, Xiu, 2020 为主要参照）→ 从统计显著走向经济可行。</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>**【教学重点】** 资产定价任务的低信噪比与非平稳性；特征与标签的时间对齐；滚动/扩展窗口与嵌套评估；回测卫生（数据泄露、存活偏误、数据回填等）；预测指标与组合指标；模型选择与模型组合；统计显著 vs. 经济可行。</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>**【课时安排】** 课堂讲授：2课时（90分钟）</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>**【教学内容】**</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**资产定价的“特别之处”**：为何收益预测比典型的i.i.d.监督学习更难——噪声占比高、结构随时间变化、横截面相关性强；同时，可交易性约束（做空、杠杆、容量）与交易成本使得“预测准确”并不自动等价于“可赚钱”。</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**问题解构与特征工程**：明确预测对象（个股收益/风险溢价/因子收益）与预测期限；构造信息集与可得性规则（信息披露滞后、会计变量发布日期）；特征标准化与缺失值处理；以时间戳与发布时点为基准，系统避免前瞻偏误与标签泄露。</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**时序数据评估规范与回测卫生**：训练–验证–测试的时间切分；滚动窗口（Rolling）与扩展窗口（Expanding）；嵌套滚动评估用于超参数选择。回测卫生清单：存活偏误、数据回填、拆分/分红/停牌处理、退市收益、调仓时点与执行滞后、样本选择与数据窥探（data snooping）。</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**评估指标：从预测到组合**：预测层面（如OS-<span class="sc">\(</span>R^2<span class="sc">\)</span>、IC/Rank-IC）；组合层面（年化超额收益、Sharpe/Information Ratio、最大回撤、换手率、交易成本后收益、容量/冲击敏感性）。强调切片评估（按时期/行业/市场状态）与稳健性检验。</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**模型选择与组合构建（以 Gu, Kelly, Xiu, 2020 为参照）**：对比线性正则化、树模型与神经网络在截面收益预测中的相对表现与适用条件；介绍将预测分数映射为投资组合的标准流程（排序多空、风险约束下的组合优化），以及模型组合（平均/加权/stacking）在稳定性与可交易性上的意义。</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**从统计显著到经济可行**：将p值与t统计的“显著”转换为“可交易”的判据：成本与约束后的净收益、风险暴露分解、策略容量、信号衰减与可持续性；讨论多重检验与数据窥探下的错误发现控制，避免“统计上好看但经济上不可行”的结论。</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>**【阅读材料】**</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**必读**：Gu, S., Kelly, B., &amp; Xiu, D. (2020). Empirical asset pricing via machine learning. Review of Financial Studies, 33(5), 2223-2273.</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**选读**：Kelly &amp; Xiu (2023), Chapters 3-5.</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>**【思考题】**</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>一个拥有较高样本外预测指标（如OS-<span class="sc">\(</span>R^2<span class="sc">\)</span> 或 IC）的模型，为何在真实交易中仍可能表现很差？请至少列出三个原因，并指出它们分别对应哪一类“回测卫生”问题或“经济约束”。</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>如果你的特征中包含会计变量（存在披露滞后），滚动窗口评估中最常见的信息泄露路径是什么？你会如何在数据对齐上规避？</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>结合 Gu, Kelly, Xiu (2020) 的经验事实，你会如何在“预测性能—稳定性—可解释性”之间权衡选择模型，并将其输出转化为一个可交易的组合？</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="fu">## **第3章 文本分析理论 → 金融文本应用**</span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>**【教学目的与要求】** 以“文本作为数据（text as data）”为主线，系统介绍文本表示方法的谱系与统计权衡，并给出从原始文本到可用于金融实证的量化变量的标准化生产流程。课程强调变量构造的三项底线要求：信息可得性（不含前瞻）、过程可审计（可追溯）、结果可复现（可重复）。</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>**【教学重点】** 文本表示方法（词袋/主题/嵌入/Transformer）；语料治理与时间对齐；变量构造中最易犯的错误清单（前瞻偏误、标签泄露、样本选择偏误、测量误差、多重比较）；增量信息与经济机制的检验。</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>**【课时安排】** 课堂讲授：2课时（90分钟）</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>**【教学内容】**</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**文本表示方法：一条“方法谱系”与四个权衡维度**：从可解释的离散表示（词袋/TF-IDF、词典法），到无监督的主题模型（LDA 等），再到分布式表示（word2vec/doc2vec、句向量）与上下文表示（Transformer/BERT、领域适配/微调）。强调四个权衡：解释性 vs. 表达力、监督 vs. 无监督、域内迁移能力、计算成本与可复现性。</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**语料治理：把“原始文档”变成“可用于计量/预测的观测值”**：版本锁定（首发披露/修订版的区分）、时间戳与可得性规则（何时“可被市场看到”）、实体识别与对齐（公司/产品/人物）、去重与噪声处理（乱码、OCR/ASR误差、模板文本）。强调：金融文本的关键不是“能读懂”，而是“能在信息集意义下被严谨使用”。</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**变量构造中最需要注意的问题（高频踩坑清单）**：前瞻偏误（把未来信息带回过去）、标签泄露（把结果写进特征）、样本选择偏误（只观察到“愿意披露/被报道”的部分）、测量误差（分词/识别错误导致系统性噪声）、多重比较与过拟合（高维特征+反复试错）。对应给出可审计交付物：变量字典、处理流水线、对齐规则与审计日志。</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**评估：增量信息、稳健性与经济含义**：检验文本变量对基准模型/已知因子的增量贡献（冗余性 vs. 互补性），进行切片评估（行业/时期/市场状态）与稳定性检验；讨论从“统计相关”到“经济机制”的解释路径，以及信息抽取（IE）与生成式模型在测量任务中的可用边界与风险。</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>**【阅读材料】**</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**必读**：Eisfeldt, A. L., &amp; Schubert, G. (2024). Generative AI and Finance. Annual Review of Financial Economics, 17.</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**选读**：(1) Gentzkow, M., Kelly, B., &amp; Taddy, M. (2019). Text as data. Journal of Economic Literature, 57(3), 535-574. (2) Ludwig, J., Mullainathan, S., &amp; Rambachan, A. (2025). Large language models: An applied econometric framework (No. w33344). National Bureau of Economic Research.</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>**【思考题】**</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>相比传统的基于词典的方法，使用BERT等大规模语言模型构造文本变量的主要优势和潜在风险分别是什么？</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>在处理新闻数据以预测股价时，如何设计一个流程来避免“前瞻偏误”？</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>为什么检验一个新文本因子与已知因子（如Fama-French三因子）的相关性是至关重要的一步？</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## **第4章 多模态模型理论 → 金融信号抽取**</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>**【教学目的与要求】** 围绕“多模态分类（multimodal classification）”这一类典型研究任务，介绍图片、音频、视频等非结构化数据在金融研究中的数据版图、特征提取方法与融合策略，并重点讨论变量构造时必须遵守的时间对齐、样本代表性与隐私合规约束，从而实现“可度量、可检验、可发表”的多模态实证证据。</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>**【教学重点】** 多模态分类任务的标签定义与评估；视觉/音频/视频的特征提取与变量构造注意事项；融合策略（早/中/后融合）；变量构造的时间对齐与偏误控制；互补性（增量信息）检验。</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>**【课时安排】** 课堂讲授：2课时（90分钟）</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>**【教学内容】**</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**任务与数据：把多模态研究表述为一个“分类问题”**：在金融场景中，多模态常对应“识别/判断”类任务，例如：识别风险事件或争议（ESG 争议、监管处罚）、识别欺诈或异常披露、识别管理层情绪/不确定性状态等。对应的数据来源包括：图片（卫星夜光、门店/产品/票据图像、图表截图等）、音频（业绩电话会录音、访谈）、视频（路演/发布会/在线会议）。强调：标签定义（何时、对谁、预测什么）决定了变量构造与评估协议。</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**视觉（图像）模态：特征提取与变量构造注意事项**：典型数据包括卫星夜光/遥感影像、门店/产品图片、票据或图表截图等。方法上，从传统特征（纹理/边缘/目标检测）到深度表征（CNN/ResNet、ViT、自监督预训练的图像嵌入）均可用于构造变量（如“活动强度”“拥挤度”“风险事件迹象”等）。关键注意：图像的采集时间与研究时点的对齐（拍摄日≠披露日）、空间对齐（地理坐标与企业实体匹配）、数据质量与域漂移（分辨率、云层、季节性/夜间光污染）、以及潜在的“信息泄露”（例如图表截图中隐含未来价格轨迹）。</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**音频模态：特征提取与测量误差**：典型数据为业绩电话会录音、访谈音频等。特征提取通常有两条主线：（i）ASR 转写为文本→沿第3章流程做文本表征；（ii）直接提取声学与韵律特征（音高、语速、停顿、能量、MFCC）或使用预训练音频模型得到嵌入（如 wav2vec/HuBERT 类表示）。关键注意：ASR 错误与信道噪声带来的系统性测量误差、说话人分离与身份对齐（CEO/CFO/分析师）、语言与口音差异导致的偏差，以及“可得性选择”（哪些公司/哪些时期有高质量录音）。</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**视频模态：时序聚合、行为信号与合规边界**：典型数据为路演/发布会/线上会议视频。特征可来自帧级视觉表征（CNN/ViT 嵌入）与行为线索（面部AUs、头部姿态、手势、注视方向等），并需要在时间维度进行聚合或建模（片段级统计量、时序模型）。关键注意：摄像机角度、光照、压缩与遮挡带来的测量误差；人群属性差异引致的算法偏差；以及生物特征数据的隐私与同意边界（采集授权、脱敏/匿名化、最小化使用原则）。</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**融合与分类评估：把三类信号合并为可检验的增量信息**：介绍早融合（特征拼接）、后融合（模型投票/加权）、中期融合（联合表示学习）三类策略；讨论“缺失模态”（部分样本无视频/无音频/无图像）的建模与样本选择问题。评价上，除AUC/F1/校准等分类指标外，更强调与结构化/文本信号相比的增量贡献、切片稳定性与可解释的误差分析。</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>**【阅读材料】**</span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**必读**：Dell, M. (2025). Deep learning for economists. Journal of Economic Literature, 63(1), 5-58.</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**选读**：Mayew, W. J., &amp; Venkatachalam, M. (2012). The power of voice: Managerial affective states and future firm performance. The Journal of Finance, 67(1), 1-43.</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>**【思考题】**</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>以“业绩电话会音频”构造一个分类任务（如识别管理层不确定性状态）时，标签通常如何定义？哪些环节最容易引入样本选择偏误？</span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>如何严谨地证明多模态信号对文本/结构化变量具有增量信息？请给出一个你认为必要的互补性检验设计。</span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## **第5-8周 学生研究计划（Research Proposal）汇报与研讨**</span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>**【课时安排】** 课堂研讨：每周2课时（90分钟），共4周。</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>**【分组要求】** 每组3-5人（最多5人）。</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>**【汇报任务】** 每组围绕一个明确的金融研究问题，提交并汇报一份研究计划的可执行版本，重点说明：</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>研究动机与文献缺口（参考文献仅作为选题与定位依据）；</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>研究问题与可检验假说/预测；</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>数据来源、样本、变量构造；</span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>实证策略与评估协议（尤其强调时序评估规范、避免信息泄露）；</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**人工智能方法如何应用**：模型/管线、训练与验证、输出如何进入经济/金融解释；</span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>预期贡献与可行性风险。</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>**【汇报形式】** 每组10-15分钟（含问答），主讲人需**提前24小时提交10-15页演示文稿**。</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>**【教学目的与要求】** 通过学生主导的研究计划汇报与研讨，训练学生将所学的机器学习理论与金融实证方法融会贯通，设计一份完整、可行的研究计划。重点考察学生对研究问题定位、AI方法嵌入必要性、数据可行性与评估规范的把握能力。</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="fu"># **参考论文池（供选题与定位参考）**</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>以下论文池仅作为选题灵感与文献定位的参考，学生可自主确定研究问题，不必局限于复现某一篇论文。</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="fu">## **资产定价与金融预测专题**</span></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**资产定价预测**：</span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Adämmer, P., &amp; Schüssler, R. A. (2020). Forecasting the equity premium: mind the news!. Review of Finance, 24(6), 1313-1355.</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bali, T. G., Beckmeyer, H., Moerke, M., &amp; Weigert, F. (2023). Option return predictability with machine learning and big data. The Review of Financial Studies, 36(9), 3548-3602.</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bianchi, D., Büchner, M., &amp; Tamoni, A. (2021). Bond risk premiums with machine learning. The Review of Financial Studies, 34(2), 1046-1089.</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Chen, L., Pelger, M., &amp; Zhu, J. (2023). Deep learning in asset pricing. Management Science.</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Chinco, A., Clark‐Joseph, A. D., &amp; Ye, M. (2019). Sparse signals in the cross‐section of returns. The Journal of Finance, 74(1), 449-492.</span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Dong, X., Li, Y., Rapach, D. E., &amp; Zhou, G. (2022). Anomalies and the expected market return. The Journal of Finance, 77(1), 639-681.</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Freyberger, J., Neuhierl, A., &amp; Weber, M. (2020). Dissecting characteristics nonparametrically. The Review of Financial Studies, 33(5), 2326-2377.</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Gu, S., Kelly, B., &amp; Xiu, D. (2020). Empirical asset pricing via machine learning. The Review of Financial Studies, 33(5), 2223-2273.</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kelly, B. T., Kuznetsov, B., Malamud, S., &amp; Xu, T. A. (2025). Artificial intelligence asset pricing models (No. w33351). National Bureau of Economic Research.</span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kozak, S., Nagel, S., &amp; Santosh, S. (2020). Shrinking the cross-section. Journal of Financial Economics, 135(2), 271-292.</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Novy-Marx, R., &amp; Velikov, M. Z. (2025). AI-powered (finance) scholarship (No. w33363). National Bureau of Economic Research.</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Leippold, M., Wang, Q., &amp; Zhou, W. (2022). Machine learning in the Chinese stock market. Journal of Financial Economics, 145(2), 64-82.</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**其他金融预测**：</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bao, Y., Ke, B., Li, B., Yu, Y. J., &amp; Zhang, J. (2020). Detecting accounting fraud in publicly traded US firms using a machine learning approach. Journal of Accounting Research, 58(1), 199-235.</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Berg, T., Burg, V., Gombović, A., &amp; Puri, M. (2020). On the rise of fintechs: Credit scoring using digital footprints. The Review of Financial Studies, 33(7), 2845-2897.</span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Chen, X., Cho, Y. H., Dou, Y., &amp; Lev, B. (2022). Predicting future earnings changes using machine learning and detailed financial data. Journal of Accounting Research, 60(2), 467-515.</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>DeMiguel, V., Gil-Bazo, J., Nogales, F. J., &amp; Santos, A. A. (2023). Machine learning and fund characteristics help to select mutual funds with positive alpha. Journal of Financial Economics, 150(3), 103737.</span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Erel, I., Stern, L. H., Tan, C., &amp; Weisbach, M. S. (2021). Selecting directors using machine learning. The Review of Financial Studies, 34(7), 3226-3264.</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Gathergood, J., Mahoney, N., Stewart, N., &amp; Weber, J. (2019). How do individuals repay their debt? The balance-matching heuristic. American Economic Review, 109(3), 844-875.</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Goetzmann, W. N., Kim, D., &amp; Shiller, R. J. (2024). Emotions and subjective crash beliefs (No. w32589). National Bureau of Economic Research.</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Huang, D., Li, J., &amp; Wang, L. (2021). Are disagreements agreeable? Evidence from information aggregation. Journal of Financial Economics, 141(1), 83-101.</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Jha, M., Qian, J., Weber, M., &amp; Yang, B. (2024). ChatGPT and corporate policies (No. w32161). National Bureau of Economic Research.</span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kaniel, R., Lin, Z., Pelger, M., &amp; Van Nieuwerburgh, S. (2023). Machine-learning the skill of mutual fund managers. Journal of Financial Economics, 150(1), 94-138.</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Van Binsbergen, J. H., Han, X., &amp; Lopez-Lira, A. (2023). Man versus machine learning: The term structure of earnings expectations and conditional biases. The Review of Financial Studies, 36(6), 2361-2396.</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Wu, W., Chen, J., Yang, Z., &amp; Tindall, M. L. (2021). A cross-sectional machine learning approach for hedge fund return prediction and selection. Management Science, 67(7), 4577-4601.</span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="fu">## **金融文本分析专题**</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**财报/公告分析**：</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bernard, D., Blackburne, T., &amp; Thornock, J. (2020). Information flows among rivals and corporate investment. Journal of Financial Economics, 136(3), 760-779.</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Brown, N. C., Crowley, R. M., &amp; Elliott, W. B. (2020). What are you saying? Using topic to detect financial misreporting. Journal of Accounting Research, 58(1), 237-291.</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Buehlmaier, M. M., &amp; Whited, T. M. (2018). Are financial constraints priced? Evidence from textual analysis. The Review of Financial Studies, 31(7), 2693-2728.</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Dyer, T., Lang, M., &amp; Stice-Lawrence, L. (2017). The evolution of 10-K textual disclosure: Evidence from Latent Dirichlet Allocation. Journal of Accounting and Economics, 64(2-3), 221-245.</span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Eisdorfer, A., Froot, K., Ozik, G., &amp; Sadka, R. (2022). Competition links and stock returns. The Review of Financial Studies, 35(9), 4300-4340.</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Florackis, C., Louca, C., Michaely, R., &amp; Weber, M. (2023). Cybersecurity risk. The Review of Financial Studies, 36(1), 351-407.</span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Fukui, M., Gormsen, N. J., &amp; Huber, K. (2024). Sticky Discount Rates (No. w32238). National Bureau of Economic Research.</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Garcia, D., Hu, X., &amp; Rohrer, M. (2023). The colour of finance words. Journal of Financial Economics, 147(3), 525-549.</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hassan, T. A., Hollander, S., Van Lent, L., &amp; Tahoun, A. (2019). Firm-level political risk: Measurement and effects. The Quarterly Journal of Economics, 134(4), 2135-2202.</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hoberg, G., Knoblock, C., Phillips, G., Pujara, J., Qiu, Z., &amp; Raschid, L. (2024). Using representation learning and web text to identify competitor networks. Management Science.</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hoberg, G., &amp; Phillips, G. (2016). Text-based network industries and endogenous product differentiation. Journal of Political Economy, 124(5), 1423-1465.</span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Li, K., Mai, F., Shen, R., &amp; Yan, X. (2021). Measuring corporate culture using machine learning. The Review of Financial Studies, 34(7), 3265-3315.</span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Sautner, Z., Van Lent, L., Vilkov, G., &amp; Zhang, R. (2023). Firm‐level climate change exposure. The Journal of Finance, 78(3), 1449-1498.</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**新闻/社交媒体分析**：</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Baker, S. R., Bloom, N., &amp; Davis, S. J. (2016). Measuring economic policy uncertainty. The quarterly journal of economics, 131(4), 1593-1636.</span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bartov, E., Faurel, L., &amp; Mohanram, P. S. (2018). Can Twitter help predict firm-level earnings and stock returns?. The Accounting Review, 93(3), 25-57.</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Benamar, H., Foucault, T., &amp; Vega, C. (2021). Demand for information, uncertainty, and the response of us treasury securities to news. The Review of Financial Studies, 34(7), 3403-3455.</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bybee, L., Kelly, B., Manela, A., &amp; Xiu, D. (2024). Business news and business cycles. The Journal of Finance, 79(5), 3105-3147.</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Cookson, J. A., &amp; Niessner, M. (2020). Why don't we agree? Evidence from a social network of investors. The Journal of Finance, 75(1), 173-228.</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hanley, K. W., &amp; Hoberg, G. (2019). Dynamic interpretation of emerging risks in the financial sector. The Review of Financial Studies, 32(12), 4543-4603.</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Ke, Z. T., Kelly, B. T., &amp; Xiu, D. (2019). Predicting returns with text data (No. w26186). National Bureau of Economic Research.</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Manela, A., &amp; Moreira, A. (2017). News implied volatility and disaster concerns. Journal of Financial Economics, 123(1), 137-162.</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Tang, V. W. (2018). Wisdom of crowds: Cross‐sectional variation in the informativeness of third‐party‐generated product information on Twitter. Journal of Accounting Research, 56(3), 989-1034.</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**其他文本分析**：</span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bandiera, O., Prat, A., Hansen, S., &amp; Sadun, R. (2020). CEO behavior and firm performance. Journal of Political Economy, 128(4), 1325-1369.</span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Cong, L. W., Lu, Y., Shi, H., &amp; Zhu, W. (2024). Automation-Induced Innovation Shift. Available at SSRN 5049949.</span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Ganguli, I., Lin, J., Meursault, V., &amp; Reynolds, N. F. (2024). Patent text and long-run innovation dynamics: the critical role of model selection (No. w32934). National Bureau of Economic Research.</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Gómez-Cram, R., &amp; Grotteria, M. (2022). Real-time price discovery via verbal communication: Method and application to Fedspeak. Journal of Financial Economics, 143(3), 993-1025.</span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Green, T. C., Huang, R., Wen, Q., &amp; Zhou, D. (2019). Crowdsourced employer reviews and stock returns. Journal of Financial Economics, 134(1), 236-251.</span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Huang, A. H., Zang, A. Y., &amp; Zheng, R. (2014). Evidence on the information content of text in analyst reports. The Accounting Review, 89(6), 2151-2180.</span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kalmenovitz, J. (2023). Regulatory intensity and firm-specific exposure. The Review of Financial Studies, 36(8), 3311-3347.</span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Lowry, M., Michaely, R., &amp; Volkova, E. (2020). Information revealed through the regulatory process: Interactions between the SEC and companies ahead of their IPO. The Review of Financial Studies, 33(12), 5510-5554.</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="fu">## **多模态分析专题**</span></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**图片/图像分析**：</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Henderson, J. V., Storeygard, A., &amp; Weil, D. N. (2012). Measuring economic growth from outer space. American economic review, 102(2), 994-1028.</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hsieh, T. S., Kim, J. B., Wang, R. R., &amp; Wang, Z. (2020). Seeing is believing? Executives' facial trustworthiness, auditor tenure, and audit fees. Journal of Accounting and Economics, 69(1), 101260.</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Jiang, J., Kelly, B. T., &amp; Xiu, D. (2023). (Re-)Imag(in)ing price trends. Journal of Finance, 78(6), 3193-3249.</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Mukherjee, A., Panayotov, G., &amp; Shon, J. (2021). Eye in the sky: Private satellites and government macro data. Journal of Financial Economics, 141(1), 234-254.</span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Obaid, K., &amp; Pukthuanthong, K. (2022). A picture is worth a thousand words: Measuring investor sentiment by combining machine learning and photos from news. Journal of Financial Economics, 144(1), 273-297.</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**音频分析**：</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Edmans, A., Fernandez-Perez, A., Garel, A., &amp; Indriawan, I. (2022). Music sentiment and stock returns around the world. Journal of Financial Economics, 145(2), 234-254.</span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Franken, O., Mamadeh, I., &amp; Zaklan, G. (2022). Vocal patterns in earnings calls: A large-sample analysis. Journal of Accounting Research, 60(2), 467-515.</span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Mayew, W. J., &amp; Venkatachalam, M. (2012). The power of voice: Managerial affective states and future firm performance. The Journal of Finance, 67(1), 1-43.</span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**视频分析**：</span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Eleswarapu, V. R., &amp; Krishnamurthy, S. (2020). Facing the truth: The effect of video on the credibility of online business pitches. Journal of Financial Economics, 156(1), 102-120.</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Huang, X., Ivković, Z., Jiang, J. X., &amp; Wang, I. Y. (2023). Angel investment and first impressions. Journal of Financial Economics, 149(2), 161-178.</span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a><span class="fu">## **AI市场影响专题**</span></span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cao, S., Jiang, W., Wang, J. L., &amp; Yang, B. (2021). From man vs. machine to man+ machine: The art and AI of stock analyses (No. w28800). National Bureau of Economic Research.</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cao, S., Jiang, W., Yang, B., &amp; Zhang, A. L. (2023). How to talk when a machine is listening: Corporate disclosure in the age of AI. The Review of Financial Studies, 36(9), 3603-3642.</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cheng, Q., Lin, P., &amp; Zhao, Y. (2024). Does generative ai facilitate investor trading? Evidence from chatgpt outages.</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Easley, D., López de Prado, M., O’Hara, M., &amp; Zhang, Z. (2021). Microstructure in the machine age. The Review of Financial Studies, 34(7), 3316-3363.</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Eisfeldt, A. L., Schubert, G., &amp; Zhang, M. B. (2023). Generative AI and firm values (No. w31222). National Bureau of Economic Research.</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Fuster, A., Goldsmith‐Pinkham, P., Ramadorai, T., &amp; Walther, A. (2022). Predictably unequal? The effects of machine learning on credit markets. The Journal of Finance, 77(1), 5-47.</span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Jiang, W., Tang, Y., Xiao, R. J., &amp; Yao, V. (2025). Surviving the FinTech disruption. Journal of Financial Economics, 171, 104071.</span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Liu, H., Papanikolaou, D., Schmidt, L. D., &amp; Seegmiller, B. (2025). Technology and Labor Markets: Past, Present, and Future; Evidence from Two Centuries of Innovation (No. w34386). National Bureau of Economic Research.</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Zhu, C. (2019). Big data as a governance mechanism. The Review of Financial Studies, 32(5), 2021-2061.</span></code><button title="复制到剪贴板" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

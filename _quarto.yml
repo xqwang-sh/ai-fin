@@ -1,0 +1,29 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "AI与金融研究：从理论到证据"
+  author: "汪小圈"
+  date: today
+  chapters:
+    - index.qmd
+    - syllabus.qmd
+    - intro.qmd
+    - week1.qmd
+    - week2.qmd
+    - week3.qmd
+    - week4.qmd
+    - proposal.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    html-math-method: katex
+
+lang: zh

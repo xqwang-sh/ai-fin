@@ -1,0 +1,1382 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AI与金融研究：从理论到证据",
+    "section": "",
+    "text": "课程简介\n欢迎来到《AI与金融研究：从理论到证据》课程！本课程旨在帮助研究生系统掌握机器学习与深度学习在金融研究中的应用，建立从理论到实践的完整知识体系。\n教学大纲",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>AI与金融研究：从理论到证据</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#课程理念",
+    "href": "index.html#课程理念",
+    "title": "AI与金融研究：从理论到证据",
+    "section": "0.1 课程理念",
+    "text": "0.1 课程理念\n本课程强调三个核心原则：\n\n泛化—正则化—评估三位一体\n可审计的证据链：从原始数据到研究结论的每一步都应可追溯、可复现\n金融场景的特殊性：理解金融数据的时序依赖、低信噪比、非平稳等特点",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>AI与金融研究：从理论到证据</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#讲义结构",
+    "href": "index.html#讲义结构",
+    "title": "AI与金融研究：从理论到证据",
+    "section": "0.2 讲义结构",
+    "text": "0.2 讲义结构\n本讲义集包含前四周的教学内容：\n\n第0讲：课程简介与预备知识\n第1讲：机器学习理论基础（i.i.d.场景）\n第2讲：资产定价中的机器学习应用\n第3讲：文本分析理论与金融文本应用\n第4讲：多模态模型理论与金融信号抽取\n\n每次讲义包括：\n\n📚 核心概念：该讲义的主要理论框架\n🎯 学习目标：具体的知识与技能要求\n📖 详细内容：系统的知识讲解\n💡 案例与应用：金融领域的实际应用\n❓ 思考题：用于巩固理解的问题",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>AI与金融研究：从理论到证据</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#小组研究项目",
+    "href": "index.html#小组研究项目",
+    "title": "AI与金融研究：从理论到证据",
+    "section": "0.3 小组研究项目",
+    "text": "0.3 小组研究项目\n本课程的核心组成部分是小组研究项目，包括课堂汇报（40%）和期末研究计划书（40%），共占总成绩的80%。详细的项目要求、时间节点、评分标准等请参阅：\n\n小组研究项目指南",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>AI与金融研究：从理论到证据</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#如何使用本讲义",
+    "href": "index.html#如何使用本讲义",
+    "title": "AI与金融研究：从理论到证据",
+    "section": "0.4 如何使用本讲义",
+    "text": "0.4 如何使用本讲义\n\n课前准备：按照每周的阅读清单完成预习\n课堂学习：跟随讲义节奏，积极参与讨论\n课后复盘：完成思考题，梳理知识体系\n实践应用：将所学应用到研究项目中\n\n祝学习愉快！",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>AI与金融研究：从理论到证据</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "2  教学大纲",
+    "section": "",
+    "text": "3 一、课程概况",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#一教学目标",
+    "href": "syllabus.html#一教学目标",
+    "title": "2  教学大纲",
+    "section": "5.1 （一）教学目标",
+    "text": "5.1 （一）教学目标\n完成本课程后，学生应能：\n\n理论掌握：系统阐述偏差-方差权衡、正则化、交叉验证等核心概念，并能设计符合时序数据特性的样本外评估方案。\n应用实践：将机器学习模型（从正则化线性模型到集成/深度模型）应用于截面收益预测任务，并能从经济可行性（如交易成本、换手率）角度评估策略表现。\n文本分析：掌握“从原始文本到量化变量”的全流程，能审计变量构造过程，并检验文本信息的增量价值。\n前沿认知：理解多模态（图片/音频/视频）数据在金融中的应用潜力、技术管线及其特有的挑战与伦理边界。\n研究设计：独立完成一份高质量的研究计划书，清晰界定研究问题、定位文献缺口、设计严谨的实证策略和稳健性检验。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#二教学内容",
+    "href": "syllabus.html#二教学内容",
+    "title": "2  教学大纲",
+    "section": "5.2 （二）教学内容",
+    "text": "5.2 （二）教学内容\n详见后续各周教学安排。课程内容覆盖机器学习理论、在资产定价中的应用、金融文本分析、多模态信号抽取四大模块，并穿插学生对相关领域顶尖论文的汇报与研讨。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#三教学要求",
+    "href": "syllabus.html#三教学要求",
+    "title": "2  教学大纲",
+    "section": "5.3 （三）教学要求",
+    "text": "5.3 （三）教学要求\n\n课前准备：按时完成指定阅读材料，尤其是汇报研讨周。\n课堂参与：教师授课周积极思考，学生汇报周积极参与提问与讨论。\n汇报要求：主讲学生需严格按照研究计划与幻灯要求准备，提前提交材料，并在台上清晰、严谨地展示与回答问题。\n学术诚信：所有提交的作业、笔记和报告必须遵守学术规范，杜绝抄袭。在使用AI工具时需明确声明并核验其产出。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#第1章-机器学习非时序任务的认知框架",
+    "href": "syllabus.html#第1章-机器学习非时序任务的认知框架",
+    "title": "2  教学大纲",
+    "section": "8.1 第1章 机器学习：非时序任务的认知框架",
+    "text": "8.1 第1章 机器学习：非时序任务的认知框架\n【教学目的与要求】 建立适用于“独立同分布（i.i.d.）”数据场景的机器学习认知框架：明确回归与分类两类核心任务，理解偏差–方差分解与过拟合的生成机制，并形成可复现实证研究的“最小证据链”与指标选择原则，为后续金融时序/回测场景的规范评估作铺垫。\n【教学重点】 回归 vs. 分类（目标函数与损失）；偏差–方差分解；正则化与模型复杂度控制；机器学习的最小证据链；关键预测指标体系（回归/分类）。\n【课时安排】 课堂讲授：2课时（90分钟）\n【教学内容】\n\n两类问题：回归与分类：用统一符号系统刻画监督学习任务（特征 (X)、标签 (y)、损失函数与风险最小化）。回归用于预测连续变量（如未来收益率/波动率），分类用于预测离散标签（如涨跌/违约/事件发生）。讨论同一研究问题在“回归表述”与“分类表述”之间的可转换性，以及两类任务对输出解释与评估指标的不同要求。\n偏差–方差分解与泛化误差：从期望预测误差出发拆解误差来源，解释模型复杂度、样本规模与噪声强度如何共同决定欠拟合与过拟合；用学习曲线理解“训练集表现”与“样本外表现”不一致的统计根源。\n从偏差–方差到正则化：模型选择的统计逻辑：介绍经验风险最小化（ERM）与结构风险最小化（SRM）的基本思想；以岭回归/Lasso/弹性网络为例说明正则化如何降低方差并实现变量筛选；在i.i.d.假设下说明训练–验证–测试划分与K折交叉验证的基本原则（并提示：金融时序数据需要不同的评估协议，将在第2章专门讨论）。\n机器学习的最小证据链（Minimum Evidence Chain）：给出一项可信的机器学习实证最少应交付的证据：数据与标签定义（含信息可得性说明）→ 预处理与缺失值规则 → 划分方案与超参数搜索策略 → 基准模型与对照组 → 样本外结果（含切片/稳健性）→ 可复现性材料（代码、随机种子、变量字典与流程图）。\n关键指标体系：指标与研究目标的一致性：回归指标（MSE/RMSE、MAE、(R^2) 与OS-(R^2) 的含义差异）；分类指标（log-loss、AUC-ROC/AUC-PR、精确率/召回率、F1、校准）；讨论类别不平衡、阈值选择与“指标被优化但结论不稳健”的常见情形。\n\n【阅读材料】\n\n必读：Hastie et al. (2009), Chapters 3, 7; Kelly & Xiu (2023), Chapters 1-2.\n\n【思考题】\n\n将“预测未来收益率”分别表述为回归任务与分类任务时，标签应如何定义？两种表述分别应优先使用哪些评价指标？\n用偏差–方差分解解释：为什么更复杂的模型可能在训练集更好，但在样本外更差？\n请列出“最小证据链”中你认为最容易被忽视的两项，并说明忽视它们可能带来的误判（例如信息泄露或不可复现）。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#第2章-资产定价问题解构特征工程与时序评估规范",
+    "href": "syllabus.html#第2章-资产定价问题解构特征工程与时序评估规范",
+    "title": "2  教学大纲",
+    "section": "8.2 第2章 资产定价：问题解构、特征工程与时序评估规范",
+    "text": "8.2 第2章 资产定价：问题解构、特征工程与时序评估规范\n【教学目的与要求】 解释资产定价预测任务相较一般机器学习问题的“特别之处”（低信噪比、非平稳、交易约束与成本），并在此基础上给出从经济问题到机器学习任务的可操作分解：问题解构与特征工程 → 时序样本外评估与回测卫生 → 模型选择与组合构建（以 Gu, Kelly, Xiu, 2020 为主要参照）→ 从统计显著走向经济可行。\n【教学重点】 资产定价任务的低信噪比与非平稳性；特征与标签的时间对齐；滚动/扩展窗口与嵌套评估；回测卫生（数据泄露、存活偏误、数据回填等）；预测指标与组合指标；模型选择与模型组合；统计显著 vs. 经济可行。\n【课时安排】 课堂讲授：2课时（90分钟）\n【教学内容】\n\n资产定价的“特别之处”：为何收益预测比典型的i.i.d.监督学习更难——噪声占比高、结构随时间变化、横截面相关性强；同时，可交易性约束（做空、杠杆、容量）与交易成本使得“预测准确”并不自动等价于“可赚钱”。\n问题解构与特征工程：明确预测对象（个股收益/风险溢价/因子收益）与预测期限；构造信息集与可得性规则（信息披露滞后、会计变量发布日期）；特征标准化与缺失值处理；以时间戳与发布时点为基准，系统避免前瞻偏误与标签泄露。\n时序数据评估规范与回测卫生：训练–验证–测试的时间切分；滚动窗口（Rolling）与扩展窗口（Expanding）；嵌套滚动评估用于超参数选择。回测卫生清单：存活偏误、数据回填、拆分/分红/停牌处理、退市收益、调仓时点与执行滞后、样本选择与数据窥探（data snooping）。\n评估指标：从预测到组合：预测层面（如OS-(R^2)、IC/Rank-IC）；组合层面（年化超额收益、Sharpe/Information Ratio、最大回撤、换手率、交易成本后收益、容量/冲击敏感性）。强调切片评估（按时期/行业/市场状态）与稳健性检验。\n模型选择与组合构建（以 Gu, Kelly, Xiu, 2020 为参照）：对比线性正则化、树模型与神经网络在截面收益预测中的相对表现与适用条件；介绍将预测分数映射为投资组合的标准流程（排序多空、风险约束下的组合优化），以及模型组合（平均/加权/stacking）在稳定性与可交易性上的意义。\n从统计显著到经济可行：将p值与t统计的“显著”转换为“可交易”的判据：成本与约束后的净收益、风险暴露分解、策略容量、信号衰减与可持续性；讨论多重检验与数据窥探下的错误发现控制，避免“统计上好看但经济上不可行”的结论。\n\n【阅读材料】\n\n必读：Gu, S., Kelly, B., & Xiu, D. (2020). Empirical asset pricing via machine learning. Review of Financial Studies, 33(5), 2223-2273.\n选读：Kelly & Xiu (2023), Chapters 3-5.\n\n【思考题】\n\n一个拥有较高样本外预测指标（如OS-(R^2) 或 IC）的模型，为何在真实交易中仍可能表现很差？请至少列出三个原因，并指出它们分别对应哪一类“回测卫生”问题或“经济约束”。\n如果你的特征中包含会计变量（存在披露滞后），滚动窗口评估中最常见的信息泄露路径是什么？你会如何在数据对齐上规避？\n结合 Gu, Kelly, Xiu (2020) 的经验事实，你会如何在“预测性能—稳定性—可解释性”之间权衡选择模型，并将其输出转化为一个可交易的组合？",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#第3章-文本分析理论-金融文本应用",
+    "href": "syllabus.html#第3章-文本分析理论-金融文本应用",
+    "title": "2  教学大纲",
+    "section": "8.3 第3章 文本分析理论 → 金融文本应用",
+    "text": "8.3 第3章 文本分析理论 → 金融文本应用\n【教学目的与要求】 以“文本作为数据（text as data）”为主线，系统介绍文本表示方法的谱系与统计权衡，并给出从原始文本到可用于金融实证的量化变量的标准化生产流程。课程强调变量构造的三项底线要求：信息可得性（不含前瞻）、过程可审计（可追溯）、结果可复现（可重复）。\n【教学重点】 文本表示方法（词袋/主题/嵌入/Transformer）；语料治理与时间对齐；变量构造中最易犯的错误清单（前瞻偏误、标签泄露、样本选择偏误、测量误差、多重比较）；增量信息与经济机制的检验。\n【课时安排】 课堂讲授：2课时（90分钟）\n【教学内容】\n\n文本表示方法：一条“方法谱系”与四个权衡维度：从可解释的离散表示（词袋/TF-IDF、词典法），到无监督的主题模型（LDA 等），再到分布式表示（word2vec/doc2vec、句向量）与上下文表示（Transformer/BERT、领域适配/微调）。强调四个权衡：解释性 vs. 表达力、监督 vs. 无监督、域内迁移能力、计算成本与可复现性。\n语料治理：把“原始文档”变成“可用于计量/预测的观测值”：版本锁定（首发披露/修订版的区分）、时间戳与可得性规则（何时“可被市场看到”）、实体识别与对齐（公司/产品/人物）、去重与噪声处理（乱码、OCR/ASR误差、模板文本）。强调：金融文本的关键不是“能读懂”，而是“能在信息集意义下被严谨使用”。\n变量构造中最需要注意的问题（高频踩坑清单）：前瞻偏误（把未来信息带回过去）、标签泄露（把结果写进特征）、样本选择偏误（只观察到“愿意披露/被报道”的部分）、测量误差（分词/识别错误导致系统性噪声）、多重比较与过拟合（高维特征+反复试错）。对应给出可审计交付物：变量字典、处理流水线、对齐规则与审计日志。\n评估：增量信息、稳健性与经济含义：检验文本变量对基准模型/已知因子的增量贡献（冗余性 vs. 互补性），进行切片评估（行业/时期/市场状态）与稳定性检验；讨论从“统计相关”到“经济机制”的解释路径，以及信息抽取（IE）与生成式模型在测量任务中的可用边界与风险。\n\n【阅读材料】\n\n必读：Eisfeldt, A. L., & Schubert, G. (2024). Generative AI and Finance. Annual Review of Financial Economics, 17.\n选读：(1) Gentzkow, M., Kelly, B., & Taddy, M. (2019). Text as data. Journal of Economic Literature, 57(3), 535-574. (2) Ludwig, J., Mullainathan, S., & Rambachan, A. (2025). Large language models: An applied econometric framework (No. w33344). National Bureau of Economic Research.\n\n【思考题】\n\n相比传统的基于词典的方法，使用BERT等大规模语言模型构造文本变量的主要优势和潜在风险分别是什么？\n在处理新闻数据以预测股价时，如何设计一个流程来避免“前瞻偏误”？\n为什么检验一个新文本因子与已知因子（如Fama-French三因子）的相关性是至关重要的一步？",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#第4章-多模态模型理论-金融信号抽取",
+    "href": "syllabus.html#第4章-多模态模型理论-金融信号抽取",
+    "title": "2  教学大纲",
+    "section": "8.4 第4章 多模态模型理论 → 金融信号抽取",
+    "text": "8.4 第4章 多模态模型理论 → 金融信号抽取\n【教学目的与要求】 围绕“多模态分类（multimodal classification）”这一类典型研究任务，介绍图片、音频、视频等非结构化数据在金融研究中的数据版图、特征提取方法与融合策略，并重点讨论变量构造时必须遵守的时间对齐、样本代表性与隐私合规约束，从而实现“可度量、可检验、可发表”的多模态实证证据。\n【教学重点】 多模态分类任务的标签定义与评估；视觉/音频/视频的特征提取与变量构造注意事项；融合策略（早/中/后融合）；变量构造的时间对齐与偏误控制；互补性（增量信息）检验。\n【课时安排】 课堂讲授：2课时（90分钟）\n【教学内容】\n\n任务与数据：把多模态研究表述为一个“分类问题”：在金融场景中，多模态常对应“识别/判断”类任务，例如：识别风险事件或争议（ESG 争议、监管处罚）、识别欺诈或异常披露、识别管理层情绪/不确定性状态等。对应的数据来源包括：图片（卫星夜光、门店/产品/票据图像、图表截图等）、音频（业绩电话会录音、访谈）、视频（路演/发布会/在线会议）。强调：标签定义（何时、对谁、预测什么）决定了变量构造与评估协议。\n视觉（图像）模态：特征提取与变量构造注意事项：典型数据包括卫星夜光/遥感影像、门店/产品图片、票据或图表截图等。方法上，从传统特征（纹理/边缘/目标检测）到深度表征（CNN/ResNet、ViT、自监督预训练的图像嵌入）均可用于构造变量（如“活动强度”“拥挤度”“风险事件迹象”等）。关键注意：图像的采集时间与研究时点的对齐（拍摄日≠披露日）、空间对齐（地理坐标与企业实体匹配）、数据质量与域漂移（分辨率、云层、季节性/夜间光污染）、以及潜在的“信息泄露”（例如图表截图中隐含未来价格轨迹）。\n音频模态：特征提取与测量误差：典型数据为业绩电话会录音、访谈音频等。特征提取通常有两条主线：（i）ASR 转写为文本→沿第3章流程做文本表征；（ii）直接提取声学与韵律特征（音高、语速、停顿、能量、MFCC）或使用预训练音频模型得到嵌入（如 wav2vec/HuBERT 类表示）。关键注意：ASR 错误与信道噪声带来的系统性测量误差、说话人分离与身份对齐（CEO/CFO/分析师）、语言与口音差异导致的偏差，以及“可得性选择”（哪些公司/哪些时期有高质量录音）。\n视频模态：时序聚合、行为信号与合规边界：典型数据为路演/发布会/线上会议视频。特征可来自帧级视觉表征（CNN/ViT 嵌入）与行为线索（面部AUs、头部姿态、手势、注视方向等），并需要在时间维度进行聚合或建模（片段级统计量、时序模型）。关键注意：摄像机角度、光照、压缩与遮挡带来的测量误差；人群属性差异引致的算法偏差；以及生物特征数据的隐私与同意边界（采集授权、脱敏/匿名化、最小化使用原则）。\n融合与分类评估：把三类信号合并为可检验的增量信息：介绍早融合（特征拼接）、后融合（模型投票/加权）、中期融合（联合表示学习）三类策略；讨论“缺失模态”（部分样本无视频/无音频/无图像）的建模与样本选择问题。评价上，除AUC/F1/校准等分类指标外，更强调与结构化/文本信号相比的增量贡献、切片稳定性与可解释的误差分析。\n\n【阅读材料】\n\n必读：Dell, M. (2025). Deep learning for economists. Journal of Economic Literature, 63(1), 5-58.\n选读：Mayew, W. J., & Venkatachalam, M. (2012). The power of voice: Managerial affective states and future firm performance. The Journal of Finance, 67(1), 1-43.\n\n【思考题】\n\n以“业绩电话会音频”构造一个分类任务（如识别管理层不确定性状态）时，标签通常如何定义？哪些环节最容易引入样本选择偏误？\n如何严谨地证明多模态信号对文本/结构化变量具有增量信息？请给出一个你认为必要的互补性检验设计。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#第5-8周-学生研究计划research-proposal汇报与研讨",
+    "href": "syllabus.html#第5-8周-学生研究计划research-proposal汇报与研讨",
+    "title": "2  教学大纲",
+    "section": "8.5 第5-8周 学生研究计划（Research Proposal）汇报与研讨",
+    "text": "8.5 第5-8周 学生研究计划（Research Proposal）汇报与研讨\n【课时安排】 课堂研讨：每周2课时（90分钟），共4周。\n【分组要求】 每组3-5人（最多5人）。\n【汇报任务】 每组围绕一个明确的金融研究问题，提交并汇报一份研究计划的可执行版本，重点说明：\n\n研究动机与文献缺口（参考文献仅作为选题与定位依据）；\n研究问题与可检验假说/预测；\n数据来源、样本、变量构造；\n实证策略与评估协议（尤其强调时序评估规范、避免信息泄露）；\n人工智能方法如何应用：模型/管线、训练与验证、输出如何进入经济/金融解释；\n预期贡献与可行性风险。\n\n【汇报形式】 每组10-15分钟（含问答），主讲人需提前24小时提交10-15页演示文稿。\n【教学目的与要求】 通过学生主导的研究计划汇报与研讨，训练学生将所学的机器学习理论与金融实证方法融会贯通，设计一份完整、可行的研究计划。重点考察学生对研究问题定位、AI方法嵌入必要性、数据可行性与评估规范的把握能力。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#资产定价与金融预测专题",
+    "href": "syllabus.html#资产定价与金融预测专题",
+    "title": "2  教学大纲",
+    "section": "9.1 资产定价与金融预测专题",
+    "text": "9.1 资产定价与金融预测专题\n\n资产定价预测：\n\nAdämmer, P., & Schüssler, R. A. (2020). Forecasting the equity premium: mind the news!. Review of Finance, 24(6), 1313-1355.\nBali, T. G., Beckmeyer, H., Moerke, M., & Weigert, F. (2023). Option return predictability with machine learning and big data. The Review of Financial Studies, 36(9), 3548-3602.\nBianchi, D., Büchner, M., & Tamoni, A. (2021). Bond risk premiums with machine learning. The Review of Financial Studies, 34(2), 1046-1089.\nChen, L., Pelger, M., & Zhu, J. (2023). Deep learning in asset pricing. Management Science.\nChinco, A., Clark‐Joseph, A. D., & Ye, M. (2019). Sparse signals in the cross‐section of returns. The Journal of Finance, 74(1), 449-492.\nDong, X., Li, Y., Rapach, D. E., & Zhou, G. (2022). Anomalies and the expected market return. The Journal of Finance, 77(1), 639-681.\nFreyberger, J., Neuhierl, A., & Weber, M. (2020). Dissecting characteristics nonparametrically. The Review of Financial Studies, 33(5), 2326-2377.\nGu, S., Kelly, B., & Xiu, D. (2020). Empirical asset pricing via machine learning. The Review of Financial Studies, 33(5), 2223-2273.\nKelly, B. T., Kuznetsov, B., Malamud, S., & Xu, T. A. (2025). Artificial intelligence asset pricing models (No. w33351). National Bureau of Economic Research.\nKozak, S., Nagel, S., & Santosh, S. (2020). Shrinking the cross-section. Journal of Financial Economics, 135(2), 271-292.\nNovy-Marx, R., & Velikov, M. Z. (2025). AI-powered (finance) scholarship (No. w33363). National Bureau of Economic Research.\nLeippold, M., Wang, Q., & Zhou, W. (2022). Machine learning in the Chinese stock market. Journal of Financial Economics, 145(2), 64-82.\n\n其他金融预测：\n\nBao, Y., Ke, B., Li, B., Yu, Y. J., & Zhang, J. (2020). Detecting accounting fraud in publicly traded US firms using a machine learning approach. Journal of Accounting Research, 58(1), 199-235.\nBerg, T., Burg, V., Gombović, A., & Puri, M. (2020). On the rise of fintechs: Credit scoring using digital footprints. The Review of Financial Studies, 33(7), 2845-2897.\nChen, X., Cho, Y. H., Dou, Y., & Lev, B. (2022). Predicting future earnings changes using machine learning and detailed financial data. Journal of Accounting Research, 60(2), 467-515.\nDeMiguel, V., Gil-Bazo, J., Nogales, F. J., & Santos, A. A. (2023). Machine learning and fund characteristics help to select mutual funds with positive alpha. Journal of Financial Economics, 150(3), 103737.\nErel, I., Stern, L. H., Tan, C., & Weisbach, M. S. (2021). Selecting directors using machine learning. The Review of Financial Studies, 34(7), 3226-3264.\nGathergood, J., Mahoney, N., Stewart, N., & Weber, J. (2019). How do individuals repay their debt? The balance-matching heuristic. American Economic Review, 109(3), 844-875.\nGoetzmann, W. N., Kim, D., & Shiller, R. J. (2024). Emotions and subjective crash beliefs (No. w32589). National Bureau of Economic Research.\nHuang, D., Li, J., & Wang, L. (2021). Are disagreements agreeable? Evidence from information aggregation. Journal of Financial Economics, 141(1), 83-101.\nJha, M., Qian, J., Weber, M., & Yang, B. (2024). ChatGPT and corporate policies (No. w32161). National Bureau of Economic Research.\nKaniel, R., Lin, Z., Pelger, M., & Van Nieuwerburgh, S. (2023). Machine-learning the skill of mutual fund managers. Journal of Financial Economics, 150(1), 94-138.\nVan Binsbergen, J. H., Han, X., & Lopez-Lira, A. (2023). Man versus machine learning: The term structure of earnings expectations and conditional biases. The Review of Financial Studies, 36(6), 2361-2396.\nWu, W., Chen, J., Yang, Z., & Tindall, M. L. (2021). A cross-sectional machine learning approach for hedge fund return prediction and selection. Management Science, 67(7), 4577-4601.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#金融文本分析专题",
+    "href": "syllabus.html#金融文本分析专题",
+    "title": "2  教学大纲",
+    "section": "9.2 金融文本分析专题",
+    "text": "9.2 金融文本分析专题\n\n财报/公告分析：\n\nBernard, D., Blackburne, T., & Thornock, J. (2020). Information flows among rivals and corporate investment. Journal of Financial Economics, 136(3), 760-779.\nBrown, N. C., Crowley, R. M., & Elliott, W. B. (2020). What are you saying? Using topic to detect financial misreporting. Journal of Accounting Research, 58(1), 237-291.\nBuehlmaier, M. M., & Whited, T. M. (2018). Are financial constraints priced? Evidence from textual analysis. The Review of Financial Studies, 31(7), 2693-2728.\nDyer, T., Lang, M., & Stice-Lawrence, L. (2017). The evolution of 10-K textual disclosure: Evidence from Latent Dirichlet Allocation. Journal of Accounting and Economics, 64(2-3), 221-245.\nEisdorfer, A., Froot, K., Ozik, G., & Sadka, R. (2022). Competition links and stock returns. The Review of Financial Studies, 35(9), 4300-4340.\nFlorackis, C., Louca, C., Michaely, R., & Weber, M. (2023). Cybersecurity risk. The Review of Financial Studies, 36(1), 351-407.\nFukui, M., Gormsen, N. J., & Huber, K. (2024). Sticky Discount Rates (No. w32238). National Bureau of Economic Research.\nGarcia, D., Hu, X., & Rohrer, M. (2023). The colour of finance words. Journal of Financial Economics, 147(3), 525-549.\nHassan, T. A., Hollander, S., Van Lent, L., & Tahoun, A. (2019). Firm-level political risk: Measurement and effects. The Quarterly Journal of Economics, 134(4), 2135-2202.\nHoberg, G., Knoblock, C., Phillips, G., Pujara, J., Qiu, Z., & Raschid, L. (2024). Using representation learning and web text to identify competitor networks. Management Science.\nHoberg, G., & Phillips, G. (2016). Text-based network industries and endogenous product differentiation. Journal of Political Economy, 124(5), 1423-1465.\nLi, K., Mai, F., Shen, R., & Yan, X. (2021). Measuring corporate culture using machine learning. The Review of Financial Studies, 34(7), 3265-3315.\nSautner, Z., Van Lent, L., Vilkov, G., & Zhang, R. (2023). Firm‐level climate change exposure. The Journal of Finance, 78(3), 1449-1498.\n\n新闻/社交媒体分析：\n\nBaker, S. R., Bloom, N., & Davis, S. J. (2016). Measuring economic policy uncertainty. The quarterly journal of economics, 131(4), 1593-1636.\nBartov, E., Faurel, L., & Mohanram, P. S. (2018). Can Twitter help predict firm-level earnings and stock returns?. The Accounting Review, 93(3), 25-57.\nBenamar, H., Foucault, T., & Vega, C. (2021). Demand for information, uncertainty, and the response of us treasury securities to news. The Review of Financial Studies, 34(7), 3403-3455.\nBybee, L., Kelly, B., Manela, A., & Xiu, D. (2024). Business news and business cycles. The Journal of Finance, 79(5), 3105-3147.\nCookson, J. A., & Niessner, M. (2020). Why don’t we agree? Evidence from a social network of investors. The Journal of Finance, 75(1), 173-228.\nHanley, K. W., & Hoberg, G. (2019). Dynamic interpretation of emerging risks in the financial sector. The Review of Financial Studies, 32(12), 4543-4603.\nKe, Z. T., Kelly, B. T., & Xiu, D. (2019). Predicting returns with text data (No. w26186). National Bureau of Economic Research.\nManela, A., & Moreira, A. (2017). News implied volatility and disaster concerns. Journal of Financial Economics, 123(1), 137-162.\nTang, V. W. (2018). Wisdom of crowds: Cross‐sectional variation in the informativeness of third‐party‐generated product information on Twitter. Journal of Accounting Research, 56(3), 989-1034.\n\n其他文本分析：\n\nBandiera, O., Prat, A., Hansen, S., & Sadun, R. (2020). CEO behavior and firm performance. Journal of Political Economy, 128(4), 1325-1369.\nCong, L. W., Lu, Y., Shi, H., & Zhu, W. (2024). Automation-Induced Innovation Shift. Available at SSRN 5049949.\nGanguli, I., Lin, J., Meursault, V., & Reynolds, N. F. (2024). Patent text and long-run innovation dynamics: the critical role of model selection (No. w32934). National Bureau of Economic Research.\nGómez-Cram, R., & Grotteria, M. (2022). Real-time price discovery via verbal communication: Method and application to Fedspeak. Journal of Financial Economics, 143(3), 993-1025.\nGreen, T. C., Huang, R., Wen, Q., & Zhou, D. (2019). Crowdsourced employer reviews and stock returns. Journal of Financial Economics, 134(1), 236-251.\nHuang, A. H., Zang, A. Y., & Zheng, R. (2014). Evidence on the information content of text in analyst reports. The Accounting Review, 89(6), 2151-2180.\nKalmenovitz, J. (2023). Regulatory intensity and firm-specific exposure. The Review of Financial Studies, 36(8), 3311-3347.\nLowry, M., Michaely, R., & Volkova, E. (2020). Information revealed through the regulatory process: Interactions between the SEC and companies ahead of their IPO. The Review of Financial Studies, 33(12), 5510-5554.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#多模态分析专题",
+    "href": "syllabus.html#多模态分析专题",
+    "title": "2  教学大纲",
+    "section": "9.3 多模态分析专题",
+    "text": "9.3 多模态分析专题\n\n图片/图像分析：\n\nHenderson, J. V., Storeygard, A., & Weil, D. N. (2012). Measuring economic growth from outer space. American economic review, 102(2), 994-1028.\nHsieh, T. S., Kim, J. B., Wang, R. R., & Wang, Z. (2020). Seeing is believing? Executives’ facial trustworthiness, auditor tenure, and audit fees. Journal of Accounting and Economics, 69(1), 101260.\nJiang, J., Kelly, B. T., & Xiu, D. (2023). (Re-)Imag(in)ing price trends. Journal of Finance, 78(6), 3193-3249.\nMukherjee, A., Panayotov, G., & Shon, J. (2021). Eye in the sky: Private satellites and government macro data. Journal of Financial Economics, 141(1), 234-254.\nObaid, K., & Pukthuanthong, K. (2022). A picture is worth a thousand words: Measuring investor sentiment by combining machine learning and photos from news. Journal of Financial Economics, 144(1), 273-297.\n\n音频分析：\n\nEdmans, A., Fernandez-Perez, A., Garel, A., & Indriawan, I. (2022). Music sentiment and stock returns around the world. Journal of Financial Economics, 145(2), 234-254.\nFranken, O., Mamadeh, I., & Zaklan, G. (2022). Vocal patterns in earnings calls: A large-sample analysis. Journal of Accounting Research, 60(2), 467-515.\nMayew, W. J., & Venkatachalam, M. (2012). The power of voice: Managerial affective states and future firm performance. The Journal of Finance, 67(1), 1-43.\n\n视频分析：\n\nEleswarapu, V. R., & Krishnamurthy, S. (2020). Facing the truth: The effect of video on the credibility of online business pitches. Journal of Financial Economics, 156(1), 102-120.\nHuang, X., Ivković, Z., Jiang, J. X., & Wang, I. Y. (2023). Angel investment and first impressions. Journal of Financial Economics, 149(2), 161-178.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#ai市场影响专题",
+    "href": "syllabus.html#ai市场影响专题",
+    "title": "2  教学大纲",
+    "section": "9.4 AI市场影响专题",
+    "text": "9.4 AI市场影响专题\n\nCao, S., Jiang, W., Wang, J. L., & Yang, B. (2021). From man vs. machine to man+ machine: The art and AI of stock analyses (No. w28800). National Bureau of Economic Research.\nCao, S., Jiang, W., Yang, B., & Zhang, A. L. (2023). How to talk when a machine is listening: Corporate disclosure in the age of AI. The Review of Financial Studies, 36(9), 3603-3642.\nCheng, Q., Lin, P., & Zhao, Y. (2024). Does generative ai facilitate investor trading? Evidence from chatgpt outages.\nEasley, D., López de Prado, M., O’Hara, M., & Zhang, Z. (2021). Microstructure in the machine age. The Review of Financial Studies, 34(7), 3316-3363.\nEisfeldt, A. L., Schubert, G., & Zhang, M. B. (2023). Generative AI and firm values (No. w31222). National Bureau of Economic Research.\nFuster, A., Goldsmith‐Pinkham, P., Ramadorai, T., & Walther, A. (2022). Predictably unequal? The effects of machine learning on credit markets. The Journal of Finance, 77(1), 5-47.\nJiang, W., Tang, Y., Xiao, R. J., & Yao, V. (2025). Surviving the FinTech disruption. Journal of Financial Economics, 171, 104071.\nLiu, H., Papanikolaou, D., Schmidt, L. D., & Seegmiller, B. (2025). Technology and Labor Markets: Past, Present, and Future; Evidence from Two Centuries of Innovation (No. w34386). National Bureau of Economic Research.\nZhu, C. (2019). Big data as a governance mechanism. The Review of Financial Studies, 32(5), 2021-2061.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>教学大纲</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "3  课程简介与预备知识",
+    "section": "",
+    "text": "4 课程概览与学习目标\n本课程旨在帮助研究生系统掌握将人工智能方法应用于金融实证研究的完整工作流程。我们不仅关注技术工具的使用，更强调：",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#课程结构",
+    "href": "intro.html#课程结构",
+    "title": "3  课程简介与预备知识",
+    "section": "4.1 课程结构",
+    "text": "4.1 课程结构\n本课程共8周，分为两个阶段：\n第一阶段（第1-4周）：教师精讲 - 第1周：机器学习基础——i.i.d.场景下的认知框架 - 第2周：资产定价中的ML应用——时序评估与回测规范 - 第3周：金融文本分析——从原始文本到量化信号 - 第4周：多模态模型——图像/音频/视频在金融中的应用\n第二阶段（第5-8周）：学生研究汇报与研讨 - 分组汇报研究计划，课堂讨论与反馈 - 第5周前有课前测验（覆盖第1-4周核心概念）",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#老板与员工的协作框架",
+    "href": "intro.html#老板与员工的协作框架",
+    "title": "3  课程简介与预备知识",
+    "section": "5.1 “老板与员工”的协作框架",
+    "text": "5.1 “老板与员工”的协作框架\n在AI辅助的研究工作中，你需要建立一种“老板委派任务、验收员工成果”的思维模式：\n\n\n\n\n\n\n提示\n\n\n\n老板的职责（你的角色）\n\n明确目标：清晰定义研究问题、数据范围、评估标准\n拆解任务：将复杂问题分解为可执行的具体步骤\n质量把关：验收AI生成的代码、分析结果，确保符合学术规范\n决策判断：在多个技术方案间权衡，做出关键的研究决策\n\n\n\n\n\n\n\n\n\n警告\n\n\n\n员工的角色（AI工具）\n\n高效执行具体任务（数据清洗、模型训练、代码生成等）\n提供技术建议和多种实现方案\n快速迭代和试错\n但不能替代你的领域知识、研究判断和责任担当",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#验收工作的关键原则",
+    "href": "intro.html#验收工作的关键原则",
+    "title": "3  课程简介与预备知识",
+    "section": "5.2 验收工作的关键原则",
+    "text": "5.2 验收工作的关键原则\n无论AI生成的代码看起来多么完美，你都必须做到：\n\n理解逻辑：确保你理解每段代码的功能和数学原理\n检查输出：验证数据维度、统计量、可视化结果是否合理\n测试边界：用极端情况测试代码（如空数据、缺失值、异常值）\n溯源数据：追溯数据来源、时间对齐、变量定义\n可复现性：确保设置随机种子、记录环境、版本锁定\n\n\n\n\n\n\n\n重要\n\n\n\n学术诚信提醒\nAI工具可以辅助你完成任务，但不能替代你理解和负责。所有提交的研究成果，你都必须能够独立解释其原理、假设和局限性。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#为什么需要coding-agent",
+    "href": "intro.html#为什么需要coding-agent",
+    "title": "3  课程简介与预备知识",
+    "section": "6.1 为什么需要Coding Agent？",
+    "text": "6.1 为什么需要Coding Agent？\n传统的”复制-粘贴式”AI辅助编程存在诸多问题： - 代码片段缺乏上下文，难以整合到项目中 - 频繁在IDE和浏览器间切换，效率低下 - 难以处理多文件、跨模块的复杂任务\nCoding Agent模式让AI直接在你的开发环境中工作，理解项目全貌，自动完成文件读写、代码编辑、终端操作等任务。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#推荐工具链vscode-cursor-claude",
+    "href": "intro.html#推荐工具链vscode-cursor-claude",
+    "title": "3  课程简介与预备知识",
+    "section": "6.2 推荐工具链：VSCode + Cursor + Claude",
+    "text": "6.2 推荐工具链：VSCode + Cursor + Claude\n我们推荐以下工具组合：\n\nCursor IDE（基于VSCode）\n\n\n内置Claude Sonnet 4.5模型（目前最强的代码生成模型）\n支持Agent模式：AI可以自主读取、编辑、创建文件\n智能上下文管理（自动索引项目代码）\n\n\nClaude Code（通过Cursor调用）\n\n\n长上下文窗口（200k tokens）：可理解大型代码库\n强大的代码理解和生成能力\n支持多轮对话和迭代优化\n\n\nGLM-4（可选的补充）\n\n\n国产大模型，适合中文文档处理\nAPI成本较低，适合批量任务\n可通过OpenAI兼容接口在Cursor中配置",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#核心skills让ai成为高效助手",
+    "href": "intro.html#核心skills让ai成为高效助手",
+    "title": "3  课程简介与预备知识",
+    "section": "6.3 核心Skills：让AI成为高效助手",
+    "text": "6.3 核心Skills：让AI成为高效助手\n\n6.3.1 Skill 1: Planning with Files\n在开始编码前，让AI帮你规划项目结构：\n@Composer 我需要构建一个股票收益率预测项目，请帮我：\n1. 设计项目文件夹结构\n2. 列出需要的主要模块和文件\n3. 说明数据流和依赖关系\nAI会生成类似这样的规划：\nproject/\n├── data/\n│   ├── raw/              # 原始数据（只读）\n│   ├── processed/        # 处理后的数据\n│   └── data_loader.py\n├── features/\n│   ├── technical.py      # 技术指标\n│   └── fundamental.py    # 基本面特征\n├── models/\n│   ├── baseline.py\n│   └── ml_models.py\n├── evaluation/\n│   ├── metrics.py\n│   └── backtest.py\n├── notebooks/\n│   └── exploratory.ipynb\n├── config.yaml           # 配置文件\n├── requirements.txt\n└── README.md\n\n\n6.3.2 Skill 2: Superpowers模式\n启用”Superpowers”（超能力模式）让AI拥有更大的自主权：\n\n自动文件导航：AI可以主动搜索和打开相关文件\n批量编辑：同时修改多个文件中的相关代码\n终端执行：运行测试、安装依赖、查看结果\n错误修复：自动读取报错信息并修复\n\n\n\n\n\n\n\n提示\n\n\n\n如何开启Superpowers\n在Cursor中使用Ctrl+Shift+P（Mac: Cmd+Shift+P），输入”Superpowers”切换模式。\n或者在对话中明确要求：\n@Composer 请使用superpowers模式帮我重构这个模块，\n自动处理所有相关的导入和函数调用更新\n\n\n\n\n6.3.3 Skill 3: Context Management（上下文管理）\n有效管理AI的上下文窗口，确保它关注正确的信息：\n明确引用文件：\n@data_loader.py @config.yaml \n请根据配置文件中的参数更新数据加载逻辑\n指定代码范围：\n在 models/ml_models.py 的 50-100 行，\n优化特征选择逻辑，避免数据泄露\n排除无关文件：\n@Composer 重构评估模块，但不要修改 data/ 文件夹\n\n\n6.3.4 Skill 4: Iterative Refinement（迭代优化）\n将复杂任务分解为多轮对话：\n第一轮： 生成初始版本\n实现一个滚动窗口回测函数，\n输入是预测值和真实值的DataFrame\n第二轮： 增加功能\n在上面的回测函数中添加交易成本和延迟执行的考虑\n第三轮： 优化和测试\n添加单元测试，确保边界情况（如窗口小于5期）不会报错\n\n\n6.3.5 Skill 5: Problem-Solving Workflow（问题解决流程）\n遇到错误时，让AI系统性地诊断和修复：\n@Composer 运行 backtest.py 时出现 KeyError: 'returns'\n\n请按以下步骤调查：\n1. 检查 data_loader.py 返回的列名\n2. 确认 backtest.py 中对列名的假设\n3. 修复不一致，并添加输入验证\n4. 运行测试确认修复有效",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#任务构建基于bert的财报情绪分析模型",
+    "href": "intro.html#任务构建基于bert的财报情绪分析模型",
+    "title": "3  课程简介与预备知识",
+    "section": "7.1 任务：构建基于BERT的财报情绪分析模型",
+    "text": "7.1 任务：构建基于BERT的财报情绪分析模型\nStep 1: 项目规划\n@Composer 创建一个金融文本情绪分析项目：\n- 使用FinBERT模型\n- 数据：10-K年报的MD&A部分\n- 评估：情绪得分与未来收益率的IC\n- 需要处理：文本清洗、长文本截断、时间对齐\nStep 2: 数据处理\n@data/raw/ 中有原始10-K的txt文件\n\n请创建 preprocessing.py：\n1. 提取MD&A section（用正则匹配section标题）\n2. 清洗HTML标签和特殊字符\n3. 按512 token切分长文本\n4. 保存为 processed/mda_cleaned.csv\nStep 3: 模型构建\n@preprocessing.py \n\n基于清洗后的数据，创建 model.py：\n1. 加载 FinBERT（yiyanghkust/finbert-tone）\n2. 批量推理，获取 positive/negative/neutral 概率\n3. 计算复合情绪得分：pos - neg\n4. 考虑GPU内存限制，使用batch_size=16\nStep 4: 评估与可视化\n@model.py @data/returns.csv\n\n创建 evaluation.py：\n1. 将情绪得分与未来1个月收益率对齐（注意披露日期滞后）\n2. 计算时序IC（按年度分组）\n3. 生成可视化：IC时间序列图、分位数组合收益图\n4. 输出结果到 results/evaluation_report.html\nStep 5: 稳健性检验\n@evaluation.py\n\n增加稳健性分析：\n1. 不同情绪指标（pos-neg vs pos/(pos+neg)）\n2. 行业中性化（去除行业平均情绪）\n3. 控制公司规模和账面市值比\n4. 样本外测试（2020年后的数据）\n通过这种方式，AI可以在10-20分钟内完成一个初始版本的完整pipeline，而你只需专注于：\n\n研究设计：如何定义情绪？如何对齐时间？\n质量验收：检查每个步骤的输出是否合理\n结果解释：IC=0.05是否有经济意义？",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#必备软件安装",
+    "href": "intro.html#必备软件安装",
+    "title": "3  课程简介与预备知识",
+    "section": "8.1 必备软件安装",
+    "text": "8.1 必备软件安装\n\nCursor IDE: https://cursor.sh（免费试用14天，之后$20/月）\nPython环境: 建议使用Anaconda或Miniconda\nGit: 用于版本控制和代码提交",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#推荐学习材料",
+    "href": "intro.html#推荐学习材料",
+    "title": "3  课程简介与预备知识",
+    "section": "8.2 推荐学习材料",
+    "text": "8.2 推荐学习材料\n\nCursor官方文档: https://docs.cursor.sh\nClaude API文档: https://docs.anthropic.com\nFinBERT等金融NLP模型: Hugging Face Model Hub",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#课程要求",
+    "href": "intro.html#课程要求",
+    "title": "3  课程简介与预备知识",
+    "section": "8.3 课程要求",
+    "text": "8.3 课程要求\n\n第1-4周课前需完成指定阅读（见讲义中每周的阅读清单）\n第5周前完成课前测验（开卷，覆盖核心概念）\n第5-8周每组准备15分钟研究计划汇报\n期末提交详细研究计划书（Detailed Research Plan）\n\n\n\n\n\n\n\n注记\n\n\n\n本周行动清单\n\n安装Cursor IDE并完成基础配置\n尝试使用Agent模式完成一个简单任务（如创建Python项目模板）\n阅读第1周必读材料：Hastie et al. (2009) Chapters 3, 7\n思考：你的研究方向如何与AI方法结合？\n\n\n\n接下来，我们将在第1讲深入学习机器学习的基础理论，建立i.i.d.场景下的完整认知框架。这是后续所有应用的理论基础，务必牢固掌握。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程简介与预备知识</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html",
+    "href": "week1.html",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "",
+    "text": "5 课程定位与本周目标",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#课程主线",
+    "href": "week1.html#课程主线",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "5.1 课程主线",
+    "text": "5.1 课程主线\n本课程围绕泛化—正则化—评估三位一体展开：\n\n泛化能力：模型在未见数据上的表现，是机器学习的核心目标\n正则化：控制模型复杂度，防止过拟合的关键手段\n评估规范：科学衡量模型性能，确保研究结论可靠",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#本周聚焦",
+    "href": "week1.html#本周聚焦",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "5.2 本周聚焦",
+    "text": "5.2 本周聚焦\n本周建立i.i.d.（独立同分布）场景下的”最小认知框架”，为后续金融应用打下理论基础。\n\n\n\n\n\n\n重要\n\n\n\n重要提示：金融数据通常不满足 i.i.d. 假设（存在时序依赖、非平稳性等）。本周先理解基础框架，第2周将系统讲解金融时序评估规范。",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#统一的符号系统",
+    "href": "week1.html#统一的符号系统",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "6.1 统一的符号系统",
+    "text": "6.1 统一的符号系统\n监督学习的基本设定：\n\n特征向量 \\mathbf{x} \\in \\mathbb{R}^p：描述观测对象的 p 个属性\n标签 y：我们希望预测的目标变量\n\n回归任务：y \\in \\mathbb{R}（连续值）\n分类任务：y \\in \\{1, 2, \\ldots, K\\}（离散类别）\n\n训练集 \\{(\\mathbf{x}_i, y_i)\\}_{i=1}^n：用于学习模型的已知数据\n模型 \\hat{f}(\\mathbf{x})：从特征到预测的映射",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#回归任务regression",
+    "href": "week1.html#回归任务regression",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "6.2 回归任务（Regression）",
+    "text": "6.2 回归任务（Regression）\n\n6.2.1 目标\n预测一个连续数值，如股票收益率、信用评分、违约损失率等。\n\n\n6.2.2 常见损失函数\n\n均方误差（MSE）： \nL(\\hat{f}) = \\frac{1}{n}\\sum_{i=1}^n (y_i - \\hat{f}(\\mathbf{x}_i))^2\n\n平均绝对误差（MAE）： \nL(\\hat{f}) = \\frac{1}{n}\\sum_{i=1}^n |y_i - \\hat{f}(\\mathbf{x}_i)|\n\n\n\n\n6.2.3 典型模型输出\n\n线性回归：\\hat{y} = \\mathbf{x}^\\top \\boldsymbol{\\beta}\n非线性回归：\\hat{y} = f(\\mathbf{x})（如神经网络、树模型等）",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#分类任务classification",
+    "href": "week1.html#分类任务classification",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "6.3 分类任务（Classification）",
+    "text": "6.3 分类任务（Classification）\n\n6.3.1 目标\n将观测对象归入离散类别，如预测涨跌方向、信用等级、欺诈与否等。\n\n\n6.3.2 常见损失函数\n对数损失（Log-loss / Cross-entropy）：\n对于二分类（y \\in \\{0,1\\}）： \nL(\\hat{f}) = -\\frac{1}{n}\\sum_{i=1}^n [y_i \\log(\\hat{p}_i) + (1-y_i)\\log(1-\\hat{p}_i)]\n\n其中 \\hat{p}_i = P(y_i=1|\\mathbf{x}_i) 是模型预测的概率。\n\n\n6.3.3 典型模型输出\n\n概率输出：\\hat{p} = P(y=1|\\mathbf{x}) \\in [0,1]\n\nLogistic回归：\\hat{p} = \\frac{1}{1+\\exp(-\\mathbf{x}^\\top\\boldsymbol{\\beta})}\n\n类别预测：\\hat{y} = \\mathbb{I}(\\hat{p} &gt; \\text{threshold})",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#金融问题中的回归-vs-分类",
+    "href": "week1.html#金融问题中的回归-vs-分类",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "6.4 金融问题中的回归 vs 分类",
+    "text": "6.4 金融问题中的回归 vs 分类\n\n\n\n\n\n\n📌 案例：预测股票未来收益\n\n\n\n同一问题，两种表述：\n回归表述： - 标签：y = r_{t+1}（下期实际收益率） - 预测：\\hat{r}_{t+1} = f(\\mathbf{x}_t) - 评估指标：R^2, RMSE, IC（信息系数）\n分类表述： - 标签：y = \\mathbb{I}(r_{t+1} &gt; 0)（涨或跌） - 预测：\\hat{p}_{t+1} = P(r_{t+1} &gt; 0 | \\mathbf{x}_t) - 评估指标：AUC, 精确率, 召回率\n选择依据： - 若关心收益大小的准确性 → 回归 - 若关心方向判断与排序 → 分类 - 若后续构建多空组合 → 两者皆可（收益预测或概率排序）",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#为什么模型会过拟合",
+    "href": "week1.html#为什么模型会过拟合",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "7.1 为什么模型会过拟合？",
+    "text": "7.1 为什么模型会过拟合？\n核心问题：训练集表现优异的模型，为何在新数据上表现很差？\n答案在于泛化误差的分解。",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#偏差方差分解bias-variance-decomposition",
+    "href": "week1.html#偏差方差分解bias-variance-decomposition",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "7.2 偏差–方差分解（Bias-Variance Decomposition）",
+    "text": "7.2 偏差–方差分解（Bias-Variance Decomposition）\n对于回归任务，测试点 \\mathbf{x}_0 处的期望预测误差可分解为：\n\n\\mathbb{E}[(y_0 - \\hat{f}(\\mathbf{x}_0))^2] = \\underbrace{[\\mathbb{E}(\\hat{f}(\\mathbf{x}_0)) - f(\\mathbf{x}_0)]^2}_{\\text{偏差}^2} + \\underbrace{\\mathbb{E}[(\\hat{f}(\\mathbf{x}_0) - \\mathbb{E}(\\hat{f}(\\mathbf{x}_0)))^2]}_{\\text{方差}} + \\underbrace{\\sigma^2}_{\\text{不可约误差}}\n\n\n7.2.1 三个成分的含义\n\n偏差（Bias）：\n\n模型的系统性误差\n反映模型的拟合能力\n过于简单的模型 → 高偏差（欠拟合）\n\n方差（Variance）：\n\n模型对训练数据的敏感度\n反映模型的稳定性\n过于复杂的模型 → 高方差（过拟合）\n\n不可约误差（Irreducible Error）：\n\n数据本身的噪声 \\sigma^2\n任何模型都无法消除",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#过拟合的统计根源",
+    "href": "week1.html#过拟合的统计根源",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "7.3 过拟合的统计根源",
+    "text": "7.3 过拟合的统计根源\n过拟合本质上是高方差问题：\n\n模型过于复杂，捕捉了训练数据中的噪声\n在训练集上表现优异（低偏差，甚至零偏差）\n在测试集上表现很差（高方差）\n\n\n\n\n\n\n\n⚠️ 金融数据中的过拟合陷阱\n\n\n\n金融数据的低信噪比特点使过拟合问题尤为严重：\n\n股票收益的可预测成分很小（R^2 通常 &lt; 5%）\n复杂模型容易将噪声误认为信号\n样本外表现往往远低于样本内",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#学习曲线learning-curves",
+    "href": "week1.html#学习曲线learning-curves",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "7.4 学习曲线（Learning Curves）",
+    "text": "7.4 学习曲线（Learning Curves）\n训练误差 vs 测试误差随样本量的变化：\n\n\n\n\n\n学习曲线示意图\n\n\n\n\n关键观察：\n\n欠拟合：训练误差和测试误差都很高，且接近\n过拟合：训练误差很低，但测试误差远高于训练误差\n良好拟合：两者适度分离，随样本增加而收敛",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#经验风险最小化erm",
+    "href": "week1.html#经验风险最小化erm",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "8.1 经验风险最小化（ERM）",
+    "text": "8.1 经验风险最小化（ERM）\n标准监督学习就是在训练集上最小化损失：\n\n\\hat{f} = \\arg\\min_{f \\in \\mathcal{F}} \\frac{1}{n}\\sum_{i=1}^n L(y_i, f(\\mathbf{x}_i))\n\n问题：当模型族 \\mathcal{F} 太丰富时，容易过拟合。",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#结构风险最小化srm",
+    "href": "week1.html#结构风险最小化srm",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "8.2 结构风险最小化（SRM）",
+    "text": "8.2 结构风险最小化（SRM）\n核心思想：在损失函数中加入模型复杂度惩罚：\n\n\\hat{f} = \\arg\\min_{f \\in \\mathcal{F}} \\left[\\frac{1}{n}\\sum_{i=1}^n L(y_i, f(\\mathbf{x}_i)) + \\lambda \\cdot \\text{Complexity}(f)\\right]\n\n其中 \\lambda &gt; 0 是正则化参数，控制复杂度惩罚的强度。",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#线性模型中的正则化",
+    "href": "week1.html#线性模型中的正则化",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "8.3 线性模型中的正则化",
+    "text": "8.3 线性模型中的正则化\n对于线性回归 \\hat{y} = \\mathbf{x}^\\top \\boldsymbol{\\beta}，常见正则化方法：\n\n8.3.1 1. 岭回归（Ridge Regression）\n\n\\hat{\\boldsymbol{\\beta}}^{\\text{ridge}} = \\arg\\min_{\\boldsymbol{\\beta}} \\left[\\sum_{i=1}^n (y_i - \\mathbf{x}_i^\\top\\boldsymbol{\\beta})^2 + \\lambda \\sum_{j=1}^p \\beta_j^2\\right]\n\n特点：\n\nL_2 惩罚：\\|\\boldsymbol{\\beta}\\|_2^2\n系数收缩但不会变为零\n适合特征间多重共线性严重的情况\n闭式解：\\hat{\\boldsymbol{\\beta}}^{\\text{ridge}} = (\\mathbf{X}^\\top\\mathbf{X} + \\lambda \\mathbf{I})^{-1}\\mathbf{X}^\\top\\mathbf{y}\n\n\n\n8.3.2 2. Lasso 回归\n\n\\hat{\\boldsymbol{\\beta}}^{\\text{lasso}} = \\arg\\min_{\\boldsymbol{\\beta}} \\left[\\sum_{i=1}^n (y_i - \\mathbf{x}_i^\\top\\boldsymbol{\\beta})^2 + \\lambda \\sum_{j=1}^p |\\beta_j|\\right]\n\n特点：\n\nL_1 惩罚：\\|\\boldsymbol{\\beta}\\|_1\n产生稀疏解：部分系数精确为零\n具有变量选择功能\n适合特征维度高、真正重要特征少的情况\n\n\n\n8.3.3 3. 弹性网（Elastic Net）\n\n\\hat{\\boldsymbol{\\beta}}^{\\text{enet}} = \\arg\\min_{\\boldsymbol{\\beta}} \\left[\\sum_{i=1}^n (y_i - \\mathbf{x}_i^\\top\\boldsymbol{\\beta})^2 + \\lambda_1 \\sum_{j=1}^p |\\beta_j| + \\lambda_2 \\sum_{j=1}^p \\beta_j^2\\right]\n\n特点：\n\n结合 L_1 和 L_2 惩罚\n在相关特征间更稳定\n兼具变量选择与群组效应\n\n\n\n\n\n\n\n💡 金融应用中的选择建议\n\n\n\n\n岭回归：特征多重共线性严重（如多个估值指标）\nLasso：特征数量远大于样本（如大量技术指标）\n弹性网：需要稳定的变量选择（如构建可解释的因子模型）",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#i.i.d.-假设下的数据划分",
+    "href": "week1.html#i.i.d.-假设下的数据划分",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "8.4 i.i.d. 假设下的数据划分",
+    "text": "8.4 i.i.d. 假设下的数据划分\n\n8.4.1 训练-验证-测试三分法\n原始数据\n    ↓\n┌─────────────────────────────────────┐\n│ 训练集 (60%)  │ 验证集 (20%) │ 测试集 (20%) │\n└─────────────────────────────────────┘\n     ↓               ↓              ↓\n  训练模型      选择超参数       最终评估\n职责分工：\n\n训练集：拟合模型参数（如 \\boldsymbol{\\beta}）\n验证集：选择超参数（如 \\lambda）与模型比较\n测试集：仅用一次，报告最终泛化性能\n\n\n\n\n\n\n\n⚠️ 常见错误\n\n\n\n重复使用测试集会导致”数据窥探”（data snooping），使测试性能失去公正性！\n\n\n\n\n8.4.2 K 折交叉验证（K-Fold Cross-Validation）\n当数据量有限时，更充分利用数据：\n原始数据切分为 K 份（如 K=5）：\n┌────┬────┬────┬────┬────┐\n│ 1  │ 2  │ 3  │ 4  │ 5  │\n└────┴────┴────┴────┴────┘\n\nFold 1: [2,3,4,5] 训练, [1] 验证\nFold 2: [1,3,4,5] 训练, [2] 验证\nFold 3: [1,2,4,5] 训练, [3] 验证\nFold 4: [1,2,3,5] 训练, [4] 验证\nFold 5: [1,2,3,4] 训练, [5] 验证\n\n最终性能 = 5 次验证误差的平均\n\n\n\n\n\n\n🚨 金融数据的特殊性\n\n\n\nK 折交叉验证仅适用于 i.i.d. 数据！\n金融时序数据必须用滚动窗口或扩展窗口评估（详见第2周）。",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#回归任务指标",
+    "href": "week1.html#回归任务指标",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "9.1 回归任务指标",
+    "text": "9.1 回归任务指标\n\n9.1.1 1. 均方误差（MSE）与均方根误差（RMSE）\n\n\\text{MSE} = \\frac{1}{n}\\sum_{i=1}^n (y_i - \\hat{y}_i)^2, \\quad \\text{RMSE} = \\sqrt{\\text{MSE}}\n\n\nRMSE 与 y 同量纲，更易解释\n\n\n\n9.1.2 2. 平均绝对误差（MAE）\n\n\\text{MAE} = \\frac{1}{n}\\sum_{i=1}^n |y_i - \\hat{y}_i|\n\n\n对异常值更鲁棒\n\n\n\n9.1.3 3. 决定系数（R^2）\n\nR^2 = 1 - \\frac{\\sum_{i=1}^n (y_i - \\hat{y}_i)^2}{\\sum_{i=1}^n (y_i - \\bar{y})^2}\n\n\n衡量模型解释的方差比例\n样本内 R^2 总是 \\leq 1\n\n\n\n9.1.4 4. 样本外 R^2（Out-of-Sample R^2）\n\nR^2_{\\text{OOS}} = 1 - \\frac{\\sum_{i \\in \\text{test}} (y_i - \\hat{y}_i)^2}{\\sum_{i \\in \\text{test}} (y_i - \\bar{y}_{\\text{train}})^2}\n\n\n可能为负（模型比历史均值还差）\n金融资产定价中的关键指标",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#分类任务指标",
+    "href": "week1.html#分类任务指标",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "9.2 分类任务指标",
+    "text": "9.2 分类任务指标\n\n9.2.1 1. 对数损失（Log-loss）\n\n\\text{Log-loss} = -\\frac{1}{n}\\sum_{i=1}^n [y_i \\log(\\hat{p}_i) + (1-y_i)\\log(1-\\hat{p}_i)]\n\n\n衡量概率预测的质量\n对错误预测的惩罚更重\n\n\n\n9.2.2 2. AUC-ROC 曲线下面积\nROC 曲线：不同阈值下的真正例率（TPR）vs 假正例率（FPR）\n\n\\text{TPR} = \\frac{\\text{TP}}{\\text{TP}+\\text{FN}}, \\quad \\text{FPR} = \\frac{\\text{FP}}{\\text{FP}+\\text{TN}}\n\nAUC（Area Under Curve）：\n\n范围 [0, 1]，越大越好\n0.5 表示随机猜测\n解释：随机选一对（正例，负例），模型对正例打分更高的概率\n\n\n\n9.2.3 3. AUC-PR（Precision-Recall 曲线）\n精确率与召回率：\n\n\\text{Precision} = \\frac{\\text{TP}}{\\text{TP}+\\text{FP}}, \\quad \\text{Recall} = \\frac{\\text{TP}}{\\text{TP}+\\text{FN}}\n\n适用场景：类别极不平衡时（如信用违约、欺诈检测）\n\n\n9.2.4 4. F1 分数\n\nF_1 = 2 \\cdot \\frac{\\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}}\n\n\n精确率与召回率的调和平均\n单一阈值下的综合指标\n\n\n\n9.2.5 5. 校准（Calibration）\n预测概率 \\hat{p} 与实际频率是否一致？\n校准图：将样本按 \\hat{p} 分桶，检查每桶内正例的真实比例。\n\n\n\n\n\n\n💡 指标选择的黄金法则\n\n\n\n先明确研究目标，再选指标：\n\n关心排序 → AUC-ROC\n关心不平衡分类 → AUC-PR, F1\n关心概率准确性 → Log-loss, 校准\n关心数值预测 → MSE, MAE, R^2",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#类别不平衡的常见误区",
+    "href": "week1.html#类别不平衡的常见误区",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "9.3 类别不平衡的常见误区",
+    "text": "9.3 类别不平衡的常见误区\n案例：预测信用违约，违约率 1%。\n❌ 错误做法：\n# 模型预测所有人都不违约\naccuracy = 0.99  # 准确率 99%！\n虽然准确率很高，但模型毫无用处！\n✅ 正确做法：\n\n使用 AUC-PR、F1、召回率等指标\n考虑代价敏感学习\n调整决策阈值以平衡误报与漏报",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#什么是最小证据链",
+    "href": "week1.html#什么是最小证据链",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "10.1 什么是”最小证据链”？",
+    "text": "10.1 什么是”最小证据链”？\n定义：从原始数据到研究结论，可审计、可复现、可信任的完整证据路径。\n\n\n\n\n\n\n📋 最小证据链检查清单\n\n\n\n\n✅ 数据与标签定义\n\n数据来源、版本、时间范围\n标签如何定义（含信息可得性说明）\n缺失值、异常值如何处理\n\n✅ 预处理规则\n\n标准化、归一化方式\n特征工程步骤\n缺失值填充策略\n\n✅ 划分与评估策略\n\n训练-验证-测试如何划分\ni.i.d. 还是时序评估\n超参数选择方法\n\n✅ 基准模型\n\n简单基准（历史均值、线性模型等）\n与既有文献的对比\n\n✅ 样本外结果\n\n主要指标与置信区间\n切片评估（按时间、行业等）\n稳健性检验（换特征、换窗口等）\n\n✅ 可复现性材料\n\n代码与随机种子\n变量字典与流程图\n环境配置说明",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#为什么强调最小",
+    "href": "week1.html#为什么强调最小",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "10.2 为什么强调”最小”？",
+    "text": "10.2 为什么强调”最小”？\n\n可行性：要求过高会降低研究效率\n聚焦核心：抓住信息泄露、不可复现等关键风险点\n可审计：评审者/读者能快速验证研究可信度\n\n\n\n\n\n\n\n⚠️ 常见缺失环节\n\n\n\n\n信息可得性说明不清：用了未来数据或不可交易的信息\n预处理不透明：标准化用了全局统计量（含测试集信息）\n超参数选择不规范：在测试集上调参\n只报最好结果：隐藏失败尝试，过度拟合\n无代码或种子：结果无法复现",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#核心要点",
+    "href": "week1.html#核心要点",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "11.1 核心要点",
+    "text": "11.1 核心要点\n\n监督学习框架：回归 vs 分类，损失函数决定模型行为\n过拟合根源：偏差–方差权衡，复杂模型 + 噪声数据 → 高方差\n正则化：岭/Lasso/弹性网，控制复杂度，提升泛化能力\n评估规范：训练-验证-测试分工，指标与目标一致\n最小证据链：可审计、可复现的研究规范",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#本周思考题",
+    "href": "week1.html#本周思考题",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "11.2 本周思考题",
+    "text": "11.2 本周思考题\n\n11.2.1 问题 1\n将”预测未来收益率”分别表述为回归任务与分类任务时，标签应如何定义？两种表述分别应优先使用哪些评价指标？\n\n\n\n\n\n\n💡 参考答案\n\n\n\n\n\n回归表述：\n\n标签：y = r_{t+h}（未来 h 期的实际收益率）\n优先指标：MSE、MAE、R^2、样本外 R^2、IC（信息系数）\n\n分类表述：\n\n标签：y = \\mathbb{I}(r_{t+h} &gt; \\text{threshold})（如涨跌、超额收益正负）\n优先指标：AUC-ROC、Log-loss、Rank-IC（排序相关性）\n\n选择依据：若后续构建组合，分类表述的排序能力往往更重要。\n\n\n\n\n\n11.2.2 问题 2\n用偏差–方差分解解释：为什么更复杂的模型可能在训练集更好，但在样本外更差？\n\n\n\n\n\n\n💡 参考答案\n\n\n\n\n\n\n训练集：复杂模型可降低偏差（更灵活拟合），训练误差↓\n测试集：复杂模型方差高（对训练数据过敏感），捕捉噪声\n结果：测试误差 = 偏差² + 方差 + 不可约误差，方差项主导↑\n\n关键：训练误差只反映偏差，不反映方差！\n\n\n\n\n\n11.2.3 问题 3\n请列出”最小证据链”中你认为最容易被忽视的两项，并说明忽视它们可能带来的误判。\n\n\n\n\n\n\n💡 参考答案示例\n\n\n\n\n\n\n信息可得性说明\n\n忽视后果：使用未来数据（look-ahead bias），样本内指标虚高\n实例：用当期年报数据预测当期收益（年报披露有滞后）\n\n随机种子与环境配置\n\n忽视后果：结果无法复现，无法验证真实性\n实例：不同机器/版本得到不同结果，研究可信度存疑",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#下周预告",
+    "href": "week1.html#下周预告",
+    "title": "4  第1讲：机器学习理论基础",
+    "section": "11.3 下周预告",
+    "text": "11.3 下周预告\n第2周将进入金融场景的特殊性：\n\n时序数据如何评估（滚动窗口、嵌套CV）\n回测卫生清单（存活偏误、信息泄露等）\n从预测到交易：组合构建与成本后评估\n\n请提前阅读：\n\nGu, Kelly & Xiu (2020) Empirical asset pricing via machine learning\nKelly & Xiu (2023), Chapters 3-5\n\n预习提示：在文中找出”预测表现好但不可交易”的证据或讨论点，带到课上！",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>第1讲：机器学习理论基础</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html",
+    "href": "week2.html",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "",
+    "text": "6 资产定价预测的”特别之处”",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#与典型监督学习的差异",
+    "href": "week2.html#与典型监督学习的差异",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "6.1 与典型监督学习的差异",
+    "text": "6.1 与典型监督学习的差异\n\n\n\n\n\n\n🎯 核心认知\n\n\n\n资产定价预测远比标准 i.i.d. 监督学习困难，原因在于：\n\n极低信噪比：可预测成分通常 &lt; 5% 方差\n非平稳性：数据分布随时间变化\n横截面相关：资产间高度关联\n交易约束：预测好 ≠ 可交易 ≠ 能赚钱\n\n\n\n\n6.1.1 1. 低信噪比（Low Signal-to-Noise Ratio）\n典型事实（来自 Gu, Kelly, Xiu 2020）：\n\n个股月度收益预测的 R^2_{\\text{OOS}} \\approx 0.5\\%\n即使最优模型，95%+ 方差仍是噪声\n对比：图像分类任务 R^2 &gt; 90\\%\n\n含义：\n\n复杂模型极易将噪声误认为信号\n正则化与集成方法至关重要\n评估指标需关注排序能力而非绝对预测精度\n\n\n\n6.1.2 2. 非平稳性（Non-stationarity）\n表现：\n\n均值/方差随时间变化（如牛市 vs 熊市）\n特征–收益关系不稳定（如价值因子的衰退）\n新信息源出现（如社交媒体数据）\n\n挑战：\n\n历史数据未必代表未来\n模型需定期重训练\n需检验不同市场状态下的稳健性\n\n\n\n6.1.3 3. 横截面相关性（Cross-sectional Dependence）\n现实：\n\n股票收益受共同因子驱动（市场、行业、风格）\n相关性在危机时期飙升\n违反 i.i.d. 假设中的”独立性”\n\n影响：\n\n标准误估计偏小（需聚类调整）\n组合风险管理更复杂\n需控制因子暴露\n\n\n\n6.1.4 4. 交易约束与成本\n现实约束：\n\n流动性：小市值股票难以大规模交易\n交易成本：佣金、冲击成本、税费\n卖空限制：部分市场卖空困难或成本高\n杠杆限制：借贷成本与上限\n\n\n\n\n\n\n\n⚠️ 为何”预测更准”不等于”更赚钱”？\n\n\n\n案例：模型 A 预测 IC = 0.08，模型 B 预测 IC = 0.06\n\n若模型 A 的信号波动大 → 高换手率 → 交易成本吞噬收益\n若模型 A 偏好小市值股 → 流动性不足 → 难以实施\n结论：模型 B 可能成本后表现更好",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#预测对象的选择",
+    "href": "week2.html#预测对象的选择",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "7.1 预测对象的选择",
+    "text": "7.1 预测对象的选择\n\n7.1.1 1. 个股收益（Individual Stock Returns）\n\nr_{i,t+h} = \\log\\left(\\frac{P_{i,t+h}}{P_{i,t}}\\right)\n\n\n优点：直接可交易，信息丰富\n缺点：噪声大，需处理退市/分红\n\n\n\n7.1.2 2. 超额收益（Excess Returns）\n\nr^e_{i,t+h} = r_{i,t+h} - r_{f,t+h}\n\n或对市场调整：\n\nr^e_{i,t+h} = r_{i,t+h} - r_{m,t+h}\n\n\n优点：去除市场共同成分，提升信噪比\n缺点：需选择基准\n\n\n\n7.1.3 3. 多空组合收益（Long-Short Portfolio Returns）\n根据预测信号构建分位数组合：\n\nr^{LS}_{t+h} = r^{\\text{High}}_{t+h} - r^{\\text{Low}}_{t+h}\n\n\n优点：直接评估策略表现\n缺点：损失个股级信息",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#特征工程信息集与时间对齐",
+    "href": "week2.html#特征工程信息集与时间对齐",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "7.2 特征工程：信息集与时间对齐",
+    "text": "7.2 特征工程：信息集与时间对齐\n\n7.2.1 信息可得性规则（Information Availability）\n\n\n\n\n\n\n🔑 黄金法则\n\n\n\n在时刻 t 用于预测的特征，必须在 t 时刻已公开可得！\n\n\n常见陷阱：\n\n会计变量披露滞后\n\n错误：用 2023 年报数据预测 2023 年收益\n正确：用 2022 年报（2023年4月披露）预测 2023年5月后收益\n\n价格数据的”收盘价陷阱”\n\n错误：用 t 日收盘价预测 t 日收益\n正确：用 t-1 日收盘价预测 t 日收益\n\n分析师预测的”修订滞后”\n\n需记录：每个预测的发布时间戳\n对齐：只用发布时间 &lt; t 的预测\n\n\n7.2.2 特征类别与对齐策略\n\n\n\n特征类别\n更新频率\n披露滞后\n对齐策略\n\n\n\n\n价格/成交量\n日\n无\n用 t-1 预测 t\n\n\n会计变量\n季/年\n1-4 个月\n记录披露日期\n\n\n分析师预测\n不定期\n无\n记录时间戳\n\n\n新闻/文本\n实时\n几乎无\n记录发布时间\n\n\n宏观经济\n月/季\n数周\n记录发布日期\n\n\n\n\n\n7.2.3 缺失值处理的时间规范\n原则：填补方法不能使用未来信息。\n✅ 正确做法：\n# 前向填充（用最近的已知值）\ndf['feature'] = df.groupby('stock_id')['feature'].ffill()\n\n# 或用历史均值（仅用 t 之前数据）\ndf['feature'] = df['feature'].fillna(df['feature'].expanding().mean())\n❌ 错误做法：\n# 用全局均值（包含未来数据）\ndf['feature'] = df['feature'].fillna(df['feature'].mean())\n\n\n7.2.4 标准化的时间规范\n横截面标准化（cross-sectional）：\n\n\\tilde{x}_{i,t} = \\frac{x_{i,t} - \\bar{x}_t}{\\sigma_t}\n\n其中 \\bar{x}_t, \\sigma_t 是时刻 t 的横截面均值/标准差。\n✅ 适用场景：特征在不同时期量纲差异大（如市盈率）\n时间序列标准化：\n\n\\tilde{x}_{i,t} = \\frac{x_{i,t} - \\bar{x}_{i,&lt;t}}{\\sigma_{i,&lt;t}}\n\n其中 \\bar{x}_{i,&lt;t}, \\sigma_{i,&lt;t} 是股票 i 在 t 之前的均值/标准差。\n✅ 适用场景：特征在不同股票间量纲差异大（如成交量）\n\n\n\n\n\n\n⚠️ 避免信息泄露\n\n\n\n错误：用包含测试期的统计量标准化\n# 错误！scaler 看到了测试集数据\nscaler.fit(X_train + X_test)\n正确：仅用训练期拟合\n# 正确！\nscaler.fit(X_train)\nX_train_scaled = scaler.transform(X_train)\nX_test_scaled = scaler.transform(X_test)  # 用训练期参数转换",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#为什么-k-折交叉验证不适用",
+    "href": "week2.html#为什么-k-折交叉验证不适用",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "8.1 为什么 K 折交叉验证不适用？",
+    "text": "8.1 为什么 K 折交叉验证不适用？\nK 折 CV 的假设：训练集和验证集可互换（i.i.d.）\n金融时序的现实：\n\n未来不可用于预测过去（因果性）\n数据分布随时间变化（非平稳）\n若打乱时间顺序，会造成严重的前瞻偏误\n\n\n\n\n\n\n\n🚫 禁止操作\n\n\n\n# 危险！时序数据不能用标准 K 折\nfrom sklearn.model_selection import KFold\nkf = KFold(n_splits=5, shuffle=True)  # shuffle=True 破坏时序",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#时序数据的正确划分",
+    "href": "week2.html#时序数据的正确划分",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "8.2 时序数据的正确划分",
+    "text": "8.2 时序数据的正确划分\n\n8.2.1 基本时间切分\n历史数据  │  样本内评估期  │  样本外评估期\n─────────┼───────────────┼──────────────→ 时间\n  Train  │    Validation │      Test\n原则：\n\n训练集：最早的数据\n验证集：训练集之后\n测试集：验证集之后（仅用一次！）\n\n\n\n8.2.2 滚动窗口（Rolling Window）\n固定训练窗口长度，逐步向前滚动：\n时间:  1 2 3 4 5 6 7 8 9 10 11 12\n\n迭代1: [Train: 1-5] → Predict: 6\n迭代2:   [Train: 2-6] → Predict: 7\n迭代3:     [Train: 3-7] → Predict: 8\n迭代4:       [Train: 4-8] → Predict: 9\n...\n优点：\n\n模型保持”新鲜”，适应非平稳性\n计算成本可控\n\n缺点：\n\n丢弃早期数据，样本量小\n窗口长度需调优\n\n\n\n8.2.3 扩展窗口（Expanding Window）\n累积所有历史数据，窗口不断扩大：\n时间:  1 2 3 4 5 6 7 8 9 10 11 12\n\n迭代1: [Train: 1-5] → Predict: 6\n迭代2: [Train: 1-6] → Predict: 7\n迭代3: [Train: 1-7] → Predict: 8\n迭代4: [Train: 1-8] → Predict: 9\n...\n优点：\n\n充分利用历史数据，样本量大\n估计更稳定\n\n缺点：\n\n早期数据可能过时\n计算成本高（训练集不断增长）\n\n\n\n8.2.4 选择建议\n\n\n\n场景\n推荐方法\n\n\n\n\n数据平稳、样本少\n扩展窗口\n\n\n数据非平稳明显\n滚动窗口（短窗口）\n\n\n不确定\n两者都试，对比稳健性",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#嵌套时序评估nested-time-series-cv",
+    "href": "week2.html#嵌套时序评估nested-time-series-cv",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "8.3 嵌套时序评估（Nested Time Series CV）",
+    "text": "8.3 嵌套时序评估（Nested Time Series CV）\n问题：超参数（如正则化强度 \\lambda）如何选择？\n错误做法：在测试集上调参（数据窥探！）\n正确做法：嵌套结构，分离”调参”与”泛化评估”\n\n8.3.1 嵌套结构示意\n外层循环（泛化评估）:\n┌────────────────────────────────────────────────────┐\n│ Train + Val (合并) │ → Model(best λ) → │ Test_1 │\n└────────────────────────────────────────────────────┘\n    内层循环（选 λ）:\n    ┌──────────────────┬─────────────┐\n    │   Train_inner    │  Val_inner  │  → 试 λ1, λ2, ...\n    └──────────────────┴─────────────┘\n\n然后滚动到下一期...\n\n┌────────────────────────────────────────────────────┐\n│   Train + Val (合并)   │ → Model(best λ) → │Test_2│\n└────────────────────────────────────────────────────┘\n    内层循环（重新选 λ）:\n    ┌──────────────────┬─────────────┐\n    │   Train_inner    │  Val_inner  │\n    └──────────────────┴─────────────┘\n\n\n8.3.2 伪代码\ntest_scores = []\n\nfor test_start in test_periods:\n    # 外层：定义本期测试集\n    train_val = data[data.date &lt; test_start]\n    test = data[data.date &gt;= test_start]\n    \n    # 内层：在 train_val 上用时序 CV 选超参数\n    best_lambda = None\n    best_val_score = -inf\n    \n    for lambda_candidate in lambda_grid:\n        val_scores_inner = []\n        for val_start in validation_periods:\n            train_inner = train_val[train_val.date &lt; val_start]\n            val_inner = train_val[train_val.date &gt;= val_start]\n            \n            model.fit(train_inner, lambda=lambda_candidate)\n            val_scores_inner.append(model.score(val_inner))\n        \n        avg_val_score = mean(val_scores_inner)\n        if avg_val_score &gt; best_val_score:\n            best_val_score = avg_val_score\n            best_lambda = lambda_candidate\n    \n    # 外层：用最优超参数训练最终模型\n    model.fit(train_val, lambda=best_lambda)\n    test_scores.append(model.score(test))\n\n# 报告样本外性能\nfinal_oos_score = mean(test_scores)\n\n\n\n\n\n\n💡 实践建议\n\n\n\n\n内层窗口可以更短：调参不需要太长历史\n外层跨度看研究问题：月度/季度/年度重训练\n计算成本高：可先在小数据集上探索，再全量运行",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#常见偏误类型",
+    "href": "week2.html#常见偏误类型",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "9.1 常见偏误类型",
+    "text": "9.1 常见偏误类型\n\n9.1.1 1. 存活偏误（Survivorship Bias）\n问题：只用当前仍存在的股票回测，忽略退市股票。\n后果：\n\n高估策略收益（退市股通常表现差）\n低估风险（极端亏损被排除）\n\n解决：\n\n使用包含退市股的全历史数据库\n记录退市日期与退市收益\n\n\n\n9.1.2 2. 数据回填（Backfilled Data）\n问题：数据供应商事后修正历史数据（如重述财报）。\n后果：用到了当时不可得的”修正后”数据。\n解决：\n\n使用时间点数据库（point-in-time database）\n记录每个数据点的”as of”日期\n\n\n\n9.1.3 3. 公司行动处理（Corporate Actions）\n未调整：\n\n股票分拆/合并（如1股拆3股）\n现金分红（影响收益计算）\n配股/增发\n\n解决：\n\n使用复权价格（adjusted prices）\n或手动调整收益序列\n\n\n\n9.1.4 4. 停牌处理\n问题：停牌期间无法交易，但收益率序列可能显示”0”或”缺失”。\n后果：\n\n错误假设可以在停牌期买入/卖出\n低估流动性风险\n\n解决：\n\n标记停牌日期\n回测中跳过停牌股票或延迟调仓\n\n\n\n9.1.5 5. 样本选择与数据窥探（Data Snooping）\n问题：\n\n在多次尝试后只报告最好的结果\n根据整个样本期的特征选择模型/特征\n\n后果：\n\n样本外表现远低于预期\n无法复现\n\n解决：\n\n预先登记研究设计（pre-registration）\n报告所有尝试（包括失败的）\n用独立测试集或新数据期验证",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#调仓时点与执行滞后",
+    "href": "week2.html#调仓时点与执行滞后",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "9.2 调仓时点与执行滞后",
+    "text": "9.2 调仓时点与执行滞后\n\n9.2.1 调仓时点设计\n典型流程：\n月末 t: 观察所有可得信息 x_t\n  ↓\n月初 t+1: 计算预测信号 f(x_t)\n  ↓\n开盘后: 执行交易，形成新组合\n  ↓\n月末 t+1: 观察收益 r_{t+1}\n关键问题：\n\n何时计算信号？（需确保数据已可得）\n何时执行交易？（开盘/收盘/盘中均价？）\n是否有执行滞后？（如需 T+1 日才能成交）\n\n\n\n9.2.2 执行价格\n保守假设：\n\n买入用更高的价格（如开盘价 + 滑点）\n卖出用更低的价格（如开盘价 - 滑点）\n\n示例：\n# 假设在月初第一个交易日开盘价执行\nentry_price = open_price * (1 + slippage)  # 买入\nexit_price = open_price * (1 - slippage)   # 卖出",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#预测层面指标",
+    "href": "week2.html#预测层面指标",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "10.1 预测层面指标",
+    "text": "10.1 预测层面指标\n\n10.1.1 1. 样本外 R^2（Out-of-Sample R^2）\n\nR^2_{\\text{OOS}} = 1 - \\frac{\\sum_{t \\in \\text{OOS}} (r_t - \\hat{r}_t)^2}{\\sum_{t \\in \\text{OOS}} (r_t - \\bar{r}_{\\text{hist}})^2}\n\n其中 \\bar{r}_{\\text{hist}} 是历史均值（仅用训练期）。\n解释：\n\n相对于”历史均值预测”的改进\n可能为负（模型比均值还差）\nGKY (2020) 中 R^2_{\\text{OOS}} \\approx 0.5\\% 已属优秀\n\n\n\n10.1.2 2. 信息系数（IC）与 Rank IC\nIC（Information Coefficient）：预测值与实际值的相关系数\n\n\\text{IC}_t = \\text{Corr}(\\hat{r}_{i,t}, r_{i,t})\n\nRank IC：排序相关（Spearman）\n\n\\text{Rank-IC}_t = \\text{Spearman}(\\hat{r}_{i,t}, r_{i,t})\n\n优点：\n\n更关注排序而非数值精度\n对异常值更鲁棒（Rank IC）\n\n典型值：\n\n|\\text{IC}| &gt; 0.05 已有实用价值\n|\\text{IC}| &gt; 0.10 属强信号",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#组合层面指标",
+    "href": "week2.html#组合层面指标",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "10.2 组合层面指标",
+    "text": "10.2 组合层面指标\n\n10.2.1 构建多空组合\n基于预测分数排序：\n\n每期将股票按 \\hat{r}_{i,t} 排序\n做多前 20%（或前十分位）\n做空后 20%（或后十分位）\n计算组合收益\n\n\n\n10.2.2 1. 年化超额收益\n\n\\bar{r}^e_{\\text{annual}} = 12 \\times \\frac{1}{T}\\sum_{t=1}^T r^e_t \\quad \\text{（月度数据）}\n\n\n\n10.2.3 2. 夏普比率（Sharpe Ratio）\n\n\\text{Sharpe} = \\frac{\\bar{r}^e}{\\sigma(r^e)} \\times \\sqrt{12}\n\n解释：单位风险的超额收益\n典型值：\n\nSharpe &gt; 1：优秀\nSharpe &gt; 2：非常优秀（需警惕过拟合）\n\n\n\n10.2.4 3. 信息比率（Information Ratio）\n\n\\text{IR} = \\frac{\\bar{r}^e - r^{\\text{benchmark}}}{\\sigma(r^e - r^{\\text{benchmark}})}\n\n解释：相对基准的超额收益稳定性\n\n\n10.2.5 4. 最大回撤（Maximum Drawdown）\n\n\\text{MDD} = \\max_{t} \\left[\\max_{s \\leq t} \\text{Cumulative Return}_s - \\text{Cumulative Return}_t\\right]\n\n解释：从峰值到谷底的最大损失\n\n\n10.2.6 5. 换手率（Turnover）\n\n\\text{Turnover}_t = \\frac{1}{2}\\sum_{i} |w_{i,t} - w_{i,t-1}^+|\n\n其中 w_{i,t-1}^+ 是 t-1 期末持仓权重（考虑价格变化）。\n重要性：\n\n高换手 → 高交易成本\n需权衡信号强度与稳定性\n\n\n\n10.2.7 6. 成本后净收益\n\nr^{\\text{net}}_t = r^{\\text{gross}}_t - \\text{Cost}_t\n\n成本构成：\n\n佣金：c \\times \\text{Turnover}_t（如 c = 0.1\\%）\n冲击成本：\\alpha \\times \\sqrt{\\text{Trade Size}}\n融券费用：做空头寸的借券成本\n\n\n\n\n\n\n\n⚠️ 成本往往被低估\n\n\n\n\n小市值股票冲击成本远超大盘股\n危机时期融券费用飙升\n实际执行中的滑点",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#切片评估与稳健性检验",
+    "href": "week2.html#切片评估与稳健性检验",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "10.3 切片评估与稳健性检验",
+    "text": "10.3 切片评估与稳健性检验\n\n10.3.1 时间切片\n不同市场状态：\n\n牛市 vs 熊市\n高波动 vs 低波动\n危机期 vs 平稳期\n\n检验：策略是否在各时期稳健？\n\n\n10.3.2 横截面切片\n不同资产特征：\n\n大市值 vs 小市值\n高流动性 vs 低流动性\n不同行业/板块\n\n检验：策略收益来源是否过于集中？\n\n\n10.3.3 稳健性检验\n\n换窗口长度：滚动窗口 3年 vs 5年\n换再平衡频率：月度 vs 季度\n换组合构建：等权 vs 市值加权\n剔除极端期：去掉危机月份，策略是否仍有效？",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#模型性能对比参照-gky-2020",
+    "href": "week2.html#模型性能对比参照-gky-2020",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "11.1 模型性能对比（参照 GKY 2020）",
+    "text": "11.1 模型性能对比（参照 GKY 2020）\n\n11.1.1 主要发现\n\n\n\n\n\n\n\n\n\n\n模型类别\nR^2_{\\text{OOS}}\n夏普比率\n优点\n缺点\n\n\n\n\n线性（Lasso/Elastic Net）\n0.30%\n1.2\n可解释，稳定\n表达力有限\n\n\n树模型（Random Forest, GBM）\n0.40%\n1.5\n捕捉非线性，重要性解释\n易过拟合\n\n\n神经网络（DNN）\n0.50%\n1.6\n最强表达力\n黑箱，不稳定\n\n\n组合（Ensemble）\n0.55%\n1.7\n稳健性最佳\n复杂度高\n\n\n\n\n\n11.1.2 核心结论\n\n非线性方法表现更好，但优势有限（0.1-0.2% R^2）\n模型组合优于单一模型（分散过拟合风险）\n正则化至关重要（无论线性还是非线性）",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#从预测到组合的映射",
+    "href": "week2.html#从预测到组合的映射",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "11.2 从预测到组合的映射",
+    "text": "11.2 从预测到组合的映射\n\n11.2.1 1. 简单排序（Rank-based）\n# 每期按预测分数排序\nscores = model.predict(X_t)\nranks = scores.argsort()\n\n# 构建多空组合\nlong = ranks[-n_top:]   # 前 n 名\nshort = ranks[:n_top]   # 后 n 名\n\nportfolio = equal_weight(long) - equal_weight(short)\n优点：简单，鲁棒\n缺点：忽略预测强度差异\n\n\n11.2.2 2. 比例权重（Proportional）\n\nw_i \\propto \\hat{r}_i\n\n归一化使 \\sum w_i = 1。\n优点：利用预测强度信息\n缺点：对极端预测敏感\n\n\n11.2.3 3. 均值-方差优化（Mean-Variance）\n\n\\max_{\\mathbf{w}} \\quad \\mathbf{w}^\\top \\hat{\\boldsymbol{\\mu}} - \\frac{\\lambda}{2} \\mathbf{w}^\\top \\hat{\\boldsymbol{\\Sigma}} \\mathbf{w}\n\n其中 \\hat{\\boldsymbol{\\mu}} 是预测收益，\\hat{\\boldsymbol{\\Sigma}} 是协方差矩阵。\n优点：考虑风险\n缺点：\n\n协方差矩阵估计误差大\n对输入高度敏感（需正则化）\n\n\n\n11.2.4 4. 因子约束（Factor-neutral）\n控制对已知因子的暴露：\n\n\\mathbf{w}^\\top \\mathbf{F} = \\mathbf{0}\n\n其中 \\mathbf{F} 是因子载荷矩阵（如市场、规模、价值）。\n优点：纯粹的 alpha，风险更可控",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#模型组合策略",
+    "href": "week2.html#模型组合策略",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "11.3 模型组合策略",
+    "text": "11.3 模型组合策略\n\n11.3.1 1. 简单平均（Simple Average）\n\n\\hat{r}^{\\text{ens}}_i = \\frac{1}{M}\\sum_{m=1}^M \\hat{r}^{(m)}_i\n\n优点：最简单，通常效果好\n\n\n11.3.2 2. 加权平均（Weighted Average）\n\n\\hat{r}^{\\text{ens}}_i = \\sum_{m=1}^M w_m \\hat{r}^{(m)}_i\n\n权重 w_m 根据验证集表现确定。\n\n\n11.3.3 3. Stacking\n训练一个元模型，以各模型预测为输入：\n模型1预测 ──┐\n模型2预测 ──┼──→ 元模型 ──→ 最终预测\n模型3预测 ──┘\n优点：自动学习最优组合\n缺点：增加过拟合风险（需嵌套 CV）",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#核心要点",
+    "href": "week2.html#核心要点",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "12.1 核心要点",
+    "text": "12.1 核心要点\n\n金融预测的特殊挑战：低信噪比、非平稳、交易约束\n信息可得性：特征对齐、披露滞后、无前瞻偏误\n时序评估：滚动/扩展窗口、嵌套 CV、禁用标准 K 折\n回测卫生：存活偏误、数据回填、执行滞后等\n评估体系：预测指标（IC）+ 组合指标（Sharpe, 成本后收益）\n模型选择：正则化、集成、预测到组合的映射",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#本周思考题",
+    "href": "week2.html#本周思考题",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "12.2 本周思考题",
+    "text": "12.2 本周思考题\n\n12.2.1 问题 1\n一个拥有较高样本外预测指标（如 OS-R^2 或 IC）的模型,为何在真实交易中仍可能表现很差？请至少列出三个原因，并指出它们分别对应哪一类”回测卫生”问题或”经济约束”。\n\n\n\n\n\n\n💡 参考答案\n\n\n\n\n\n\n交易成本（经济约束）\n\n高换手率策略的佣金与冲击成本\n可能吞噬全部预测收益\n\n流动性不足（经济约束）\n\n信号偏好小市值股票\n大资金无法实际交易\n\n执行滞后（回测卫生）\n\n回测假设即时执行\n实际可能 T+1 或更晚，信号衰减\n\n数据窥探（回测卫生）\n\n在测试集上反复调参\n样本外真实表现被高估\n\n市场冲击（经济约束）\n\n大额交易改变价格\n回测未考虑自身交易的影响\n\n\n\n\n\n\n\n12.2.2 问题 2\n如果你的特征中包含会计变量（存在披露滞后），滚动窗口评估中最常见的信息泄露路径是什么？你会如何在数据对齐上规避？\n\n\n\n\n\n\n💡 参考答案\n\n\n\n\n\n常见泄露路径：\n用当期年报数据预测当期收益，忽略年报通常在次年 3-4 月才披露。\n规避方法：\n\n记录披露日期\ndf['report_date']     # 报告期（如 2023-12-31）\ndf['announce_date']   # 实际披露日（如 2024-04-30）\n对齐规则\n# 只用已披露的最新数据\ndf = df[df['announce_date'] &lt; df['trade_date']]\n保守假设\n\n年报假设次年 5 月 1 日可得\n季报假设下一季度首月可得\n\n\n\n\n\n\n\n12.2.3 问题 3\n结合 Gu, Kelly, Xiu (2020) 的经验事实，你会如何在”预测性能—稳定性—可解释性”之间权衡选择模型，并将其输出转化为一个可交易的组合？\n\n\n\n\n\n\n💡 参考答案\n\n\n\n\n\n权衡策略：\n\n预测性能：神经网络 &gt; 树模型 &gt; 线性\n\n但边际提升有限（0.1-0.2% R^2）\n\n稳定性：线性 ≈ 模型组合 &gt; 树模型 &gt; 神经网络\n\n金融低信噪比环境下，稳定性更重要\n\n可解释性：线性 &gt; 树模型 &gt; 神经网络\n\n监管与风控需求\n\n\n推荐方案：\n\n研究导向：使用线性（Elastic Net）作为基准，树/神经网络探索非线性\n实盘导向：多模型组合（平均或 stacking），平衡性能与稳健性\n转化为组合：\n\n按预测分数排序\n做多前十分位，做空后十分位\n等权或根据流动性调整权重\n月度再平衡，控制换手率 &lt; 50%",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#下周预告",
+    "href": "week2.html#下周预告",
+    "title": "5  第2讲：资产定价中的机器学习应用",
+    "section": "12.3 下周预告",
+    "text": "12.3 下周预告\n第3周进入文本分析领域：\n\n文本表示方法演进（词袋 → BERT）\n语料治理：版本、对齐、去噪\n从原始文档到可用变量的审计流程\n增量信息检验与经济含义\n\n预习阅读：\n\nEisfeldt & Schubert (2024) Generative AI and Finance\nGentzkow, Kelly & Taddy (2019) Text as Data\nLudwig, Mullainathan & Rambachan (2025) LLMs: an applied econometric framework\n\n预习任务：选一种感兴趣的金融文本（年报/新闻/研报/社媒），思考它最容易产生的”前瞻/对齐错误”是什么。",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>第2讲：资产定价中的机器学习应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html",
+    "href": "week3.html",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "",
+    "text": "7 本周目标与三条底线",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#课程主线回顾",
+    "href": "week3.html#课程主线回顾",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "7.1 课程主线回顾",
+    "text": "7.1 课程主线回顾\n泛化—正则化—评估三位一体，在文本分析中的体现：\n\n泛化：文本模型能否推广到新文档、新时期？\n正则化：如何避免过拟合（特别是词典法的多重比较、LLM 的过度调优）？\n评估：文本变量是否带来增量信息？",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#三条底线",
+    "href": "week3.html#三条底线",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "7.2 三条底线",
+    "text": "7.2 三条底线\n\n\n\n\n\n\n🎯 不可突破的红线\n\n\n\n\n信息可得性：不含前瞻信息（look-ahead bias）\n过程可审计：从原始文本到变量的每一步可追溯\n结果可复现：代码、模型版本、预处理规则完整记录\n\n\n\n这三条底线确保研究的科学性与可信度。",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#文本分析的核心挑战",
+    "href": "week3.html#文本分析的核心挑战",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "8.1 文本分析的核心挑战",
+    "text": "8.1 文本分析的核心挑战\n原始文本是非结构化数据：\n\"The company's revenue grew by 15% year-over-year, \ndriven by strong demand in emerging markets.\"\n目标：转化为数值特征，用于预测/分类/聚类等任务。\n挑战：\n\n维度高（词汇量巨大）\n稀疏（单个文档只用少量词）\n顺序性（语序承载语义）\n歧义性（一词多义、多词一义）",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#方法谱系从简单到复杂",
+    "href": "week3.html#方法谱系从简单到复杂",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "8.2 方法谱系：从简单到复杂",
+    "text": "8.2 方法谱系：从简单到复杂\n\n8.2.1 1. 词袋模型（Bag-of-Words, BoW）\n思想：将文本表示为词频向量，忽略语序。\n步骤：\n\n分词（Tokenization）：\n\"revenue grew by 15%\" → [\"revenue\", \"grew\", \"by\", \"15%\"]\n构建词汇表（Vocabulary）：\nV = {revenue, grew, company, market, ...}  # 假设 |V| = 10,000\n向量化：\n文档 → [0, 2, 0, 1, ..., 0]  # 长度 = |V|\n       ↑     ↑  ↑\n    revenue出现0次\n       grew出现2次\n         ...\n\n变体：TF-IDF（Term Frequency–Inverse Document Frequency）\n\n\\text{TF-IDF}(w, d) = \\underbrace{\\frac{\\text{count}(w, d)}{|d|}}_{\\text{词频}} \\times \\underbrace{\\log\\frac{N}{\\text{df}(w)}}_{\\text{逆文档频率}}\n\n\n降低常见词（如”的”、“是”）的权重\n提升区分性强的词的权重\n\n优点：\n\n简单、可解释\n计算高效\n适合作为基准\n\n缺点：\n\n忽略语序（“not good” vs “good not”）\n维度高、稀疏\n无法捕捉语义相似性（“revenue” vs “sales”）\n\n\n\n8.2.2 2. 词典法（Dictionary-based Methods）\n思想：用预定义词表匹配文本，计算情感/主题得分。\n经典词典：\n\nLoughran-McDonald (2011)：金融情感词典\n\nPositive: {growth, profit, gain, …}\nNegative: {loss, risk, decline, …}\n\nHarvard IV-4：心理学词典\n自定义词典：针对特定任务\n\n计算：\n\n\\text{Sentiment Score} = \\frac{\\#\\text{Positive Words} - \\#\\text{Negative Words}}{\\#\\text{Total Words}}\n\n金融应用案例：\n# 年报文本情感分析\npositive_words = {'growth', 'profit', 'opportunity', ...}\nnegative_words = {'loss', 'risk', 'decline', 'uncertainty', ...}\n\ndef sentiment(text):\n    tokens = tokenize(text.lower())\n    pos = sum(1 for w in tokens if w in positive_words)\n    neg = sum(1 for w in tokens if w in negative_words)\n    return (pos - neg) / len(tokens)\n优点：\n\n高度可解释（可追溯到具体词）\n稳定（不需训练）\n适合监管审计\n\n缺点：\n\n忽略上下文（“not good” 被误判为正面）\n词典覆盖不全\n行业/时期特异性（“viral” 在生物 vs 营销中含义不同）\n\n\n\n\n\n\n\n💡 何时用词典法？\n\n\n\n\n可解释性要求高（如监管报告）\n领域词典成熟（如金融、医疗）\n作为基准（与 ML 方法对比）\n\n\n\n\n\n8.2.3 3. 主题模型（Topic Models）\n思想：无监督学习，发现文档的潜在主题。\n经典算法：LDA（Latent Dirichlet Allocation）\n假设：\n\n每个文档是多个主题的混合\n每个主题是词的概率分布\n\n示例（K=3 个主题）：\n文档1: 70% 主题A（科技） + 20% 主题B（金融） + 10% 主题C（政策）\n文档2: 10% 主题A + 80% 主题B + 10% 主题C\n\n主题A: {AI: 0.05, algorithm: 0.04, data: 0.03, ...}\n主题B: {stock: 0.06, market: 0.05, trading: 0.04, ...}\n主题C: {government: 0.05, regulation: 0.04, policy: 0.03, ...}\n提取特征：\n\n文档的主题分布向量：\\boldsymbol{\\theta}_d = [\\theta_{d,1}, \\ldots, \\theta_{d,K}]\n\n金融应用：\n\n年报主题分析（技术创新 vs 财务风险）\n新闻聚类（宏观 vs 行业 vs 个股）\n\n优点：\n\n降维（数万维 → K 维）\n可解释（主题词）\n无监督\n\n缺点：\n\n主题数量 K 需人工选择\n主题解释主观\n计算成本高\n\n\n\n8.2.4 4. 词嵌入（Word Embeddings）\n思想：将词映射到低维连续向量空间，语义相似的词距离近。\n经典模型：Word2Vec (Mikolov et al., 2013)\n训练目标（Skip-gram）：\n给定中心词，预测上下文词。\n结果：\nrevenue: [0.2, -0.5, 0.8, ...]  # 300维向量\nsales:   [0.21, -0.48, 0.79, ...]  # 距离很近\nprofit:  [0.18, -0.52, 0.75, ...]\n著名性质：\n\n\\text{vec}(\\text{king}) - \\text{vec}(\\text{man}) + \\text{vec}(\\text{woman}) \\approx \\text{vec}(\\text{queen})\n\n文档表示：\n\n简单平均：\\mathbf{v}_{\\text{doc}} = \\frac{1}{|d|}\\sum_{w \\in d} \\mathbf{v}_w\n加权平均（TF-IDF 权重）\n\n优点：\n\n捕捉语义相似性\n预训练模型可直接用（如 Google News Word2Vec）\n\n缺点：\n\n静态（“bank” 在不同上下文中向量相同）\n文档表示过于粗糙（简单平均丢失语序）\n\n\n\n8.2.5 5. Transformer 与 BERT\n革命性突破：上下文化嵌入（Contextualized Embeddings）\nBERT（Bidirectional Encoder Representations from Transformers）\n\nDevlin et al. (2019)\n\n核心思想：\n\n同一个词在不同上下文中有不同的向量\n双向注意力机制（Transformer）\n\n示例：\n句1: \"I went to the bank to deposit money.\"\n     → \"bank\" 向量偏向\"金融机构\"\n\n句2: \"I sat by the river bank.\"\n     → \"bank\" 向量偏向\"河岸\"\n预训练任务：\n\nMasked Language Modeling (MLM)：\n输入: \"The company's [MASK] grew by 15%.\"\n预测: revenue / profit / sales\nNext Sentence Prediction (NSP)：\n句A: \"Revenue increased.\"\n句B: \"Profit margins improved.\"\n预测: B 是否是 A 的下一句？\n\n金融领域预训练模型：\n\nFinBERT (Araci, 2019)：在金融新闻/年报上微调\nDistilRoBERTa-financial-sentiment：轻量级金融情感分类\n\n使用流程：\nfrom transformers import AutoTokenizer, AutoModel\n\n# 加载预训练模型\ntokenizer = AutoTokenizer.from_pretrained(\"ProsusAI/finbert\")\nmodel = AutoModel.from_pretrained(\"ProsusAI/finbert\")\n\n# 文本编码\ntext = \"The company reported strong earnings growth.\"\ninputs = tokenizer(text, return_tensors=\"pt\")\noutputs = model(**inputs)\n\n# 提取 [CLS] token 的嵌入作为文档表示\ndoc_embedding = outputs.last_hidden_state[:, 0, :]  # (1, 768)\n优点：\n\n最强语义表达\n迁移学习：预训练 + 微调\n最新 SOTA 性能\n\n缺点：\n\n计算成本高（需 GPU）\n不易复现（模型更新频繁）\n可解释性差（黑箱）\n版本控制难（模型文件大）\n\n\n\n\n\n\n\n⚠️ 使用 BERT/LLM 的规范要求\n\n\n\n\n锁定模型版本：记录精确的模型名称与版本号\n# 好：明确版本\nmodel = AutoModel.from_pretrained(\"bert-base-uncased\", revision=\"abc123\")\n\n# 差：版本不确定\nmodel = AutoModel.from_pretrained(\"bert-base-uncased\")\n固定随机种子：微调时保证可复现\nset_seed(42)\n记录计算环境：\ntransformers==4.36.0\ntorch==2.1.0\nCUDA==11.8\n提供推理代码：完整的预处理 + 模型推理流程",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#方法选择决策树",
+    "href": "week3.html#方法选择决策树",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "8.3 方法选择决策树",
+    "text": "8.3 方法选择决策树\n是否需要高度可解释？\n├─ 是 → 词典法（如 LM 情感词典）\n└─ 否 → 有监督学习任务？\n        ├─ 是 → 有标注数据？\n        │       ├─ 是 → 数据量大（&gt;10K）？\n        │       │       ├─ 是 → BERT 微调\n        │       │       └─ 否 → TF-IDF + 传统 ML\n        │       └─ 否 → 词典法或主题模型\n        └─ 否（无监督）→ 主题模型（LDA）或预训练嵌入",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#核心原则",
+    "href": "week3.html#核心原则",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "9.1 核心原则",
+    "text": "9.1 核心原则\n语料治理（Corpus Curation）确保：\n\n版本锁定：使用哪个版本的文档？\n时间戳准确：何时发布？何时市场可得？\n实体对齐：文档对应哪个公司/人物/事件？\n去噪：去除无关/重复/错误内容",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#版本锁定",
+    "href": "week3.html#版本锁定",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "9.2 版本锁定",
+    "text": "9.2 版本锁定\n\n9.2.1 问题：事后修订\n案例：上市公司年报\n\n首次披露：2024-04-30，原始版本\n修订版：2024-06-15，更正财务数据\n\n错误做法：\n使用数据库中的”最新版”（可能是修订后的）\n正确做法：\n使用首次披露版本（as-filed version）\n实施：\n# 记录文档版本信息\ndf['document_id'] = \"10-K_AAPL_2023_v1\"  # 版本号\ndf['file_date'] = \"2024-04-30\"          # 首次提交日期\ndf['revision_date'] = None               # 若无修订\n\n\n9.2.2 SEC EDGAR 数据示例\nimport requests\n\n# 获取首次提交版本\nurl = \"https://www.sec.gov/cgi-bin/viewer?action=view&cik=320193&accession_number=0000320193-24-000001&xbrl_type=v\"\nresponse = requests.get(url, headers={'User-Agent': 'your-email@example.com'})",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#时间戳与可得性规则",
+    "href": "week3.html#时间戳与可得性规则",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "9.3 时间戳与可得性规则",
+    "text": "9.3 时间戳与可得性规则\n\n9.3.1 何时”市场可得”？\n\n\n\n文本类型\n发布时间\n市场反应窗口\n\n\n\n\n年报/季报\n收盘后或次日开盘前\n次日开盘起\n\n\n新闻\n实时\n发布时刻起\n\n\n分析师报告\n工作日盘前/盘后\n发布时刻起\n\n\n社交媒体\n实时\n发布时刻起\n\n\n财报电话会\n盘后固定时间\n会议结束后\n\n\n\n关键规则：\n\n\\text{用于预测 } t \\text{ 日收益的文本} \\Rightarrow \\text{必须在 } t \\text{ 日开盘前发布}\n\n\n\n9.3.2 对齐代码示例\n# 年报对齐\ndef align_report(df):\n    # 假设年报在披露日的次日才可交易\n    df['available_date'] = df['file_date'] + pd.Timedelta(days=1)\n    \n    # 对齐到交易日\n    df['available_date'] = df['available_date'].apply(\n        lambda d: next_trading_day(d)\n    )\n    \n    # 构造标签：用披露后首个交易日收益\n    df['target_return'] = df.groupby('ticker')['return'].shift(-1)\n    \n    return df",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#实体识别与对齐",
+    "href": "week3.html#实体识别与对齐",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "9.4 实体识别与对齐",
+    "text": "9.4 实体识别与对齐\n\n9.4.1 挑战：一个实体，多种表述\n案例：苹果公司\n\n正式名称：“Apple Inc.”\n股票代码：“AAPL”\n常见别名：“Apple”, “苹果”, “库比蒂诺公司”\n\n\n\n9.4.2 解决方案：实体链接（Entity Linking）\n步骤：\n\n命名实体识别（NER）：识别文本中的公司名\n# 使用 spaCy\nimport spacy\nnlp = spacy.load(\"en_core_web_sm\")\ndoc = nlp(\"Apple reported strong earnings.\")\nentities = [(ent.text, ent.label_) for ent in doc.ents]\n# [('Apple', 'ORG')]\n链接到标准 ID：\nentity_map = {\n    'Apple': 'AAPL',\n    'Apple Inc.': 'AAPL',\n    '苹果': 'AAPL',\n    ...\n}\nticker = entity_map.get(entity_name, None)\n歧义消解：\n\n“Apple” 可能是公司或水果\n用上下文判断（如出现”stock”, “earnings”）\n\n\n\n\n9.4.3 金融专用工具\n\nFinBERT-NER：金融实体识别\nOpenFIGI API：金融工具标识符查询\nWikidata/DBpedia：知识图谱链接",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#去重与噪声处理",
+    "href": "week3.html#去重与噪声处理",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "9.5 去重与噪声处理",
+    "text": "9.5 去重与噪声处理\n\n9.5.1 常见噪声类型\n\n模板文本\n\n年报中的法律声明、标准段落：\n\"Forward-looking statements involve risks and uncertainties...\"\n处理：\n\n识别高频重复段落\n在情感分析前删除\n\nfrom sklearn.feature_extraction.text import TfidfVectorizer\n\n# 识别模板（在多个文档中高频出现的句子）\nsentences = extract_sentences(all_documents)\nvectorizer = TfidfVectorizer()\ntfidf = vectorizer.fit_transform(sentences)\n# 计算句子在文档间的相似度，删除重复率高的\n\n乱码与编码错误\n\n\"The companyâ€™s revenue...\"  # Unicode 错误\n处理：\nimport ftfy\ntext_clean = ftfy.fix_text(text_raw)\n\nOCR/ASR 错误\n\n扫描文档或语音转文字的错误：\nOCR: \"The company's net income...\" → \"The c0mpany's net inc0me...\"\nASR: \"fiscal year\" → \"physical year\"\n处理：\n\n使用高质量的原始文件（PDF 带文字层）\n检查关键词错误率\n后处理：拼写检查、上下文纠错\n\n\n\n9.5.2 去重\n文档级去重：\n\n计算文档相似度（如余弦相似度）\n删除近似重复（如转载新闻）\n\nfrom sklearn.metrics.pairwise import cosine_similarity\n\n# 计算 TF-IDF 向量的相似度矩阵\nsimilarity = cosine_similarity(tfidf_matrix)\n\n# 删除相似度 &gt; 0.95 的文档对\nduplicates = np.argwhere((similarity &gt; 0.95) & (similarity &lt; 1.0))",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#流程图",
+    "href": "week3.html#流程图",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "10.1 流程图",
+    "text": "10.1 流程图\n原始文档（PDF/HTML/TXT）\n    ↓\n① 版本确认 & 时间戳记录\n    ↓\n② 文本提取 & 编码修正\n    ↓\n③ 实体识别 & 对齐\n    ↓\n④ 预处理（分词、去停用词、去模板）\n    ↓\n⑤ 特征提取（词典/主题/嵌入）\n    ↓\n⑥ 变量构造（聚合、标准化）\n    ↓\n⑦ 质量检验 & 异常值处理\n    ↓\n可用于建模的变量",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#各步骤的可审计要求",
+    "href": "week3.html#各步骤的可审计要求",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "10.2 各步骤的可审计要求",
+    "text": "10.2 各步骤的可审计要求\n\n10.2.1 ① 版本确认 & 时间戳\n记录：\nmetadata = {\n    'document_id': 'unique_id',\n    'source': 'SEC EDGAR',\n    'url': 'https://...',\n    'file_date': '2024-04-30',\n    'download_date': '2024-05-01',\n    'version': 'v1'\n}\n\n\n10.2.2 ② 文本提取\n工具与参数：\n# PDF 提取\nimport pdfplumber\nwith pdfplumber.open(pdf_path) as pdf:\n    text = '\\n'.join([page.extract_text() for page in pdf.pages])\n\n# 记录工具版本\nmetadata['extraction_tool'] = f'pdfplumber=={pdfplumber.__version__}'\n\n\n10.2.3 ③ 实体识别 & 对齐\n记录：\nmetadata['ner_model'] = 'en_core_web_sm-3.7.0'\nmetadata['entity_map_version'] = 'v2024.1'\n\n\n10.2.4 ④ 预处理\n记录每一步：\npreprocessing_steps = [\n    'lowercasing',\n    'remove_punctuation',\n    'remove_stopwords: nltk.corpus.stopwords (english)',\n    'stemming: PorterStemmer',\n]\n\n\n10.2.5 ⑤ 特征提取\n词典法：\nsentiment_dict = {\n    'version': 'Loughran-McDonald 2020',\n    'positive_words': len(positive_words),\n    'negative_words': len(negative_words),\n}\nBERT：\nmodel_info = {\n    'model_name': 'ProsusAI/finbert',\n    'model_revision': 'abc123',\n    'framework': 'transformers==4.36.0',\n    'device': 'cuda:0',\n}\n\n\n10.2.6 ⑥ 变量构造\n公式记录：\n# 情感得分\nvariable_definition = \"\"\"\nsentiment = (n_positive - n_negative) / n_total\nwhere:\n  n_positive: count of words in LM positive dictionary\n  n_negative: count of words in LM negative dictionary\n  n_total: total word count (excluding stopwords)\n\"\"\"\n\n\n10.2.7 ⑦ 质量检验\n检查清单：\n\n缺失值比例（若 &gt; 20%，说明为何）\n异常值（极端情感得分）\n时间序列连续性（是否有长期缺失）\n横截面覆盖率（行业/市值分布）",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#交付物变量字典",
+    "href": "week3.html#交付物变量字典",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "10.3 交付物：变量字典",
+    "text": "10.3 交付物：变量字典\n示例：\n\n\n\n\n\n\n\n\n\n\n\n变量名\n定义\n来源\n更新频率\n处理方法\n缺失值\n\n\n\n\nsentiment_lm\nLM 情感得分\n年报 MD&A 部分\n年度\nLM 词典匹配\n前向填充\n\n\ntopic_tech\n技术创新主题强度\n年报全文\n年度\nLDA (K=10)\n0填充\n\n\nuncertainty\n不确定性词频\n电话会文本\n季度\n自定义词典\n删除",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#评估的三个层次",
+    "href": "week3.html#评估的三个层次",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "11.1 评估的三个层次",
+    "text": "11.1 评估的三个层次\n\n11.1.1 层次 1：描述性统计\n基本检查：\n\n均值、中位数、标准差\n时间趋势（是否异常跳跃？）\n横截面分布（是否过于集中？）\n\n示例：\n# 情感得分的时间序列\ndf.groupby('year')['sentiment'].mean().plot()\n\n# 横截面分布\ndf['sentiment'].hist(bins=50)\n\n\n11.1.2 层次 2：与已知因子的关系\n问题：文本变量是否只是已知因子的”马甲”？\n检验：\n\n相关性分析\n\nimport pandas as pd\n\n# 计算与 Fama-French 因子的相关性\ncorr = df[['sentiment', 'size', 'value', 'momentum']].corr()\nprint(corr['sentiment'])\n\nHorse Race 回归\n\n\nr_{i,t+1} = \\alpha + \\beta_1 \\text{Sentiment}_{i,t} + \\beta_2 \\text{Size}_{i,t} + \\beta_3 \\text{Value}_{i,t} + \\varepsilon_{i,t+1}\n\n关键问题：\n\n\\beta_1 是否显著？\n加入文本变量后，模型 R^2 提升多少？\n\n\n\n11.1.3 层次 3：增量预测能力\n设计：\n\n基准模型（不含文本）\n\n# 用传统因子预测收益\nmodel_baseline = LinearRegression()\nmodel_baseline.fit(X_baseline, y)  # X_baseline = [size, value, momentum]\nr2_baseline = model_baseline.score(X_test, y_test)\n\n增强模型（加入文本）\n\nX_augmented = np.hstack([X_baseline, X_text])  # 加入文本特征\nmodel_augmented = LinearRegression()\nmodel_augmented.fit(X_augmented, y)\nr2_augmented = model_augmented.score(X_test_augmented, y_test)\n\n比较\n\n\n\\Delta R^2 = R^2_{\\text{augmented}} - R^2_{\\text{baseline}}\n\n统计检验：\n\nDiebold-Mariano 检验（预测误差是否显著不同）\n嵌套模型 F 检验",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#切片评估",
+    "href": "week3.html#切片评估",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "11.2 切片评估",
+    "text": "11.2 切片评估\n不同时期：\n\n牛市 vs 熊市\n危机期 vs 平稳期\n\n不同资产：\n\n大市值 vs 小市值\n成长股 vs 价值股\n不同行业\n\n目的：检验文本变量的普适性与稳健性。",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#互补性-vs-冗余性",
+    "href": "week3.html#互补性-vs-冗余性",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "11.3 互补性 vs 冗余性",
+    "text": "11.3 互补性 vs 冗余性\n互补（Complementary）：\n\n文本变量捕捉结构化变量未涵盖的信息\n例：年报语气（软信息）vs 财务指标（硬信息）\n\n冗余（Redundant）：\n\n文本变量只是重复已知信息\n例：新闻情感 ≈ 过去收益（动量效应）\n\n证据链：\n\n相关性适度（0.3-0.7 为佳，过高则冗余）\nHorse race 中文本变量仍显著\n分组分析：在结构化因子弱的子样本中，文本变量作用更强",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#retrieval-augmented-generation-rag",
+    "href": "week3.html#retrieval-augmented-generation-rag",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "12.1 Retrieval-Augmented Generation (RAG)",
+    "text": "12.1 Retrieval-Augmented Generation (RAG)\n定义：结合检索与生成，用外部知识库增强 LLM。\n流程：\n用户查询\n    ↓\n检索相关文档（如向量数据库）\n    ↓\n拼接为 Prompt\n    ↓\nLLM 生成回答\n\n12.1.1 在金融中的应用\n1. 投研辅助\n查询: \"分析苹果公司 2023 年的供应链风险\"\n  ↓\n检索: AAPL 2023 年报、相关新闻、分析师报告\n  ↓\nLLM: 生成综合分析报告\n2. 合规问答\n查询: \"公司是否违反了反洗钱法规？\"\n  ↓\n检索: 公司内部文档、监管政策\n  ↓\nLLM: 给出合规意见（需人工审核）\n\n\n12.1.2 边界与风险\n\n\n\n\n\n\n⚠️ 使用 RAG/LLM 的注意事项\n\n\n\n不适合用于：\n\n高风险决策（如自动批准贷款）\n\nLLM 输出不稳定，可能产生幻觉\n\n监管敏感场景（如交易指令生成）\n\n无法提供可审计的决策依据\n\n实时交易\n\n延迟高，难以满足毫秒级要求\n\n\n适合用于：\n\n辅助研究（生成假设、文献综述）\n内容生成（研报初稿、客户报告）\n知识管理（内部文档检索）\n\n核心原则：人机协作，LLM 作为工具，人类保留最终决策权。",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#信息抽取information-extraction",
+    "href": "week3.html#信息抽取information-extraction",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "12.2 信息抽取（Information Extraction）",
+    "text": "12.2 信息抽取（Information Extraction）\n任务：从非结构化文本中提取结构化信息。\n示例：\n原始文本:\n\"The company announced a $50 million share buyback program, \neffective January 1, 2024.\"\n\n提取结果:\n{\n  'event_type': 'share_buyback',\n  'amount': 50000000,\n  'currency': 'USD',\n  'effective_date': '2024-01-01',\n  'entity': 'The Company'\n}\n\n12.2.1 技术路径\n\n规则 based（正则表达式）\nimport re\npattern = r'\\$(\\d+(?:,\\d{3})*(?:\\.\\d+)?) (million|billion)'\nmatch = re.search(pattern, text)\n机器学习（NER + Relation Extraction）\n# 使用 spaCy 的实体关系抽取\ndoc = nlp(text)\nfor ent in doc.ents:\n    if ent.label_ == 'MONEY':\n        amount = ent.text\nLLM-based（Few-shot prompting）\nprompt = f\"\"\"\nExtract the following information from the text:\n- Event type\n- Amount\n- Effective date\n\nText: {text}\n\nOutput as JSON.\n\"\"\"\nresponse = llm.generate(prompt)\n\n\n\n12.2.2 在风控中的应用\n舆情监控：\n\n自动抽取负面事件（诉讼、罚款、高管离职）\n实时预警\n\n尽职调查：\n\n批量处理合同、法律文书\n抽取关键条款（违约条件、担保方式等）",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#核心要点",
+    "href": "week3.html#核心要点",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "13.1 核心要点",
+    "text": "13.1 核心要点\n\n方法谱系：词袋 → 词典 → 主题模型 → 词嵌入 → BERT，权衡可解释性与性能\n语料治理：版本锁定、时间对齐、实体链接、去噪，确保数据质量\n可审计流程：记录每一步（工具、参数、版本），交付变量字典\n增量价值：文本变量必须相对已知因子展示增量信息\n应用边界：RAG/LLM 适合辅助研究，不适合高风险自动决策",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#本周思考题",
+    "href": "week3.html#本周思考题",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "13.2 本周思考题",
+    "text": "13.2 本周思考题\n\n13.2.1 问题 1\nBERT/LLM 构造文本变量相比词典法的优势与风险分别是什么？\n\n\n\n\n\n\n💡 参考答案\n\n\n\n\n\n优势：\n\n更强语义理解：捕捉上下文（“not good” 正确识别为负面）\n泛化能力：处理词典未覆盖的表述\n端到端学习：自动特征提取，减少人工工程\n\n风险：\n\n可解释性差：无法追溯到具体词/短语\n不易复现：模型版本更新频繁，结果可能变化\n计算成本高：需 GPU，推理慢\n过拟合风险：参数多，样本少时易过拟合\n审计困难：监管难以理解”黑箱”模型的决策依据\n\n\n\n\n\n\n13.2.2 问题 2\n用新闻预测股价时，如何设计流程避免前瞻偏误？\n\n\n\n\n\n\n💡 参考答案\n\n\n\n\n\n关键步骤：\n\n记录新闻时间戳（精确到分钟）\ndf['news_timestamp'] = pd.to_datetime(df['published_time'])\n对齐到交易时间\n\n盘前新闻（9:30前）→ 用于预测当日收益\n盘中/盘后新闻 → 用于预测次日收益\n\n构造标签\n# 新闻在 t 日收盘前发布 → 预测 t+1 日收益\ndf['target_date'] = df['news_timestamp'].apply(\n    lambda ts: ts.date() + timedelta(days=1) if ts.hour &gt;= 16 \n               else ts.date()\n)\ndf['target_return'] = df.merge(\n    returns, left_on=['ticker', 'target_date'], ...\n)\n滚动窗口评估（避免用未来新闻训练模型）\n检验：人工抽查对齐正确性\n\n\n\n\n\n\n13.2.3 问题 3\n为什么必须检验新文本因子与已知因子（如 FF 因子）的相关性？\n\n\n\n\n\n\n💡 参考答案\n\n\n\n\n\n原因：\n\n区分增量 vs 冗余\n\n若文本因子与规模、价值高度相关 → 可能只是”旧瓶装新酒”\n真正有价值的是独立于已知因子的信息\n\n避免过度宣称\n\n文献中大量”新因子”其实是已知因子的组合\n需证明文本信息的独特性\n\n理解经济含义\n\n相关性模式揭示文本变量捕捉了什么（情绪？风险？）\n例：若情感与动量高度相关 → 可能只是市场反应的滞后\n\n\n检验方法：\n\n计算相关系数（0.3-0.7 为健康范围）\nHorse race 回归（文本因子加入后仍显著）\n分组分析（在已知因子弱的子样本中，文本因子作用更强）",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#下周预告",
+    "href": "week3.html#下周预告",
+    "title": "6  第3讲：文本分析理论 → 金融文本应用",
+    "section": "13.3 下周预告",
+    "text": "13.3 下周预告\n第4周进入多模态领域：\n\n图像（卫星、票据、图表）、音频（电话会）、视频（路演）\n多模态融合策略与时序建模\n测量误差、算法偏差、伦理边界\n\n预习阅读：\n\nDell (2025) Deep learning for economists\nMayew & Venkatachalam (2012) The power of voice\n\n预习任务：带着”多模态信号的增量信息如何证明？“与”伦理/隐私红线在哪里？“两问阅读。",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>第3讲：文本分析理论 → 金融文本应用</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html",
+    "href": "week4.html",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "",
+    "text": "8 任务与数据：把多模态研究表述为分类问题",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#为什么是分类",
+    "href": "week4.html#为什么是分类",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "8.1 为什么是”分类”？",
+    "text": "8.1 为什么是”分类”？\n虽然多模态数据形式多样（图像、音频、视频），但在金融应用中，核心任务通常可表述为分类问题：\n\n预测涨/跌（二分类）\n识别管理层情绪状态（多分类：乐观/中性/悲观）\n判断欺诈/非欺诈（二分类）\n预测信用等级（多分类）\n\n\n\n\n\n\n\n🎯 标签定义的三要素\n\n\n\n\n何时（When）：预测哪个时期的结果？\n对谁（Who）：个股/行业/市场？\n预测什么（What）：具体的类别定义？\n\n示例：\n\n何时：业绩电话会后第二个交易日\n对谁：该公司股票\n预测什么：收益率是否超过市场中位数（二分类）\n\n标签定义决定了：\n\n数据对齐方式（何时提取特征）\n评估协议（时序 CV 的窗口设置）\n样本选择（是否包含停牌股票）",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#多模态数据版图",
+    "href": "week4.html#多模态数据版图",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "8.2 多模态数据版图",
+    "text": "8.2 多模态数据版图\n\n8.2.1 图像（Image）\n\n\n\n数据源\n金融应用\n挑战\n\n\n\n\n卫星图像\n预测零售客流、工厂活动、商品库存\n空间对齐、云层遮挡\n\n\n夜光数据\n区域经济活动强度\n分辨率低、季节性\n\n\n票据/合同扫描件\nOCR 提取信息、欺诈检测\n版式多样、噪声大\n\n\n财报图表截图\n自动提取数据趋势\n信息泄露风险（需确认发布时间）\n\n\n社交媒体图片\n品牌形象监测、产品识别\n样本选择偏误\n\n\n\n\n\n8.2.2 音频（Audio）\n\n\n\n数据源\n金融应用\n挑战\n\n\n\n\n财报电话会\n管理层情绪、不确定性识别\nASR 错误、说话人分离\n\n\n客服录音\n客户满意度、投诉预警\n隐私合规、信道噪声\n\n\n交易员通话\n合规监控、异常行为检测\n实时性要求、术语识别\n\n\n\n\n\n8.2.3 视频（Video）\n\n\n\n\n\n\n\n\n数据源\n金融应用\n挑战\n\n\n\n\n管理层路演/发布会\n非言语线索（面部表情、手势）\n角度/光照变化、遮挡\n\n\n监控视频\n网点客流、ATM 异常\n计算成本高、隐私问题",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#图像表示方法演进",
+    "href": "week4.html#图像表示方法演进",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "9.1 图像表示方法演进",
+    "text": "9.1 图像表示方法演进\n\n9.1.1 传统方法：手工特征\n低层特征：\n\n颜色直方图\n纹理（Gabor 滤波器、LBP）\n边缘检测（Canny、Sobel）\n\n中层特征：\n\nSIFT（尺度不变特征变换）\nHOG（方向梯度直方图）\n\n问题：\n\n特征设计依赖专家知识\n泛化能力有限\n\n\n\n9.1.2 深度学习：卷积神经网络（CNN）\n经典架构演进：\nAlexNet (2012) → VGGNet (2014) → ResNet (2015) → EfficientNet (2019)\n核心思想：\n通过多层卷积+池化，自动学习从低层（边缘）到高层（物体）的特征层次。\n示例：ResNet-50\nfrom torchvision.models import resnet50, ResNet50_Weights\n\n# 加载预训练模型\nmodel = resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)\nmodel.eval()\n\n# 提取特征（去掉最后的分类层）\nfeature_extractor = torch.nn.Sequential(*list(model.children())[:-1])\n\n# 输入图像 → 2048维特征向量\nimage_tensor = preprocess(image)  # (3, 224, 224)\nfeatures = feature_extractor(image_tensor.unsqueeze(0))  # (1, 2048, 1, 1)\nfeatures = features.squeeze()  # (2048,)\n\n\n9.1.3 最新：视觉Transformer（ViT）\n思想：\n将图像切分为 patches，用 Transformer 处理（类似 NLP 中的词）。\n示例：\nfrom transformers import ViTModel, ViTImageProcessor\n\nprocessor = ViTImageProcessor.from_pretrained('google/vit-base-patch16-224')\nmodel = ViTModel.from_pretrained('google/vit-base-patch16-224')\n\ninputs = processor(images=image, return_tensors=\"pt\")\noutputs = model(**inputs)\nimage_embedding = outputs.last_hidden_state[:, 0, :]  # [CLS] token\n\n\n9.1.4 自监督学习：CLIP（对比学习）\n核心思想（Radford et al., 2021）：\n联合训练图像编码器与文本编码器，使匹配的图像-文本对在嵌入空间中接近。\n优势：\n\n零样本迁移：无需标注数据即可分类\n跨模态检索：用文本查询图像，或反之\n\n示例：\nfrom transformers import CLIPProcessor, CLIPModel\n\nmodel = CLIPModel.from_pretrained(\"openai/clip-vit-base-patch32\")\nprocessor = CLIPProcessor.from_pretrained(\"openai/clip-vit-base-patch32\")\n\n# 图像 + 文本\nimage = load_image(\"store.jpg\")\ntexts = [\"a busy retail store\", \"an empty store\"]\n\ninputs = processor(text=texts, images=image, return_tensors=\"pt\", padding=True)\noutputs = model(**inputs)\n\n# 计算图像-文本相似度\nlogits_per_image = outputs.logits_per_image  # (1, 2)\nprobs = logits_per_image.softmax(dim=1)  # [0.8, 0.2] → \"busy\"",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#金融应用案例",
+    "href": "week4.html#金融应用案例",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "9.2 金融应用案例",
+    "text": "9.2 金融应用案例\n\n9.2.1 1. 卫星图像预测经济活动\n任务：用停车场车辆数量预测零售商客流。\n流程：\n卫星图像（商场停车场）\n    ↓\n目标检测（YOLO/Faster R-CNN）→ 车辆数量\n    ↓\n时间序列聚合 → 周/月平均车辆数\n    ↓\n对齐到公司 → 预测销售额/股价\n经典文献：\n\nNaik et al. (2019): Measuring Economic Activity from Space\n\n关键挑战：\n\n空间对齐：停车场 → 具体门店 → 上市公司\n云层遮挡：缺失数据处理\n季节性：节假日/天气影响\n\n\n\n9.2.2 2. 财报图表自动提取\n任务：从年报 PDF 中提取趋势图，还原数据。\n流程：\nPDF → 图像提取 → 图表检测 → OCR 数字 → 数据重建\n工具：\n\n图表检测：Detectron2\nOCR：Tesseract, PaddleOCR\n数据提取：ChartOCR (专用工具)\n\n风险：\n\n信息泄露：必须确认图表在预测时点已发布\n测量误差：OCR 识别错误\n\n\n\n9.2.3 3. 社交媒体图片分析\n任务：品牌曝光度监测。\n流程：\nInstagram/Twitter 图片\n    ↓\n品牌 Logo 检测（YOLO 微调）\n    ↓\n聚合：每日品牌曝光次数\n    ↓\n预测：品牌价值、股价\n挑战：\n\n样本选择偏误：社交媒体用户不代表整体人群\n时间对齐：图片发布时间 vs 市场反应",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#关键对齐与偏误",
+    "href": "week4.html#关键对齐与偏误",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "9.3 关键对齐与偏误",
+    "text": "9.3 关键对齐与偏误\n\n9.3.1 1. 拍摄日 ≠ 披露日\n问题：\n\n卫星图像拍摄于 t 日，但下载/处理后才在 t+k 日可用\n若用 t 日图像预测 t 日收益 → 前瞻偏误\n\n解决：\n# 记录图像拍摄时间与获取时间\ndf['image_date'] = '2024-01-15'     # 卫星过境时间\ndf['available_date'] = '2024-01-18' # 图像下载/处理完成时间\n\n# 用 available_date 对齐到交易日\ndf['trade_date'] = df['available_date'].apply(next_trading_day)\n\n\n9.3.2 2. 空间对齐\n问题：\n\n卫星图像覆盖区域 → 多个门店 → 多个公司\n\n解决：\n\n使用地理信息系统（GIS）精确匹配\n记录匹配规则与误差范围\n\n\n\n9.3.3 3. 域漂移（Domain Shift）\n问题：\n\n模型在 ImageNet 上预训练（自然图像）\n应用于金融图像（卫星、票据）时性能下降\n\n解决：\n\n微调（Fine-tuning）：在目标域上继续训练\n领域自适应：减少源域与目标域的分布差异\n\n\n\n9.3.4 4. 质量控制\n常见问题：\n\n云层遮挡（卫星图像）\n夜间图像过暗\n压缩失真\n\n解决：\n\n图像质量评分（模糊度、亮度检测）\n剔除低质量样本",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#两条特征提取管线",
+    "href": "week4.html#两条特征提取管线",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "10.1 两条特征提取管线",
+    "text": "10.1 两条特征提取管线\n\n10.1.1 管线 1：ASR → 文本（接第3周流程）\nAutomatic Speech Recognition（自动语音识别）\n流程：\n音频文件（.wav/.mp3）\n    ↓\nASR 模型（Whisper/Google Cloud Speech）\n    ↓\n文本转录\n    ↓\n应用第3周的文本分析方法\n工具：\nimport whisper\n\n# OpenAI Whisper（开源，高精度）\nmodel = whisper.load_model(\"base\")\nresult = model.transcribe(\"earnings_call.mp3\")\ntext = result[\"text\"]\n优点：\n\n可用成熟的 NLP 方法\n可解释性强\n\n缺点：\n\nASR 错误：识别不准（特别是专业术语、口音）\n丢失韵律信息：语调、停顿、语速\n\n\n\n10.1.2 管线 2：直接提取声学/韵律特征\n不转文本，直接从音频提取特征：\n\n\n\n\n\n\n\n\n特征类别\n具体特征\n金融含义\n\n\n\n\n韵律（Prosody）\n音高（pitch）、语速（speaking rate）、停顿（pause）\n情绪、紧张度\n\n\n音质（Voice quality）\n颤音（jitter）、浊音（shimmer）\n压力、不确定性\n\n\n能量\n音量、能量分布\n强调、信心\n\n\n低层特征\nMFCC（梅尔频率倒谱系数）\n通用音频表示\n\n\n深度嵌入\nWav2Vec 2.0, HuBERT\n端到端学习\n\n\n\n\n\n10.1.3 提取示例：韵律特征\nimport librosa\nimport numpy as np\n\n# 加载音频\ny, sr = librosa.load(\"audio.wav\", sr=16000)\n\n# 1. 音高（基频）\npitches, magnitudes = librosa.piptrack(y=y, sr=sr)\npitch_mean = np.mean(pitches[pitches &gt; 0])\n\n# 2. 语速（通过零交叉率粗略估计）\nzcr = librosa.feature.zero_crossing_rate(y)\nspeaking_rate = np.mean(zcr)\n\n# 3. 停顿（检测静音段）\nintervals = librosa.effects.split(y, top_db=20)\npause_count = len(intervals) - 1\n\nfeatures = {\n    'pitch_mean': pitch_mean,\n    'speaking_rate': speaking_rate,\n    'pause_count': pause_count,\n}\n\n\n10.1.4 提取示例：深度嵌入（Wav2Vec 2.0）\nfrom transformers import Wav2Vec2Processor, Wav2Vec2Model\nimport torch\n\nprocessor = Wav2Vec2Processor.from_pretrained(\"facebook/wav2vec2-base\")\nmodel = Wav2Vec2Model.from_pretrained(\"facebook/wav2vec2-base\")\n\n# 音频 → 特征向量\ninput_values = processor(y, sampling_rate=sr, return_tensors=\"pt\").input_values\nwith torch.no_grad():\n    hidden_states = model(input_values).last_hidden_state\n\n# 时间平均池化 → 固定长度向量\naudio_embedding = hidden_states.mean(dim=1)  # (1, 768)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#金融应用案例-1",
+    "href": "week4.html#金融应用案例-1",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "10.2 金融应用案例",
+    "text": "10.2 金融应用案例\n\n10.2.1 1. 财报电话会情绪识别\n任务：识别管理层的不确定性/紧张度。\n特征：\n\n文本：词典法（不确定性词汇）\n韵律：音高方差、语速、停顿频率\n结合：多模态融合\n\n经典文献：\n\nMayew & Venkatachalam (2012): The Power of Voice\nLarcker & Zakolyukina (2012): Detecting Deceptive Discussions\n\n发现：\n\n音高升高、停顿增多 → 不确定性高\n对未来股价有预测力（独立于文本）\n\n\n\n10.2.2 2. 客服录音质量监控\n任务：识别客户不满情绪，预警投诉。\n特征：\n\n客户语速、音量（急躁、愤怒）\n客服响应时间\n\n\n\n10.2.3 3. 交易员通话合规监控\n任务：检测异常行为（如内幕交易暗示）。\n挑战：\n\n实时性要求高\n术语丰富（需领域 ASR）\n隐私合规",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#风险点与注意事项",
+    "href": "week4.html#风险点与注意事项",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "10.3 风险点与注意事项",
+    "text": "10.3 风险点与注意事项\n\n10.3.1 1. ASR 错误与信道噪声\nASR 词错误率（WER）：\n\n\\text{WER} = \\frac{\\text{插入} + \\text{删除} + \\text{替换}}{\\text{总词数}}\n\n影响因素：\n\n口音、语速\n背景噪声（现场会议）\n专业术语（如公司/产品名）\n\n缓解：\n\n使用领域微调的 ASR（如金融专用模型）\n说话人分离：区分 CEO vs CFO vs 分析师\n置信度过滤：删除低置信度识别\n\n\n\n10.3.2 2. 说话人分离与身份对齐\n问题：\n电话会中多人发言，需区分谁说了什么。\n技术：\n\n说话人分段（Diarization）：标记每段音频的说话人\nfrom pyannote.audio import Pipeline\n\npipeline = Pipeline.from_pretrained(\"pyannote/speaker-diarization\")\ndiarization = pipeline(\"audio.wav\")\n\nfor turn, _, speaker in diarization.itertracks(yield_label=True):\n    print(f\"{speaker}: {turn.start}s - {turn.end}s\")\n说话人识别：匹配到具体人物（CEO/CFO）\n\n挑战：\n\n音频质量差时错误率高\n身份标注需人工验证\n\n\n\n10.3.3 3. 可得性选择偏误\n问题：\n并非所有公司都公开电话会录音。\n\n大公司、透明度高的公司更可能公开\n小公司、有负面消息的公司可能不公开\n\n后果：\n\n样本代表性差\n模型推广到全市场时失效\n\n缓解：\n\n报告样本特征（市值、行业分布）\n倾向评分加权（Propensity Score Weighting）",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#视频-图像序列-音频",
+    "href": "week4.html#视频-图像序列-音频",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "11.1 视频 = 图像序列 + 音频",
+    "text": "11.1 视频 = 图像序列 + 音频\n视频特征：\n\n视觉通道：帧级图像特征\n音频通道：语音/背景音特征\n时序建模：捕捉动态变化",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#帧级视觉表征",
+    "href": "week4.html#帧级视觉表征",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "11.2 帧级视觉表征",
+    "text": "11.2 帧级视觉表征\n\n11.2.1 提取单帧特征\nimport cv2\n\n# 读取视频\ncap = cv2.VideoCapture(\"video.mp4\")\n\nframes = []\nwhile cap.isOpened():\n    ret, frame = cap.read()\n    if not ret:\n        break\n    frames.append(frame)\n\ncap.release()\n\n# 对每帧提取 CNN 特征\nfrom torchvision.models import resnet50\nmodel = resnet50(pretrained=True)\nfeature_extractor = torch.nn.Sequential(*list(model.children())[:-1])\n\nframe_features = []\nfor frame in frames[::30]:  # 每秒1帧（假设30fps）\n    tensor = preprocess(frame)\n    feature = feature_extractor(tensor.unsqueeze(0)).squeeze()\n    frame_features.append(feature.numpy())\n\n# 得到 (T, 2048) 的特征矩阵，T = 帧数\n\n\n11.2.2 时间聚合\n简单方法：\n\n平均池化：\\mathbf{v}_{\\text{video}} = \\frac{1}{T}\\sum_{t=1}^T \\mathbf{v}_t\n最大池化：\\mathbf{v}_{\\text{video}} = \\max_{t=1}^T \\mathbf{v}_t\n\n高级方法：\n\n时序卷积网络（TCN）\nLSTM/GRU：捕捉长期依赖\nTransformer：自注意力机制",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#行为线索非言语信号",
+    "href": "week4.html#行为线索非言语信号",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "11.3 行为线索：非言语信号",
+    "text": "11.3 行为线索：非言语信号\n\n11.3.1 面部动作编码（Facial Action Units, AUs）\n定义：\nPaul Ekman 提出的面部肌肉运动编码系统，共 46 个 AU。\n示例：\n\nAU1: 内眉上扬（惊讶）\nAU4: 皱眉（沉思、担忧）\nAU12: 嘴角上扬（微笑）\n\n提取工具：\n# OpenFace（开源）\nimport subprocess\n\nsubprocess.run([\n    \"FeatureExtraction\",\n    \"-f\", \"video.mp4\",\n    \"-out_dir\", \"output/\"\n])\n\n# 输出 CSV 文件，包含每帧的 AU 强度\nimport pandas as pd\naus = pd.read_csv(\"output/video.csv\")\nprint(aus[['AU01_r', 'AU04_r', 'AU12_r']].head())\n金融应用：\n\nCEO 在路演中的微表情（紧张、自信）\n与股价/融资成功率的关系\n\n\n\n11.3.2 头部姿态（Head Pose）\n特征：\n\nYaw（左右转）\nPitch（上下点头）\nRoll（左右倾斜）\n\n含义：\n\n频繁回避目光 → 不诚实？\n频繁点头 → 认同/强调\n\n\n\n11.3.3 注视（Gaze）\n特征：\n\n眼睛注视方向\n眼神接触时长\n\n金融应用：\n\n管理层回答问题时的眼神变化",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#时序建模示例lstm",
+    "href": "week4.html#时序建模示例lstm",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "11.4 时序建模示例：LSTM",
+    "text": "11.4 时序建模示例：LSTM\nimport torch\nimport torch.nn as nn\n\nclass VideoClassifier(nn.Module):\n    def __init__(self, input_dim=2048, hidden_dim=512, num_classes=2):\n        super().__init__()\n        self.lstm = nn.LSTM(input_dim, hidden_dim, batch_first=True)\n        self.fc = nn.Linear(hidden_dim, num_classes)\n    \n    def forward(self, x):\n        # x: (batch, seq_len, input_dim)\n        _, (h_n, _) = self.lstm(x)\n        # h_n: (1, batch, hidden_dim)\n        out = self.fc(h_n.squeeze(0))\n        return out\n\n# 训练\nmodel = VideoClassifier()\noptimizer = torch.optim.Adam(model.parameters())\ncriterion = nn.CrossEntropyLoss()\n\nfor epoch in range(num_epochs):\n    for video_features, labels in dataloader:\n        optimizer.zero_grad()\n        outputs = model(video_features)\n        loss = criterion(outputs, labels)\n        loss.backward()\n        optimizer.step()",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#风险点与合规边界",
+    "href": "week4.html#风险点与合规边界",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "11.5 风险点与合规边界",
+    "text": "11.5 风险点与合规边界\n\n11.5.1 1. 测量误差来源\n角度/光照/压缩：\n\n侧脸检测 AU 不准\n逆光导致面部不清晰\n视频压缩丢失细节\n\n遮挡：\n\n手遮住脸\n面具/口罩\n\n缓解：\n\n质量评分：剔除低质量帧\n数据增强：训练时模拟各种条件\n\n\n\n11.5.2 2. 算法偏差\n问题：\n面部识别算法在不同人种/性别上的准确率不同。\n\n对白人、男性的识别率更高\n对深色皮肤、女性的识别率较低\n\n后果：\n\n模型对不同群体的预测存在系统性偏差\n伦理与公平性问题\n\n缓解：\n\n使用公平性优化的模型\n报告不同群体的性能差异\n在敏感场景中避免使用\n\n\n\n11.5.3 3. 涉及生物特征的合规边界\n\n\n\n\n\n\n⚠️ 法律与伦理红线\n\n\n\n生物特征数据（面部、声纹、虹膜等）受严格监管：\n法规：\n\n欧盟 GDPR：需明确同意，用途受限\n中国《个人信息保护法》：敏感个人信息，需单独同意\n美国各州法律：如加州 CCPA、伊利诺伊州 BIPA\n\n禁止场景：\n\n未经同意的秘密收集\n用于歧视性决策（如贷款审批基于面相）\n大规模公共监控\n\n合规建议：\n\n明确告知：数据收集目的、用途\n获取同意：可撤回的明确授权\n最小化原则：只收集必要数据\n去标识化：尽可能匿名化\n人工监督：敏感决策需人类审核",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#融合策略",
+    "href": "week4.html#融合策略",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "12.1 融合策略",
+    "text": "12.1 融合策略\n\n12.1.1 1. 早融合（Early Fusion）\n在特征层面拼接：\n# 图像特征 (2048维) + 音频特征 (768维) + 文本特征 (768维)\nmultimodal_feature = np.concatenate([\n    image_embedding,\n    audio_embedding,\n    text_embedding\n])  # (3584维)\n\n# 输入到分类器\nclassifier.fit(multimodal_feature, label)\n优点：简单\n缺点：\n\n不同模态维度差异大，可能主导性不均\n缺失模态时难以处理\n\n\n\n12.1.2 2. 中期融合（Mid Fusion）\n各模态先单独编码，再融合：\nclass MidFusionModel(nn.Module):\n    def __init__(self):\n        super().__init__()\n        self.image_encoder = nn.Linear(2048, 512)\n        self.audio_encoder = nn.Linear(768, 512)\n        self.text_encoder = nn.Linear(768, 512)\n        self.fusion = nn.Linear(512*3, 256)\n        self.classifier = nn.Linear(256, 2)\n    \n    def forward(self, image, audio, text):\n        img_emb = self.image_encoder(image)\n        aud_emb = self.audio_encoder(audio)\n        txt_emb = self.text_encoder(text)\n        \n        fused = torch.cat([img_emb, aud_emb, txt_emb], dim=1)\n        fused = F.relu(self.fusion(fused))\n        return self.classifier(fused)\n优点：各模态地位平等\n\n\n12.1.3 3. 后融合（Late Fusion）\n各模态单独预测，再集成：\n# 训练三个独立分类器\nimage_pred = image_classifier.predict_proba(image_features)\naudio_pred = audio_classifier.predict_proba(audio_features)\ntext_pred = text_classifier.predict_proba(text_features)\n\n# 加权平均\nfinal_pred = 0.4 * image_pred + 0.3 * audio_pred + 0.3 * text_pred\n优点：\n\n可解释性强（知道各模态贡献）\n容易处理缺失模态\n\n缺点：\n\n未利用模态间交互\n\n\n\n12.1.4 4. 注意力融合（Attention-based）\n自动学习各模态的权重：\nclass AttentionFusion(nn.Module):\n    def __init__(self, input_dim=512):\n        super().__init__()\n        self.attention = nn.Linear(input_dim, 1)\n    \n    def forward(self, modalities):\n        # modalities: list of (batch, input_dim)\n        stacked = torch.stack(modalities, dim=1)  # (batch, n_modalities, input_dim)\n        \n        # 计算注意力权重\n        attn_scores = self.attention(stacked).squeeze(-1)  # (batch, n_modalities)\n        attn_weights = F.softmax(attn_scores, dim=1).unsqueeze(-1)  # (batch, n_modalities, 1)\n        \n        # 加权和\n        fused = (stacked * attn_weights).sum(dim=1)  # (batch, input_dim)\n        return fused\n优点：自适应融合",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#缺失模态处理",
+    "href": "week4.html#缺失模态处理",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "12.2 缺失模态处理",
+    "text": "12.2 缺失模态处理\n现实问题：\n\n部分公司没有电话会录音（音频缺失）\n部分时期卫星图像有云遮挡（图像缺失）\n\n策略：\n\n删除缺失样本（简单但损失数据）\n用零向量填充\n训练单模态 + 多模态模型，缺失时用单模态",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#增量贡献评估",
+    "href": "week4.html#增量贡献评估",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "12.3 增量贡献评估",
+    "text": "12.3 增量贡献评估\n\n12.3.1 实验设计\n基准模型：仅用结构化变量（财务指标）\n增强模型：+ 文本变量\n多模态模型：+ 文本 + 图像/音频\n比较：\n\n\n\n模型\nAUC\nF1\n相对提升\n\n\n\n\n基准（结构化）\n0.75\n0.68\n-\n\n\n+ 文本\n0.78\n0.71\n+4% AUC\n\n\n+ 文本 + 音频\n0.80\n0.73\n+6.7% AUC\n\n\n\n统计检验：\n\nDeLong 检验：比较 AUC 是否显著不同\n配对 t 检验：比较预测误差\n\n\n\n12.3.2 互补性检验\n问题：多模态信号是否只是重复文本信息？\n检验：\n\n相关性分析\ncorr = df[['text_sentiment', 'audio_uncertainty', 'image_activity']].corr()\n\n相关系数 &lt; 0.6 为健康\n\n分组分析\n\n在文本信号弱的样本中，音频/图像是否作用更强？\n\n消融实验（Ablation Study）\n\n逐步移除各模态，观察性能下降\n\n\n\n\n12.3.3 误差分析\n案例分析：\n\n哪些样本预测错误？\n是否某类样本（如小市值）更难预测？\n多模态在哪些情况下帮助最大？",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#切片评估与稳健性",
+    "href": "week4.html#切片评估与稳健性",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "12.4 切片评估与稳健性",
+    "text": "12.4 切片评估与稳健性\n时间切片：\n\n训练期 vs 测试期性能差异\n不同市场状态（牛市/熊市）\n\n横截面切片：\n\n不同行业（科技 vs 制造）\n不同规模（大市值 vs 小市值）\n\n目的：确保模型泛化能力。",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#核心要点",
+    "href": "week4.html#核心要点",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "13.1 核心要点",
+    "text": "13.1 核心要点\n\n多模态任务设计：明确标签定义（何时、对谁、预测什么）\n图像特征：CNN/ViT/CLIP，注意空间对齐、质量控制、域漂移\n音频特征：ASR → 文本 vs 声学/韵律特征，注意 ASR 错误、说话人分离\n视频特征：帧级 + 时序建模，行为线索（AU/姿态/注视），注意测量误差\n融合策略：早/中/后融合、注意力机制，处理缺失模态\n增量检验：相对文本/结构化变量的增量贡献，互补性证据\n伦理边界：生物特征合规、算法偏差、隐私保护",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#本周思考题",
+    "href": "week4.html#本周思考题",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "13.2 本周思考题",
+    "text": "13.2 本周思考题\n\n13.2.1 问题 1\n以”业绩电话会音频”构造一个分类任务（如识别管理层不确定性状态）时，标签通常如何定义？哪些环节最容易引入样本选择偏误？\n\n\n\n\n\n\n💡 参考答案\n\n\n\n\n\n标签定义：\n\n基于未来股价：\n\ny = \\mathbb{I}(r_{t+1 \\to t+k} &lt; \\text{市场中位数})\n不确定性高 → 未来表现差\n\n基于财务意外：\n\ny = \\mathbb{I}(|\\text{实际EPS} - \\text{预期EPS}| &gt; \\text{阈值})\n不确定性高 → 预测误差大\n\n基于文本词典（辅助标注）：\n\n统计不确定性词汇（“uncertain”, “might”, “could”）\n人工验证部分样本\n\n\n样本选择偏误来源：\n\n可得性偏误\n\n大公司、透明度高的公司更可能公开录音\n小公司、有负面消息的可能隐藏\n\n存活偏误\n\n退市公司的电话会数据缺失\n\n时期选择\n\n危机期间电话会取消率更高\n\n\n缓解：\n\n报告样本特征分布\n倾向评分加权\n稳健性检验（仅用持续有数据的公司）\n\n\n\n\n\n\n13.2.2 问题 2\n如何严谨地证明多模态信号对文本/结构化变量具有增量信息？请给出一个你认为必要的互补性检验设计。\n\n\n\n\n\n\n💡 参考答案\n\n\n\n\n\n完整检验流程：\n1. 基准对比\n\n\n\n模型\n特征\nAUC\n\\Delta AUC\n\n\n\n\nM1\n结构化（财务指标）\n0.72\n-\n\n\nM2\nM1 + 文本\n0.76\n+0.04\n\n\nM3\nM2 + 音频\n0.79\n+0.03\n\n\n\n\n条件：\\Delta AUC 统计显著（DeLong 检验 p &lt; 0.05）\n\n2. 相关性分析\ncorr_matrix = df[['structured', 'text', 'audio']].corr()\nassert corr_matrix.loc['audio', 'text'] &lt; 0.6  # 避免高度冗余\n3. 条件独立性检验\n在控制文本后，音频是否仍有预测力？\n\n\\text{Logit}(y) = \\beta_0 + \\beta_1 \\text{Text} + \\beta_2 \\text{Audio} + \\varepsilon\n\n\n检验：\\beta_2 是否显著？\n\n4. 分组异质性\n在文本信号弱的子样本中，音频贡献更大：\n分组：文本情感 = 中性（信息量少）\n  → 音频 AUC 提升更显著\n5. 消融实验\n\n\n\n移除模态\nAUC 下降\n解释\n\n\n\n\n去除音频\n-0.03\n音频有独特贡献\n\n\n去除文本\n-0.04\n文本仍重要\n\n\n去除结构化\n-0.05\n基础变量最重要\n\n\n\n结论模板：\n“音频特征在控制文本与结构化变量后，仍能带来统计显著的 AUC 提升（+0.03, p=0.01）。相关性分析显示音频与文本相关系数为 0.45，表明二者捕捉了部分重叠但非完全冗余的信息。在文本情感中性的子样本中，音频的增量贡献更大（AUC +0.05），证实了互补性。”",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#课程前半段回顾",
+    "href": "week4.html#课程前半段回顾",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "13.3 课程前半段回顾",
+    "text": "13.3 课程前半段回顾\n前四周我们建立了AI 赋能金融研究的完整框架：\n\n第1周：机器学习基础（i.i.d. 场景）\n第2周：金融时序评估与回测规范\n第3周：文本分析的可审计流程\n第4周：多模态信号的增量检验\n\n共同主线：\n\n泛化能力：样本外表现是唯一标准\n可审计性：从原始数据到变量的每一步可追溯\n增量价值：新方法必须相对已知方法展示增量信息",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "week4.html#后半段课程预告",
+    "href": "week4.html#后半段课程预告",
+    "title": "7  第4讲：多模态模型理论 → 金融信号抽取",
+    "section": "13.4 后半段课程预告",
+    "text": "13.4 后半段课程预告\n第5-8周：学生研究计划汇报与研讨\n\n每组展示研究问题、数据、方法、评估协议\n课堂讨论与反馈\n强化最小证据链意识\n\n第5周前将有课前测验，覆盖第1-4周核心概念，请提前复习！\n\n祝学习顺利！期待看到你们的精彩研究！",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>第4讲：多模态模型理论 → 金融信号抽取</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "8  小组研究项目指南",
+    "section": "",
+    "text": "9 项目概览\n小组研究项目是本课程的核心组成部分，旨在训练学生将机器学习理论与金融实证方法融会贯通，设计并完成一份高质量的研究计划（Research Proposal）。项目包含课堂汇报（40%）和期末研究计划书（40%）两个考核环节，共占总成绩的80%。\n项目的核心要求是：围绕一个明确的金融研究问题，系统性地将人工智能方法嵌入实证研究框架，并严格遵循时序评估规范、信息泄露防控等研究设计原则。",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#分组规模",
+    "href": "proposal.html#分组规模",
+    "title": "8  小组研究项目指南",
+    "section": "10.1 1.1 分组规模",
+    "text": "10.1 1.1 分组规模\n\n每组3-5人（最多不超过5人）\n建议根据研究兴趣、数据获取能力、技术特长进行合理搭配",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#分组截止时间",
+    "href": "proposal.html#分组截止时间",
+    "title": "8  小组研究项目指南",
+    "section": "10.2 1.2 分组截止时间",
+    "text": "10.2 1.2 分组截止时间\n\n第2周课程结束前（含第2周当天）必须完成分组并提交组员名单\n提交方式：通过学习通或邮件提交，需包含：\n\n组长姓名及联系方式\n全体组员姓名、学号\n初步的研究方向意向（1-2句话即可，可后续调整）",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#未按时分组的处理",
+    "href": "proposal.html#未按时分组的处理",
+    "title": "8  小组研究项目指南",
+    "section": "10.3 1.3 未按时分组的处理",
+    "text": "10.3 1.3 未按时分组的处理\n\n未在截止时间前完成分组的学生，将由教师随机分配到其他小组\n如有特殊情况需要调整分组，须在第3周前向教师提出申请",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#选题范围",
+    "href": "proposal.html#选题范围",
+    "title": "8  小组研究项目指南",
+    "section": "11.1 2.1 选题范围",
+    "text": "11.1 2.1 选题范围\n研究问题应满足以下核心标准：\n\n明确的金融/经济问题：资产定价、风险管理、公司金融、市场微观结构、ESG、金融科技等\nAI方法的必要性：需清晰说明为何需要机器学习/深度学习/自然语言处理/多模态分析等方法，而非传统计量方法即可解决\n数据的可获取性：需在研究计划中明确说明数据来源、样本期、获取方式（公开/商业/爬取/API等）\n实证的可行性：在课程期间（或合理延长的时间内）可完成数据收集、变量构造与初步验证",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#选题建议",
+    "href": "proposal.html#选题建议",
+    "title": "8  小组研究项目指南",
+    "section": "11.2 2.2 选题建议",
+    "text": "11.2 2.2 选题建议\n可参考以下方向（不限于此）：\n\n资产定价与金融预测：收益预测、波动率预测、因子挖掘、异象检验、期权定价等\n金融文本分析：财报/公告情绪、新闻事件影响、社交媒体信号、分析师报告、管理层语言风格等\n多模态信号抽取：卫星图像（经济活动）、企业照片、音频分析（业绩会）、视频信号（路演/访谈）等\nAI市场影响：算法交易、生成式AI对披露/分析的影响、FinTech对传统金融的冲击等\n其他交叉领域：会计信息质量、公司治理、金融监管、宏观预测等\n\n参考论文池：详见教学大纲附录（仅供选题灵感参考，不必局限于复现某一篇论文）",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#选题确认时间",
+    "href": "proposal.html#选题确认时间",
+    "title": "8  小组研究项目指南",
+    "section": "11.3 2.3 选题确认时间",
+    "text": "11.3 2.3 选题确认时间\n\n第4周课程结束前（含第4周当天）必须完成选题确认并提交一页纸的研究计划摘要\n提交内容应包含：\n\n研究问题（1-2句话）\n拟使用的AI方法\n数据来源与样本期\n预期贡献（与现有文献的差异）\n\n提交方式：通过学习通或邮件提交（PDF格式）\n教师将在第4周结束后给出反馈，帮助各组调整方向、规避常见陷阱",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#汇报安排",
+    "href": "proposal.html#汇报安排",
+    "title": "8  小组研究项目指南",
+    "section": "12.1 3.1 汇报安排",
+    "text": "12.1 3.1 汇报安排\n\n时间：第5-8周（共4周，每周90分钟）\n每组汇报时长：10-15分钟（含问答）\n具体汇报顺序：将在第4周末统一安排并公布",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#汇报内容要求",
+    "href": "proposal.html#汇报内容要求",
+    "title": "8  小组研究项目指南",
+    "section": "12.2 3.2 汇报内容要求",
+    "text": "12.2 3.2 汇报内容要求\n每组需围绕以下六个核心模块进行汇报：\n\n12.2.1 （1）研究问题与重要性（25分）\n\n研究的是什么问题？为什么重要？\n与现有文献的关系：填补了什么缺口？解决了什么争议？提供了什么新证据？\n预期的学术贡献与实践意义\n\n\n\n12.2.2 （2）数据与可行性（20分）\n\n数据来源、样本期、频率、覆盖范围\n数据获取方式（公开/商业/API/爬虫/手工收集）与当前进度\n潜在的数据质量问题（缺失、噪声、偏误）及应对方案\n时间对齐规则：如何确保不引入前瞻偏误\n\n\n\n12.2.3 （3）AI方法嵌入的必要性与正确性（25分）\n\n为什么需要AI方法：传统方法的局限在哪里？\n选择何种AI方法：模型类型（线性正则化/树模型/神经网络/Transformer/多模态融合等）\n如何嵌入研究框架：AI方法在整个研究流程中的位置与作用（预测/分类/信息抽取/特征学习）\n模型输出如何解释：预测分数如何转化为可检验的经济含义\n\n\n\n12.2.4 （4）实证策略与评估协议（20分）\n\n训练-验证-测试划分：滚动窗口（Rolling）还是扩展窗口（Expanding）？\n超参数选择策略：嵌套交叉验证（Nested CV）还是固定验证集？\n评价指标：预测层面（OS-R²、IC、AUC等）与经济层面（Sharpe、换手率、交易成本等）\n信息泄露防控：如何避免look-ahead bias、label leakage、data snooping？\n稳健性检验：子样本、切片分析、基准模型对照\n\n\n\n12.2.5 （5）预期贡献与风险\n\n相比已有研究的增量信息在哪里？\n可能遇到的技术风险与应对预案\n可复现性保障（代码、数据、随机种子）\n\n\n\n12.2.6 （6）表达与问答（10分）\n\n逻辑清晰、重点突出、时间控制得当\n能准确回答提问，展示对方法与细节的深入理解",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#提交要求",
+    "href": "proposal.html#提交要求",
+    "title": "8  小组研究项目指南",
+    "section": "12.3 3.3 提交要求",
+    "text": "12.3 3.3 提交要求\n\n提前24小时提交演示文稿（即汇报前一天的课程时间前）\n文件格式：PDF或PPT，建议10-15页\n提交方式：通过学习通或邮件提交\n未按时提交者，汇报成绩扣除10分",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#评分标准100分折算为总成绩40",
+    "href": "proposal.html#评分标准100分折算为总成绩40",
+    "title": "8  小组研究项目指南",
+    "section": "12.4 3.4 评分标准（100分，折算为总成绩40%）",
+    "text": "12.4 3.4 评分标准（100分，折算为总成绩40%）\n\n研究问题与贡献：25分\n数据与可行性：20分\nAI方法嵌入的必要性与正确性：25分\n实证策略与评估协议：20分\n表达与问答：10分",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#贡献声明与同伴评分",
+    "href": "proposal.html#贡献声明与同伴评分",
+    "title": "8  小组研究项目指南",
+    "section": "12.5 3.5 贡献声明与同伴评分",
+    "text": "12.5 3.5 贡献声明与同伴评分\n\n汇报结束后，每组需在一周内提交”组内分工/贡献说明”（1页即可）\n内容包括：每位成员的具体分工、贡献百分比（总和为100%）、自评与互评\n同伴评分仅用于组内成绩分配（不额外计入总评）\n若组内贡献差异显著（最高与最低相差超过20%），教师可对个体在该组分中做±10%的系数调整，以抑制搭便车行为",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#提交时间",
+    "href": "proposal.html#提交时间",
+    "title": "8  小组研究项目指南",
+    "section": "13.1 4.1 提交时间",
+    "text": "13.1 4.1 提交时间\n\n提交截止日期：待定（通常为学期末，具体时间将在课程中期公布）\n建议在课堂汇报后，根据教师和同学的反馈进行深化与完善",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#提交方式",
+    "href": "proposal.html#提交方式",
+    "title": "8  小组研究项目指南",
+    "section": "13.2 4.2 提交方式",
+    "text": "13.2 4.2 提交方式\n\n以小组为单位提交（一份报告）\n文件格式：PDF\n提交方式：通过学习通或邮件提交\n需同时附上”组内分工/贡献说明”（1页）",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#内容要求",
+    "href": "proposal.html#内容要求",
+    "title": "8  小组研究项目指南",
+    "section": "13.3 4.3 内容要求",
+    "text": "13.3 4.3 内容要求\n\n13.3.1 4.3.1 建议篇幅\n\n正文8-12页（不含参考文献与附录）\n字体：中文宋体/西文Times New Roman，小四号，1.5倍行距\n参考文献：不限页数，仅需与选题相关，不设”必选论文清单”\n附录：不限页数，可含伪代码、变量字典、数据处理流程图等\n\n\n\n13.3.2 4.3.2 必须包含的核心内容\n\n13.3.2.1 （1）研究动机与文献缺口（20分）\n\n研究问题的背景与重要性\n相关文献综述（分类整理，不是简单罗列）\n现有研究的不足与本研究的定位\n预期贡献（学术与实践）\n\n\n\n13.3.2.2 （2）研究问题与理论机制/假说（10分）\n\n明确的研究问题（Research Question）\n理论机制或经济直觉\n可检验的假说（Hypotheses）或预测（Predictions）\n\n\n\n13.3.2.3 （3）数据与变量构造（20分）\n\n数据表：来源、频率、样本期、覆盖范围、获取方式\n变量表：包括因变量、自变量、控制变量的定义、计算方法、数据来源、时间对齐规则\n非结构化数据需写清”从原始数据到量化变量”的可审计流程：\n\n文本：预处理（分词/去停用词）→ 表示方法（词袋/嵌入/Transformer）→ 变量定义（情绪/主题/相似度）\n图像：采集规则 → 特征提取（CNN/ViT）→ 变量定义（活动强度/风险事件）\n音频/视频：转写/特征提取 → 聚合方式 → 变量定义\n\n时间对齐与可得性规则：如何避免前瞻偏误\n\n\n\n13.3.2.4 （4）实证方法与识别策略（20分）\n\n基准模型（OLS/Logit/面板回归等）\nAI模型的选择与理由（为什么不用传统方法）\n识别策略：因果推断框架（如DID、IV、RDD）或预测框架\n基准模型对照：与简单模型、已有文献的对比\n\n\n\n13.3.2.5 （5）AI方法实施细节（20分）\n\n训练/验证/测试划分：滚动/扩展窗口，窗口大小，更新频率\n超参数策略：嵌套CV、网格搜索、贝叶斯优化等\n评价指标：预测指标（MSE/AUC等）与经济指标（Sharpe/换手率等）\n如何避免look-ahead bias / leakage：数据预处理、标准化、缺失值填充的时序规范\n稳健性与可解释性：\n\n子样本检验（按时期/行业/市场状态）\n特征重要性、SHAP值、注意力权重等\n模型组合（ensemble）策略\n\n\n\n\n13.3.2.6 （6）写作规范与可复现性（10分）\n\n引用规范：统一格式（APA/Chicago等）\n图表清晰：必须有标题、注释、数据来源\n附录材料：\n\n伪代码或算法流程图\n变量字典（详细定义表）\n数据处理流程图（从原始数据到最终变量）\n\n可复现性声明：\n\n代码语言与主要包的版本\n随机种子设置\n数据获取方式（若涉及商业数据，说明如何申请）\n\n\n\n\n\n13.3.3 4.3.3 必须包含的三张图表\n\n数据表（Table 1）：数据来源/频率/样本期\n变量表（Table 2）：变量定义/对齐规则\n方法流程图（Figure 1）：AI管线+评估协议的完整流程图",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#评分标准100分折算为总成绩40-1",
+    "href": "proposal.html#评分标准100分折算为总成绩40-1",
+    "title": "8  小组研究项目指南",
+    "section": "13.4 4.4 评分标准（100分，折算为总成绩40%）",
+    "text": "13.4 4.4 评分标准（100分，折算为总成绩40%）\n\n研究动机与文献缺口：20分\n研究问题与理论机制/假说：10分\n数据与变量构造：20分\n实证方法与识别策略：20分\nAI方法实施细节：20分\n写作规范与可复现性：10分",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#贡献声明",
+    "href": "proposal.html#贡献声明",
+    "title": "8  小组研究项目指南",
+    "section": "13.5 4.5 贡献声明",
+    "text": "13.5 4.5 贡献声明\n\n需附”组内分工/贡献说明”（1页）\n内容包括：每位成员的具体分工、贡献百分比、自评与互评\n同伴评分规则同课堂汇报",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#q1可以中途更换选题吗",
+    "href": "proposal.html#q1可以中途更换选题吗",
+    "title": "8  小组研究项目指南",
+    "section": "15.1 Q1：可以中途更换选题吗？",
+    "text": "15.1 Q1：可以中途更换选题吗？\nA：第4周选题确认后，原则上不建议大幅更换。如确有必要，需在第5周汇报前与教师沟通，并说明原因与新选题方向。",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#q2数据必须是真实数据吗",
+    "href": "proposal.html#q2数据必须是真实数据吗",
+    "title": "8  小组研究项目指南",
+    "section": "15.2 Q2：数据必须是真实数据吗？",
+    "text": "15.2 Q2：数据必须是真实数据吗？\nA：强烈建议使用真实数据。如因数据获取困难，可使用模拟数据，但需在报告中明确说明模拟方法、参数设置与真实性局限，且评分会相应调整。",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#q3可以复现某篇论文吗",
+    "href": "proposal.html#q3可以复现某篇论文吗",
+    "title": "8  小组研究项目指南",
+    "section": "15.3 Q3：可以复现某篇论文吗？",
+    "text": "15.3 Q3：可以复现某篇论文吗？\nA：不建议纯复现。若选择复现，必须在此基础上有实质性的扩展或改进（如：更换市场、更新样本期、改进方法、增加稳健性检验等），并清晰说明增量贡献。",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#q4ai方法必须很复杂吗",
+    "href": "proposal.html#q4ai方法必须很复杂吗",
+    "title": "8  小组研究项目指南",
+    "section": "15.4 Q4：AI方法必须很复杂吗？",
+    "text": "15.4 Q4：AI方法必须很复杂吗？\nA：不是。关键在于方法与问题的匹配度。如果简单的正则化线性模型（如Lasso）能有效解决问题且具有可解释性，也是优秀的研究设计。复杂模型（如Transformer）需要有充分的理由（如处理文本/图像等非结构化数据）。",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#q5如何避免信息泄露",
+    "href": "proposal.html#q5如何避免信息泄露",
+    "title": "8  小组研究项目指南",
+    "section": "15.5 Q5：如何避免信息泄露？",
+    "text": "15.5 Q5：如何避免信息泄露？\nA：严格遵守以下原则： 1. 数据预处理（标准化、缺失值填充）只能使用训练集信息 2. 标签与特征的时间对齐：确保特征在标签生成之前可得 3. 滚动窗口评估：每次预测只使用历史数据 4. 避免数据窥探：不要根据测试集表现反复调整模型",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#q6期末报告与课堂汇报的区别",
+    "href": "proposal.html#q6期末报告与课堂汇报的区别",
+    "title": "8  小组研究项目指南",
+    "section": "15.6 Q6：期末报告与课堂汇报的区别？",
+    "text": "15.6 Q6：期末报告与课堂汇报的区别？\nA： - 课堂汇报：侧重研究设计的核心逻辑与可行性，时长有限，需突出重点 - 期末报告：全面、详尽的研究计划，包含完整的文献综述、变量构造细节、实证策略与可复现性材料",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  },
+  {
+    "objectID": "proposal.html#q7可以使用chatgpt等ai工具吗",
+    "href": "proposal.html#q7可以使用chatgpt等ai工具吗",
+    "title": "8  小组研究项目指南",
+    "section": "15.7 Q7：可以使用ChatGPT等AI工具吗？",
+    "text": "15.7 Q7：可以使用ChatGPT等AI工具吗？\nA：可以使用，但需遵守以下原则： 1. 在报告中明确声明使用了哪些AI工具、用于何种目的（如：润色语言、生成伪代码框架等） 2. 核验所有AI生成的内容，确保准确性（尤其是文献引用、技术细节） 3. 禁止直接复制粘贴AI生成的大段文字而不加理解与修改 4. 违反学术诚信（如抄袭、伪造数据）将严肃处理",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>小组研究项目指南</span>"
+    ]
+  }
+]
