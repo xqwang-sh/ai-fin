@@ -207,11 +207,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#老板与员工的协作框架" id="toc-老板与员工的协作框架" class="nav-link" data-scroll-target="#老板与员工的协作框架"><span class="header-section-number">3.2.1</span> “老板与员工”的协作框架</a></li>
   <li><a href="#验收工作的关键原则" id="toc-验收工作的关键原则" class="nav-link" data-scroll-target="#验收工作的关键原则"><span class="header-section-number">3.2.2</span> 验收工作的关键原则</a></li>
   </ul></li>
-  <li><a href="#ai辅助编程coding-agent模式" id="toc-ai辅助编程coding-agent模式" class="nav-link" data-scroll-target="#ai辅助编程coding-agent模式"><span class="header-section-number">3.3</span> AI辅助编程：Coding Agent模式</a>
+  <li><a href="#ai辅助编程cursor-agent-模式" id="toc-ai辅助编程cursor-agent-模式" class="nav-link" data-scroll-target="#ai辅助编程cursor-agent-模式"><span class="header-section-number">3.3</span> AI辅助编程：Cursor Agent 模式</a>
   <ul class="collapse">
-  <li><a href="#为什么需要coding-agent" id="toc-为什么需要coding-agent" class="nav-link" data-scroll-target="#为什么需要coding-agent"><span class="header-section-number">3.3.1</span> 为什么需要Coding Agent？</a></li>
-  <li><a href="#推荐工具链vscode-cursor-claude" id="toc-推荐工具链vscode-cursor-claude" class="nav-link" data-scroll-target="#推荐工具链vscode-cursor-claude"><span class="header-section-number">3.3.2</span> 推荐工具链：VSCode + Cursor + Claude</a></li>
-  <li><a href="#核心skills让ai成为高效助手" id="toc-核心skills让ai成为高效助手" class="nav-link" data-scroll-target="#核心skills让ai成为高效助手"><span class="header-section-number">3.3.3</span> 核心Skills：让AI成为高效助手</a></li>
+  <li><a href="#为什么需要-coding-agent" id="toc-为什么需要-coding-agent" class="nav-link" data-scroll-target="#为什么需要-coding-agent"><span class="header-section-number">3.3.1</span> 为什么需要 Coding Agent？</a></li>
+  <li><a href="#推荐工具cursor-ide" id="toc-推荐工具cursor-ide" class="nav-link" data-scroll-target="#推荐工具cursor-ide"><span class="header-section-number">3.3.2</span> 推荐工具：Cursor IDE</a></li>
+  <li><a href="#cursor-使用技巧" id="toc-cursor-使用技巧" class="nav-link" data-scroll-target="#cursor-使用技巧"><span class="header-section-number">3.3.3</span> Cursor 使用技巧</a></li>
+  <li><a href="#扩展-cursor-能力mcp-与-skills" id="toc-扩展-cursor-能力mcp-与-skills" class="nav-link" data-scroll-target="#扩展-cursor-能力mcp-与-skills"><span class="header-section-number">3.3.4</span> 扩展 Cursor 能力：MCP 与 Skills</a></li>
   </ul></li>
   <li><a href="#实战演示一个完整的工作流" id="toc-实战演示一个完整的工作流" class="nav-link" data-scroll-target="#实战演示一个完整的工作流"><span class="header-section-number">3.4</span> 实战演示：一个完整的工作流</a>
   <ul class="collapse">
@@ -261,8 +262,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="课程结构" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="课程结构"><span class="header-section-number">3.1.1</span> 课程结构</h3>
 <p>本课程共8周，分为两个阶段：</p>
-<p><strong>第一阶段（第1-4周）：教师精讲</strong> - <strong>第1周</strong>：机器学习基础——i.i.d.场景下的认知框架 - <strong>第2周</strong>：资产定价中的ML应用——时序评估与回测规范 - <strong>第3周</strong>：金融文本分析——从原始文本到量化信号 - <strong>第4周</strong>：多模态模型——图像/音频/视频在金融中的应用</p>
-<p><strong>第二阶段（第5-8周）：学生研究汇报与研讨</strong> - 分组汇报研究计划，课堂讨论与反馈 - 第5周前有<strong>课前测验</strong>（覆盖第1-4周核心概念）</p>
+<p><strong>第一阶段（第1-4周）：教师精讲</strong></p>
+<ul>
+<li><strong>第1周</strong>：机器学习基础——i.i.d.场景下的认知框架</li>
+<li><strong>第2周</strong>：资产定价中的ML应用——时序评估与回测规范</li>
+<li><strong>第3周</strong>：金融文本分析——从原始文本到量化信号</li>
+<li><strong>第4周</strong>：多模态模型——图像/音频/视频在金融中的应用</li>
+</ul>
+<p><strong>第二阶段（第5-8周）：学生研究汇报与研讨</strong></p>
+<ul>
+<li>分组汇报研究计划，课堂讨论与反馈</li>
+<li>第5周前有<strong>课前测验</strong>（覆盖第1-4周核心概念）</li>
+</ul>
 </section>
 </section>
 <section id="日常使用ai的思维模式" class="level2" data-number="3.2">
@@ -335,56 +346,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="ai辅助编程coding-agent模式" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="ai辅助编程coding-agent模式"><span class="header-section-number">3.3</span> AI辅助编程：Coding Agent模式</h2>
-<section id="为什么需要coding-agent" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="为什么需要coding-agent"><span class="header-section-number">3.3.1</span> 为什么需要Coding Agent？</h3>
+<section id="ai辅助编程cursor-agent-模式" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="ai辅助编程cursor-agent-模式"><span class="header-section-number">3.3</span> AI辅助编程：Cursor Agent 模式</h2>
+<section id="为什么需要-coding-agent" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="为什么需要-coding-agent"><span class="header-section-number">3.3.1</span> 为什么需要 Coding Agent？</h3>
 <p>传统的”复制-粘贴式”AI辅助编程存在诸多问题： - 代码片段缺乏上下文，难以整合到项目中 - 频繁在IDE和浏览器间切换，效率低下 - 难以处理多文件、跨模块的复杂任务</p>
-<p><strong>Coding Agent模式</strong>让AI直接在你的开发环境中工作，理解项目全貌，自动完成文件读写、代码编辑、终端操作等任务。</p>
+<p><strong>Cursor Agent 模式</strong>让AI直接在你的开发环境中工作，理解项目全貌，自动完成文件读写、代码编辑、终端操作等任务。</p>
 </section>
-<section id="推荐工具链vscode-cursor-claude" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="推荐工具链vscode-cursor-claude"><span class="header-section-number">3.3.2</span> 推荐工具链：VSCode + Cursor + Claude</h3>
-<p>我们推荐以下工具组合：</p>
+<section id="推荐工具cursor-ide" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="推荐工具cursor-ide"><span class="header-section-number">3.3.2</span> 推荐工具：Cursor IDE</h3>
+<p>我们推荐使用 <strong>Cursor IDE</strong>，它提供：</p>
 <ol type="1">
-<li><strong>Cursor IDE</strong>（基于VSCode）</li>
-</ol>
+<li><strong>内置 Claude Sonnet 4.5 模型</strong>
 <ul>
-<li>内置Claude Sonnet 4.5模型（目前最强的代码生成模型）</li>
-<li>支持<strong>Agent模式</strong>：AI可以自主读取、编辑、创建文件</li>
-<li>智能上下文管理（自动索引项目代码）</li>
-</ul>
-<ol start="2" type="1">
-<li><strong>Claude Code</strong>（通过Cursor调用）</li>
-</ol>
-<ul>
+<li>目前最强的代码生成模型</li>
 <li>长上下文窗口（200k tokens）：可理解大型代码库</li>
-<li>强大的代码理解和生成能力</li>
 <li>支持多轮对话和迭代优化</li>
-</ul>
-<ol start="3" type="1">
-<li><strong>GLM-4（可选的补充）</strong></li>
-</ol>
+</ul></li>
+<li><strong>Agent 模式</strong>（默认模式）
 <ul>
-<li>国产大模型，适合中文文档处理</li>
-<li>API成本较低，适合批量任务</li>
-<li>可通过OpenAI兼容接口在Cursor中配置</li>
-</ul>
+<li>AI可以自主读取、编辑、创建文件</li>
+<li>运行终端命令、安装依赖</li>
+<li>自动修复错误</li>
+<li>批量编辑多个文件</li>
+</ul></li>
+<li><strong>Plan 模式</strong>（规划优先模式）
+<ul>
+<li>按 <code>Shift+Tab</code> 切换到 Plan 模式</li>
+<li>AI会先研究代码库，询问澄清性问题</li>
+<li>生成详细实施计划，等待你批准后再开始编码</li>
+<li>计划可保存到 <code>.cursor/plans/</code> 供团队参考</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>何时使用 Plan 模式？</strong></p>
+<p>对于复杂任务（需要修改多个文件、涉及架构决策、需求不明确），建议先用 Plan 模式：</p>
+<ol type="1">
+<li>按 <code>Shift+Tab</code> 激活 Plan 模式</li>
+<li>描述你的需求：“添加用户认证功能”</li>
+<li>AI会提出问题并生成实施计划</li>
+<li>审阅计划，点击”开始构建”后切换到 Agent 模式执行</li>
+</ol>
+</div>
+</div>
 </section>
-<section id="核心skills让ai成为高效助手" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="核心skills让ai成为高效助手"><span class="header-section-number">3.3.3</span> 核心Skills：让AI成为高效助手</h3>
-<section id="skill-1-planning-with-files" class="level4" data-number="3.3.3.1">
-<h4 data-number="3.3.3.1" class="anchored" data-anchor-id="skill-1-planning-with-files"><span class="header-section-number">3.3.3.1</span> Skill 1: <strong>Planning with Files</strong></h4>
-<p>在开始编码前，让AI帮你规划项目结构：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>@Composer 我需要构建一个股票收益率预测项目，请帮我：</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>设计项目文件夹结构</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>列出需要的主要模块和文件</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>说明数据流和依赖关系</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="cursor-使用技巧" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="cursor-使用技巧"><span class="header-section-number">3.3.3</span> Cursor 使用技巧</h3>
+<section id="技巧-1-用-引用上下文" class="level4" data-number="3.3.3.1">
+<h4 data-number="3.3.3.1" class="anchored" data-anchor-id="技巧-1-用-引用上下文"><span class="header-section-number">3.3.3.1</span> 技巧 1: <strong>用 @ 引用上下文</strong></h4>
+<p>Cursor 使用 <code>@</code> 符号让你精确控制 AI 可以看到的上下文：</p>
+<p><strong>引用特定文件：</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>@data_loader.py @config.yaml </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>请根据配置文件中的参数更新数据加载逻辑</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>引用整个文件夹：</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>@features/ 检查所有特征工程模块，</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>确保它们都正确处理了缺失值</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>引用网页内容（用于查询文档）：</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>@https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>用 sklearn 的 RandomForest 实现一个基准模型</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="技巧-2-先规划再执行" class="level4" data-number="3.3.3.2">
+<h4 data-number="3.3.3.2" class="anchored" data-anchor-id="技巧-2-先规划再执行"><span class="header-section-number">3.3.3.2</span> 技巧 2: <strong>先规划再执行</strong></h4>
+<p>在开始编码前，让AI帮你规划项目结构（使用 Plan 模式）：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>我需要构建一个股票收益率预测项目，包括：</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>数据加载和清洗</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>特征工程（技术指标 + 基本面）</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>模型训练和回测</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>结果可视化</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>请帮我设计项目结构和实施步骤</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>AI会生成类似这样的规划：</p>
 <pre><code>project/
 ├── data/
 │   ├── raw/              # 原始数据（只读）
 │   ├── processed/        # 处理后的数据
-│   └── data_loader.py
+│   └── loader.py
 ├── features/
 │   ├── technical.py      # 技术指标
 │   └── fundamental.py    # 基本面特征
@@ -400,14 +445,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ├── requirements.txt
 └── README.md</code></pre>
 </section>
-<section id="skill-2-superpowers模式" class="level4" data-number="3.3.3.2">
-<h4 data-number="3.3.3.2" class="anchored" data-anchor-id="skill-2-superpowers模式"><span class="header-section-number">3.3.3.2</span> Skill 2: <strong>Superpowers模式</strong></h4>
-<p>启用”Superpowers”（超能力模式）让AI拥有更大的自主权：</p>
+<section id="技巧-3-迭代式开发" class="level4" data-number="3.3.3.3">
+<h4 data-number="3.3.3.3" class="anchored" data-anchor-id="技巧-3-迭代式开发"><span class="header-section-number">3.3.3.3</span> 技巧 3: <strong>迭代式开发</strong></h4>
+<p>将复杂任务分解为多轮对话，逐步优化：</p>
+<p><strong>第一轮：</strong> 生成初始版本</p>
+<pre><code>实现一个滚动窗口回测函数，
+输入是预测值和真实值的DataFrame</code></pre>
+<p><strong>第二轮：</strong> 增加功能</p>
+<pre><code>在上面的回测函数中添加交易成本和延迟执行的考虑</code></pre>
+<p><strong>第三轮：</strong> 优化和测试</p>
+<pre><code>添加单元测试，确保边界情况（如窗口小于5期）不会报错</code></pre>
+</section>
+<section id="技巧-4-系统化的错误调试" class="level4" data-number="3.3.3.4">
+<h4 data-number="3.3.3.4" class="anchored" data-anchor-id="技巧-4-系统化的错误调试"><span class="header-section-number">3.3.3.4</span> 技巧 4: <strong>系统化的错误调试</strong></h4>
+<p>遇到错误时，提供完整上下文帮助AI诊断：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>运行 backtest.py 时出现 KeyError: 'returns'</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>相关文件：@data_loader.py @backtest.py</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>请按以下步骤调查：</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>检查 data_loader.py 返回的列名</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>确认 backtest.py 中对列名的假设</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>修复不一致，并添加输入验证</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>运行测试确认修复有效</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="技巧-5-控制-agent-的自主程度" class="level4" data-number="3.3.3.5">
+<h4 data-number="3.3.3.5" class="anchored" data-anchor-id="技巧-5-控制-agent-的自主程度"><span class="header-section-number">3.3.3.5</span> 技巧 5: <strong>控制 Agent 的自主程度</strong></h4>
+<p>在 Cursor 设置中可以配置 Agent 的行为（Settings → Cursor Settings → Agents → Auto-Run）：</p>
 <ul>
-<li><strong>自动文件导航</strong>：AI可以主动搜索和打开相关文件</li>
-<li><strong>批量编辑</strong>：同时修改多个文件中的相关代码</li>
-<li><strong>终端执行</strong>：运行测试、安装依赖、查看结果</li>
-<li><strong>错误修复</strong>：自动读取报错信息并修复</li>
+<li><strong>Run in Sandbox</strong>（推荐）：在沙箱中自动运行命令，安全且高效</li>
+<li><strong>Ask Every Time</strong>：所有操作都需要你批准（适合学习阶段）</li>
+<li><strong>Run Everything</strong>：完全自主执行（适合信任度高的简单任务）</li>
+</ul>
+</section>
+</section>
+<section id="扩展-cursor-能力mcp-与-skills" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="扩展-cursor-能力mcp-与-skills"><span class="header-section-number">3.3.4</span> 扩展 Cursor 能力：MCP 与 Skills</h3>
+<p>Cursor 的强大之处在于其可扩展性。通过 <strong>MCP (Model Context Protocol)</strong> 和 <strong>Skills</strong>，你可以让 AI 获得更多专业能力。</p>
+<section id="什么是-mcp" class="level4" data-number="3.3.4.1">
+<h4 data-number="3.3.4.1" class="anchored" data-anchor-id="什么是-mcp"><span class="header-section-number">3.3.4.1</span> 什么是 MCP？</h4>
+<p><strong>Model Context Protocol (MCP)</strong> 是一个开放协议，让 AI 可以调用外部工具和服务。想象一下：</p>
+<ul>
+<li>让 AI 直接查询最新的技术文档（Context7）</li>
+<li>让 AI 自动化浏览器操作进行网页抓取（Playwright）</li>
+<li>让 AI 访问数据库、API、云服务等</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -419,98 +500,268 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>如何开启Superpowers</p>
-<p>在Cursor中使用<code>Ctrl+Shift+P</code>（Mac: <code>Cmd+Shift+P</code>），输入”Superpowers”切换模式。</p>
-<p>或者在对话中明确要求：</p>
-<pre><code>@Composer 请使用superpowers模式帮我重构这个模块，
-自动处理所有相关的导入和函数调用更新</code></pre>
+<p><strong>MCP vs 传统 API</strong></p>
+<p>MCP 不需要你编写代码来调用 API，AI 会自动判断何时使用、如何使用这些工具。</p>
 </div>
 </div>
 </section>
-<section id="skill-3-context-management上下文管理" class="level4" data-number="3.3.3.3">
-<h4 data-number="3.3.3.3" class="anchored" data-anchor-id="skill-3-context-management上下文管理"><span class="header-section-number">3.3.3.3</span> Skill 3: <strong>Context Management</strong>（上下文管理）</h4>
-<p>有效管理AI的上下文窗口，确保它关注正确的信息：</p>
-<p><strong>明确引用文件：</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>@data_loader.py @config.yaml </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>请根据配置文件中的参数更新数据加载逻辑</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>指定代码范围：</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>在 models/ml_models.py 的 50-100 行，</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>优化特征选择逻辑，避免数据泄露</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>排除无关文件：</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>@Composer 重构评估模块，但不要修改 data/ 文件夹</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="推荐的-mcp-servers" class="level4" data-number="3.3.4.2">
+<h4 data-number="3.3.4.2" class="anchored" data-anchor-id="推荐的-mcp-servers"><span class="header-section-number">3.3.4.2</span> 推荐的 MCP Servers</h4>
+<section id="context7---实时文档查询" class="level5" data-number="3.3.4.2.1">
+<h5 data-number="3.3.4.2.1" class="anchored" data-anchor-id="context7---实时文档查询"><span class="header-section-number">3.3.4.2.1</span> 1. <strong>Context7</strong> - 实时文档查询</h5>
+<p>让 AI 查询最新的编程库文档，避免使用过时信息：</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>使用 pandas 2.0 的新特性处理时间序列数据</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>AI 会自动调用 Context7 查询最新文档，而不是依赖训练数据。</p>
+<p><strong>安装方法：</strong> 1. 打开 Cursor Settings → Context → Model Context Protocol 2. 点击 “Add MCP Server” 3. 搜索 “Context7”，点击安装并授权</p>
 </section>
-<section id="skill-4-iterative-refinement迭代优化" class="level4" data-number="3.3.3.4">
-<h4 data-number="3.3.3.4" class="anchored" data-anchor-id="skill-4-iterative-refinement迭代优化"><span class="header-section-number">3.3.3.4</span> Skill 4: <strong>Iterative Refinement</strong>（迭代优化）</h4>
-<p>将复杂任务分解为多轮对话：</p>
-<p><strong>第一轮：</strong> 生成初始版本</p>
-<pre><code>实现一个滚动窗口回测函数，
-输入是预测值和真实值的DataFrame</code></pre>
-<p><strong>第二轮：</strong> 增加功能</p>
-<pre><code>在上面的回测函数中添加交易成本和延迟执行的考虑</code></pre>
-<p><strong>第三轮：</strong> 优化和测试</p>
-<pre><code>添加单元测试，确保边界情况（如窗口小于5期）不会报错</code></pre>
+<section id="playwright---浏览器自动化" class="level5" data-number="3.3.4.2.2">
+<h5 data-number="3.3.4.2.2" class="anchored" data-anchor-id="playwright---浏览器自动化"><span class="header-section-number">3.3.4.2.2</span> 2. <strong>Playwright</strong> - 浏览器自动化</h5>
+<p>让 AI 自动抓取网页数据，无需手动编写爬虫代码：</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>访问 Yahoo Finance，获取特斯拉最近三个月的股价数据</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>安装方法：</strong> 1. 在终端运行： <code>bash    npm install -g @playwright/mcp-server</code></p>
+<ol start="2" type="1">
+<li><p>在项目根目录创建/编辑 <code>.cursor/mcp.json</code>：</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"mcpServers"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"playwright"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"npx"</span><span class="fu">,</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"args"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"-y"</span><span class="ot">,</span> <span class="st">"@playwright/mcp-server"</span><span class="ot">]</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>重启 Cursor</p></li>
+</ol>
 </section>
-<section id="skill-5-problem-solving-workflow问题解决流程" class="level4" data-number="3.3.3.5">
-<h4 data-number="3.3.3.5" class="anchored" data-anchor-id="skill-5-problem-solving-workflow问题解决流程"><span class="header-section-number">3.3.3.5</span> Skill 5: <strong>Problem-Solving Workflow</strong>（问题解决流程）</h4>
-<p>遇到错误时，让AI系统性地诊断和修复：</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>@Composer 运行 backtest.py 时出现 KeyError: 'returns'</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>请按以下步骤调查：</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>检查 data_loader.py 返回的列名</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>确认 backtest.py 中对列名的假设</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>修复不一致，并添加输入验证</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>运行测试确认修复有效</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="其他实用-mcp-servers" class="level5" data-number="3.3.4.2.3">
+<h5 data-number="3.3.4.2.3" class="anchored" data-anchor-id="其他实用-mcp-servers"><span class="header-section-number">3.3.4.2.3</span> 3. <strong>其他实用 MCP Servers</strong></h5>
+<ul>
+<li><strong>Filesystem</strong> - 高级文件操作（批量重命名、搜索替换等）</li>
+<li><strong>GitHub</strong> - 直接操作 GitHub（创建 PR、查看 Issues）</li>
+<li><strong>Brave Search</strong> - 让 AI 实时搜索网页信息</li>
+<li><strong>Postgres</strong> - 直接查询和操作数据库</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+警告
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>使用 MCP 的注意事项</strong></p>
+<ul>
+<li>MCP 工具可以执行实际操作（如删除文件、发送请求），使用前请确保理解其功能</li>
+<li>建议在设置中选择 “Ask Every Time”，在熟悉后再改为自动执行</li>
+<li>对于需要 API key 的服务，注意保护密钥安全（使用环境变量或 <code>.env</code> 文件）</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="什么是-skills" class="level4" data-number="3.3.4.3">
+<h4 data-number="3.3.4.3" class="anchored" data-anchor-id="什么是-skills"><span class="header-section-number">3.3.4.3</span> 什么是 Skills？</h4>
+<p><strong>Skills</strong> 是预制的工作流程模板，帮助 AI 更好地完成特定类型的任务。Skills 包含：</p>
+<ul>
+<li>详细的步骤说明</li>
+<li>最佳实践和注意事项</li>
+<li>可执行的脚本</li>
+</ul>
+<section id="推荐的-skills" class="level5" data-number="3.3.4.3.1">
+<h5 data-number="3.3.4.3.1" class="anchored" data-anchor-id="推荐的-skills"><span class="header-section-number">3.3.4.3.1</span> 推荐的 Skills</h5>
+<section id="superpowers---增强-agent-能力" class="level6" data-number="3.3.4.3.1.1">
+<h6 data-number="3.3.4.3.1.1" class="anchored" data-anchor-id="superpowers---增强-agent-能力"><span class="header-section-number">3.3.4.3.1.1</span> 1. <strong>superpowers</strong> - 增强 Agent 能力</h6>
+<p>这是一组强大的技能集，让 AI 能够：</p>
+<ul>
+<li><strong>系统性调试</strong>：自动收集错误信息、查看日志、运行诊断</li>
+<li><strong>测试驱动开发</strong>：先写测试，再写实现</li>
+<li><strong>规划驱动开发</strong>：强制先规划再执行</li>
+<li><strong>代码审查</strong>：自动检查代码质量、安全性、最佳实践</li>
+</ul>
+<p><strong>安装方法：</strong> 1. 打开 Cursor Settings → Rules → Project Rules 2. 点击 “Add Rule” → “Remote Rule (Github)” 3. 输入：<code>https://github.com/cursor-plugins/superpowers</code> 4. 确认安装</p>
+<p><strong>使用示例：</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>我的测试失败了，报错是 "Connection timeout"</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>（AI 会自动使用 systematic-debugging skill，系统性地调查问题）</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="planning-with-files---文件化规划" class="level6" data-number="3.3.4.3.1.2">
+<h6 data-number="3.3.4.3.1.2" class="anchored" data-anchor-id="planning-with-files---文件化规划"><span class="header-section-number">3.3.4.3.1.2</span> 2. <strong>planning-with-files</strong> - 文件化规划</h6>
+<p>将复杂任务的规划保存为文件，便于团队协作和进度追踪：</p>
+<p><strong>安装：</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 方法1：通过 Cursor 安装</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Settings</span> → Rules → Add Remote Rule</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">输入：https://github.com/cursor-plugins/planning-with-files</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 方法2：手动安装</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/.cursor/skills</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/.cursor/skills</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/cursor-plugins/planning-with-files</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>使用示例：</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>创建一个多因子选股模型，包括数据处理、因子计算、回测评估</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>（AI 会生成 task_plan.md、创建文件结构、跟踪进度）</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="其他实用-skills" class="level6" data-number="3.3.4.3.1.3">
+<h6 data-number="3.3.4.3.1.3" class="anchored" data-anchor-id="其他实用-skills"><span class="header-section-number">3.3.4.3.1.3</span> 3. <strong>其他实用 Skills</strong></h6>
+<ul>
+<li><strong>ui-ux-pro-max</strong> - 生成精美的 UI 界面</li>
+<li><strong>test-driven-development</strong> - 强制测试先行</li>
+<li><strong>git-worktrees</strong> - 使用 Git worktree 进行并行开发</li>
+<li><strong>code-review</strong> - 系统性的代码审查流程</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="如何安装-skills" class="level4" data-number="3.3.4.4">
+<h4 data-number="3.3.4.4" class="anchored" data-anchor-id="如何安装-skills"><span class="header-section-number">3.3.4.4</span> 如何安装 Skills？</h4>
+<p><strong>方法 1：从 GitHub 安装（推荐）</strong></p>
+<ol type="1">
+<li>打开 Cursor Settings (<code>Cmd/Ctrl + ,</code>)</li>
+<li>导航到 Context → Rules → Project Rules</li>
+<li>点击 “Add Rule” → “Remote Rule (Github)”</li>
+<li>输入 Skill 的 GitHub 仓库 URL</li>
+<li>确认安装</li>
+</ol>
+<p><strong>方法 2：手动安装</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 项目级（仅当前项目）</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> .cursor/skills</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .cursor/skills</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>skill-repo-url<span class="op">&gt;</span> <span class="op">&lt;</span>skill-name<span class="op">&gt;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 全局级（所有项目）</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/.cursor/skills</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/.cursor/skills</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>skill-repo-url<span class="op">&gt;</span> <span class="op">&lt;</span>skill-name<span class="op">&gt;</span></span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>方法 3：创建自定义 Skill</strong></p>
+<p>如果你有重复性的工作流程，可以创建自定义 Skill：</p>
+<ol type="1">
+<li><p>在项目根目录创建 <code>.cursor/skills/deploy-app/SKILL.md</code></p></li>
+<li><p>用 YAML frontmatter 定义元数据：</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="an">name:</span><span class="co"> deploy-app</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> 部署应用到测试或生产环境</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Deploy App</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## When to Use</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>当用户提到"部署"、"发布"、"上线"时使用此技能</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>运行 <span class="in">`scripts/deploy.sh &lt;environment&gt;`</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>验证部署状态</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>更新部署日志</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>在对话中输入 <code>/</code> 可以看到并调用自定义 Skills</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+注记
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Skills 的自动激活</strong></p>
+<p>安装后，AI 会根据你的提问自动判断是否需要使用某个 Skill。你也可以手动激活：</p>
+<ul>
+<li>在对话框输入 <code>/</code> 查看所有可用 Skills</li>
+<li>选择一个 Skill 后，AI 会按照其指引完成任务</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="mcp-和-skills-的配置文件位置" class="level4" data-number="3.3.4.5">
+<h4 data-number="3.3.4.5" class="anchored" data-anchor-id="mcp-和-skills-的配置文件位置"><span class="header-section-number">3.3.4.5</span> MCP 和 Skills 的配置文件位置</h4>
+<pre><code>你的项目/
+├── .cursor/
+│   ├── mcp.json          # MCP 服务器配置（项目级）
+│   └── skills/           # 项目级 Skills
+│       ├── deploy-app/
+│       └── custom-skill/
+│
+~/.cursor/                 # 用户主目录（全局配置）
+├── mcp.json              # 全局 MCP 配置
+└── skills/               # 全局 Skills（所有项目可用）
+    ├── superpowers/
+    └── planning-with-files/</code></pre>
+</section>
+<section id="学习资源" class="level4" data-number="3.3.4.6">
+<h4 data-number="3.3.4.6" class="anchored" data-anchor-id="学习资源"><span class="header-section-number">3.3.4.6</span> 学习资源</h4>
+<ul>
+<li><strong>MCP 官方文档</strong>: <a href="https://modelcontextprotocol.io">https://modelcontextprotocol.io</a></li>
+<li><strong>Cursor Skills 文档</strong>: <a href="https://cursor.com/docs/context/skills">https://cursor.com/docs/context/skills</a></li>
+<li><strong>MCP Servers 列表</strong>: <a href="https://github.com/modelcontextprotocol/servers">https://github.com/modelcontextprotocol/servers</a></li>
+<li><strong>Superpowers Skills</strong>: <a href="https://github.com/cursor-plugins/superpowers">https://github.com/cursor-plugins/superpowers</a></li>
+</ul>
 </section>
 </section>
 </section>
 <section id="实战演示一个完整的工作流" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="实战演示一个完整的工作流"><span class="header-section-number">3.4</span> 实战演示：一个完整的工作流</h2>
-<p>让我们通过一个真实案例展示如何使用Coding Agent完成研究任务：</p>
+<p>让我们通过一个真实案例展示如何使用 Cursor Agent 完成研究任务：</p>
 <section id="任务构建基于bert的财报情绪分析模型" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="任务构建基于bert的财报情绪分析模型"><span class="header-section-number">3.4.1</span> 任务：构建基于BERT的财报情绪分析模型</h3>
-<p><strong>Step 1: 项目规划</strong></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>@Composer 创建一个金融文本情绪分析项目：</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>使用FinBERT模型</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>数据：10-K年报的MD&amp;A部分</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>评估：情绪得分与未来收益率的IC</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>需要处理：文本清洗、长文本截断、时间对齐</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Step 2: 数据处理</strong></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>@data/raw/ 中有原始10-K的txt文件</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>请创建 preprocessing.py：</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>提取MD&amp;A section（用正则匹配section标题）</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>清洗HTML标签和特殊字符</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>按512 token切分长文本</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>保存为 processed/mda_cleaned.csv</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>推荐做法</strong>：先在 Plan 模式（<code>Shift+Tab</code>）中让 AI 生成完整计划，审阅后再开始执行。</p>
+</div>
+</div>
+<p><strong>Step 1: 项目规划</strong>（使用 Plan 模式）</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>创建一个金融文本情绪分析项目：</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>使用 FinBERT 模型</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>数据：10-K 年报的 MD&amp;A 部分</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>评估：情绪得分与未来收益率的 IC</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>需要处理：文本清洗、长文本截断、时间对齐</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>请先设计项目结构和数据流</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Step 2: 数据处理</strong>（切换到 Agent 模式执行）</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>@data/raw/ 中有原始 10-K 的 txt 文件</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>请创建 preprocessing.py：</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>提取 MD&amp;A section（用正则匹配 section 标题）</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>清洗 HTML 标签和特殊字符</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>按 512 token 切分长文本</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>保存为 processed/mda_cleaned.csv</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Step 3: 模型构建</strong></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>@preprocessing.py </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>基于清洗后的数据，创建 model.py：</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>加载 FinBERT（yiyanghkust/finbert-tone）</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>批量推理，获取 positive/negative/neutral 概率</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>计算复合情绪得分：pos - neg</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>考虑GPU内存限制，使用batch_size=16</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>@preprocessing.py </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>基于清洗后的数据，创建 model.py：</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>加载 FinBERT（yiyanghkust/finbert-tone）</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>批量推理，获取 positive/negative/neutral 概率</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>计算复合情绪得分：pos - neg</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>考虑 GPU 内存限制，使用 batch_size=16</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Step 4: 评估与可视化</strong></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>@model.py @data/returns.csv</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>创建 evaluation.py：</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>将情绪得分与未来1个月收益率对齐（注意披露日期滞后）</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>计算时序IC（按年度分组）</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>生成可视化：IC时间序列图、分位数组合收益图</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>输出结果到 results/evaluation_report.html</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>@model.py @data/returns.csv</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>创建 evaluation.py：</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>将情绪得分与未来1个月收益率对齐（注意披露日期滞后）</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>计算时序 IC（按年度分组）</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>生成可视化：IC 时间序列图、分位数组合收益图</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>输出结果到 results/evaluation_report.html</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Step 5: 稳健性检验</strong></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>@evaluation.py</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>增加稳健性分析：</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>不同情绪指标（pos-neg vs pos/(pos+neg)）</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>行业中性化（去除行业平均情绪）</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>控制公司规模和账面市值比</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>样本外测试（2020年后的数据）</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>通过这种方式，AI可以在10-20分钟内完成一个初始版本的完整pipeline，而你只需专注于：</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>@evaluation.py</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>增加稳健性分析：</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>不同情绪指标（pos-neg vs pos/(pos+neg)）</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>行业中性化（去除行业平均情绪）</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>控制公司规模和账面市值比</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>样本外测试（2020年后的数据）</span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>通过这种方式，AI 可以在 10-20 分钟内完成一个初始版本的完整 pipeline，而你只需专注于：</p>
 <ul>
 <li><strong>研究设计</strong>：如何定义情绪？如何对齐时间？</li>
 <li><strong>质量验收</strong>：检查每个步骤的输出是否合理</li>
-<li><strong>结果解释</strong>：IC=0.05是否有经济意义？</li>
+<li><strong>结果解释</strong>：IC=0.05 是否有经济意义？</li>
 </ul>
 </section>
 </section>
@@ -526,11 +777,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="推荐学习材料" class="level3" data-number="3.5.2">
 <h3 data-number="3.5.2" class="anchored" data-anchor-id="推荐学习材料"><span class="header-section-number">3.5.2</span> 推荐学习材料</h3>
-<ul>
-<li><strong>Cursor官方文档</strong>: <a href="https://docs.cursor.sh">https://docs.cursor.sh</a></li>
-<li><strong>Claude API文档</strong>: <a href="https://docs.anthropic.com">https://docs.anthropic.com</a></li>
-<li><strong>FinBERT等金融NLP模型</strong>: <a href="https://huggingface.co/models">Hugging Face Model Hub</a></li>
-</ul>
+<p><strong>Cursor 相关：</strong> - <strong>Cursor 官方文档</strong>: <a href="https://cursor.com/docs">https://cursor.com/docs</a> - <strong>Cursor Skills 文档</strong>: <a href="https://cursor.com/docs/context/skills">https://cursor.com/docs/context/skills</a> - <strong>MCP 官方网站</strong>: <a href="https://modelcontextprotocol.io">https://modelcontextprotocol.io</a> - <strong>Superpowers Skills</strong>: <a href="https://github.com/cursor-plugins/superpowers">https://github.com/cursor-plugins/superpowers</a></p>
+<p><strong>金融 AI 相关：</strong> - <strong>FinBERT 等金融 NLP 模型</strong>: <a href="https://huggingface.co/models">Hugging Face Model Hub</a> - <strong>机器学习基础</strong>: Hastie et al.&nbsp;(2009) <em>The Elements of Statistical Learning</em> - <strong>时序预测方法</strong>: Hyndman &amp; Athanasopoulos (2021) <em>Forecasting: Principles and Practice</em></p>
 </section>
 <section id="课程要求" class="level3" data-number="3.5.3">
 <h3 data-number="3.5.3" class="anchored" data-anchor-id="课程要求"><span class="header-section-number">3.5.3</span> 课程要求</h3>
@@ -551,12 +799,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <p>本周行动清单</p>
-<ol type="1">
-<li><label><input type="checkbox">安装Cursor IDE并完成基础配置</label></li>
-<li><label><input type="checkbox">尝试使用Agent模式完成一个简单任务（如创建Python项目模板）</label></li>
-<li><label><input type="checkbox">阅读第1周必读材料：Hastie et al.&nbsp;(2009) Chapters 3, 7</label></li>
-<li><label><input type="checkbox">思考：你的研究方向如何与AI方法结合？</label></li>
-</ol>
+<p><strong>软件配置：</strong> 1. [ ] 安装 Cursor IDE 并完成基础配置 2. [ ] 安装至少一个 MCP Server（推荐 Context7） 3. [ ] 安装 Superpowers Skills</p>
+<p><strong>动手实践：</strong> 4. [ ] 尝试使用 Agent 模式完成一个简单任务（如创建 Python 项目模板） 5. [ ] 尝试使用 Plan 模式（<code>Shift+Tab</code>）规划一个小项目 6. [ ] 使用 Context7 让 AI 查询最新的 Python 库文档</p>
+<p><strong>理论学习：</strong> 7. [ ] 阅读第1周必读材料：Hastie et al.&nbsp;(2009) Chapters 3, 7 8. [ ] 思考：你的研究方向如何与 AI 方法结合？</p>
+<p><strong>参考安装命令：</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装 Playwright MCP（可选，用于网页数据抓取）</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @playwright/mcp-server</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装 Superpowers Skills</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 在 Cursor 中：Settings → Rules → Add Remote Rule</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 输入：https://github.com/cursor-plugins/superpowers</span></span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>接下来，我们将在<strong>第1讲</strong>深入学习机器学习的基础理论，建立i.i.d.场景下的完整认知框架。这是后续所有应用的理论基础，务必牢固掌握。</p>
@@ -1051,313 +1303,574 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">源代码</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "课程简介与预备知识"</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "AI时代的金融研究范式"</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 课程概览与学习目标</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>本课程旨在帮助研究生系统掌握将**人工智能方法**应用于**金融实证研究**的完整工作流程。我们不仅关注技术工具的使用，更强调：</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**严谨的科学方法论**：如何在金融场景中正确设计、评估和解释AI模型</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**可复现的研究规范**：从数据处理到结果报告的完整证据链</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**经济意义的检验**：确保统计显著性转化为实际的经济价值</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**前沿技术的应用**：文本分析、多模态学习等现代AI方法在金融中的实践</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### 课程结构</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>本课程共8周，分为两个阶段：</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>**第一阶段（第1-4周）：教师精讲**</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**第1周**：机器学习基础——i.i.d.场景下的认知框架</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**第2周**：资产定价中的ML应用——时序评估与回测规范</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**第3周**：金融文本分析——从原始文本到量化信号</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**第4周**：多模态模型——图像/音频/视频在金融中的应用</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>**第二阶段（第5-8周）：学生研究汇报与研讨**</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>分组汇报研究计划，课堂讨论与反馈</span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>第5周前有**课前测验**（覆盖第1-4周核心概念）</span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 日常使用AI的思维模式</span></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### "老板与员工"的协作框架</span></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>在AI辅助的研究工作中，你需要建立一种**"老板委派任务、验收员工成果"**的思维模式：</span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>老板的职责（你的角色）</span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**明确目标**：清晰定义研究问题、数据范围、评估标准</span>
-<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**拆解任务**：将复杂问题分解为可执行的具体步骤</span>
-<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**质量把关**：验收AI生成的代码、分析结果，确保符合学术规范</span>
-<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**决策判断**：在多个技术方案间权衡，做出关键的研究决策</span>
-<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>员工的角色（AI工具）</span>
-<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>高效执行具体任务（数据清洗、模型训练、代码生成等）</span>
-<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>提供技术建议和多种实现方案</span>
-<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>快速迭代和试错</span>
-<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**但不能替代你的领域知识、研究判断和责任担当**</span>
-<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### 验收工作的关键原则</span></span>
-<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>无论AI生成的代码看起来多么完美，你都必须做到：</span>
-<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**理解逻辑**：确保你理解每段代码的功能和数学原理</span>
-<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**检查输出**：验证数据维度、统计量、可视化结果是否合理</span>
-<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**测试边界**：用极端情况测试代码（如空数据、缺失值、异常值）</span>
-<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**溯源数据**：追溯数据来源、时间对齐、变量定义</span>
-<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**可复现性**：确保设置随机种子、记录环境、版本锁定</span>
-<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
-<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>学术诚信提醒</span>
-<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>AI工具可以辅助你**完成任务**，但不能替代你**理解和负责**。所有提交的研究成果，你都必须能够独立解释其原理、假设和局限性。</span>
-<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## AI辅助编程：Coding Agent模式</span></span>
-<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### 为什么需要Coding Agent？</span></span>
-<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>传统的"复制-粘贴式"AI辅助编程存在诸多问题：</span>
-<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>代码片段缺乏上下文，难以整合到项目中</span>
-<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>频繁在IDE和浏览器间切换，效率低下</span>
-<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>难以处理多文件、跨模块的复杂任务</span>
-<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>**Coding Agent模式**让AI直接在你的开发环境中工作，理解项目全貌，自动完成文件读写、代码编辑、终端操作等任务。</span>
-<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### 推荐工具链：VSCode + Cursor + Claude</span></span>
-<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>我们推荐以下工具组合：</span>
-<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Cursor IDE**（基于VSCode）</span>
-<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>内置Claude Sonnet 4.5模型（目前最强的代码生成模型）</span>
-<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>支持**Agent模式**：AI可以自主读取、编辑、创建文件</span>
-<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>智能上下文管理（自动索引项目代码）</span>
-<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Claude Code**（通过Cursor调用）</span>
-<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>长上下文窗口（200k tokens）：可理解大型代码库</span>
-<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>强大的代码理解和生成能力</span>
-<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>支持多轮对话和迭代优化</span>
-<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**GLM-4（可选的补充）**</span>
-<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>国产大模型，适合中文文档处理</span>
-<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>API成本较低，适合批量任务</span>
-<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>可通过OpenAI兼容接口在Cursor中配置</span>
-<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a><span class="fu">### 核心Skills：让AI成为高效助手</span></span>
-<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Skill 1: **Planning with Files**</span></span>
-<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a>在开始编码前，让AI帮你规划项目结构：</span>
-<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a>@Composer 我需要构建一个股票收益率预测项目，请帮我：</span>
-<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>设计项目文件夹结构</span>
-<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>列出需要的主要模块和文件</span>
-<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>说明数据流和依赖关系</span>
-<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a><span class="in">AI会生成类似这样的规划：</span></span>
-<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a>project/</span>
-<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a>├── data/</span>
-<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a>│   ├── raw/              # 原始数据（只读）</span>
-<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a>│   ├── processed/        # 处理后的数据</span>
-<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a>│   └── data_loader.py</span>
-<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a>├── features/</span>
-<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a>│   ├── technical.py      # 技术指标</span>
-<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a>│   └── fundamental.py    # 基本面特征</span>
-<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a>├── models/</span>
-<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a>│   ├── baseline.py</span>
-<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a>│   └── ml_models.py</span>
-<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a>├── evaluation/</span>
-<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a>│   ├── metrics.py</span>
-<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a>│   └── backtest.py</span>
-<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a>├── notebooks/</span>
-<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a>│   └── exploratory.ipynb</span>
-<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a>├── config.yaml           # 配置文件</span>
-<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a>├── requirements.txt</span>
-<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a>└── README.md</span>
-<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a><span class="in">#### Skill 2: **Superpowers模式**</span></span>
-<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a><span class="in">启用"Superpowers"（超能力模式）让AI拥有更大的自主权：</span></span>
-<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a><span class="in">- **自动文件导航**：AI可以主动搜索和打开相关文件</span></span>
-<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a><span class="in">- **批量编辑**：同时修改多个文件中的相关代码</span></span>
-<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a><span class="in">- **终端执行**：运行测试、安装依赖、查看结果</span></span>
-<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a><span class="in">- **错误修复**：自动读取报错信息并修复</span></span>
-<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-tip}</span></span>
-<span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a><span class="in">如何开启Superpowers</span></span>
-<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a><span class="in">在Cursor中使用`Ctrl+Shift+P`（Mac: `Cmd+Shift+P`），输入"Superpowers"切换模式。</span></span>
-<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a><span class="in">或者在对话中明确要求：</span></span>
-<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a>@Composer 请使用superpowers模式帮我重构这个模块，</span>
-<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a>自动处理所有相关的导入和函数调用更新</span>
-<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a><span class="in">#### Skill 3: **Context Management**（上下文管理）</span></span>
-<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a><span class="in">有效管理AI的上下文窗口，确保它关注正确的信息：</span></span>
-<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a><span class="in">**明确引用文件：**</span></span>
-<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a><span class="in">@data_loader.py @config.yaml </span></span>
-<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a><span class="in">请根据配置文件中的参数更新数据加载逻辑</span></span>
-<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a>**指定代码范围：**</span>
-<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a>在 models/ml_models.py 的 50-100 行，</span>
-<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a>优化特征选择逻辑，避免数据泄露</span>
-<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a>**排除无关文件：**</span>
-<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>@Composer 重构评估模块，但不要修改 data/ 文件夹</span>
-<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Skill 4: **Iterative Refinement**（迭代优化）</span></span>
-<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a>将复杂任务分解为多轮对话：</span>
-<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a>**第一轮：** 生成初始版本</span>
-<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a>实现一个滚动窗口回测函数，</span>
-<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a>输入是预测值和真实值的DataFrame</span>
-<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a><span class="in">**第二轮：** 增加功能</span></span>
-<span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a>在上面的回测函数中添加交易成本和延迟执行的考虑</span>
-<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a><span class="in">**第三轮：** 优化和测试</span></span>
-<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a>添加单元测试，确保边界情况（如窗口小于5期）不会报错</span>
-<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a><span class="in">#### Skill 5: **Problem-Solving Workflow**（问题解决流程）</span></span>
-<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a><span class="in">遇到错误时，让AI系统性地诊断和修复：</span></span>
-<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-202"><a href="#cb16-202" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a><span class="in">@Composer 运行 backtest.py 时出现 KeyError: 'returns'</span></span>
-<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-205"><a href="#cb16-205" aria-hidden="true" tabindex="-1"></a><span class="in">请按以下步骤调查：</span></span>
-<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a><span class="in">1. 检查 data_loader.py 返回的列名</span></span>
-<span id="cb16-207"><a href="#cb16-207" aria-hidden="true" tabindex="-1"></a><span class="in">2. 确认 backtest.py 中对列名的假设</span></span>
-<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a><span class="in">3. 修复不一致，并添加输入验证</span></span>
-<span id="cb16-209"><a href="#cb16-209" aria-hidden="true" tabindex="-1"></a><span class="in">4. 运行测试确认修复有效</span></span>
-<span id="cb16-210"><a href="#cb16-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-212"><a href="#cb16-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## 实战演示：一个完整的工作流</span></span>
-<span id="cb16-213"><a href="#cb16-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-214"><a href="#cb16-214" aria-hidden="true" tabindex="-1"></a>让我们通过一个真实案例展示如何使用Coding Agent完成研究任务：</span>
-<span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a><span class="fu">### 任务：构建基于BERT的财报情绪分析模型</span></span>
-<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a>**Step 1: 项目规划**</span>
-<span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a>@Composer 创建一个金融文本情绪分析项目：</span>
-<span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>使用FinBERT模型</span>
-<span id="cb16-222"><a href="#cb16-222" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>数据：10-K年报的MD&amp;A部分</span>
-<span id="cb16-223"><a href="#cb16-223" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>评估：情绪得分与未来收益率的IC</span>
-<span id="cb16-224"><a href="#cb16-224" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>需要处理：文本清洗、长文本截断、时间对齐</span>
-<span id="cb16-225"><a href="#cb16-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a><span class="in">**Step 2: 数据处理**</span></span>
-<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a><span class="in">@data/raw/ 中有原始10-K的txt文件</span></span>
-<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a><span class="in">请创建 preprocessing.py：</span></span>
-<span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a><span class="in">1. 提取MD&amp;A section（用正则匹配section标题）</span></span>
-<span id="cb16-233"><a href="#cb16-233" aria-hidden="true" tabindex="-1"></a><span class="in">2. 清洗HTML标签和特殊字符</span></span>
-<span id="cb16-234"><a href="#cb16-234" aria-hidden="true" tabindex="-1"></a><span class="in">3. 按512 token切分长文本</span></span>
-<span id="cb16-235"><a href="#cb16-235" aria-hidden="true" tabindex="-1"></a><span class="in">4. 保存为 processed/mda_cleaned.csv</span></span>
-<span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-237"><a href="#cb16-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-238"><a href="#cb16-238" aria-hidden="true" tabindex="-1"></a>**Step 3: 模型构建**</span>
-<span id="cb16-239"><a href="#cb16-239" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb16-240"><a href="#cb16-240" aria-hidden="true" tabindex="-1"></a>@preprocessing.py </span>
-<span id="cb16-241"><a href="#cb16-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-242"><a href="#cb16-242" aria-hidden="true" tabindex="-1"></a>基于清洗后的数据，创建 model.py：</span>
-<span id="cb16-243"><a href="#cb16-243" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>加载 FinBERT（yiyanghkust/finbert-tone）</span>
-<span id="cb16-244"><a href="#cb16-244" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>批量推理，获取 positive/negative/neutral 概率</span>
-<span id="cb16-245"><a href="#cb16-245" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>计算复合情绪得分：pos - neg</span>
-<span id="cb16-246"><a href="#cb16-246" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>考虑GPU内存限制，使用batch_size=16</span>
-<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a><span class="in">**Step 4: 评估与可视化**</span></span>
-<span id="cb16-250"><a href="#cb16-250" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb16-251"><a href="#cb16-251" aria-hidden="true" tabindex="-1"></a><span class="in">@model.py @data/returns.csv</span></span>
-<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-253"><a href="#cb16-253" aria-hidden="true" tabindex="-1"></a><span class="in">创建 evaluation.py：</span></span>
-<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a><span class="in">1. 将情绪得分与未来1个月收益率对齐（注意披露日期滞后）</span></span>
-<span id="cb16-255"><a href="#cb16-255" aria-hidden="true" tabindex="-1"></a><span class="in">2. 计算时序IC（按年度分组）</span></span>
-<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a><span class="in">3. 生成可视化：IC时间序列图、分位数组合收益图</span></span>
-<span id="cb16-257"><a href="#cb16-257" aria-hidden="true" tabindex="-1"></a><span class="in">4. 输出结果到 results/evaluation_report.html</span></span>
-<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-260"><a href="#cb16-260" aria-hidden="true" tabindex="-1"></a>**Step 5: 稳健性检验**</span>
-<span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
-<span id="cb16-262"><a href="#cb16-262" aria-hidden="true" tabindex="-1"></a>@evaluation.py</span>
-<span id="cb16-263"><a href="#cb16-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-264"><a href="#cb16-264" aria-hidden="true" tabindex="-1"></a>增加稳健性分析：</span>
-<span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>不同情绪指标（pos-neg vs pos/(pos+neg)）</span>
-<span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>行业中性化（去除行业平均情绪）</span>
-<span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>控制公司规模和账面市值比</span>
-<span id="cb16-268"><a href="#cb16-268" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>样本外测试（2020年后的数据）</span>
-<span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-270"><a href="#cb16-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-271"><a href="#cb16-271" aria-hidden="true" tabindex="-1"></a><span class="in">通过这种方式，AI可以在10-20分钟内完成一个初始版本的完整pipeline，而你只需专注于：</span></span>
-<span id="cb16-272"><a href="#cb16-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-273"><a href="#cb16-273" aria-hidden="true" tabindex="-1"></a><span class="in">- **研究设计**：如何定义情绪？如何对齐时间？</span></span>
-<span id="cb16-274"><a href="#cb16-274" aria-hidden="true" tabindex="-1"></a><span class="in">- **质量验收**：检查每个步骤的输出是否合理</span></span>
-<span id="cb16-275"><a href="#cb16-275" aria-hidden="true" tabindex="-1"></a><span class="in">- **结果解释**：IC=0.05是否有经济意义？</span></span>
-<span id="cb16-276"><a href="#cb16-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-277"><a href="#cb16-277" aria-hidden="true" tabindex="-1"></a><span class="in">## 学习资源与后续安排</span></span>
-<span id="cb16-278"><a href="#cb16-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-279"><a href="#cb16-279" aria-hidden="true" tabindex="-1"></a><span class="in">### 必备软件安装</span></span>
-<span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a><span class="in">1. **Cursor IDE**: [https://cursor.sh](https://cursor.sh)（免费试用14天，之后$20/月）</span></span>
-<span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a><span class="in">2. **Python环境**: 建议使用Anaconda或Miniconda</span></span>
-<span id="cb16-283"><a href="#cb16-283" aria-hidden="true" tabindex="-1"></a><span class="in">3. **Git**: 用于版本控制和代码提交</span></span>
-<span id="cb16-284"><a href="#cb16-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-285"><a href="#cb16-285" aria-hidden="true" tabindex="-1"></a><span class="in">### 推荐学习材料</span></span>
-<span id="cb16-286"><a href="#cb16-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-287"><a href="#cb16-287" aria-hidden="true" tabindex="-1"></a><span class="in">- **Cursor官方文档**: [https://docs.cursor.sh](https://docs.cursor.sh)</span></span>
-<span id="cb16-288"><a href="#cb16-288" aria-hidden="true" tabindex="-1"></a><span class="in">- **Claude API文档**: [https://docs.anthropic.com](https://docs.anthropic.com)</span></span>
-<span id="cb16-289"><a href="#cb16-289" aria-hidden="true" tabindex="-1"></a><span class="in">- **FinBERT等金融NLP模型**: [Hugging Face Model Hub](https://huggingface.co/models)</span></span>
-<span id="cb16-290"><a href="#cb16-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-291"><a href="#cb16-291" aria-hidden="true" tabindex="-1"></a><span class="in">### 课程要求</span></span>
-<span id="cb16-292"><a href="#cb16-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-293"><a href="#cb16-293" aria-hidden="true" tabindex="-1"></a><span class="in">- 第1-4周课前需完成指定阅读（见讲义中每周的阅读清单）</span></span>
-<span id="cb16-294"><a href="#cb16-294" aria-hidden="true" tabindex="-1"></a><span class="in">- 第5周前完成**课前测验**（开卷，覆盖核心概念）</span></span>
-<span id="cb16-295"><a href="#cb16-295" aria-hidden="true" tabindex="-1"></a><span class="in">- 第5-8周每组准备**15分钟研究计划汇报**</span></span>
-<span id="cb16-296"><a href="#cb16-296" aria-hidden="true" tabindex="-1"></a><span class="in">- 期末提交**详细研究计划书**（Detailed Research Plan）</span></span>
-<span id="cb16-297"><a href="#cb16-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-298"><a href="#cb16-298" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-note}</span></span>
-<span id="cb16-299"><a href="#cb16-299" aria-hidden="true" tabindex="-1"></a><span class="in">本周行动清单</span></span>
-<span id="cb16-300"><a href="#cb16-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-301"><a href="#cb16-301" aria-hidden="true" tabindex="-1"></a><span class="in">1. [ ] 安装Cursor IDE并完成基础配置</span></span>
-<span id="cb16-302"><a href="#cb16-302" aria-hidden="true" tabindex="-1"></a><span class="in">2. [ ] 尝试使用Agent模式完成一个简单任务（如创建Python项目模板）</span></span>
-<span id="cb16-303"><a href="#cb16-303" aria-hidden="true" tabindex="-1"></a><span class="in">3. [ ] 阅读第1周必读材料：Hastie et al. (2009) Chapters 3, 7</span></span>
-<span id="cb16-304"><a href="#cb16-304" aria-hidden="true" tabindex="-1"></a><span class="in">4. [ ] 思考：你的研究方向如何与AI方法结合？</span></span>
-<span id="cb16-305"><a href="#cb16-305" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb16-306"><a href="#cb16-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-307"><a href="#cb16-307" aria-hidden="true" tabindex="-1"></a><span class="in">接下来，我们将在**第1讲**深入学习机器学习的基础理论，建立i.i.d.场景下的完整认知框架。这是后续所有应用的理论基础，务必牢固掌握。</span></span></code><button title="复制到剪贴板" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "课程简介与预备知识"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "AI时代的金融研究范式"</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 课程概览与学习目标</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>本课程旨在帮助研究生系统掌握将**人工智能方法**应用于**金融实证研究**的完整工作流程。我们不仅关注技术工具的使用，更强调：</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**严谨的科学方法论**：如何在金融场景中正确设计、评估和解释AI模型</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**可复现的研究规范**：从数据处理到结果报告的完整证据链</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**经济意义的检验**：确保统计显著性转化为实际的经济价值</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**前沿技术的应用**：文本分析、多模态学习等现代AI方法在金融中的实践</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### 课程结构</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>本课程共8周，分为两个阶段：</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>**第一阶段（第1-4周）：教师精讲**</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**第1周**：机器学习基础——i.i.d.场景下的认知框架</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**第2周**：资产定价中的ML应用——时序评估与回测规范</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**第3周**：金融文本分析——从原始文本到量化信号</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**第4周**：多模态模型——图像/音频/视频在金融中的应用</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>**第二阶段（第5-8周）：学生研究汇报与研讨**</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>分组汇报研究计划，课堂讨论与反馈</span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>第5周前有**课前测验**（覆盖第1-4周核心概念）</span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## 日常使用AI的思维模式</span></span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### "老板与员工"的协作框架</span></span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>在AI辅助的研究工作中，你需要建立一种**"老板委派任务、验收员工成果"**的思维模式：</span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>老板的职责（你的角色）</span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**明确目标**：清晰定义研究问题、数据范围、评估标准</span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**拆解任务**：将复杂问题分解为可执行的具体步骤</span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**质量把关**：验收AI生成的代码、分析结果，确保符合学术规范</span>
+<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**决策判断**：在多个技术方案间权衡，做出关键的研究决策</span>
+<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a>员工的角色（AI工具）</span>
+<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>高效执行具体任务（数据清洗、模型训练、代码生成等）</span>
+<span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>提供技术建议和多种实现方案</span>
+<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>快速迭代和试错</span>
+<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**但不能替代你的领域知识、研究判断和责任担当**</span>
+<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### 验收工作的关键原则</span></span>
+<span id="cb25-56"><a href="#cb25-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a>无论AI生成的代码看起来多么完美，你都必须做到：</span>
+<span id="cb25-58"><a href="#cb25-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**理解逻辑**：确保你理解每段代码的功能和数学原理</span>
+<span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**检查输出**：验证数据维度、统计量、可视化结果是否合理</span>
+<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**测试边界**：用极端情况测试代码（如空数据、缺失值、异常值）</span>
+<span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**溯源数据**：追溯数据来源、时间对齐、变量定义</span>
+<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**可复现性**：确保设置随机种子、记录环境、版本锁定</span>
+<span id="cb25-64"><a href="#cb25-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb25-66"><a href="#cb25-66" aria-hidden="true" tabindex="-1"></a>学术诚信提醒</span>
+<span id="cb25-67"><a href="#cb25-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-68"><a href="#cb25-68" aria-hidden="true" tabindex="-1"></a>AI工具可以辅助你**完成任务**，但不能替代你**理解和负责**。所有提交的研究成果，你都必须能够独立解释其原理、假设和局限性。</span>
+<span id="cb25-69"><a href="#cb25-69" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-70"><a href="#cb25-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-71"><a href="#cb25-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## AI辅助编程：Cursor Agent 模式</span></span>
+<span id="cb25-72"><a href="#cb25-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-73"><a href="#cb25-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### 为什么需要 Coding Agent？</span></span>
+<span id="cb25-74"><a href="#cb25-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-75"><a href="#cb25-75" aria-hidden="true" tabindex="-1"></a>传统的"复制-粘贴式"AI辅助编程存在诸多问题：</span>
+<span id="cb25-76"><a href="#cb25-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>代码片段缺乏上下文，难以整合到项目中</span>
+<span id="cb25-77"><a href="#cb25-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>频繁在IDE和浏览器间切换，效率低下</span>
+<span id="cb25-78"><a href="#cb25-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>难以处理多文件、跨模块的复杂任务</span>
+<span id="cb25-79"><a href="#cb25-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-80"><a href="#cb25-80" aria-hidden="true" tabindex="-1"></a>**Cursor Agent 模式**让AI直接在你的开发环境中工作，理解项目全貌，自动完成文件读写、代码编辑、终端操作等任务。</span>
+<span id="cb25-81"><a href="#cb25-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-82"><a href="#cb25-82" aria-hidden="true" tabindex="-1"></a><span class="fu">### 推荐工具：Cursor IDE</span></span>
+<span id="cb25-83"><a href="#cb25-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-84"><a href="#cb25-84" aria-hidden="true" tabindex="-1"></a>我们推荐使用 **Cursor IDE**，它提供：</span>
+<span id="cb25-85"><a href="#cb25-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-86"><a href="#cb25-86" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**内置 Claude Sonnet 4.5 模型**</span>
+<span id="cb25-87"><a href="#cb25-87" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>目前最强的代码生成模型</span>
+<span id="cb25-88"><a href="#cb25-88" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>长上下文窗口（200k tokens）：可理解大型代码库</span>
+<span id="cb25-89"><a href="#cb25-89" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>支持多轮对话和迭代优化</span>
+<span id="cb25-90"><a href="#cb25-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-91"><a href="#cb25-91" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Agent 模式**（默认模式）</span>
+<span id="cb25-92"><a href="#cb25-92" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>AI可以自主读取、编辑、创建文件</span>
+<span id="cb25-93"><a href="#cb25-93" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>运行终端命令、安装依赖</span>
+<span id="cb25-94"><a href="#cb25-94" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>自动修复错误</span>
+<span id="cb25-95"><a href="#cb25-95" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>批量编辑多个文件</span>
+<span id="cb25-96"><a href="#cb25-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-97"><a href="#cb25-97" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Plan 模式**（规划优先模式）</span>
+<span id="cb25-98"><a href="#cb25-98" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>按 <span class="in">`Shift+Tab`</span> 切换到 Plan 模式</span>
+<span id="cb25-99"><a href="#cb25-99" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>AI会先研究代码库，询问澄清性问题</span>
+<span id="cb25-100"><a href="#cb25-100" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>生成详细实施计划，等待你批准后再开始编码</span>
+<span id="cb25-101"><a href="#cb25-101" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>计划可保存到 <span class="in">`.cursor/plans/`</span> 供团队参考</span>
+<span id="cb25-102"><a href="#cb25-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-103"><a href="#cb25-103" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb25-104"><a href="#cb25-104" aria-hidden="true" tabindex="-1"></a>**何时使用 Plan 模式？**</span>
+<span id="cb25-105"><a href="#cb25-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-106"><a href="#cb25-106" aria-hidden="true" tabindex="-1"></a>对于复杂任务（需要修改多个文件、涉及架构决策、需求不明确），建议先用 Plan 模式：</span>
+<span id="cb25-107"><a href="#cb25-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-108"><a href="#cb25-108" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>按 <span class="in">`Shift+Tab`</span> 激活 Plan 模式</span>
+<span id="cb25-109"><a href="#cb25-109" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>描述你的需求："添加用户认证功能"</span>
+<span id="cb25-110"><a href="#cb25-110" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>AI会提出问题并生成实施计划</span>
+<span id="cb25-111"><a href="#cb25-111" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>审阅计划，点击"开始构建"后切换到 Agent 模式执行</span>
+<span id="cb25-112"><a href="#cb25-112" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-113"><a href="#cb25-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-114"><a href="#cb25-114" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cursor 使用技巧</span></span>
+<span id="cb25-115"><a href="#cb25-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-116"><a href="#cb25-116" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 技巧 1: **用 @ 引用上下文**</span></span>
+<span id="cb25-117"><a href="#cb25-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-118"><a href="#cb25-118" aria-hidden="true" tabindex="-1"></a>Cursor 使用 <span class="in">`@`</span> 符号让你精确控制 AI 可以看到的上下文：</span>
+<span id="cb25-119"><a href="#cb25-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-120"><a href="#cb25-120" aria-hidden="true" tabindex="-1"></a>**引用特定文件：**</span>
+<span id="cb25-121"><a href="#cb25-121" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-122"><a href="#cb25-122" aria-hidden="true" tabindex="-1"></a>@data_loader.py @config.yaml </span>
+<span id="cb25-123"><a href="#cb25-123" aria-hidden="true" tabindex="-1"></a>请根据配置文件中的参数更新数据加载逻辑</span>
+<span id="cb25-124"><a href="#cb25-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-125"><a href="#cb25-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-126"><a href="#cb25-126" aria-hidden="true" tabindex="-1"></a>**引用整个文件夹：**</span>
+<span id="cb25-127"><a href="#cb25-127" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-128"><a href="#cb25-128" aria-hidden="true" tabindex="-1"></a>@features/ 检查所有特征工程模块，</span>
+<span id="cb25-129"><a href="#cb25-129" aria-hidden="true" tabindex="-1"></a>确保它们都正确处理了缺失值</span>
+<span id="cb25-130"><a href="#cb25-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-131"><a href="#cb25-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-132"><a href="#cb25-132" aria-hidden="true" tabindex="-1"></a>**引用网页内容（用于查询文档）：**</span>
+<span id="cb25-133"><a href="#cb25-133" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-134"><a href="#cb25-134" aria-hidden="true" tabindex="-1"></a>@https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html</span>
+<span id="cb25-135"><a href="#cb25-135" aria-hidden="true" tabindex="-1"></a>用 sklearn 的 RandomForest 实现一个基准模型</span>
+<span id="cb25-136"><a href="#cb25-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-137"><a href="#cb25-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-138"><a href="#cb25-138" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 技巧 2: **先规划再执行**</span></span>
+<span id="cb25-139"><a href="#cb25-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-140"><a href="#cb25-140" aria-hidden="true" tabindex="-1"></a>在开始编码前，让AI帮你规划项目结构（使用 Plan 模式）：</span>
+<span id="cb25-141"><a href="#cb25-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-142"><a href="#cb25-142" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-143"><a href="#cb25-143" aria-hidden="true" tabindex="-1"></a>我需要构建一个股票收益率预测项目，包括：</span>
+<span id="cb25-144"><a href="#cb25-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>数据加载和清洗</span>
+<span id="cb25-145"><a href="#cb25-145" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>特征工程（技术指标 + 基本面）</span>
+<span id="cb25-146"><a href="#cb25-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>模型训练和回测</span>
+<span id="cb25-147"><a href="#cb25-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>结果可视化</span>
+<span id="cb25-148"><a href="#cb25-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-149"><a href="#cb25-149" aria-hidden="true" tabindex="-1"></a>请帮我设计项目结构和实施步骤</span>
+<span id="cb25-150"><a href="#cb25-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-151"><a href="#cb25-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-152"><a href="#cb25-152" aria-hidden="true" tabindex="-1"></a>AI会生成类似这样的规划：</span>
+<span id="cb25-153"><a href="#cb25-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-154"><a href="#cb25-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-155"><a href="#cb25-155" aria-hidden="true" tabindex="-1"></a><span class="in">project/</span></span>
+<span id="cb25-156"><a href="#cb25-156" aria-hidden="true" tabindex="-1"></a><span class="in">├── data/</span></span>
+<span id="cb25-157"><a href="#cb25-157" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── raw/              # 原始数据（只读）</span></span>
+<span id="cb25-158"><a href="#cb25-158" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── processed/        # 处理后的数据</span></span>
+<span id="cb25-159"><a href="#cb25-159" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── loader.py</span></span>
+<span id="cb25-160"><a href="#cb25-160" aria-hidden="true" tabindex="-1"></a><span class="in">├── features/</span></span>
+<span id="cb25-161"><a href="#cb25-161" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── technical.py      # 技术指标</span></span>
+<span id="cb25-162"><a href="#cb25-162" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── fundamental.py    # 基本面特征</span></span>
+<span id="cb25-163"><a href="#cb25-163" aria-hidden="true" tabindex="-1"></a><span class="in">├── models/</span></span>
+<span id="cb25-164"><a href="#cb25-164" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── baseline.py</span></span>
+<span id="cb25-165"><a href="#cb25-165" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── ml_models.py</span></span>
+<span id="cb25-166"><a href="#cb25-166" aria-hidden="true" tabindex="-1"></a><span class="in">├── evaluation/</span></span>
+<span id="cb25-167"><a href="#cb25-167" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── metrics.py</span></span>
+<span id="cb25-168"><a href="#cb25-168" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── backtest.py</span></span>
+<span id="cb25-169"><a href="#cb25-169" aria-hidden="true" tabindex="-1"></a><span class="in">├── notebooks/</span></span>
+<span id="cb25-170"><a href="#cb25-170" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── exploratory.ipynb</span></span>
+<span id="cb25-171"><a href="#cb25-171" aria-hidden="true" tabindex="-1"></a><span class="in">├── config.yaml           # 配置文件</span></span>
+<span id="cb25-172"><a href="#cb25-172" aria-hidden="true" tabindex="-1"></a><span class="in">├── requirements.txt</span></span>
+<span id="cb25-173"><a href="#cb25-173" aria-hidden="true" tabindex="-1"></a><span class="in">└── README.md</span></span>
+<span id="cb25-174"><a href="#cb25-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-175"><a href="#cb25-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-176"><a href="#cb25-176" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 技巧 3: **迭代式开发**</span></span>
+<span id="cb25-177"><a href="#cb25-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-178"><a href="#cb25-178" aria-hidden="true" tabindex="-1"></a>将复杂任务分解为多轮对话，逐步优化：</span>
+<span id="cb25-179"><a href="#cb25-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-180"><a href="#cb25-180" aria-hidden="true" tabindex="-1"></a>**第一轮：** 生成初始版本</span>
+<span id="cb25-181"><a href="#cb25-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-182"><a href="#cb25-182" aria-hidden="true" tabindex="-1"></a><span class="in">实现一个滚动窗口回测函数，</span></span>
+<span id="cb25-183"><a href="#cb25-183" aria-hidden="true" tabindex="-1"></a><span class="in">输入是预测值和真实值的DataFrame</span></span>
+<span id="cb25-184"><a href="#cb25-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-185"><a href="#cb25-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-186"><a href="#cb25-186" aria-hidden="true" tabindex="-1"></a>**第二轮：** 增加功能</span>
+<span id="cb25-187"><a href="#cb25-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-188"><a href="#cb25-188" aria-hidden="true" tabindex="-1"></a><span class="in">在上面的回测函数中添加交易成本和延迟执行的考虑</span></span>
+<span id="cb25-189"><a href="#cb25-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-190"><a href="#cb25-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-191"><a href="#cb25-191" aria-hidden="true" tabindex="-1"></a>**第三轮：** 优化和测试</span>
+<span id="cb25-192"><a href="#cb25-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-193"><a href="#cb25-193" aria-hidden="true" tabindex="-1"></a><span class="in">添加单元测试，确保边界情况（如窗口小于5期）不会报错</span></span>
+<span id="cb25-194"><a href="#cb25-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-195"><a href="#cb25-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-196"><a href="#cb25-196" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 技巧 4: **系统化的错误调试**</span></span>
+<span id="cb25-197"><a href="#cb25-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-198"><a href="#cb25-198" aria-hidden="true" tabindex="-1"></a>遇到错误时，提供完整上下文帮助AI诊断：</span>
+<span id="cb25-199"><a href="#cb25-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-200"><a href="#cb25-200" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-201"><a href="#cb25-201" aria-hidden="true" tabindex="-1"></a>运行 backtest.py 时出现 KeyError: 'returns'</span>
+<span id="cb25-202"><a href="#cb25-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-203"><a href="#cb25-203" aria-hidden="true" tabindex="-1"></a>相关文件：@data_loader.py @backtest.py</span>
+<span id="cb25-204"><a href="#cb25-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-205"><a href="#cb25-205" aria-hidden="true" tabindex="-1"></a>请按以下步骤调查：</span>
+<span id="cb25-206"><a href="#cb25-206" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>检查 data_loader.py 返回的列名</span>
+<span id="cb25-207"><a href="#cb25-207" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>确认 backtest.py 中对列名的假设</span>
+<span id="cb25-208"><a href="#cb25-208" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>修复不一致，并添加输入验证</span>
+<span id="cb25-209"><a href="#cb25-209" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>运行测试确认修复有效</span>
+<span id="cb25-210"><a href="#cb25-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-211"><a href="#cb25-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-212"><a href="#cb25-212" aria-hidden="true" tabindex="-1"></a><span class="in">#### 技巧 5: **控制 Agent 的自主程度**</span></span>
+<span id="cb25-213"><a href="#cb25-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-214"><a href="#cb25-214" aria-hidden="true" tabindex="-1"></a><span class="in">在 Cursor 设置中可以配置 Agent 的行为（Settings → Cursor Settings → Agents → Auto-Run）：</span></span>
+<span id="cb25-215"><a href="#cb25-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-216"><a href="#cb25-216" aria-hidden="true" tabindex="-1"></a><span class="in">- **Run in Sandbox**（推荐）：在沙箱中自动运行命令，安全且高效</span></span>
+<span id="cb25-217"><a href="#cb25-217" aria-hidden="true" tabindex="-1"></a><span class="in">- **Ask Every Time**：所有操作都需要你批准（适合学习阶段）</span></span>
+<span id="cb25-218"><a href="#cb25-218" aria-hidden="true" tabindex="-1"></a><span class="in">- **Run Everything**：完全自主执行（适合信任度高的简单任务）</span></span>
+<span id="cb25-219"><a href="#cb25-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-220"><a href="#cb25-220" aria-hidden="true" tabindex="-1"></a><span class="in">### 扩展 Cursor 能力：MCP 与 Skills</span></span>
+<span id="cb25-221"><a href="#cb25-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-222"><a href="#cb25-222" aria-hidden="true" tabindex="-1"></a><span class="in">Cursor 的强大之处在于其可扩展性。通过 **MCP (Model Context Protocol)** 和 **Skills**，你可以让 AI 获得更多专业能力。</span></span>
+<span id="cb25-223"><a href="#cb25-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-224"><a href="#cb25-224" aria-hidden="true" tabindex="-1"></a><span class="in">#### 什么是 MCP？</span></span>
+<span id="cb25-225"><a href="#cb25-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-226"><a href="#cb25-226" aria-hidden="true" tabindex="-1"></a><span class="in">**Model Context Protocol (MCP)** 是一个开放协议，让 AI 可以调用外部工具和服务。想象一下：</span></span>
+<span id="cb25-227"><a href="#cb25-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-228"><a href="#cb25-228" aria-hidden="true" tabindex="-1"></a><span class="in">- 让 AI 直接查询最新的技术文档（Context7）</span></span>
+<span id="cb25-229"><a href="#cb25-229" aria-hidden="true" tabindex="-1"></a><span class="in">- 让 AI 自动化浏览器操作进行网页抓取（Playwright）</span></span>
+<span id="cb25-230"><a href="#cb25-230" aria-hidden="true" tabindex="-1"></a><span class="in">- 让 AI 访问数据库、API、云服务等</span></span>
+<span id="cb25-231"><a href="#cb25-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-232"><a href="#cb25-232" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-tip}</span></span>
+<span id="cb25-233"><a href="#cb25-233" aria-hidden="true" tabindex="-1"></a><span class="in">**MCP vs 传统 API**</span></span>
+<span id="cb25-234"><a href="#cb25-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-235"><a href="#cb25-235" aria-hidden="true" tabindex="-1"></a><span class="in">MCP 不需要你编写代码来调用 API，AI 会自动判断何时使用、如何使用这些工具。</span></span>
+<span id="cb25-236"><a href="#cb25-236" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-237"><a href="#cb25-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-238"><a href="#cb25-238" aria-hidden="true" tabindex="-1"></a><span class="in">#### 推荐的 MCP Servers</span></span>
+<span id="cb25-239"><a href="#cb25-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-240"><a href="#cb25-240" aria-hidden="true" tabindex="-1"></a><span class="in">##### 1. **Context7** - 实时文档查询</span></span>
+<span id="cb25-241"><a href="#cb25-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-242"><a href="#cb25-242" aria-hidden="true" tabindex="-1"></a><span class="in">让 AI 查询最新的编程库文档，避免使用过时信息：</span></span>
+<span id="cb25-243"><a href="#cb25-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-244"><a href="#cb25-244" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-245"><a href="#cb25-245" aria-hidden="true" tabindex="-1"></a><span class="in">使用 pandas 2.0 的新特性处理时间序列数据</span></span>
+<span id="cb25-246"><a href="#cb25-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-247"><a href="#cb25-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-248"><a href="#cb25-248" aria-hidden="true" tabindex="-1"></a>AI 会自动调用 Context7 查询最新文档，而不是依赖训练数据。</span>
+<span id="cb25-249"><a href="#cb25-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-250"><a href="#cb25-250" aria-hidden="true" tabindex="-1"></a>**安装方法：**</span>
+<span id="cb25-251"><a href="#cb25-251" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>打开 Cursor Settings → Context → Model Context Protocol</span>
+<span id="cb25-252"><a href="#cb25-252" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>点击 "Add MCP Server"</span>
+<span id="cb25-253"><a href="#cb25-253" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>搜索 "Context7"，点击安装并授权</span>
+<span id="cb25-254"><a href="#cb25-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-255"><a href="#cb25-255" aria-hidden="true" tabindex="-1"></a><span class="fu">##### 2. **Playwright** - 浏览器自动化</span></span>
+<span id="cb25-256"><a href="#cb25-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-257"><a href="#cb25-257" aria-hidden="true" tabindex="-1"></a>让 AI 自动抓取网页数据，无需手动编写爬虫代码：</span>
+<span id="cb25-258"><a href="#cb25-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-259"><a href="#cb25-259" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-260"><a href="#cb25-260" aria-hidden="true" tabindex="-1"></a>访问 Yahoo Finance，获取特斯拉最近三个月的股价数据</span>
+<span id="cb25-261"><a href="#cb25-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-262"><a href="#cb25-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-263"><a href="#cb25-263" aria-hidden="true" tabindex="-1"></a>**安装方法：**</span>
+<span id="cb25-264"><a href="#cb25-264" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>在终端运行：</span>
+<span id="cb25-265"><a href="#cb25-265" aria-hidden="true" tabindex="-1"></a>   <span class="in">```bash</span></span>
+<span id="cb25-266"><a href="#cb25-266" aria-hidden="true" tabindex="-1"></a>   <span class="ex">npm</span> install <span class="at">-g</span> @playwright/mcp-server</span>
+<span id="cb25-267"><a href="#cb25-267" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-269"><a href="#cb25-269" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>在项目根目录创建/编辑 <span class="in">`.cursor/mcp.json`</span>：</span>
+<span id="cb25-270"><a href="#cb25-270" aria-hidden="true" tabindex="-1"></a>   <span class="in">```json</span></span>
+<span id="cb25-271"><a href="#cb25-271" aria-hidden="true" tabindex="-1"></a>   <span class="fu">{</span></span>
+<span id="cb25-272"><a href="#cb25-272" aria-hidden="true" tabindex="-1"></a>     <span class="dt">"mcpServers"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb25-273"><a href="#cb25-273" aria-hidden="true" tabindex="-1"></a>       <span class="dt">"playwright"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb25-274"><a href="#cb25-274" aria-hidden="true" tabindex="-1"></a>         <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"npx"</span><span class="fu">,</span></span>
+<span id="cb25-275"><a href="#cb25-275" aria-hidden="true" tabindex="-1"></a>         <span class="dt">"args"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"-y"</span><span class="ot">,</span> <span class="st">"@playwright/mcp-server"</span><span class="ot">]</span></span>
+<span id="cb25-276"><a href="#cb25-276" aria-hidden="true" tabindex="-1"></a>       <span class="fu">}</span></span>
+<span id="cb25-277"><a href="#cb25-277" aria-hidden="true" tabindex="-1"></a>     <span class="fu">}</span></span>
+<span id="cb25-278"><a href="#cb25-278" aria-hidden="true" tabindex="-1"></a>   <span class="fu">}</span></span>
+<span id="cb25-279"><a href="#cb25-279" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb25-280"><a href="#cb25-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-281"><a href="#cb25-281" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>重启 Cursor</span>
+<span id="cb25-282"><a href="#cb25-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-283"><a href="#cb25-283" aria-hidden="true" tabindex="-1"></a><span class="fu">##### 3. **其他实用 MCP Servers**</span></span>
+<span id="cb25-284"><a href="#cb25-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-285"><a href="#cb25-285" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Filesystem** - 高级文件操作（批量重命名、搜索替换等）</span>
+<span id="cb25-286"><a href="#cb25-286" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**GitHub** - 直接操作 GitHub（创建 PR、查看 Issues）</span>
+<span id="cb25-287"><a href="#cb25-287" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Brave Search** - 让 AI 实时搜索网页信息</span>
+<span id="cb25-288"><a href="#cb25-288" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Postgres** - 直接查询和操作数据库</span>
+<span id="cb25-289"><a href="#cb25-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-290"><a href="#cb25-290" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb25-291"><a href="#cb25-291" aria-hidden="true" tabindex="-1"></a>**使用 MCP 的注意事项**</span>
+<span id="cb25-292"><a href="#cb25-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-293"><a href="#cb25-293" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>MCP 工具可以执行实际操作（如删除文件、发送请求），使用前请确保理解其功能</span>
+<span id="cb25-294"><a href="#cb25-294" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>建议在设置中选择 "Ask Every Time"，在熟悉后再改为自动执行</span>
+<span id="cb25-295"><a href="#cb25-295" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>对于需要 API key 的服务，注意保护密钥安全（使用环境变量或 <span class="in">`.env`</span> 文件）</span>
+<span id="cb25-296"><a href="#cb25-296" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-297"><a href="#cb25-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-298"><a href="#cb25-298" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 什么是 Skills？</span></span>
+<span id="cb25-299"><a href="#cb25-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-300"><a href="#cb25-300" aria-hidden="true" tabindex="-1"></a>**Skills** 是预制的工作流程模板，帮助 AI 更好地完成特定类型的任务。Skills 包含：</span>
+<span id="cb25-301"><a href="#cb25-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-302"><a href="#cb25-302" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>详细的步骤说明</span>
+<span id="cb25-303"><a href="#cb25-303" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>最佳实践和注意事项</span>
+<span id="cb25-304"><a href="#cb25-304" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>可执行的脚本</span>
+<span id="cb25-305"><a href="#cb25-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-306"><a href="#cb25-306" aria-hidden="true" tabindex="-1"></a><span class="fu">##### 推荐的 Skills</span></span>
+<span id="cb25-307"><a href="#cb25-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-308"><a href="#cb25-308" aria-hidden="true" tabindex="-1"></a><span class="fu">###### 1. **superpowers** - 增强 Agent 能力</span></span>
+<span id="cb25-309"><a href="#cb25-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-310"><a href="#cb25-310" aria-hidden="true" tabindex="-1"></a>这是一组强大的技能集，让 AI 能够：</span>
+<span id="cb25-311"><a href="#cb25-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-312"><a href="#cb25-312" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**系统性调试**：自动收集错误信息、查看日志、运行诊断</span>
+<span id="cb25-313"><a href="#cb25-313" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**测试驱动开发**：先写测试，再写实现</span>
+<span id="cb25-314"><a href="#cb25-314" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**规划驱动开发**：强制先规划再执行</span>
+<span id="cb25-315"><a href="#cb25-315" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**代码审查**：自动检查代码质量、安全性、最佳实践</span>
+<span id="cb25-316"><a href="#cb25-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-317"><a href="#cb25-317" aria-hidden="true" tabindex="-1"></a>**安装方法：**</span>
+<span id="cb25-318"><a href="#cb25-318" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>打开 Cursor Settings → Rules → Project Rules</span>
+<span id="cb25-319"><a href="#cb25-319" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>点击 "Add Rule" → "Remote Rule (Github)"</span>
+<span id="cb25-320"><a href="#cb25-320" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>输入：<span class="in">`https://github.com/cursor-plugins/superpowers`</span></span>
+<span id="cb25-321"><a href="#cb25-321" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>确认安装</span>
+<span id="cb25-322"><a href="#cb25-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-323"><a href="#cb25-323" aria-hidden="true" tabindex="-1"></a>**使用示例：**</span>
+<span id="cb25-324"><a href="#cb25-324" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-325"><a href="#cb25-325" aria-hidden="true" tabindex="-1"></a>我的测试失败了，报错是 "Connection timeout"</span>
+<span id="cb25-326"><a href="#cb25-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-327"><a href="#cb25-327" aria-hidden="true" tabindex="-1"></a>（AI 会自动使用 systematic-debugging skill，系统性地调查问题）</span>
+<span id="cb25-328"><a href="#cb25-328" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-329"><a href="#cb25-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-330"><a href="#cb25-330" aria-hidden="true" tabindex="-1"></a><span class="fu">###### 2. **planning-with-files** - 文件化规划</span></span>
+<span id="cb25-331"><a href="#cb25-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-332"><a href="#cb25-332" aria-hidden="true" tabindex="-1"></a>将复杂任务的规划保存为文件，便于团队协作和进度追踪：</span>
+<span id="cb25-333"><a href="#cb25-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-334"><a href="#cb25-334" aria-hidden="true" tabindex="-1"></a>**安装：**</span>
+<span id="cb25-335"><a href="#cb25-335" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb25-336"><a href="#cb25-336" aria-hidden="true" tabindex="-1"></a><span class="co"># 方法1：通过 Cursor 安装</span></span>
+<span id="cb25-337"><a href="#cb25-337" aria-hidden="true" tabindex="-1"></a><span class="ex">Settings</span> → Rules → Add Remote Rule</span>
+<span id="cb25-338"><a href="#cb25-338" aria-hidden="true" tabindex="-1"></a><span class="ex">输入：https://github.com/cursor-plugins/planning-with-files</span></span>
+<span id="cb25-339"><a href="#cb25-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-340"><a href="#cb25-340" aria-hidden="true" tabindex="-1"></a><span class="co"># 方法2：手动安装</span></span>
+<span id="cb25-341"><a href="#cb25-341" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/.cursor/skills</span>
+<span id="cb25-342"><a href="#cb25-342" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/.cursor/skills</span>
+<span id="cb25-343"><a href="#cb25-343" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/cursor-plugins/planning-with-files</span>
+<span id="cb25-344"><a href="#cb25-344" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-345"><a href="#cb25-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-346"><a href="#cb25-346" aria-hidden="true" tabindex="-1"></a>**使用示例：**</span>
+<span id="cb25-347"><a href="#cb25-347" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-348"><a href="#cb25-348" aria-hidden="true" tabindex="-1"></a>创建一个多因子选股模型，包括数据处理、因子计算、回测评估</span>
+<span id="cb25-349"><a href="#cb25-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-350"><a href="#cb25-350" aria-hidden="true" tabindex="-1"></a>（AI 会生成 task_plan.md、创建文件结构、跟踪进度）</span>
+<span id="cb25-351"><a href="#cb25-351" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-352"><a href="#cb25-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-353"><a href="#cb25-353" aria-hidden="true" tabindex="-1"></a><span class="fu">###### 3. **其他实用 Skills**</span></span>
+<span id="cb25-354"><a href="#cb25-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-355"><a href="#cb25-355" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**ui-ux-pro-max** - 生成精美的 UI 界面</span>
+<span id="cb25-356"><a href="#cb25-356" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**test-driven-development** - 强制测试先行</span>
+<span id="cb25-357"><a href="#cb25-357" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**git-worktrees** - 使用 Git worktree 进行并行开发</span>
+<span id="cb25-358"><a href="#cb25-358" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**code-review** - 系统性的代码审查流程</span>
+<span id="cb25-359"><a href="#cb25-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-360"><a href="#cb25-360" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 如何安装 Skills？</span></span>
+<span id="cb25-361"><a href="#cb25-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-362"><a href="#cb25-362" aria-hidden="true" tabindex="-1"></a>**方法 1：从 GitHub 安装（推荐）**</span>
+<span id="cb25-363"><a href="#cb25-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-364"><a href="#cb25-364" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>打开 Cursor Settings (<span class="in">`Cmd/Ctrl + ,`</span>)</span>
+<span id="cb25-365"><a href="#cb25-365" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>导航到 Context → Rules → Project Rules</span>
+<span id="cb25-366"><a href="#cb25-366" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>点击 "Add Rule" → "Remote Rule (Github)"</span>
+<span id="cb25-367"><a href="#cb25-367" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>输入 Skill 的 GitHub 仓库 URL</span>
+<span id="cb25-368"><a href="#cb25-368" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>确认安装</span>
+<span id="cb25-369"><a href="#cb25-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-370"><a href="#cb25-370" aria-hidden="true" tabindex="-1"></a>**方法 2：手动安装**</span>
+<span id="cb25-371"><a href="#cb25-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-372"><a href="#cb25-372" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb25-373"><a href="#cb25-373" aria-hidden="true" tabindex="-1"></a><span class="co"># 项目级（仅当前项目）</span></span>
+<span id="cb25-374"><a href="#cb25-374" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> .cursor/skills</span>
+<span id="cb25-375"><a href="#cb25-375" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .cursor/skills</span>
+<span id="cb25-376"><a href="#cb25-376" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>skill-repo-url<span class="op">&gt;</span> <span class="op">&lt;</span>skill-name<span class="op">&gt;</span></span>
+<span id="cb25-377"><a href="#cb25-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-378"><a href="#cb25-378" aria-hidden="true" tabindex="-1"></a><span class="co"># 全局级（所有项目）</span></span>
+<span id="cb25-379"><a href="#cb25-379" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/.cursor/skills</span>
+<span id="cb25-380"><a href="#cb25-380" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/.cursor/skills</span>
+<span id="cb25-381"><a href="#cb25-381" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>skill-repo-url<span class="op">&gt;</span> <span class="op">&lt;</span>skill-name<span class="op">&gt;</span></span>
+<span id="cb25-382"><a href="#cb25-382" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-383"><a href="#cb25-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-384"><a href="#cb25-384" aria-hidden="true" tabindex="-1"></a>**方法 3：创建自定义 Skill**</span>
+<span id="cb25-385"><a href="#cb25-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-386"><a href="#cb25-386" aria-hidden="true" tabindex="-1"></a>如果你有重复性的工作流程，可以创建自定义 Skill：</span>
+<span id="cb25-387"><a href="#cb25-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-388"><a href="#cb25-388" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>在项目根目录创建 <span class="in">`.cursor/skills/deploy-app/SKILL.md`</span></span>
+<span id="cb25-389"><a href="#cb25-389" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>用 YAML frontmatter 定义元数据：</span>
+<span id="cb25-390"><a href="#cb25-390" aria-hidden="true" tabindex="-1"></a>   <span class="in">```markdown</span></span>
+<span id="cb25-391"><a href="#cb25-391" aria-hidden="true" tabindex="-1"></a>   ---</span>
+<span id="cb25-392"><a href="#cb25-392" aria-hidden="true" tabindex="-1"></a>   name: deploy-app</span>
+<span id="cb25-393"><a href="#cb25-393" aria-hidden="true" tabindex="-1"></a>   description: 部署应用到测试或生产环境</span>
+<span id="cb25-394"><a href="#cb25-394" aria-hidden="true" tabindex="-1"></a>   ---</span>
+<span id="cb25-395"><a href="#cb25-395" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb25-396"><a href="#cb25-396" aria-hidden="true" tabindex="-1"></a>   # Deploy App</span>
+<span id="cb25-397"><a href="#cb25-397" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb25-398"><a href="#cb25-398" aria-hidden="true" tabindex="-1"></a>   ## When to Use</span>
+<span id="cb25-399"><a href="#cb25-399" aria-hidden="true" tabindex="-1"></a>   当用户提到"部署"、"发布"、"上线"时使用此技能</span>
+<span id="cb25-400"><a href="#cb25-400" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb25-401"><a href="#cb25-401" aria-hidden="true" tabindex="-1"></a>   ## Instructions</span>
+<span id="cb25-402"><a href="#cb25-402" aria-hidden="true" tabindex="-1"></a><span class="ss">   1. </span>运行 <span class="in">`scripts/deploy.sh &lt;environment&gt;`</span></span>
+<span id="cb25-403"><a href="#cb25-403" aria-hidden="true" tabindex="-1"></a><span class="ss">   2. </span>验证部署状态</span>
+<span id="cb25-404"><a href="#cb25-404" aria-hidden="true" tabindex="-1"></a><span class="ss">   3. </span>更新部署日志</span>
+<span id="cb25-405"><a href="#cb25-405" aria-hidden="true" tabindex="-1"></a>   <span class="in">```</span></span>
+<span id="cb25-406"><a href="#cb25-406" aria-hidden="true" tabindex="-1"></a><span class="in">3. 在对话中输入 `/` 可以看到并调用自定义 Skills</span></span>
+<span id="cb25-407"><a href="#cb25-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-408"><a href="#cb25-408" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-note}</span></span>
+<span id="cb25-409"><a href="#cb25-409" aria-hidden="true" tabindex="-1"></a><span class="in">**Skills 的自动激活**</span></span>
+<span id="cb25-410"><a href="#cb25-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-411"><a href="#cb25-411" aria-hidden="true" tabindex="-1"></a><span class="in">安装后，AI 会根据你的提问自动判断是否需要使用某个 Skill。你也可以手动激活：</span></span>
+<span id="cb25-412"><a href="#cb25-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-413"><a href="#cb25-413" aria-hidden="true" tabindex="-1"></a><span class="in">- 在对话框输入 `/` 查看所有可用 Skills</span></span>
+<span id="cb25-414"><a href="#cb25-414" aria-hidden="true" tabindex="-1"></a><span class="in">- 选择一个 Skill 后，AI 会按照其指引完成任务</span></span>
+<span id="cb25-415"><a href="#cb25-415" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-416"><a href="#cb25-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-417"><a href="#cb25-417" aria-hidden="true" tabindex="-1"></a><span class="in">#### MCP 和 Skills 的配置文件位置</span></span>
+<span id="cb25-418"><a href="#cb25-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-419"><a href="#cb25-419" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-420"><a href="#cb25-420" aria-hidden="true" tabindex="-1"></a>你的项目/</span>
+<span id="cb25-421"><a href="#cb25-421" aria-hidden="true" tabindex="-1"></a>├── .cursor/</span>
+<span id="cb25-422"><a href="#cb25-422" aria-hidden="true" tabindex="-1"></a>│   ├── mcp.json          # MCP 服务器配置（项目级）</span>
+<span id="cb25-423"><a href="#cb25-423" aria-hidden="true" tabindex="-1"></a>│   └── skills/           # 项目级 Skills</span>
+<span id="cb25-424"><a href="#cb25-424" aria-hidden="true" tabindex="-1"></a>│       ├── deploy-app/</span>
+<span id="cb25-425"><a href="#cb25-425" aria-hidden="true" tabindex="-1"></a>│       └── custom-skill/</span>
+<span id="cb25-426"><a href="#cb25-426" aria-hidden="true" tabindex="-1"></a>│</span>
+<span id="cb25-427"><a href="#cb25-427" aria-hidden="true" tabindex="-1"></a>~/.cursor/                 # 用户主目录（全局配置）</span>
+<span id="cb25-428"><a href="#cb25-428" aria-hidden="true" tabindex="-1"></a>├── mcp.json              # 全局 MCP 配置</span>
+<span id="cb25-429"><a href="#cb25-429" aria-hidden="true" tabindex="-1"></a>└── skills/               # 全局 Skills（所有项目可用）</span>
+<span id="cb25-430"><a href="#cb25-430" aria-hidden="true" tabindex="-1"></a>    ├── superpowers/</span>
+<span id="cb25-431"><a href="#cb25-431" aria-hidden="true" tabindex="-1"></a>    └── planning-with-files/</span>
+<span id="cb25-432"><a href="#cb25-432" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-433"><a href="#cb25-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-434"><a href="#cb25-434" aria-hidden="true" tabindex="-1"></a><span class="in">#### 学习资源</span></span>
+<span id="cb25-435"><a href="#cb25-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-436"><a href="#cb25-436" aria-hidden="true" tabindex="-1"></a><span class="in">- **MCP 官方文档**: [https://modelcontextprotocol.io](https://modelcontextprotocol.io)</span></span>
+<span id="cb25-437"><a href="#cb25-437" aria-hidden="true" tabindex="-1"></a><span class="in">- **Cursor Skills 文档**: [https://cursor.com/docs/context/skills](https://cursor.com/docs/context/skills)</span></span>
+<span id="cb25-438"><a href="#cb25-438" aria-hidden="true" tabindex="-1"></a><span class="in">- **MCP Servers 列表**: [https://github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)</span></span>
+<span id="cb25-439"><a href="#cb25-439" aria-hidden="true" tabindex="-1"></a><span class="in">- **Superpowers Skills**: [https://github.com/cursor-plugins/superpowers](https://github.com/cursor-plugins/superpowers)</span></span>
+<span id="cb25-440"><a href="#cb25-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-441"><a href="#cb25-441" aria-hidden="true" tabindex="-1"></a><span class="in">## 实战演示：一个完整的工作流</span></span>
+<span id="cb25-442"><a href="#cb25-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-443"><a href="#cb25-443" aria-hidden="true" tabindex="-1"></a><span class="in">让我们通过一个真实案例展示如何使用 Cursor Agent 完成研究任务：</span></span>
+<span id="cb25-444"><a href="#cb25-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-445"><a href="#cb25-445" aria-hidden="true" tabindex="-1"></a><span class="in">### 任务：构建基于BERT的财报情绪分析模型</span></span>
+<span id="cb25-446"><a href="#cb25-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-447"><a href="#cb25-447" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-tip}</span></span>
+<span id="cb25-448"><a href="#cb25-448" aria-hidden="true" tabindex="-1"></a><span class="in">**推荐做法**：先在 Plan 模式（`Shift+Tab`）中让 AI 生成完整计划，审阅后再开始执行。</span></span>
+<span id="cb25-449"><a href="#cb25-449" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-450"><a href="#cb25-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-451"><a href="#cb25-451" aria-hidden="true" tabindex="-1"></a><span class="in">**Step 1: 项目规划**（使用 Plan 模式）</span></span>
+<span id="cb25-452"><a href="#cb25-452" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-453"><a href="#cb25-453" aria-hidden="true" tabindex="-1"></a><span class="in">创建一个金融文本情绪分析项目：</span></span>
+<span id="cb25-454"><a href="#cb25-454" aria-hidden="true" tabindex="-1"></a><span class="in">- 使用 FinBERT 模型</span></span>
+<span id="cb25-455"><a href="#cb25-455" aria-hidden="true" tabindex="-1"></a><span class="in">- 数据：10-K 年报的 MD&amp;A 部分</span></span>
+<span id="cb25-456"><a href="#cb25-456" aria-hidden="true" tabindex="-1"></a><span class="in">- 评估：情绪得分与未来收益率的 IC</span></span>
+<span id="cb25-457"><a href="#cb25-457" aria-hidden="true" tabindex="-1"></a><span class="in">- 需要处理：文本清洗、长文本截断、时间对齐</span></span>
+<span id="cb25-458"><a href="#cb25-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-459"><a href="#cb25-459" aria-hidden="true" tabindex="-1"></a><span class="in">请先设计项目结构和数据流</span></span>
+<span id="cb25-460"><a href="#cb25-460" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-461"><a href="#cb25-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-462"><a href="#cb25-462" aria-hidden="true" tabindex="-1"></a>**Step 2: 数据处理**（切换到 Agent 模式执行）</span>
+<span id="cb25-463"><a href="#cb25-463" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-464"><a href="#cb25-464" aria-hidden="true" tabindex="-1"></a>@data/raw/ 中有原始 10-K 的 txt 文件</span>
+<span id="cb25-465"><a href="#cb25-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-466"><a href="#cb25-466" aria-hidden="true" tabindex="-1"></a>请创建 preprocessing.py：</span>
+<span id="cb25-467"><a href="#cb25-467" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>提取 MD&amp;A section（用正则匹配 section 标题）</span>
+<span id="cb25-468"><a href="#cb25-468" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>清洗 HTML 标签和特殊字符</span>
+<span id="cb25-469"><a href="#cb25-469" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>按 512 token 切分长文本</span>
+<span id="cb25-470"><a href="#cb25-470" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>保存为 processed/mda_cleaned.csv</span>
+<span id="cb25-471"><a href="#cb25-471" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-472"><a href="#cb25-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-473"><a href="#cb25-473" aria-hidden="true" tabindex="-1"></a><span class="in">**Step 3: 模型构建**</span></span>
+<span id="cb25-474"><a href="#cb25-474" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-475"><a href="#cb25-475" aria-hidden="true" tabindex="-1"></a><span class="in">@preprocessing.py </span></span>
+<span id="cb25-476"><a href="#cb25-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-477"><a href="#cb25-477" aria-hidden="true" tabindex="-1"></a><span class="in">基于清洗后的数据，创建 model.py：</span></span>
+<span id="cb25-478"><a href="#cb25-478" aria-hidden="true" tabindex="-1"></a><span class="in">1. 加载 FinBERT（yiyanghkust/finbert-tone）</span></span>
+<span id="cb25-479"><a href="#cb25-479" aria-hidden="true" tabindex="-1"></a><span class="in">2. 批量推理，获取 positive/negative/neutral 概率</span></span>
+<span id="cb25-480"><a href="#cb25-480" aria-hidden="true" tabindex="-1"></a><span class="in">3. 计算复合情绪得分：pos - neg</span></span>
+<span id="cb25-481"><a href="#cb25-481" aria-hidden="true" tabindex="-1"></a><span class="in">4. 考虑 GPU 内存限制，使用 batch_size=16</span></span>
+<span id="cb25-482"><a href="#cb25-482" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-483"><a href="#cb25-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-484"><a href="#cb25-484" aria-hidden="true" tabindex="-1"></a>**Step 4: 评估与可视化**</span>
+<span id="cb25-485"><a href="#cb25-485" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-486"><a href="#cb25-486" aria-hidden="true" tabindex="-1"></a>@model.py @data/returns.csv</span>
+<span id="cb25-487"><a href="#cb25-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-488"><a href="#cb25-488" aria-hidden="true" tabindex="-1"></a>创建 evaluation.py：</span>
+<span id="cb25-489"><a href="#cb25-489" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>将情绪得分与未来1个月收益率对齐（注意披露日期滞后）</span>
+<span id="cb25-490"><a href="#cb25-490" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>计算时序 IC（按年度分组）</span>
+<span id="cb25-491"><a href="#cb25-491" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>生成可视化：IC 时间序列图、分位数组合收益图</span>
+<span id="cb25-492"><a href="#cb25-492" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>输出结果到 results/evaluation_report.html</span>
+<span id="cb25-493"><a href="#cb25-493" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-494"><a href="#cb25-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-495"><a href="#cb25-495" aria-hidden="true" tabindex="-1"></a><span class="in">**Step 5: 稳健性检验**</span></span>
+<span id="cb25-496"><a href="#cb25-496" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb25-497"><a href="#cb25-497" aria-hidden="true" tabindex="-1"></a><span class="in">@evaluation.py</span></span>
+<span id="cb25-498"><a href="#cb25-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-499"><a href="#cb25-499" aria-hidden="true" tabindex="-1"></a><span class="in">增加稳健性分析：</span></span>
+<span id="cb25-500"><a href="#cb25-500" aria-hidden="true" tabindex="-1"></a><span class="in">1. 不同情绪指标（pos-neg vs pos/(pos+neg)）</span></span>
+<span id="cb25-501"><a href="#cb25-501" aria-hidden="true" tabindex="-1"></a><span class="in">2. 行业中性化（去除行业平均情绪）</span></span>
+<span id="cb25-502"><a href="#cb25-502" aria-hidden="true" tabindex="-1"></a><span class="in">3. 控制公司规模和账面市值比</span></span>
+<span id="cb25-503"><a href="#cb25-503" aria-hidden="true" tabindex="-1"></a><span class="in">4. 样本外测试（2020年后的数据）</span></span>
+<span id="cb25-504"><a href="#cb25-504" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-505"><a href="#cb25-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-506"><a href="#cb25-506" aria-hidden="true" tabindex="-1"></a>通过这种方式，AI 可以在 10-20 分钟内完成一个初始版本的完整 pipeline，而你只需专注于：</span>
+<span id="cb25-507"><a href="#cb25-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-508"><a href="#cb25-508" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**研究设计**：如何定义情绪？如何对齐时间？</span>
+<span id="cb25-509"><a href="#cb25-509" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**质量验收**：检查每个步骤的输出是否合理</span>
+<span id="cb25-510"><a href="#cb25-510" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**结果解释**：IC=0.05 是否有经济意义？</span>
+<span id="cb25-511"><a href="#cb25-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-512"><a href="#cb25-512" aria-hidden="true" tabindex="-1"></a><span class="fu">## 学习资源与后续安排</span></span>
+<span id="cb25-513"><a href="#cb25-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-514"><a href="#cb25-514" aria-hidden="true" tabindex="-1"></a><span class="fu">### 必备软件安装</span></span>
+<span id="cb25-515"><a href="#cb25-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-516"><a href="#cb25-516" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Cursor IDE**: <span class="co">[</span><span class="ot">https://cursor.sh</span><span class="co">](https://cursor.sh)</span>（免费试用14天，之后$20/月）</span>
+<span id="cb25-517"><a href="#cb25-517" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Python环境**: 建议使用Anaconda或Miniconda</span>
+<span id="cb25-518"><a href="#cb25-518" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Git**: 用于版本控制和代码提交</span>
+<span id="cb25-519"><a href="#cb25-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-520"><a href="#cb25-520" aria-hidden="true" tabindex="-1"></a><span class="fu">### 推荐学习材料</span></span>
+<span id="cb25-521"><a href="#cb25-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-522"><a href="#cb25-522" aria-hidden="true" tabindex="-1"></a>**Cursor 相关：**</span>
+<span id="cb25-523"><a href="#cb25-523" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cursor 官方文档**: <span class="co">[</span><span class="ot">https://cursor.com/docs</span><span class="co">](https://cursor.com/docs)</span></span>
+<span id="cb25-524"><a href="#cb25-524" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cursor Skills 文档**: <span class="co">[</span><span class="ot">https://cursor.com/docs/context/skills</span><span class="co">](https://cursor.com/docs/context/skills)</span></span>
+<span id="cb25-525"><a href="#cb25-525" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**MCP 官方网站**: <span class="co">[</span><span class="ot">https://modelcontextprotocol.io</span><span class="co">](https://modelcontextprotocol.io)</span></span>
+<span id="cb25-526"><a href="#cb25-526" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Superpowers Skills**: <span class="co">[</span><span class="ot">https://github.com/cursor-plugins/superpowers</span><span class="co">](https://github.com/cursor-plugins/superpowers)</span></span>
+<span id="cb25-527"><a href="#cb25-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-528"><a href="#cb25-528" aria-hidden="true" tabindex="-1"></a>**金融 AI 相关：**</span>
+<span id="cb25-529"><a href="#cb25-529" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**FinBERT 等金融 NLP 模型**: <span class="co">[</span><span class="ot">Hugging Face Model Hub</span><span class="co">](https://huggingface.co/models)</span></span>
+<span id="cb25-530"><a href="#cb25-530" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**机器学习基础**: Hastie et al. (2009) *The Elements of Statistical Learning*</span>
+<span id="cb25-531"><a href="#cb25-531" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**时序预测方法**: Hyndman &amp; Athanasopoulos (2021) *Forecasting: Principles and Practice*</span>
+<span id="cb25-532"><a href="#cb25-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-533"><a href="#cb25-533" aria-hidden="true" tabindex="-1"></a><span class="fu">### 课程要求</span></span>
+<span id="cb25-534"><a href="#cb25-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-535"><a href="#cb25-535" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>第1-4周课前需完成指定阅读（见讲义中每周的阅读清单）</span>
+<span id="cb25-536"><a href="#cb25-536" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>第5周前完成**课前测验**（开卷，覆盖核心概念）</span>
+<span id="cb25-537"><a href="#cb25-537" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>第5-8周每组准备**15分钟研究计划汇报**</span>
+<span id="cb25-538"><a href="#cb25-538" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>期末提交**详细研究计划书**（Detailed Research Plan）</span>
+<span id="cb25-539"><a href="#cb25-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-540"><a href="#cb25-540" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb25-541"><a href="#cb25-541" aria-hidden="true" tabindex="-1"></a>本周行动清单</span>
+<span id="cb25-542"><a href="#cb25-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-543"><a href="#cb25-543" aria-hidden="true" tabindex="-1"></a>**软件配置：**</span>
+<span id="cb25-544"><a href="#cb25-544" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[ ]</span> 安装 Cursor IDE 并完成基础配置</span>
+<span id="cb25-545"><a href="#cb25-545" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[ ]</span> 安装至少一个 MCP Server（推荐 Context7）</span>
+<span id="cb25-546"><a href="#cb25-546" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span><span class="co">[ ]</span> 安装 Superpowers Skills</span>
+<span id="cb25-547"><a href="#cb25-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-548"><a href="#cb25-548" aria-hidden="true" tabindex="-1"></a>**动手实践：**</span>
+<span id="cb25-549"><a href="#cb25-549" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span><span class="co">[ ]</span> 尝试使用 Agent 模式完成一个简单任务（如创建 Python 项目模板）</span>
+<span id="cb25-550"><a href="#cb25-550" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span><span class="co">[ ]</span> 尝试使用 Plan 模式（<span class="in">`Shift+Tab`</span>）规划一个小项目</span>
+<span id="cb25-551"><a href="#cb25-551" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span><span class="co">[ ]</span> 使用 Context7 让 AI 查询最新的 Python 库文档</span>
+<span id="cb25-552"><a href="#cb25-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-553"><a href="#cb25-553" aria-hidden="true" tabindex="-1"></a>**理论学习：**</span>
+<span id="cb25-554"><a href="#cb25-554" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span><span class="co">[ ]</span> 阅读第1周必读材料：Hastie et al. (2009) Chapters 3, 7</span>
+<span id="cb25-555"><a href="#cb25-555" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span><span class="co">[ ]</span> 思考：你的研究方向如何与 AI 方法结合？</span>
+<span id="cb25-556"><a href="#cb25-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-557"><a href="#cb25-557" aria-hidden="true" tabindex="-1"></a>**参考安装命令：**</span>
+<span id="cb25-558"><a href="#cb25-558" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb25-559"><a href="#cb25-559" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装 Playwright MCP（可选，用于网页数据抓取）</span></span>
+<span id="cb25-560"><a href="#cb25-560" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @playwright/mcp-server</span>
+<span id="cb25-561"><a href="#cb25-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-562"><a href="#cb25-562" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装 Superpowers Skills</span></span>
+<span id="cb25-563"><a href="#cb25-563" aria-hidden="true" tabindex="-1"></a><span class="co"># 在 Cursor 中：Settings → Rules → Add Remote Rule</span></span>
+<span id="cb25-564"><a href="#cb25-564" aria-hidden="true" tabindex="-1"></a><span class="co"># 输入：https://github.com/cursor-plugins/superpowers</span></span>
+<span id="cb25-565"><a href="#cb25-565" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-566"><a href="#cb25-566" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-567"><a href="#cb25-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-568"><a href="#cb25-568" aria-hidden="true" tabindex="-1"></a>接下来，我们将在**第1讲**深入学习机器学习的基础理论，建立i.i.d.场景下的完整认知框架。这是后续所有应用的理论基础，务必牢固掌握。</span></code><button title="复制到剪贴板" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

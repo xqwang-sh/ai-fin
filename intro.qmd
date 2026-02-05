@@ -17,12 +17,14 @@ subtitle: "AI时代的金融研究范式"
 本课程共8周，分为两个阶段：
 
 **第一阶段（第1-4周）：教师精讲**
+
 - **第1周**：机器学习基础——i.i.d.场景下的认知框架
 - **第2周**：资产定价中的ML应用——时序评估与回测规范
 - **第3周**：金融文本分析——从原始文本到量化信号
 - **第4周**：多模态模型——图像/音频/视频在金融中的应用
 
 **第二阶段（第5-8周）：学生研究汇报与研讨**
+
 - 分组汇报研究计划，课堂讨论与反馈
 - 第5周前有**课前测验**（覆盖第1-4周核心概念）
 
@@ -66,47 +68,85 @@ subtitle: "AI时代的金融研究范式"
 AI工具可以辅助你**完成任务**，但不能替代你**理解和负责**。所有提交的研究成果，你都必须能够独立解释其原理、假设和局限性。
 :::
 
-## AI辅助编程：Coding Agent模式
+## AI辅助编程：Cursor Agent 模式
 
-### 为什么需要Coding Agent？
+### 为什么需要 Coding Agent？
 
 传统的"复制-粘贴式"AI辅助编程存在诸多问题：
 - 代码片段缺乏上下文，难以整合到项目中
 - 频繁在IDE和浏览器间切换，效率低下
 - 难以处理多文件、跨模块的复杂任务
 
-**Coding Agent模式**让AI直接在你的开发环境中工作，理解项目全貌，自动完成文件读写、代码编辑、终端操作等任务。
+**Cursor Agent 模式**让AI直接在你的开发环境中工作，理解项目全貌，自动完成文件读写、代码编辑、终端操作等任务。
 
-### 推荐工具链：VSCode + Cursor + Claude
+### 推荐工具：Cursor IDE
 
-我们推荐以下工具组合：
+我们推荐使用 **Cursor IDE**，它提供：
 
-1. **Cursor IDE**（基于VSCode）
-- 内置Claude Sonnet 4.5模型（目前最强的代码生成模型）
-- 支持**Agent模式**：AI可以自主读取、编辑、创建文件
-- 智能上下文管理（自动索引项目代码）
+1. **内置 Claude Sonnet 4.5 模型**
+   - 目前最强的代码生成模型
+   - 长上下文窗口（200k tokens）：可理解大型代码库
+   - 支持多轮对话和迭代优化
 
-2. **Claude Code**（通过Cursor调用）
-- 长上下文窗口（200k tokens）：可理解大型代码库
-- 强大的代码理解和生成能力
-- 支持多轮对话和迭代优化
+2. **Agent 模式**（默认模式）
+   - AI可以自主读取、编辑、创建文件
+   - 运行终端命令、安装依赖
+   - 自动修复错误
+   - 批量编辑多个文件
 
-3. **GLM-4（可选的补充）**
-- 国产大模型，适合中文文档处理
-- API成本较低，适合批量任务
-- 可通过OpenAI兼容接口在Cursor中配置
+3. **Plan 模式**（规划优先模式）
+   - 按 `Shift+Tab` 切换到 Plan 模式
+   - AI会先研究代码库，询问澄清性问题
+   - 生成详细实施计划，等待你批准后再开始编码
+   - 计划可保存到 `.cursor/plans/` 供团队参考
 
-### 核心Skills：让AI成为高效助手
+::: {.callout-tip}
+**何时使用 Plan 模式？**
 
-#### Skill 1: **Planning with Files**
+对于复杂任务（需要修改多个文件、涉及架构决策、需求不明确），建议先用 Plan 模式：
 
-在开始编码前，让AI帮你规划项目结构：
+1. 按 `Shift+Tab` 激活 Plan 模式
+2. 描述你的需求："添加用户认证功能"
+3. AI会提出问题并生成实施计划
+4. 审阅计划，点击"开始构建"后切换到 Agent 模式执行
+:::
+
+### Cursor 使用技巧
+
+#### 技巧 1: **用 @ 引用上下文**
+
+Cursor 使用 `@` 符号让你精确控制 AI 可以看到的上下文：
+
+**引用特定文件：**
+```markdown
+@data_loader.py @config.yaml 
+请根据配置文件中的参数更新数据加载逻辑
+```
+
+**引用整个文件夹：**
+```markdown
+@features/ 检查所有特征工程模块，
+确保它们都正确处理了缺失值
+```
+
+**引用网页内容（用于查询文档）：**
+```markdown
+@https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html
+用 sklearn 的 RandomForest 实现一个基准模型
+```
+
+#### 技巧 2: **先规划再执行**
+
+在开始编码前，让AI帮你规划项目结构（使用 Plan 模式）：
 
 ```markdown
-@Composer 我需要构建一个股票收益率预测项目，请帮我：
-1. 设计项目文件夹结构
-2. 列出需要的主要模块和文件
-3. 说明数据流和依赖关系
+我需要构建一个股票收益率预测项目，包括：
+- 数据加载和清洗
+- 特征工程（技术指标 + 基本面）
+- 模型训练和回测
+- 结果可视化
+
+请帮我设计项目结构和实施步骤
 ```
 
 AI会生成类似这样的规划：
@@ -116,7 +156,7 @@ project/
 ├── data/
 │   ├── raw/              # 原始数据（只读）
 │   ├── processed/        # 处理后的数据
-│   └── data_loader.py
+│   └── loader.py
 ├── features/
 │   ├── technical.py      # 技术指标
 │   └── fundamental.py    # 基本面特征
@@ -133,51 +173,9 @@ project/
 └── README.md
 ```
 
-#### Skill 2: **Superpowers模式**
+#### 技巧 3: **迭代式开发**
 
-启用"Superpowers"（超能力模式）让AI拥有更大的自主权：
-
-- **自动文件导航**：AI可以主动搜索和打开相关文件
-- **批量编辑**：同时修改多个文件中的相关代码
-- **终端执行**：运行测试、安装依赖、查看结果
-- **错误修复**：自动读取报错信息并修复
-
-::: {.callout-tip}
-如何开启Superpowers
-
-在Cursor中使用`Ctrl+Shift+P`（Mac: `Cmd+Shift+P`），输入"Superpowers"切换模式。
-
-或者在对话中明确要求：
-```
-@Composer 请使用superpowers模式帮我重构这个模块，
-自动处理所有相关的导入和函数调用更新
-```
-:::
-
-#### Skill 3: **Context Management**（上下文管理）
-
-有效管理AI的上下文窗口，确保它关注正确的信息：
-
-**明确引用文件：**
-```markdown
-@data_loader.py @config.yaml 
-请根据配置文件中的参数更新数据加载逻辑
-```
-
-**指定代码范围：**
-```markdown
-在 models/ml_models.py 的 50-100 行，
-优化特征选择逻辑，避免数据泄露
-```
-
-**排除无关文件：**
-```markdown
-@Composer 重构评估模块，但不要修改 data/ 文件夹
-```
-
-#### Skill 4: **Iterative Refinement**（迭代优化）
-
-将复杂任务分解为多轮对话：
+将复杂任务分解为多轮对话，逐步优化：
 
 **第一轮：** 生成初始版本
 ```
@@ -195,12 +193,14 @@ project/
 添加单元测试，确保边界情况（如窗口小于5期）不会报错
 ```
 
-#### Skill 5: **Problem-Solving Workflow**（问题解决流程）
+#### 技巧 4: **系统化的错误调试**
 
-遇到错误时，让AI系统性地诊断和修复：
+遇到错误时，提供完整上下文帮助AI诊断：
 
 ```markdown
-@Composer 运行 backtest.py 时出现 KeyError: 'returns'
+运行 backtest.py 时出现 KeyError: 'returns'
+
+相关文件：@data_loader.py @backtest.py
 
 请按以下步骤调查：
 1. 检查 data_loader.py 返回的列名
@@ -209,29 +209,264 @@ project/
 4. 运行测试确认修复有效
 ```
 
+#### 技巧 5: **控制 Agent 的自主程度**
+
+在 Cursor 设置中可以配置 Agent 的行为（Settings → Cursor Settings → Agents → Auto-Run）：
+
+- **Run in Sandbox**（推荐）：在沙箱中自动运行命令，安全且高效
+- **Ask Every Time**：所有操作都需要你批准（适合学习阶段）
+- **Run Everything**：完全自主执行（适合信任度高的简单任务）
+
+### 扩展 Cursor 能力：MCP 与 Skills
+
+Cursor 的强大之处在于其可扩展性。通过 **MCP (Model Context Protocol)** 和 **Skills**，你可以让 AI 获得更多专业能力。
+
+#### 什么是 MCP？
+
+**Model Context Protocol (MCP)** 是一个开放协议，让 AI 可以调用外部工具和服务。想象一下：
+
+- 让 AI 直接查询最新的技术文档（Context7）
+- 让 AI 自动化浏览器操作进行网页抓取（Playwright）
+- 让 AI 访问数据库、API、云服务等
+
+::: {.callout-tip}
+**MCP vs 传统 API**
+
+MCP 不需要你编写代码来调用 API，AI 会自动判断何时使用、如何使用这些工具。
+:::
+
+#### 推荐的 MCP Servers
+
+##### 1. **Context7** - 实时文档查询
+
+让 AI 查询最新的编程库文档，避免使用过时信息：
+
+```markdown
+使用 pandas 2.0 的新特性处理时间序列数据
+```
+
+AI 会自动调用 Context7 查询最新文档，而不是依赖训练数据。
+
+**安装方法：**
+1. 打开 Cursor Settings → Context → Model Context Protocol
+2. 点击 "Add MCP Server"
+3. 搜索 "Context7"，点击安装并授权
+
+##### 2. **Playwright** - 浏览器自动化
+
+让 AI 自动抓取网页数据，无需手动编写爬虫代码：
+
+```markdown
+访问 Yahoo Finance，获取特斯拉最近三个月的股价数据
+```
+
+**安装方法：**
+1. 在终端运行：
+   ```bash
+   npm install -g @playwright/mcp-server
+   ```
+
+2. 在项目根目录创建/编辑 `.cursor/mcp.json`：
+   ```json
+   {
+     "mcpServers": {
+       "playwright": {
+         "command": "npx",
+         "args": ["-y", "@playwright/mcp-server"]
+       }
+     }
+   }
+   ```
+
+3. 重启 Cursor
+
+##### 3. **其他实用 MCP Servers**
+
+- **Filesystem** - 高级文件操作（批量重命名、搜索替换等）
+- **GitHub** - 直接操作 GitHub（创建 PR、查看 Issues）
+- **Brave Search** - 让 AI 实时搜索网页信息
+- **Postgres** - 直接查询和操作数据库
+
+::: {.callout-warning}
+**使用 MCP 的注意事项**
+
+- MCP 工具可以执行实际操作（如删除文件、发送请求），使用前请确保理解其功能
+- 建议在设置中选择 "Ask Every Time"，在熟悉后再改为自动执行
+- 对于需要 API key 的服务，注意保护密钥安全（使用环境变量或 `.env` 文件）
+:::
+
+#### 什么是 Skills？
+
+**Skills** 是预制的工作流程模板，帮助 AI 更好地完成特定类型的任务。Skills 包含：
+
+- 详细的步骤说明
+- 最佳实践和注意事项
+- 可执行的脚本
+
+##### 推荐的 Skills
+
+###### 1. **superpowers** - 增强 Agent 能力
+
+这是一组强大的技能集，让 AI 能够：
+
+- **系统性调试**：自动收集错误信息、查看日志、运行诊断
+- **测试驱动开发**：先写测试，再写实现
+- **规划驱动开发**：强制先规划再执行
+- **代码审查**：自动检查代码质量、安全性、最佳实践
+
+**安装方法：**
+1. 打开 Cursor Settings → Rules → Project Rules
+2. 点击 "Add Rule" → "Remote Rule (Github)"
+3. 输入：`https://github.com/cursor-plugins/superpowers`
+4. 确认安装
+
+**使用示例：**
+```markdown
+我的测试失败了，报错是 "Connection timeout"
+
+（AI 会自动使用 systematic-debugging skill，系统性地调查问题）
+```
+
+###### 2. **planning-with-files** - 文件化规划
+
+将复杂任务的规划保存为文件，便于团队协作和进度追踪：
+
+**安装：**
+```bash
+# 方法1：通过 Cursor 安装
+Settings → Rules → Add Remote Rule
+输入：https://github.com/cursor-plugins/planning-with-files
+
+# 方法2：手动安装
+mkdir -p ~/.cursor/skills
+cd ~/.cursor/skills
+git clone https://github.com/cursor-plugins/planning-with-files
+```
+
+**使用示例：**
+```markdown
+创建一个多因子选股模型，包括数据处理、因子计算、回测评估
+
+（AI 会生成 task_plan.md、创建文件结构、跟踪进度）
+```
+
+###### 3. **其他实用 Skills**
+
+- **ui-ux-pro-max** - 生成精美的 UI 界面
+- **test-driven-development** - 强制测试先行
+- **git-worktrees** - 使用 Git worktree 进行并行开发
+- **code-review** - 系统性的代码审查流程
+
+#### 如何安装 Skills？
+
+**方法 1：从 GitHub 安装（推荐）**
+
+1. 打开 Cursor Settings (`Cmd/Ctrl + ,`)
+2. 导航到 Context → Rules → Project Rules
+3. 点击 "Add Rule" → "Remote Rule (Github)"
+4. 输入 Skill 的 GitHub 仓库 URL
+5. 确认安装
+
+**方法 2：手动安装**
+
+```bash
+# 项目级（仅当前项目）
+mkdir -p .cursor/skills
+cd .cursor/skills
+git clone <skill-repo-url> <skill-name>
+
+# 全局级（所有项目）
+mkdir -p ~/.cursor/skills
+cd ~/.cursor/skills
+git clone <skill-repo-url> <skill-name>
+```
+
+**方法 3：创建自定义 Skill**
+
+如果你有重复性的工作流程，可以创建自定义 Skill：
+
+1. 在项目根目录创建 `.cursor/skills/deploy-app/SKILL.md`
+2. 用 YAML frontmatter 定义元数据：
+   ```markdown
+   ---
+   name: deploy-app
+   description: 部署应用到测试或生产环境
+   ---
+   
+   # Deploy App
+   
+   ## When to Use
+   当用户提到"部署"、"发布"、"上线"时使用此技能
+   
+   ## Instructions
+   1. 运行 `scripts/deploy.sh <environment>`
+   2. 验证部署状态
+   3. 更新部署日志
+   ```
+3. 在对话中输入 `/` 可以看到并调用自定义 Skills
+
+::: {.callout-note}
+**Skills 的自动激活**
+
+安装后，AI 会根据你的提问自动判断是否需要使用某个 Skill。你也可以手动激活：
+
+- 在对话框输入 `/` 查看所有可用 Skills
+- 选择一个 Skill 后，AI 会按照其指引完成任务
+:::
+
+#### MCP 和 Skills 的配置文件位置
+
+```
+你的项目/
+├── .cursor/
+│   ├── mcp.json          # MCP 服务器配置（项目级）
+│   └── skills/           # 项目级 Skills
+│       ├── deploy-app/
+│       └── custom-skill/
+│
+~/.cursor/                 # 用户主目录（全局配置）
+├── mcp.json              # 全局 MCP 配置
+└── skills/               # 全局 Skills（所有项目可用）
+    ├── superpowers/
+    └── planning-with-files/
+```
+
+#### 学习资源
+
+- **MCP 官方文档**: [https://modelcontextprotocol.io](https://modelcontextprotocol.io)
+- **Cursor Skills 文档**: [https://cursor.com/docs/context/skills](https://cursor.com/docs/context/skills)
+- **MCP Servers 列表**: [https://github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)
+- **Superpowers Skills**: [https://github.com/cursor-plugins/superpowers](https://github.com/cursor-plugins/superpowers)
+
 ## 实战演示：一个完整的工作流
 
-让我们通过一个真实案例展示如何使用Coding Agent完成研究任务：
+让我们通过一个真实案例展示如何使用 Cursor Agent 完成研究任务：
 
 ### 任务：构建基于BERT的财报情绪分析模型
 
-**Step 1: 项目规划**
+::: {.callout-tip}
+**推荐做法**：先在 Plan 模式（`Shift+Tab`）中让 AI 生成完整计划，审阅后再开始执行。
+:::
+
+**Step 1: 项目规划**（使用 Plan 模式）
 ```markdown
-@Composer 创建一个金融文本情绪分析项目：
-- 使用FinBERT模型
-- 数据：10-K年报的MD&A部分
-- 评估：情绪得分与未来收益率的IC
+创建一个金融文本情绪分析项目：
+- 使用 FinBERT 模型
+- 数据：10-K 年报的 MD&A 部分
+- 评估：情绪得分与未来收益率的 IC
 - 需要处理：文本清洗、长文本截断、时间对齐
+
+请先设计项目结构和数据流
 ```
 
-**Step 2: 数据处理**
+**Step 2: 数据处理**（切换到 Agent 模式执行）
 ```markdown
-@data/raw/ 中有原始10-K的txt文件
+@data/raw/ 中有原始 10-K 的 txt 文件
 
 请创建 preprocessing.py：
-1. 提取MD&A section（用正则匹配section标题）
-2. 清洗HTML标签和特殊字符
-3. 按512 token切分长文本
+1. 提取 MD&A section（用正则匹配 section 标题）
+2. 清洗 HTML 标签和特殊字符
+3. 按 512 token 切分长文本
 4. 保存为 processed/mda_cleaned.csv
 ```
 
@@ -243,7 +478,7 @@ project/
 1. 加载 FinBERT（yiyanghkust/finbert-tone）
 2. 批量推理，获取 positive/negative/neutral 概率
 3. 计算复合情绪得分：pos - neg
-4. 考虑GPU内存限制，使用batch_size=16
+4. 考虑 GPU 内存限制，使用 batch_size=16
 ```
 
 **Step 4: 评估与可视化**
@@ -252,8 +487,8 @@ project/
 
 创建 evaluation.py：
 1. 将情绪得分与未来1个月收益率对齐（注意披露日期滞后）
-2. 计算时序IC（按年度分组）
-3. 生成可视化：IC时间序列图、分位数组合收益图
+2. 计算时序 IC（按年度分组）
+3. 生成可视化：IC 时间序列图、分位数组合收益图
 4. 输出结果到 results/evaluation_report.html
 ```
 
@@ -268,11 +503,11 @@ project/
 4. 样本外测试（2020年后的数据）
 ```
 
-通过这种方式，AI可以在10-20分钟内完成一个初始版本的完整pipeline，而你只需专注于：
+通过这种方式，AI 可以在 10-20 分钟内完成一个初始版本的完整 pipeline，而你只需专注于：
 
 - **研究设计**：如何定义情绪？如何对齐时间？
 - **质量验收**：检查每个步骤的输出是否合理
-- **结果解释**：IC=0.05是否有经济意义？
+- **结果解释**：IC=0.05 是否有经济意义？
 
 ## 学习资源与后续安排
 
@@ -284,9 +519,16 @@ project/
 
 ### 推荐学习材料
 
-- **Cursor官方文档**: [https://docs.cursor.sh](https://docs.cursor.sh)
-- **Claude API文档**: [https://docs.anthropic.com](https://docs.anthropic.com)
-- **FinBERT等金融NLP模型**: [Hugging Face Model Hub](https://huggingface.co/models)
+**Cursor 相关：**
+- **Cursor 官方文档**: [https://cursor.com/docs](https://cursor.com/docs)
+- **Cursor Skills 文档**: [https://cursor.com/docs/context/skills](https://cursor.com/docs/context/skills)
+- **MCP 官方网站**: [https://modelcontextprotocol.io](https://modelcontextprotocol.io)
+- **Superpowers Skills**: [https://github.com/cursor-plugins/superpowers](https://github.com/cursor-plugins/superpowers)
+
+**金融 AI 相关：**
+- **FinBERT 等金融 NLP 模型**: [Hugging Face Model Hub](https://huggingface.co/models)
+- **机器学习基础**: Hastie et al. (2009) *The Elements of Statistical Learning*
+- **时序预测方法**: Hyndman & Athanasopoulos (2021) *Forecasting: Principles and Practice*
 
 ### 课程要求
 
@@ -298,10 +540,29 @@ project/
 ::: {.callout-note}
 本周行动清单
 
-1. [ ] 安装Cursor IDE并完成基础配置
-2. [ ] 尝试使用Agent模式完成一个简单任务（如创建Python项目模板）
-3. [ ] 阅读第1周必读材料：Hastie et al. (2009) Chapters 3, 7
-4. [ ] 思考：你的研究方向如何与AI方法结合？
+**软件配置：**
+1. [ ] 安装 Cursor IDE 并完成基础配置
+2. [ ] 安装至少一个 MCP Server（推荐 Context7）
+3. [ ] 安装 Superpowers Skills
+
+**动手实践：**
+4. [ ] 尝试使用 Agent 模式完成一个简单任务（如创建 Python 项目模板）
+5. [ ] 尝试使用 Plan 模式（`Shift+Tab`）规划一个小项目
+6. [ ] 使用 Context7 让 AI 查询最新的 Python 库文档
+
+**理论学习：**
+7. [ ] 阅读第1周必读材料：Hastie et al. (2009) Chapters 3, 7
+8. [ ] 思考：你的研究方向如何与 AI 方法结合？
+
+**参考安装命令：**
+```bash
+# 安装 Playwright MCP（可选，用于网页数据抓取）
+npm install -g @playwright/mcp-server
+
+# 安装 Superpowers Skills
+# 在 Cursor 中：Settings → Rules → Add Remote Rule
+# 输入：https://github.com/cursor-plugins/superpowers
+```
 :::
 
 接下来，我们将在**第1讲**深入学习机器学习的基础理论，建立i.i.d.场景下的完整认知框架。这是后续所有应用的理论基础，务必牢固掌握。
