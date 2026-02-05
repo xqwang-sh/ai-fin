@@ -351,7 +351,7 @@ MCP 不需要你编写代码来调用 API，AI 会自动判断何时使用、如
 
 #### 推荐的 MCP Servers
 
-##### 1. **Context7** - 实时文档查询
+1. **Context7** - 实时文档查询
 
 让 AI 查询最新的编程库文档，避免使用过时信息：
 
@@ -366,7 +366,7 @@ AI 会自动调用 Context7 查询最新文档，而不是依赖训练数据。
 2. 点击 "Add MCP Server"
 3. 搜索 "Context7"，点击安装并授权
 
-##### 2. **Playwright** - 浏览器自动化
+2. **Playwright** - 浏览器自动化
 
 让 AI 自动抓取网页数据，无需手动编写爬虫代码：
 
@@ -394,7 +394,7 @@ AI 会自动调用 Context7 查询最新文档，而不是依赖训练数据。
 
 3. 重启 Cursor
 
-##### 3. **其他实用 MCP Servers**
+3. **其他实用 MCP Servers**
 
 - **Filesystem** - 高级文件操作（批量重命名、搜索替换等）
 - **GitHub** - 直接操作 GitHub（创建 PR、查看 Issues）
@@ -419,7 +419,7 @@ AI 会自动调用 Context7 查询最新文档，而不是依赖训练数据。
 
 ##### 推荐的 Skills
 
-###### 1. **superpowers** - 增强 Agent 能力
+1. **superpowers** - 增强 Agent 能力
 
 这是一组强大的技能集，让 AI 能够：
 
@@ -441,7 +441,7 @@ AI 会自动调用 Context7 查询最新文档，而不是依赖训练数据。
 （AI 会自动使用 systematic-debugging skill，系统性地调查问题）
 ```
 
-###### 2. **planning-with-files** - 文件化规划
+2. **planning-with-files** - 文件化规划
 
 将复杂任务的规划保存为文件，便于团队协作和进度追踪：
 
@@ -464,7 +464,7 @@ git clone https://github.com/cursor-plugins/planning-with-files
 （AI 会生成 task_plan.md、创建文件结构、跟踪进度）
 ```
 
-###### 3. **其他实用 Skills**
+3. **其他实用 Skills**
 
 - **ui-ux-pro-max** - 生成精美的 UI 界面
 - **test-driven-development** - 强制测试先行
@@ -655,23 +655,29 @@ git clone <skill-repo-url> <skill-name>
 本周行动清单
 
 **软件配置：**
+
 1. [ ] 安装主力 AI 编程工具（选择其一）：
    - **推荐**：Cursor IDE 并完成基础配置
    - **或**：国内工具（Trae / Kimi Code，无需科学上网）
+
 2. [ ] （可选）安装命令行辅助工具：
    - Claude Code（适合 Claude Pro 用户）
    - Codex CLI（适合 ChatGPT Plus 用户）
+
 3. [ ] （可选）安装至少一个 MCP Server（推荐 Context7，Cursor 和 Claude Code 支持）
+
 4. [ ] （可选）安装 Superpowers Skills（Cursor 支持）
 
 **动手实践：**
-4. [ ] 尝试使用 AI 工具完成一个简单任务（如创建 Python 项目模板）
-5. [ ] （Cursor 用户）尝试使用 Plan 模式（`Shift+Tab`）规划一个小项目
-6. [ ] 测试 AI 工具的代码生成和解释能力
+
+5. [ ] 尝试使用 AI 工具完成一个简单任务（如创建 Python 项目模板）
+6. [ ] （Cursor 用户）尝试使用 Plan 模式（`Shift+Tab`）规划一个小项目
+7. [ ] 测试 AI 工具的代码生成和解释能力
 
 **理论学习：**
-7. [ ] 阅读第1周必读材料：Hastie et al. (2009) Chapters 3, 7
-8. [ ] 思考：你的研究方向如何与 AI 方法结合？
+
+8. [ ] 阅读第1周必读材料：Hastie et al. (2009) Chapters 3, 7
+9. [ ] 思考：你的研究方向如何与 AI 方法结合？
 :::
 
 接下来，我们将在**第1讲**深入学习机器学习的基础理论，建立i.i.d.场景下的完整认知框架。这是后续所有应用的理论基础，务必牢固掌握。
