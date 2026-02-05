@@ -115,50 +115,67 @@ AI工具可以辅助你**完成任务**，但不能替代你**理解和负责**�
 
 除了 Cursor IDE，还有其他优秀的 AI 辅助编程工具可供选择。根据你的需求和偏好，可以考虑以下选项：
 
-#### 1. **Claude Code** (Anthropic 官方)
+#### **命令行工具：Claude Code & Codex CLI**
 
-**Claude Code** 是 Anthropic 官方推出的 AI 编程助手，提供与 Claude 的原生集成：
+对于喜欢在终端工作的开发者，命令行式的 AI 编程助手提供了更轻量、更灵活的选择：
+
+1. **Claude Code** (Anthropic 官方)
+
+Claude Code 是 Anthropic 官方推出的命令行 AI 编程助手，提供与 Claude 的原生集成：
 
 - **优势**：
   - 官方支持，与 Claude 模型深度整合
+  - 在终端中直接工作，无需切换界面
   - 支持多种编程语言和框架
-  - 提供代码审查、重构、解释等功能
-  - 可以理解复杂的项目结构
+  - 可以理解复杂的项目结构并执行文件操作
+  - 适合远程服务器开发和 headless 环境
 
 - **适用场景**： 
+  - 命令行工作流重度用户
   - 需要 Claude 的长上下文能力
-  - 希望使用官方支持的工具
-  - 多语言项目开发
+  - 远程服务器开发
+  - 轻量级项目快速迭代
 
 - **获取方式**：访问 [https://claude.ai/code](https://claude.ai/code)
 
-#### 2. **Codex CLI** (OpenAI 命令行工具)
+2. **Codex CLI** (基于 ChatGPT)
 
-**Codex CLI** 是基于 OpenAI Codex 的命令行编程助手：
+Codex CLI 是基于 OpenAI 模型的命令行编程助手，可以在终端中调用 GPT-4 进行代码生成：
 
 - **优势**：
-  - 轻量级，无需图形界面
-  - 适合服务器端开发和自动化脚本
-  - 可集成到现有工作流中
-  - 支持 shell 命令建议和自动化
+  - 轻量级，启动快速
+  - 支持 GPT-4 及其变体（GPT-4o、o1 等）
+  - 可配置不同的 AI 模型
+  - 开源社区活跃，插件生态丰富
 
 - **适用场景**：
-  - 偏好命令行工作
-  - 自动化运维和脚本开发
-  - 需要快速的代码补全
+  - ChatGPT Plus 用户
+  - 需要快速代码片段生成
+  - 多模型切换需求
+  - 脚本自动化和批处理
 
 - **安装**：
   ```bash
-  pip install openai-codex-cli
-  # 或通过 npm
+  # npm 方式
   npm install -g @openai/codex-cli
+  
+  # 或 pip 方式（部分实现）
+  pip install openai-codex-cli
   ```
 
-#### 3. **国内 IDE 选择**
+::: {.callout-tip}
+**命令行工具 vs IDE 集成**
+
+- **优势**：更轻量、启动快、适合服务器环境、易于脚本化
+- **劣势**：缺少可视化界面、需要手动管理上下文、调试体验不如 IDE
+- **建议**：将命令行工具作为 Cursor 的补充，在快速任务和远程开发时使用
+:::
+
+#### **国内 IDE 选择**
 
 考虑到网络访问和本地化需求，国内也有优秀的 AI 编程工具：
 
-##### **Trae**
+1. **Trae**
 
 - **特点**：
   - 专为中国开发者优化
@@ -173,7 +190,7 @@ AI工具可以辅助你**完成任务**，但不能替代你**理解和负责**�
 
 - **获取**：访问 [https://trae.ai](https://trae.ai) （示例 URL，请根据实际情况更新）
 
-##### **Kimi Code**
+2. **Kimi Code**
 
 - **特点**：
   - 由月之暗面（Moonshot AI）推出
@@ -191,12 +208,21 @@ AI工具可以辅助你**完成任务**，但不能替代你**理解和负责**�
 ::: {.callout-note}
 **如何选择？**
 
-- **Cursor**：功能最全面，Agent 模式最强大，推荐作为主力工具
-- **Claude Code**：适合 Claude Pro 用户，同时也可以接 GLM 4.7
-- **Codex CLI**：适合 ChatGPT 用户
+- **Cursor**：功能最全面，Agent 模式最强大，推荐作为主力 IDE 工具
+- **Claude Code / Codex CLI**：轻量级命令行工具，适合：
+  - Claude Pro 或 ChatGPT Plus 用户
+  - 远程服务器开发
+  - 快速原型开发和脚本任务
+  - 作为 IDE 的补充工具
+  - 支持 GLM 4.7
 - **Trae/Kimi Code**：网络受限或偏好国产工具时的优选
 
-建议先从 Cursor 或国内工具（如 Kimi Code）开始，掌握基本工作流后，再根据具体需求探索其他工具。
+**推荐组合：**
+- 主力开发：Cursor IDE（图形界面 + Agent 能力）
+- 辅助工具：Claude Code 或 Codex CLI（快速任务、远程开发）
+- 备选方案：国内工具（网络问题时）
+
+建议先从 Cursor 或国内工具（如 Kimi Code）开始，掌握基本工作流后，再根据具体需求添加命令行工具作为补充。
 :::
 
 ### Cursor 使用技巧
@@ -629,13 +655,14 @@ git clone <skill-repo-url> <skill-name>
 本周行动清单
 
 **软件配置：**
-1. [ ] 安装 AI 编程工具（选择其一）：
+1. [ ] 安装主力 AI 编程工具（选择其一）：
    - **推荐**：Cursor IDE 并完成基础配置
-   - **或**：Claude Code（Anthropic 官方）
    - **或**：国内工具（Trae / Kimi Code，无需科学上网）
-   - **或**：Codex CLI（命令行爱好者）
-2. [ ] （可选）安装至少一个 MCP Server（推荐 Context7，Cursor 和 Claude Code 支持）
-3. [ ] （可选）安装 Superpowers Skills（Cursor 支持）
+2. [ ] （可选）安装命令行辅助工具：
+   - Claude Code（适合 Claude Pro 用户）
+   - Codex CLI（适合 ChatGPT Plus 用户）
+3. [ ] （可选）安装至少一个 MCP Server（推荐 Context7，Cursor 和 Claude Code 支持）
+4. [ ] （可选）安装 Superpowers Skills（Cursor 支持）
 
 **动手实践：**
 4. [ ] 尝试使用 AI 工具完成一个简单任务（如创建 Python 项目模板）
@@ -645,20 +672,6 @@ git clone <skill-repo-url> <skill-name>
 **理论学习：**
 7. [ ] 阅读第1周必读材料：Hastie et al. (2009) Chapters 3, 7
 8. [ ] 思考：你的研究方向如何与 AI 方法结合？
-
-**参考安装命令：**
-```bash
-# Cursor 用户：安装 Playwright MCP（可选，用于网页数据抓取）
-npm install -g @playwright/mcp-server
-
-# Cursor 用户：安装 Superpowers Skills
-# 在 Cursor 中：Settings → Rules → Add Remote Rule
-# 输入：https://github.com/cursor-plugins/superpowers
-
-# Codex CLI 用户：
-pip install openai-codex-cli
-# 或 npm install -g @openai/codex-cli
-```
 :::
 
 接下来，我们将在**第1讲**深入学习机器学习的基础理论，建立i.i.d.场景下的完整认知框架。这是后续所有应用的理论基础，务必牢固掌握。
