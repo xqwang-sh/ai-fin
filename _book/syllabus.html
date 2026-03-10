@@ -458,18 +458,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="第5-8周-学生研究计划research-proposal汇报与研讨" class="level3" data-number="2.6.5">
 <h3 data-number="2.6.5" class="anchored" data-anchor-id="第5-8周-学生研究计划research-proposal汇报与研讨"><span class="header-section-number">2.6.5</span> <strong>第5-8周 学生研究计划（Research Proposal）汇报与研讨</strong></h3>
 <p><strong>【课时安排】</strong> 课堂研讨：每周2课时（90分钟），共4周。</p>
-<p><strong>【分组要求】</strong> 每组3-5人（最多5人）。</p>
-<p><strong>【汇报任务】</strong> 每组围绕一个明确的金融研究问题，提交并汇报一份研究计划的可执行版本，重点说明：</p>
+<p><strong>【分组要求】</strong> 每组3–5人（最多5人）。本阶段有两项计分作业，<strong>要求分别如下</strong>。</p>
+<p><strong>（一）小组课堂报告（Research Proposal Pitch）</strong></p>
+<ul>
+<li><strong>性质</strong>：第5–8周内于课堂进行口头汇报与问答（具体汇报周次由教师安排）。</li>
+<li><strong>汇报时长与形式</strong>：每组 10–15 分钟（含问答）；<strong>汇报前 24 小时</strong>提交演示文稿（建议 10–15 页）。</li>
+<li><strong>汇报内容要求</strong>（对应本项评分标准）：
 <ol type="1">
-<li>研究动机与文献缺口（参考文献仅作为选题与定位依据）；</li>
-<li>研究问题与可检验假说/预测；</li>
-<li>数据来源、样本、变量构造；</li>
-<li>实证策略与评估协议（尤其强调时序评估规范、避免信息泄露）；</li>
-<li><strong>人工智能方法如何应用</strong>：模型/管线、训练与验证、输出如何进入经济/金融解释；</li>
-<li>预期贡献与可行性风险。</li>
-</ol>
-<p><strong>【汇报形式】</strong> 每组10-15分钟（含问答），主讲人需<strong>提前24小时提交10-15页演示文稿</strong>。</p>
-<p><strong>【教学目的与要求】</strong> 通过学生主导的研究计划汇报与研讨，训练学生将所学的机器学习理论与金融实证方法融会贯通，设计一份完整、可行的研究计划。重点考察学生对研究问题定位、AI方法嵌入必要性、数据可行性与评估规范的把握能力。</p>
+<li><strong>研究问题与贡献（25）</strong>：研究动机与文献缺口、研究问题与可检验假说/预测、预期贡献；</li>
+<li><strong>数据与可行性（20）</strong>：数据来源、样本、变量构造及可行性；</li>
+<li><strong>AI 方法嵌入的必要性与正确性（25）</strong>：人工智能方法如何嵌入并解决关键识别/测量/预测/抽取问题（“AI 方法落地”为核心）；</li>
+<li><strong>实证策略与评估协议（20）</strong>：实证框架、时序 CV、信息泄露防控、样本外评价等规范；</li>
+<li><strong>表达与问答（10）</strong>：逻辑清晰、时间控制与问答表现。</li>
+</ol></li>
+<li><strong>其他</strong>：需提交“组内分工/贡献说明”；同伴评分仅用于组内分配，若差异显著可对个体在该组分做 ±10% 系数调整。</li>
+</ul>
+<p><strong>（二）期末研究计划书（Detailed Research Plan）</strong></p>
+<ul>
+<li><strong>性质</strong>：书面研究计划书，以小组为单位提交。</li>
+<li><strong>提交时间</strong>：<strong>第 8 周结束前</strong>（具体截止日期以课程通知为准）。</li>
+<li><strong>格式要求</strong>：正文 8–12 页（不含参考文献与附录）；须包含数据表（来源/频率/样本期）、变量表（定义/对齐）、方法流程图（AI 管线 + 评估协议）；需附“组内分工/贡献说明”。参考文献仅需与选题相关，不设“必选论文清单”。</li>
+<li><strong>内容与评分对应</strong>（100 分折算为 40%）：
+<ol type="1">
+<li><strong>研究动机与文献缺口（20）</strong>；</li>
+<li><strong>研究问题与理论机制/假说（10）</strong>；</li>
+<li><strong>数据与变量构造（20）</strong>：非结构化数据需写清“从原始数据到量化变量”的可审计流程；</li>
+<li><strong>实证方法与识别策略（20）</strong>；</li>
+<li><strong>AI 方法实施细节（20）</strong>：训练/验证/测试划分、超参数策略、评价指标、稳健性与可解释性；明确如何避免 look-ahead bias / leakage；</li>
+<li><strong>写作规范与可复现性（10）</strong>：引用规范；附录可含伪代码、变量字典、数据处理流程图等。</li>
+</ol></li>
+</ul>
+<p><strong>【教学目的与要求】</strong> 通过课堂汇报与书面计划书两项任务，训练学生将机器学习理论与金融实证方法融会贯通，完成从选题、设计到成稿的完整研究计划。课堂报告侧重“讲清楚问题与方案”，计划书侧重“写完整、可执行、可复现”的细节与规范。</p>
 </section>
 </section>
 <section id="参考论文池供选题与定位参考" class="level2" data-number="2.7">
@@ -1297,124 +1316,138 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>**【课时安排】** 课堂研讨：每周2课时（90分钟），共4周。</span>
 <span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>**【分组要求】** 每组3-5人（最多5人）。</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>**【分组要求】** 每组3–5人（最多5人）。本阶段有两项计分作业，**要求分别如下**。</span>
 <span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>**【汇报任务】** 每组围绕一个明确的金融研究问题，提交并汇报一份研究计划的可执行版本，重点说明：</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>**（一）小组课堂报告（Research Proposal Pitch）**</span>
 <span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>研究动机与文献缺口（参考文献仅作为选题与定位依据）；</span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>研究问题与可检验假说/预测；</span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>数据来源、样本、变量构造；</span>
-<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>实证策略与评估协议（尤其强调时序评估规范、避免信息泄露）；</span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**人工智能方法如何应用**：模型/管线、训练与验证、输出如何进入经济/金融解释；</span>
-<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>预期贡献与可行性风险。</span>
-<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>**【汇报形式】** 每组10-15分钟（含问答），主讲人需**提前24小时提交10-15页演示文稿**。</span>
-<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>**【教学目的与要求】** 通过学生主导的研究计划汇报与研讨，训练学生将所学的机器学习理论与金融实证方法融会贯通，设计一份完整、可行的研究计划。重点考察学生对研究问题定位、AI方法嵌入必要性、数据可行性与评估规范的把握能力。</span>
-<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="fu">## **参考论文池（供选题与定位参考）**</span></span>
-<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>以下论文池仅作为选题灵感与文献定位的参考，学生可自主确定研究问题，不必局限于复现某一篇论文。</span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="fu">### **资产定价与金融预测专题**</span></span>
-<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**资产定价预测**：</span>
-<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Adämmer, P., &amp; Schüssler, R. A. (2020). Forecasting the equity premium: mind the news!. Review of Finance, 24(6), 1313-1355.</span>
-<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bali, T. G., Beckmeyer, H., Moerke, M., &amp; Weigert, F. (2023). Option return predictability with machine learning and big data. The Review of Financial Studies, 36(9), 3548-3602.</span>
-<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bianchi, D., Büchner, M., &amp; Tamoni, A. (2021). Bond risk premiums with machine learning. The Review of Financial Studies, 34(2), 1046-1089.</span>
-<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Chen, L., Pelger, M., &amp; Zhu, J. (2023). Deep learning in asset pricing. Management Science.</span>
-<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Chinco, A., Clark‐Joseph, A. D., &amp; Ye, M. (2019). Sparse signals in the cross‐section of returns. The Journal of Finance, 74(1), 449-492.</span>
-<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Dong, X., Li, Y., Rapach, D. E., &amp; Zhou, G. (2022). Anomalies and the expected market return. The Journal of Finance, 77(1), 639-681.</span>
-<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Freyberger, J., Neuhierl, A., &amp; Weber, M. (2020). Dissecting characteristics nonparametrically. The Review of Financial Studies, 33(5), 2326-2377.</span>
-<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Gu, S., Kelly, B., &amp; Xiu, D. (2020). Empirical asset pricing via machine learning. The Review of Financial Studies, 33(5), 2223-2273.</span>
-<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kelly, B. T., Kuznetsov, B., Malamud, S., &amp; Xu, T. A. (2025). Artificial intelligence asset pricing models (No. w33351). National Bureau of Economic Research.</span>
-<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kozak, S., Nagel, S., &amp; Santosh, S. (2020). Shrinking the cross-section. Journal of Financial Economics, 135(2), 271-292.</span>
-<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Novy-Marx, R., &amp; Velikov, M. Z. (2025). AI-powered (finance) scholarship (No. w33363). National Bureau of Economic Research.</span>
-<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Leippold, M., Wang, Q., &amp; Zhou, W. (2022). Machine learning in the Chinese stock market. Journal of Financial Economics, 145(2), 64-82.</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**性质**：第5–8周内于课堂进行口头汇报与问答（具体汇报周次由教师安排）。</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**汇报时长与形式**：每组 10–15 分钟（含问答）；**汇报前 24 小时**提交演示文稿（建议 10–15 页）。</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**汇报内容要求**（对应本项评分标准）：</span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>**研究问题与贡献（25）**：研究动机与文献缺口、研究问题与可检验假说/预测、预期贡献；</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="ss">    2. </span>**数据与可行性（20）**：数据来源、样本、变量构造及可行性；</span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="ss">    3. </span>**AI 方法嵌入的必要性与正确性（25）**：人工智能方法如何嵌入并解决关键识别/测量/预测/抽取问题（“AI 方法落地”为核心）；</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="ss">    4. </span>**实证策略与评估协议（20）**：实证框架、时序 CV、信息泄露防控、样本外评价等规范；</span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="ss">    5. </span>**表达与问答（10）**：逻辑清晰、时间控制与问答表现。</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**其他**：需提交“组内分工/贡献说明”；同伴评分仅用于组内分配，若差异显著可对个体在该组分做 ±10% 系数调整。</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>**（二）期末研究计划书（Detailed Research Plan）**</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**性质**：书面研究计划书，以小组为单位提交。</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**提交时间**：**第 8 周结束前**（具体截止日期以课程通知为准）。</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**格式要求**：正文 8–12 页（不含参考文献与附录）；须包含数据表（来源/频率/样本期）、变量表（定义/对齐）、方法流程图（AI 管线 + 评估协议）；需附“组内分工/贡献说明”。参考文献仅需与选题相关，不设“必选论文清单”。</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**内容与评分对应**（100 分折算为 40%）：</span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>**研究动机与文献缺口（20）**；</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="ss">    2. </span>**研究问题与理论机制/假说（10）**；</span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="ss">    3. </span>**数据与变量构造（20）**：非结构化数据需写清“从原始数据到量化变量”的可审计流程；</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="ss">    4. </span>**实证方法与识别策略（20）**；</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="ss">    5. </span>**AI 方法实施细节（20）**：训练/验证/测试划分、超参数策略、评价指标、稳健性与可解释性；明确如何避免 look-ahead bias / leakage；</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="ss">    6. </span>**写作规范与可复现性（10）**：引用规范；附录可含伪代码、变量字典、数据处理流程图等。</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>**【教学目的与要求】** 通过课堂汇报与书面计划书两项任务，训练学生将机器学习理论与金融实证方法融会贯通，完成从选题、设计到成稿的完整研究计划。课堂报告侧重“讲清楚问题与方案”，计划书侧重“写完整、可执行、可复现”的细节与规范。</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## **参考论文池（供选题与定位参考）**</span></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>以下论文池仅作为选题灵感与文献定位的参考，学生可自主确定研究问题，不必局限于复现某一篇论文。</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="fu">### **资产定价与金融预测专题**</span></span>
 <span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**其他金融预测**：</span>
-<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bao, Y., Ke, B., Li, B., Yu, Y. J., &amp; Zhang, J. (2020). Detecting accounting fraud in publicly traded US firms using a machine learning approach. Journal of Accounting Research, 58(1), 199-235.</span>
-<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Berg, T., Burg, V., Gombović, A., &amp; Puri, M. (2020). On the rise of fintechs: Credit scoring using digital footprints. The Review of Financial Studies, 33(7), 2845-2897.</span>
-<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Chen, X., Cho, Y. H., Dou, Y., &amp; Lev, B. (2022). Predicting future earnings changes using machine learning and detailed financial data. Journal of Accounting Research, 60(2), 467-515.</span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>DeMiguel, V., Gil-Bazo, J., Nogales, F. J., &amp; Santos, A. A. (2023). Machine learning and fund characteristics help to select mutual funds with positive alpha. Journal of Financial Economics, 150(3), 103737.</span>
-<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Erel, I., Stern, L. H., Tan, C., &amp; Weisbach, M. S. (2021). Selecting directors using machine learning. The Review of Financial Studies, 34(7), 3226-3264.</span>
-<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Gathergood, J., Mahoney, N., Stewart, N., &amp; Weber, J. (2019). How do individuals repay their debt? The balance-matching heuristic. American Economic Review, 109(3), 844-875.</span>
-<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Goetzmann, W. N., Kim, D., &amp; Shiller, R. J. (2024). Emotions and subjective crash beliefs (No. w32589). National Bureau of Economic Research.</span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Huang, D., Li, J., &amp; Wang, L. (2021). Are disagreements agreeable? Evidence from information aggregation. Journal of Financial Economics, 141(1), 83-101.</span>
-<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Jha, M., Qian, J., Weber, M., &amp; Yang, B. (2024). ChatGPT and corporate policies (No. w32161). National Bureau of Economic Research.</span>
-<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kaniel, R., Lin, Z., Pelger, M., &amp; Van Nieuwerburgh, S. (2023). Machine-learning the skill of mutual fund managers. Journal of Financial Economics, 150(1), 94-138.</span>
-<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Van Binsbergen, J. H., Han, X., &amp; Lopez-Lira, A. (2023). Man versus machine learning: The term structure of earnings expectations and conditional biases. The Review of Financial Studies, 36(6), 2361-2396.</span>
-<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Wu, W., Chen, J., Yang, Z., &amp; Tindall, M. L. (2021). A cross-sectional machine learning approach for hedge fund return prediction and selection. Management Science, 67(7), 4577-4601.</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**资产定价预测**：</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Adämmer, P., &amp; Schüssler, R. A. (2020). Forecasting the equity premium: mind the news!. Review of Finance, 24(6), 1313-1355.</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bali, T. G., Beckmeyer, H., Moerke, M., &amp; Weigert, F. (2023). Option return predictability with machine learning and big data. The Review of Financial Studies, 36(9), 3548-3602.</span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bianchi, D., Büchner, M., &amp; Tamoni, A. (2021). Bond risk premiums with machine learning. The Review of Financial Studies, 34(2), 1046-1089.</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Chen, L., Pelger, M., &amp; Zhu, J. (2023). Deep learning in asset pricing. Management Science.</span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Chinco, A., Clark‐Joseph, A. D., &amp; Ye, M. (2019). Sparse signals in the cross‐section of returns. The Journal of Finance, 74(1), 449-492.</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Dong, X., Li, Y., Rapach, D. E., &amp; Zhou, G. (2022). Anomalies and the expected market return. The Journal of Finance, 77(1), 639-681.</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Freyberger, J., Neuhierl, A., &amp; Weber, M. (2020). Dissecting characteristics nonparametrically. The Review of Financial Studies, 33(5), 2326-2377.</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Gu, S., Kelly, B., &amp; Xiu, D. (2020). Empirical asset pricing via machine learning. The Review of Financial Studies, 33(5), 2223-2273.</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kelly, B. T., Kuznetsov, B., Malamud, S., &amp; Xu, T. A. (2025). Artificial intelligence asset pricing models (No. w33351). National Bureau of Economic Research.</span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kozak, S., Nagel, S., &amp; Santosh, S. (2020). Shrinking the cross-section. Journal of Financial Economics, 135(2), 271-292.</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Novy-Marx, R., &amp; Velikov, M. Z. (2025). AI-powered (finance) scholarship (No. w33363). National Bureau of Economic Research.</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Leippold, M., Wang, Q., &amp; Zhou, W. (2022). Machine learning in the Chinese stock market. Journal of Financial Economics, 145(2), 64-82.</span>
 <span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="fu">### **金融文本分析专题**</span></span>
-<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**财报/公告分析**：</span>
-<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bernard, D., Blackburne, T., &amp; Thornock, J. (2020). Information flows among rivals and corporate investment. Journal of Financial Economics, 136(3), 760-779.</span>
-<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Brown, N. C., Crowley, R. M., &amp; Elliott, W. B. (2020). What are you saying? Using topic to detect financial misreporting. Journal of Accounting Research, 58(1), 237-291.</span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Buehlmaier, M. M., &amp; Whited, T. M. (2018). Are financial constraints priced? Evidence from textual analysis. The Review of Financial Studies, 31(7), 2693-2728.</span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Dyer, T., Lang, M., &amp; Stice-Lawrence, L. (2017). The evolution of 10-K textual disclosure: Evidence from Latent Dirichlet Allocation. Journal of Accounting and Economics, 64(2-3), 221-245.</span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Eisdorfer, A., Froot, K., Ozik, G., &amp; Sadka, R. (2022). Competition links and stock returns. The Review of Financial Studies, 35(9), 4300-4340.</span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Florackis, C., Louca, C., Michaely, R., &amp; Weber, M. (2023). Cybersecurity risk. The Review of Financial Studies, 36(1), 351-407.</span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Fukui, M., Gormsen, N. J., &amp; Huber, K. (2024). Sticky Discount Rates (No. w32238). National Bureau of Economic Research.</span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Garcia, D., Hu, X., &amp; Rohrer, M. (2023). The colour of finance words. Journal of Financial Economics, 147(3), 525-549.</span>
-<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hassan, T. A., Hollander, S., Van Lent, L., &amp; Tahoun, A. (2019). Firm-level political risk: Measurement and effects. The Quarterly Journal of Economics, 134(4), 2135-2202.</span>
-<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hoberg, G., Knoblock, C., Phillips, G., Pujara, J., Qiu, Z., &amp; Raschid, L. (2024). Using representation learning and web text to identify competitor networks. Management Science.</span>
-<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hoberg, G., &amp; Phillips, G. (2016). Text-based network industries and endogenous product differentiation. Journal of Political Economy, 124(5), 1423-1465.</span>
-<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Li, K., Mai, F., Shen, R., &amp; Yan, X. (2021). Measuring corporate culture using machine learning. The Review of Financial Studies, 34(7), 3265-3315.</span>
-<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Sautner, Z., Van Lent, L., Vilkov, G., &amp; Zhang, R. (2023). Firm‐level climate change exposure. The Journal of Finance, 78(3), 1449-1498.</span>
-<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**新闻/社交媒体分析**：</span>
-<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Baker, S. R., Bloom, N., &amp; Davis, S. J. (2016). Measuring economic policy uncertainty. The quarterly journal of economics, 131(4), 1593-1636.</span>
-<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bartov, E., Faurel, L., &amp; Mohanram, P. S. (2018). Can Twitter help predict firm-level earnings and stock returns?. The Accounting Review, 93(3), 25-57.</span>
-<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Benamar, H., Foucault, T., &amp; Vega, C. (2021). Demand for information, uncertainty, and the response of us treasury securities to news. The Review of Financial Studies, 34(7), 3403-3455.</span>
-<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bybee, L., Kelly, B., Manela, A., &amp; Xiu, D. (2024). Business news and business cycles. The Journal of Finance, 79(5), 3105-3147.</span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Cookson, J. A., &amp; Niessner, M. (2020). Why don't we agree? Evidence from a social network of investors. The Journal of Finance, 75(1), 173-228.</span>
-<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hanley, K. W., &amp; Hoberg, G. (2019). Dynamic interpretation of emerging risks in the financial sector. The Review of Financial Studies, 32(12), 4543-4603.</span>
-<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Ke, Z. T., Kelly, B. T., &amp; Xiu, D. (2019). Predicting returns with text data (No. w26186). National Bureau of Economic Research.</span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Manela, A., &amp; Moreira, A. (2017). News implied volatility and disaster concerns. Journal of Financial Economics, 123(1), 137-162.</span>
-<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Tang, V. W. (2018). Wisdom of crowds: Cross‐sectional variation in the informativeness of third‐party‐generated product information on Twitter. Journal of Accounting Research, 56(3), 989-1034.</span>
-<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**其他文本分析**：</span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**其他金融预测**：</span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bao, Y., Ke, B., Li, B., Yu, Y. J., &amp; Zhang, J. (2020). Detecting accounting fraud in publicly traded US firms using a machine learning approach. Journal of Accounting Research, 58(1), 199-235.</span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Berg, T., Burg, V., Gombović, A., &amp; Puri, M. (2020). On the rise of fintechs: Credit scoring using digital footprints. The Review of Financial Studies, 33(7), 2845-2897.</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Chen, X., Cho, Y. H., Dou, Y., &amp; Lev, B. (2022). Predicting future earnings changes using machine learning and detailed financial data. Journal of Accounting Research, 60(2), 467-515.</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>DeMiguel, V., Gil-Bazo, J., Nogales, F. J., &amp; Santos, A. A. (2023). Machine learning and fund characteristics help to select mutual funds with positive alpha. Journal of Financial Economics, 150(3), 103737.</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Erel, I., Stern, L. H., Tan, C., &amp; Weisbach, M. S. (2021). Selecting directors using machine learning. The Review of Financial Studies, 34(7), 3226-3264.</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Gathergood, J., Mahoney, N., Stewart, N., &amp; Weber, J. (2019). How do individuals repay their debt? The balance-matching heuristic. American Economic Review, 109(3), 844-875.</span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Goetzmann, W. N., Kim, D., &amp; Shiller, R. J. (2024). Emotions and subjective crash beliefs (No. w32589). National Bureau of Economic Research.</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Huang, D., Li, J., &amp; Wang, L. (2021). Are disagreements agreeable? Evidence from information aggregation. Journal of Financial Economics, 141(1), 83-101.</span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Jha, M., Qian, J., Weber, M., &amp; Yang, B. (2024). ChatGPT and corporate policies (No. w32161). National Bureau of Economic Research.</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kaniel, R., Lin, Z., Pelger, M., &amp; Van Nieuwerburgh, S. (2023). Machine-learning the skill of mutual fund managers. Journal of Financial Economics, 150(1), 94-138.</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Van Binsbergen, J. H., Han, X., &amp; Lopez-Lira, A. (2023). Man versus machine learning: The term structure of earnings expectations and conditional biases. The Review of Financial Studies, 36(6), 2361-2396.</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Wu, W., Chen, J., Yang, Z., &amp; Tindall, M. L. (2021). A cross-sectional machine learning approach for hedge fund return prediction and selection. Management Science, 67(7), 4577-4601.</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="fu">### **金融文本分析专题**</span></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**财报/公告分析**：</span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bernard, D., Blackburne, T., &amp; Thornock, J. (2020). Information flows among rivals and corporate investment. Journal of Financial Economics, 136(3), 760-779.</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Brown, N. C., Crowley, R. M., &amp; Elliott, W. B. (2020). What are you saying? Using topic to detect financial misreporting. Journal of Accounting Research, 58(1), 237-291.</span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Buehlmaier, M. M., &amp; Whited, T. M. (2018). Are financial constraints priced? Evidence from textual analysis. The Review of Financial Studies, 31(7), 2693-2728.</span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Dyer, T., Lang, M., &amp; Stice-Lawrence, L. (2017). The evolution of 10-K textual disclosure: Evidence from Latent Dirichlet Allocation. Journal of Accounting and Economics, 64(2-3), 221-245.</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Eisdorfer, A., Froot, K., Ozik, G., &amp; Sadka, R. (2022). Competition links and stock returns. The Review of Financial Studies, 35(9), 4300-4340.</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Florackis, C., Louca, C., Michaely, R., &amp; Weber, M. (2023). Cybersecurity risk. The Review of Financial Studies, 36(1), 351-407.</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Fukui, M., Gormsen, N. J., &amp; Huber, K. (2024). Sticky Discount Rates (No. w32238). National Bureau of Economic Research.</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Garcia, D., Hu, X., &amp; Rohrer, M. (2023). The colour of finance words. Journal of Financial Economics, 147(3), 525-549.</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hassan, T. A., Hollander, S., Van Lent, L., &amp; Tahoun, A. (2019). Firm-level political risk: Measurement and effects. The Quarterly Journal of Economics, 134(4), 2135-2202.</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hoberg, G., Knoblock, C., Phillips, G., Pujara, J., Qiu, Z., &amp; Raschid, L. (2024). Using representation learning and web text to identify competitor networks. Management Science.</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hoberg, G., &amp; Phillips, G. (2016). Text-based network industries and endogenous product differentiation. Journal of Political Economy, 124(5), 1423-1465.</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Li, K., Mai, F., Shen, R., &amp; Yan, X. (2021). Measuring corporate culture using machine learning. The Review of Financial Studies, 34(7), 3265-3315.</span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Sautner, Z., Van Lent, L., Vilkov, G., &amp; Zhang, R. (2023). Firm‐level climate change exposure. The Journal of Finance, 78(3), 1449-1498.</span>
 <span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bandiera, O., Prat, A., Hansen, S., &amp; Sadun, R. (2020). CEO behavior and firm performance. Journal of Political Economy, 128(4), 1325-1369.</span>
-<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Cong, L. W., Lu, Y., Shi, H., &amp; Zhu, W. (2024). Automation-Induced Innovation Shift. Available at SSRN 5049949.</span>
-<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Ganguli, I., Lin, J., Meursault, V., &amp; Reynolds, N. F. (2024). Patent text and long-run innovation dynamics: the critical role of model selection (No. w32934). National Bureau of Economic Research.</span>
-<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Gómez-Cram, R., &amp; Grotteria, M. (2022). Real-time price discovery via verbal communication: Method and application to Fedspeak. Journal of Financial Economics, 143(3), 993-1025.</span>
-<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Green, T. C., Huang, R., Wen, Q., &amp; Zhou, D. (2019). Crowdsourced employer reviews and stock returns. Journal of Financial Economics, 134(1), 236-251.</span>
-<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Huang, A. H., Zang, A. Y., &amp; Zheng, R. (2014). Evidence on the information content of text in analyst reports. The Accounting Review, 89(6), 2151-2180.</span>
-<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kalmenovitz, J. (2023). Regulatory intensity and firm-specific exposure. The Review of Financial Studies, 36(8), 3311-3347.</span>
-<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Lowry, M., Michaely, R., &amp; Volkova, E. (2020). Information revealed through the regulatory process: Interactions between the SEC and companies ahead of their IPO. The Review of Financial Studies, 33(12), 5510-5554.</span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="fu">### **多模态分析专题**</span></span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**图片/图像分析**：</span>
-<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Henderson, J. V., Storeygard, A., &amp; Weil, D. N. (2012). Measuring economic growth from outer space. American economic review, 102(2), 994-1028.</span>
-<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hsieh, T. S., Kim, J. B., Wang, R. R., &amp; Wang, Z. (2020). Seeing is believing? Executives' facial trustworthiness, auditor tenure, and audit fees. Journal of Accounting and Economics, 69(1), 101260.</span>
-<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Jiang, J., Kelly, B. T., &amp; Xiu, D. (2023). (Re-)Imag(in)ing price trends. Journal of Finance, 78(6), 3193-3249.</span>
-<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Mukherjee, A., Panayotov, G., &amp; Shon, J. (2021). Eye in the sky: Private satellites and government macro data. Journal of Financial Economics, 141(1), 234-254.</span>
-<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Obaid, K., &amp; Pukthuanthong, K. (2022). A picture is worth a thousand words: Measuring investor sentiment by combining machine learning and photos from news. Journal of Financial Economics, 144(1), 273-297.</span>
-<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**音频分析**：</span>
-<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Edmans, A., Fernandez-Perez, A., Garel, A., &amp; Indriawan, I. (2022). Music sentiment and stock returns around the world. Journal of Financial Economics, 145(2), 234-254.</span>
-<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Franken, O., Mamadeh, I., &amp; Zaklan, G. (2022). Vocal patterns in earnings calls: A large-sample analysis. Journal of Accounting Research, 60(2), 467-515.</span>
-<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Mayew, W. J., &amp; Venkatachalam, M. (2012). The power of voice: Managerial affective states and future firm performance. The Journal of Finance, 67(1), 1-43.</span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**新闻/社交媒体分析**：</span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Baker, S. R., Bloom, N., &amp; Davis, S. J. (2016). Measuring economic policy uncertainty. The quarterly journal of economics, 131(4), 1593-1636.</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bartov, E., Faurel, L., &amp; Mohanram, P. S. (2018). Can Twitter help predict firm-level earnings and stock returns?. The Accounting Review, 93(3), 25-57.</span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Benamar, H., Foucault, T., &amp; Vega, C. (2021). Demand for information, uncertainty, and the response of us treasury securities to news. The Review of Financial Studies, 34(7), 3403-3455.</span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bybee, L., Kelly, B., Manela, A., &amp; Xiu, D. (2024). Business news and business cycles. The Journal of Finance, 79(5), 3105-3147.</span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Cookson, J. A., &amp; Niessner, M. (2020). Why don't we agree? Evidence from a social network of investors. The Journal of Finance, 75(1), 173-228.</span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hanley, K. W., &amp; Hoberg, G. (2019). Dynamic interpretation of emerging risks in the financial sector. The Review of Financial Studies, 32(12), 4543-4603.</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Ke, Z. T., Kelly, B. T., &amp; Xiu, D. (2019). Predicting returns with text data (No. w26186). National Bureau of Economic Research.</span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Manela, A., &amp; Moreira, A. (2017). News implied volatility and disaster concerns. Journal of Financial Economics, 123(1), 137-162.</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Tang, V. W. (2018). Wisdom of crowds: Cross‐sectional variation in the informativeness of third‐party‐generated product information on Twitter. Journal of Accounting Research, 56(3), 989-1034.</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**其他文本分析**：</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Bandiera, O., Prat, A., Hansen, S., &amp; Sadun, R. (2020). CEO behavior and firm performance. Journal of Political Economy, 128(4), 1325-1369.</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Cong, L. W., Lu, Y., Shi, H., &amp; Zhu, W. (2024). Automation-Induced Innovation Shift. Available at SSRN 5049949.</span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Ganguli, I., Lin, J., Meursault, V., &amp; Reynolds, N. F. (2024). Patent text and long-run innovation dynamics: the critical role of model selection (No. w32934). National Bureau of Economic Research.</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Gómez-Cram, R., &amp; Grotteria, M. (2022). Real-time price discovery via verbal communication: Method and application to Fedspeak. Journal of Financial Economics, 143(3), 993-1025.</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Green, T. C., Huang, R., Wen, Q., &amp; Zhou, D. (2019). Crowdsourced employer reviews and stock returns. Journal of Financial Economics, 134(1), 236-251.</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Huang, A. H., Zang, A. Y., &amp; Zheng, R. (2014). Evidence on the information content of text in analyst reports. The Accounting Review, 89(6), 2151-2180.</span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Kalmenovitz, J. (2023). Regulatory intensity and firm-specific exposure. The Review of Financial Studies, 36(8), 3311-3347.</span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Lowry, M., Michaely, R., &amp; Volkova, E. (2020). Information revealed through the regulatory process: Interactions between the SEC and companies ahead of their IPO. The Review of Financial Studies, 33(12), 5510-5554.</span>
 <span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**视频分析**：</span>
-<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Eleswarapu, V. R., &amp; Krishnamurthy, S. (2020). Facing the truth: The effect of video on the credibility of online business pitches. Journal of Financial Economics, 156(1), 102-120.</span>
-<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Huang, X., Ivković, Z., Jiang, J. X., &amp; Wang, I. Y. (2023). Angel investment and first impressions. Journal of Financial Economics, 149(2), 161-178.</span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a><span class="fu">## **AI市场影响专题**</span></span>
-<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cao, S., Jiang, W., Wang, J. L., &amp; Yang, B. (2021). From man vs. machine to man+ machine: The art and AI of stock analyses (No. w28800). National Bureau of Economic Research.</span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cao, S., Jiang, W., Yang, B., &amp; Zhang, A. L. (2023). How to talk when a machine is listening: Corporate disclosure in the age of AI. The Review of Financial Studies, 36(9), 3603-3642.</span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cheng, Q., Lin, P., &amp; Zhao, Y. (2024). Does generative ai facilitate investor trading? Evidence from chatgpt outages.</span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Easley, D., López de Prado, M., O’Hara, M., &amp; Zhang, Z. (2021). Microstructure in the machine age. The Review of Financial Studies, 34(7), 3316-3363.</span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Eisfeldt, A. L., Schubert, G., &amp; Zhang, M. B. (2023). Generative AI and firm values (No. w31222). National Bureau of Economic Research.</span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Fuster, A., Goldsmith‐Pinkham, P., Ramadorai, T., &amp; Walther, A. (2022). Predictably unequal? The effects of machine learning on credit markets. The Journal of Finance, 77(1), 5-47.</span>
-<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Jiang, W., Tang, Y., Xiao, R. J., &amp; Yao, V. (2025). Surviving the FinTech disruption. Journal of Financial Economics, 171, 104071.</span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Liu, H., Papanikolaou, D., Schmidt, L. D., &amp; Seegmiller, B. (2025). Technology and Labor Markets: Past, Present, and Future; Evidence from Two Centuries of Innovation (No. w34386). National Bureau of Economic Research.</span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Zhu, C. (2019). Big data as a governance mechanism. The Review of Financial Studies, 32(5), 2021-2061.</span></code><button title="复制到剪贴板" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="fu">### **多模态分析专题**</span></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**图片/图像分析**：</span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Henderson, J. V., Storeygard, A., &amp; Weil, D. N. (2012). Measuring economic growth from outer space. American economic review, 102(2), 994-1028.</span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Hsieh, T. S., Kim, J. B., Wang, R. R., &amp; Wang, Z. (2020). Seeing is believing? Executives' facial trustworthiness, auditor tenure, and audit fees. Journal of Accounting and Economics, 69(1), 101260.</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Jiang, J., Kelly, B. T., &amp; Xiu, D. (2023). (Re-)Imag(in)ing price trends. Journal of Finance, 78(6), 3193-3249.</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Mukherjee, A., Panayotov, G., &amp; Shon, J. (2021). Eye in the sky: Private satellites and government macro data. Journal of Financial Economics, 141(1), 234-254.</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Obaid, K., &amp; Pukthuanthong, K. (2022). A picture is worth a thousand words: Measuring investor sentiment by combining machine learning and photos from news. Journal of Financial Economics, 144(1), 273-297.</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**音频分析**：</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Edmans, A., Fernandez-Perez, A., Garel, A., &amp; Indriawan, I. (2022). Music sentiment and stock returns around the world. Journal of Financial Economics, 145(2), 234-254.</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Franken, O., Mamadeh, I., &amp; Zaklan, G. (2022). Vocal patterns in earnings calls: A large-sample analysis. Journal of Accounting Research, 60(2), 467-515.</span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Mayew, W. J., &amp; Venkatachalam, M. (2012). The power of voice: Managerial affective states and future firm performance. The Journal of Finance, 67(1), 1-43.</span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**视频分析**：</span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Eleswarapu, V. R., &amp; Krishnamurthy, S. (2020). Facing the truth: The effect of video on the credibility of online business pitches. Journal of Financial Economics, 156(1), 102-120.</span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Huang, X., Ivković, Z., Jiang, J. X., &amp; Wang, I. Y. (2023). Angel investment and first impressions. Journal of Financial Economics, 149(2), 161-178.</span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="fu">## **AI市场影响专题**</span></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cao, S., Jiang, W., Wang, J. L., &amp; Yang, B. (2021). From man vs. machine to man+ machine: The art and AI of stock analyses (No. w28800). National Bureau of Economic Research.</span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cao, S., Jiang, W., Yang, B., &amp; Zhang, A. L. (2023). How to talk when a machine is listening: Corporate disclosure in the age of AI. The Review of Financial Studies, 36(9), 3603-3642.</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cheng, Q., Lin, P., &amp; Zhao, Y. (2024). Does generative ai facilitate investor trading? Evidence from chatgpt outages.</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Easley, D., López de Prado, M., O’Hara, M., &amp; Zhang, Z. (2021). Microstructure in the machine age. The Review of Financial Studies, 34(7), 3316-3363.</span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Eisfeldt, A. L., Schubert, G., &amp; Zhang, M. B. (2023). Generative AI and firm values (No. w31222). National Bureau of Economic Research.</span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Fuster, A., Goldsmith‐Pinkham, P., Ramadorai, T., &amp; Walther, A. (2022). Predictably unequal? The effects of machine learning on credit markets. The Journal of Finance, 77(1), 5-47.</span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Jiang, W., Tang, Y., Xiao, R. J., &amp; Yao, V. (2025). Surviving the FinTech disruption. Journal of Financial Economics, 171, 104071.</span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Liu, H., Papanikolaou, D., Schmidt, L. D., &amp; Seegmiller, B. (2025). Technology and Labor Markets: Past, Present, and Future; Evidence from Two Centuries of Innovation (No. w34386). National Bureau of Economic Research.</span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Zhu, C. (2019). Big data as a governance mechanism. The Review of Financial Studies, 32(5), 2021-2061.</span></code><button title="复制到剪贴板" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
